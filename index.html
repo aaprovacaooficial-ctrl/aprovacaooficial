@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aprovação Oficial">
+  <title>Aprovação Oficial · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Simulados gratuitos e interativos para o Concurso de Admissão ao Curso de Formação de Oficiais Auxiliares (CA-AA/AFN).">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <link rel="preload" as="image" href="login-oficial-mesa.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0" defer></script>
+  <script src="sync-offline.js" defer></script>
+  <script src="gamification.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Dancing+Script:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia'],
+            script: ['"Dancing Script"', 'cursive']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px) scale(.8); }
+      to { opacity: 1; transform: translateY(0) scale(.8); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+      .sp-halo, .sp-runner, #splash-dots span { animation: none !important; }
+    }
+
+    /* ===== Tela de abertura (splash) — logo animando por ~2s antes do login ===== */
+    #splash-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      background: radial-gradient(ellipse at 50% 40%, #0b1a30 0%, #050c18 75%);
+      transition: opacity .6s ease;
+    }
+    #splash-screen.splash-hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    /* Emblema 3D (AA + âncora) girando — camadas empilhadas em Z dão espessura ao metal */
+    #splash-emblem { display: flex; flex-direction: column; align-items: center; }
+    .sp-stage { width: 150px; height: 150px; position: relative; perspective: 800px; }
+    .sp-halo {
+      position: absolute; inset: -34px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(95,243,255,.16) 0%, rgba(226,182,90,.10) 40%, transparent 70%);
+      animation: splash-halo 3.2s ease-in-out infinite;
+    }
+    .sp-coin { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+    .sp-layer { position: absolute; inset: 0; }
+    .sp-layer svg { width: 100%; height: 100%; display: block; overflow: visible; }
+    .sp-edge { filter: brightness(.42) saturate(1.1); }
+    .sp-anchor-edge { filter: brightness(.5); }
+    .sp-anchor-face { filter: drop-shadow(0 2px 5px rgba(0,0,0,.55)); }
+    .sp-sheen {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    }
+    .sp-sheen i {
+      position: absolute; top: -50%; left: -80%; width: 45%; height: 200%; opacity: 0;
+      background: linear-gradient(100deg, transparent, rgba(255,246,214,.6), transparent);
+      transform: rotate(15deg);
+    }
+    .sp-runner { stroke-dasharray: 7 93; animation: splash-run 2.2s linear infinite; }
+    @keyframes splash-run { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+    .sp-shadow {
+      width: 120px; height: 14px; margin-top: 22px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 70%);
+      will-change: transform, opacity;
+    }
+    @keyframes splash-halo {
+      0%, 100% { opacity: .6; transform: scale(.95); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+    #splash-dots {
+      display: inline-flex;
+      gap: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    #splash-dots span {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #c9a44c;
+      animation: splash-dot-bounce 1.2s ease-in-out infinite;
+    }
+    #splash-dots span:nth-child(2) { animation-delay: .15s; }
+    #splash-dots span:nth-child(3) { animation-delay: .3s; }
+    @keyframes splash-dot-bounce {
+      0%, 80%, 100% { opacity: .25; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-2px); }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+    /* ===== Tela de entrada (página de vendas + login) =====
+       Sempre no tema escuro, independente do tema escolhido no painel. */
+    #access-screen {
+      position: fixed; inset: 0; z-index: 100; transition: none;
+      --tw-slate-50: 248 250 252; --tw-slate-100: 241 245 249; --tw-slate-200: 226 232 240; --tw-slate-300: 203 213 225; --tw-slate-400: 148 163 184; --tw-slate-500: 100 116 139; --tw-slate-600: 71 85 105; --tw-slate-700: 51 65 85; --tw-slate-800: 30 41 59; --tw-slate-900: 15 23 42; --tw-slate-950: 2 6 23; --tw-emerald-50: 236 253 245; --tw-emerald-100: 209 250 229; --tw-emerald-200: 167 243 208; --tw-emerald-300: 110 231 183; --tw-emerald-400: 52 211 153; --tw-emerald-500: 16 185 129; --tw-emerald-600: 5 150 105; --tw-emerald-700: 4 120 87; --tw-emerald-800: 6 95 70; --tw-emerald-900: 6 78 59; --tw-emerald-950: 2 44 34; --tw-rose-50: 255 241 242; --tw-rose-100: 255 228 230; --tw-rose-200: 254 205 211; --tw-rose-300: 253 164 175; --tw-rose-400: 251 113 133; --tw-rose-500: 244 63 94; --tw-rose-600: 225 29 72; --tw-rose-700: 190 18 60; --tw-rose-800: 159 18 57; --tw-rose-900: 136 19 55; --tw-rose-950: 76 5 25; --tw-amber-50: 255 251 235; --tw-amber-100: 254 243 199; --tw-amber-200: 253 230 138; --tw-amber-300: 252 211 77; --tw-amber-400: 251 191 36; --tw-amber-500: 245 158 11; --tw-amber-600: 217 119 6; --tw-amber-700: 180 83 9; --tw-amber-800: 146 64 14; --tw-amber-900: 120 53 15; --tw-amber-950: 69 26 3; --tw-cyan-50: 236 254 255; --tw-cyan-100: 207 250 254; --tw-cyan-200: 165 243 252; --tw-cyan-300: 103 232 249; --tw-cyan-400: 34 211 238; --tw-cyan-500: 6 182 212; --tw-cyan-600: 8 145 178; --tw-cyan-700: 14 116 144; --tw-cyan-800: 21 94 117; --tw-cyan-900: 22 78 99; --tw-cyan-950: 8 51 68; --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53; --tw-navy-100: 230 240 250; --tw-navy-200: 192 219 245; --tw-navy-300: 143 193 238; --tw-navy-400: 77 158 224; --tw-navy-500: 0 102 204; --tw-navy-600: 30 86 160; --tw-navy-700: 30 62 98; --tw-navy-800: 11 25 44; --tw-navy-900: 0 15 38; --tw-ink: 255 255 255;
+      display: block; overflow-y: auto; overflow-x: hidden;
+      background: #050f1e; color: #e6edf6;
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      scroll-behavior: smooth;
+    }
+    #access-screen.hidden { display: none; }
+    .lp-wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+    .lp-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; padding: 0 22px; border-radius: 10px; font-size: 15px; font-weight: 700; transition: background-color .15s, border-color .15s, transform .1s; white-space: nowrap; }
+    .lp-btn:active { transform: scale(.98); }
+    .lp-btn-sm { height: 38px; padding: 0 16px; font-size: 14px; }
+    .lp-btn-block { width: 100%; }
+    .lp-btn-gold { background: #d4af37; color: #08162a; }
+    .lp-btn-gold:hover { background: #e2c25a; }
+    .lp-btn-ghost { border: 1.5px solid rgba(212,175,55,.55); color: #f1d98a; background: transparent; }
+    .lp-btn-ghost:hover { background: rgba(212,175,55,.1); border-color: #d4af37; }
+
+    .lp-nav { position: sticky; top: 0; z-index: 5; background: rgba(5,15,30,.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .lp-nav-in { height: 64px; display: flex; align-items: center; gap: 24px; }
+    .lp-brand { display: flex; align-items: center; gap: 10px; color: #fff; }
+    .lp-brand b { display: block; font-family: Fraunces, Georgia, serif; font-size: 17px; line-height: 1.1; }
+    .lp-brand b { white-space: nowrap; }
+    @media (max-width: 400px) { .lp-brand b { font-size: 15px; } .lp-nav-cta .lp-btn-sm { padding: 0 12px; } }
+    .lp-brand small { display: block; font-size: 10px; letter-spacing: .16em; color: #d4af37; font-weight: 600; }
+    .lp-brand-mark { width: 34px; height: 34px; border-radius: 9px; display: inline-flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #d4af37, #a8842a); color: #08162a; font-size: 15px; flex-shrink: 0; }
+    .lp-nav-links { display: none; gap: 26px; margin-left: auto; font-size: 14px; color: #b7c5d8; }
+    .lp-nav-links a:hover { color: #fff; }
+    .lp-nav-cta { display: flex; gap: 8px; margin-left: auto; }
+    @media (min-width: 900px) { .lp-nav-links { display: flex; } .lp-nav-cta { margin-left: 8px; } }
+
+    .lp-hero { position: relative; padding: 48px 0 56px; overflow: hidden; }
+    .lp-hero-bg { position: absolute; inset: 0; background: linear-gradient(90deg, #050f1e 0%, rgba(5,15,30,.94) 45%, rgba(5,15,30,.7) 100%), url('login-oficial-mesa.jpg') center/cover no-repeat; }
+    .lp-hero-bg::after { content: ""; position: absolute; inset: auto 0 0 0; height: 120px; background: linear-gradient(transparent, #050f1e); }
+    .lp-hero-in { position: relative; display: grid; gap: 36px; align-items: center; }
+    @media (min-width: 960px) { .lp-hero { padding: 80px 0 88px; } .lp-hero-in { grid-template-columns: 1fr 420px; gap: 56px; } }
+    .lp-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .04em; color: #f1d98a; background: rgba(212,175,55,.1); border: 1px solid rgba(212,175,55,.3); padding: 6px 12px; border-radius: 999px; }
+    .lp-hero h1 { font-family: Fraunces, Georgia, serif; font-weight: 700; color: #fff; font-size: 34px; line-height: 1.12; letter-spacing: -.01em; margin: 18px 0 16px; }
+    @media (min-width: 640px) { .lp-hero h1 { font-size: 48px; } }
+    .lp-lead { font-size: 16px; line-height: 1.6; color: #b7c5d8; max-width: 560px; }
+    .lp-hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .lp-trust { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 26px; font-size: 13px; color: #c9d5e4; }
+    .lp-trust i { color: #d4af37; margin-right: 6px; }
+
+    #access-screen #access-card { opacity: 0; animation: lp-in .5s ease-out .1s forwards; }
+    @keyframes lp-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .lp-card { width: 100%; max-width: 440px; margin: 0 auto; scroll-margin-top: 84px; background: #0b1c33; border: 1px solid rgba(212,175,55,.35); border-radius: 18px; padding: 26px 24px; box-shadow: 0 30px 80px rgba(0,0,0,.45); text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .lp-card-head { width: 100%; display: flex; align-items: center; gap: 12px; text-align: left; margin-bottom: 18px; }
+    .lp-card-title { font-family: Fraunces, Georgia, serif; font-size: 20px; font-weight: 700; color: #fff; }
+    .lp-card-sub { font-size: 13px; color: #9fb1c8; }
+    .lp-card input { border-color: rgba(212,175,55,.4) !important; }
+
+    .lp-stats { border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); background: #071427; }
+    .lp-stats-in { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding-top: 26px; padding-bottom: 26px; text-align: center; }
+    @media (min-width: 760px) { .lp-stats-in { grid-template-columns: repeat(4, 1fr); } }
+    .lp-stats b { display: block; font-family: Fraunces, Georgia, serif; font-size: 30px; color: #d4af37; line-height: 1.1; }
+    .lp-stats span { font-size: 13px; color: #9fb1c8; }
+
+    .lp-section { padding: 64px 0; }
+    .lp-section-alt { background: #071427; }
+    @media (min-width: 960px) { .lp-section { padding: 88px 0; } }
+    .lp-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+    .lp-kicker { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #d4af37; }
+    .lp-head h2, .lp-final h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; color: #fff; font-size: 28px; line-height: 1.2; margin: 10px 0 12px; }
+    @media (min-width: 640px) { .lp-head h2, .lp-final h2 { font-size: 36px; } }
+    .lp-head p { color: #9fb1c8; font-size: 15px; line-height: 1.6; }
+
+    .lp-grid { display: grid; gap: 16px; }
+    @media (min-width: 640px) { .lp-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 960px) { .lp-grid { grid-template-columns: repeat(3, 1fr); } }
+    .lp-feat { background: #0b1c33; border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 24px; }
+    .lp-feat i { width: 44px; height: 44px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: rgba(212,175,55,.12); color: #d4af37; font-size: 18px; margin-bottom: 14px; }
+    .lp-feat h3, .lp-steps h3, .lp-guarantee h3 { color: #fff; font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+    .lp-feat p, .lp-steps p, .lp-guarantee p { color: #9fb1c8; font-size: 14px; line-height: 1.55; }
+
+    .lp-plans { display: grid; gap: 20px; max-width: 820px; margin: 0 auto; align-items: stretch; }
+    @media (min-width: 760px) { .lp-plans { grid-template-columns: 1fr 1fr; } }
+    .lp-plan { position: relative; background: #0b1c33; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; padding: 30px 26px; display: flex; flex-direction: column; }
+    .lp-plan-top { border: 2px solid #d4af37; box-shadow: 0 20px 60px rgba(212,175,55,.12); }
+    .lp-ribbon { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: #d4af37; color: #08162a; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
+    .lp-plan-name { font-size: 15px; font-weight: 700; color: #f1d98a; text-transform: uppercase; letter-spacing: .1em; }
+    .lp-price { color: #fff; font-family: Fraunces, Georgia, serif; font-weight: 700; font-size: 54px; line-height: 1; margin: 14px 0 8px; }
+    .lp-price small { font-size: 20px; vertical-align: top; margin-right: 4px; position: relative; top: 8px; }
+    .lp-price sup { font-size: 22px; top: -1.1em; }
+    .lp-price span { font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; color: #9fb1c8; margin-left: 6px; }
+    .lp-plan-note { font-size: 13px; color: #9fb1c8; min-height: 40px; }
+    .lp-plan ul { margin: 18px 0 24px; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #dbe4ef; flex: 1; }
+    .lp-plan li i { color: #d4af37; margin-right: 8px; }
+    .lp-pay { text-align: center; margin-top: 22px; font-size: 13px; color: #9fb1c8; }
+    .lp-pay i { color: #d4af37; margin-right: 4px; }
+
+    .lp-steps { display: grid; gap: 16px; counter-reset: none; }
+    @media (min-width: 760px) { .lp-steps { grid-template-columns: repeat(3, 1fr); } }
+    .lp-steps li { background: #0b1c33; border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: 24px; }
+    .lp-steps b { width: 36px; height: 36px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: #d4af37; color: #08162a; font-weight: 800; margin-bottom: 12px; }
+    .lp-guarantee { margin: 28px auto 0; max-width: 820px; display: flex; gap: 18px; align-items: center; background: linear-gradient(90deg, rgba(212,175,55,.12), rgba(212,175,55,.03)); border: 1px solid rgba(212,175,55,.35); border-radius: 16px; padding: 22px 24px; }
+    .lp-guarantee > i { font-size: 34px; color: #d4af37; flex-shrink: 0; }
+
+    .lp-faq { max-width: 780px; }
+    .lp-faq details { background: #0b1c33; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; margin-bottom: 10px; }
+    .lp-faq summary { cursor: pointer; list-style: none; padding: 18px 48px 18px 20px; font-weight: 600; color: #fff; font-size: 15px; position: relative; }
+    .lp-faq summary::-webkit-details-marker { display: none; }
+    .lp-faq summary::after { content: "+"; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #d4af37; font-size: 22px; font-weight: 400; }
+    .lp-faq details[open] summary::after { content: "−"; }
+    .lp-faq details p { padding: 0 20px 18px; color: #9fb1c8; font-size: 14px; line-height: 1.6; }
+
+    .lp-final { text-align: center; padding: 72px 0; background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,.16), transparent 60%), #050f1e; }
+    .lp-final p { color: #9fb1c8; margin-bottom: 26px; }
+    .lp-footer { border-top: 1px solid rgba(255,255,255,.07); padding: 22px 0 30px; font-size: 12px; color: #7287a3; }
+    .lp-footer .lp-wrap { display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: space-between; }
+    #access-screen.exiting {
+      animation: access-exit .85s cubic-bezier(.6,0,.4,1) forwards;
+      pointer-events: none;
+    }
+    @keyframes access-exit {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+    /* ===== Acordeões das pastas (Flashcards / Banco de Questões) ===== */
+    .accordion-panel {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .5s cubic-bezier(.34,1.15,.64,1), opacity .4s ease;
+    }
+    .accordion-panel.open {
+      opacity: 1;
+    }
+
+    .wave-layer { display: none; }
+
+    button:focus-visible, input:focus-visible, a:focus-visible {
+      outline: 2px solid #2384d6;
+      outline-offset: 2px;
+    }
+
+    /* ===== Layout "cibernético" do painel: sidebar + topbar + hero ===== */
+    .sidebar-link.hidden { display: none; }
+    .sidebar-link {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 12px; border-radius: 10px;
+      font-size: 13px; font-weight: 500;
+      color: #94A3B8; border-left: 3px solid transparent;
+      transition: color .15s, background-color .15s, border-color .15s;
+    }
+    .sidebar-link:hover { color: #fff; background: rgba(255,255,255,.05); }
+    .sidebar-link.active {
+      color: #fff;
+      background: linear-gradient(90deg, rgba(224,194,111,.14), transparent);
+      border-left-color: #c9a44c;
+    }
+    .sidebar-link i { font-size: 14px; }
+    .cyber-sidebar {
+      background-color: #000F26;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(224,194,111,.035) 0px, rgba(224,194,111,.035) 1px, transparent 1px, transparent 26px),
+        repeating-linear-gradient(90deg, rgba(224,194,111,.035) 0px, rgba(224,194,111,.035) 1px, transparent 1px, transparent 26px);
+    }
+    .topbar { backdrop-filter: blur(6px); }
+    .cyber-hero {
+      background: linear-gradient(120deg, #050f1f 0%, #0B192C 55%, #08182b 100%);
+      border-color: #1E3E62 !important;
+    }
+    .cyber-hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(224,194,111,.07) 0px, rgba(224,194,111,.07) 1px, transparent 1px, transparent 34px),
+        repeating-linear-gradient(90deg, rgba(224,194,111,.07) 0px, rgba(224,194,111,.07) 1px, transparent 1px, transparent 34px);
+      -webkit-mask-image: radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%);
+      mask-image: radial-gradient(ellipse at 70% 40%, black 0%, transparent 70%);
+    }
+    .cyber-hero-circuit {
+      position: absolute; top: 0; right: 0; height: 100%; width: 55%;
+      opacity: .55; pointer-events: none;
+    }
+    .cyber-chip {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(11,25,44,.6); border: 1px solid #1E3E62;
+      padding: 8px 14px; border-radius: 10px;
+    }
+    .cyber-stat-card {
+      background: #0B192C; border: 1px solid #1E3E62; border-top: 2px solid #c9a44c;
+      border-radius: 14px; padding: 16px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .cyber-stat-icon {
+      width: 32px; height: 32px; border-radius: 9px;
+      background: rgba(224,194,111,.12); color: #e0c26f;
+      display: flex; align-items: center; justify-content: center; font-size: 13px;
+    }
+    .cyber-stat-value { font-variant-numeric: tabular-nums; font-size: 22px; font-weight: 700; color: #fff; letter-spacing: .02em; }
+    .cyber-stat-label { font-size: 11px; color: #94A3B8; }
+    .cyber-section-title {
+      font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em;
+      color: #94A3B8; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    }
+    .cyber-section-title i { color: #e0c26f; }
+    .cyber-panel { background: #0B192C; border: 1px solid #1E3E62; border-radius: 14px; padding: 14px 16px; }
+    .cyber-resource-card {
+      display: flex; align-items: center; gap: 12px;
+      background: #0B192C; border: 1px solid #1E3E62; border-radius: 12px; padding: 12px 14px;
+      transition: border-color .15s, background-color .15s;
+    }
+    .cyber-resource-card:hover { border-color: #c9a44c; background: #0e2038; }
+    .cyber-resource-icon {
+      width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+      background: rgba(0,102,204,.18); color: #4d9ee0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cyber-badge {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(224,194,111,.22), rgba(224,194,111,.05));
+      border: 1px solid #c9a44c; color: #e0c26f;
+      display: flex; align-items: center; justify-content: center; font-size: 15px;
+      box-shadow: 0 0 12px rgba(224,194,111,.25);
+    }
+    .notice-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; font-size: 13px; color: #cbd5e1; }
+    .notice-row:first-child { padding-top: 0; }
+    .notice-row:last-child { padding-bottom: 0; }
+    .notice-row i { color: #e0c26f; margin-top: 2px; flex-shrink: 0; }
+    .search-hide { display: none !important; }
+
+    /* ===== Avatar circular (foto de perfil) ===== */
+    .cyber-avatar {
+      position: relative; width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid #c9a44c; background: rgba(224,194,111,.12);
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+      color: #e0c26f; font-size: 12px; font-weight: 700; cursor: pointer;
+      transition: box-shadow .15s, border-color .15s;
+    }
+    .cyber-avatar:hover { box-shadow: 0 0 0 3px rgba(224,194,111,.18); border-color: #e0c26f; }
+    .cyber-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .cyber-avatar-lg { width: 64px; height: 64px; font-size: 22px; border-width: 2px; }
+    .cyber-avatar-lg::after {
+      content: '\f030'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+      position: absolute; bottom: -2px; right: -2px; width: 20px; height: 20px; border-radius: 50%;
+      background: #c9a44c; color: #071a2d; font-size: 9px; display: flex; align-items: center; justify-content: center;
+      border: 2px solid #050f1f;
+    }
+
+    /* ===== Sidebar agrupada em seções com cabeçalho dourado (referência: app oficial Marinha do Brasil) ===== */
+    .sidebar-section-title {
+      display: flex; align-items: center; gap: 10px;
+      padding: 4px 12px 8px; margin-top: 14px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+      color: #e0c26f;
+    }
+    .sidebar-section-title:first-child { margin-top: 0; }
+    .sidebar-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(224,194,111,.35); }
+    .sidebar-icon-badge {
+      width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+      border: 1px solid rgba(224,194,111,.4); background: rgba(224,194,111,.06);
+      display: flex; align-items: center; justify-content: center;
+      color: #e0c26f; transition: border-color .15s, background-color .15s;
+    }
+    .sidebar-link:hover .sidebar-icon-badge, .sidebar-link.active .sidebar-icon-badge {
+      border-color: #e0c26f; background: rgba(224,194,111,.18);
+    }
+    .sidebar-link.text-rose-300 .sidebar-icon-badge { border-color: rgba(253,164,175,.4); color: #fda4af; background: rgba(253,164,175,.07); }
+    .sidebar-link .fa-chevron-right { margin-left: auto; font-size: 10px; color: #7f96b3; opacity: .6; }
+
+    /* ===== Barra de navegação inferior no mobile (referência: app oficial) ===== */
+    #bottom-tabbar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      background: #000F26; border-top: 1px solid #1E3E62;
+      display: flex; align-items: stretch;
+      padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    .tabbar-link {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 3px; padding: 8px 2px 7px; color: #7f96b3; font-size: 10px; font-weight: 600;
+      transition: color .15s; background: transparent; border: none;
+    }
+    .tabbar-link i { font-size: 15px; }
+    .tabbar-link.active { color: #e0c26f; }
+
+    /* ===== Cabeçalho de cartão com barra dourada à esquerda (referência: "Acesso Rápido" / "Rádio Marinha") ===== */
+    .cyber-card-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      margin-bottom: 12px; padding-left: 12px; border-left: 3px solid #c9a44c;
+    }
+    .cyber-card-header-title { font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .06em; display: flex; align-items: center; gap: 8px; }
+    .cyber-card-header-title i { color: #e0c26f; }
+    .cyber-card-header-sub { font-size: 11px; color: #94A3B8; margin-top: 2px; }
+    .cyber-card-pill {
+      display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+      background: rgba(224,194,111,.1); border: 1px solid rgba(224,194,111,.35);
+      color: #e0c26f; font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans" style="background:#0c1116">
+
+  <!-- Tela de abertura (splash): logo animando por ~2s antes de mostrar o login -->
+  <div id="splash-screen" aria-hidden="true">
+    <!-- Peças do emblema (definidas uma vez, reutilizadas nas camadas) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <linearGradient id="sp-goldF" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff1c1"/>
+          <stop offset=".35" stop-color="#e2b65a"/>
+          <stop offset=".7" stop-color="#a8782a"/>
+          <stop offset="1" stop-color="#f3d58a"/>
+        </linearGradient>
+        <linearGradient id="sp-goldA" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#fff1c1"/>
+          <stop offset=".4" stop-color="#e2b65a"/>
+          <stop offset=".8" stop-color="#a8782a"/>
+          <stop offset="1" stop-color="#f3d58a"/>
+        </linearGradient>
+        <filter id="sp-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="1.6" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <!-- só o metal dos dois A (usado na espessura) -->
+        <symbol id="sp-aaGold" viewBox="0 0 120 120" overflow="visible">
+          <g fill="none" stroke="url(#sp-goldF)" stroke-width="6" stroke-linejoin="miter">
+            <polyline points="6,57 60,3 114,57"/>
+            <rect x="46" y="22" width="28" height="4" fill="url(#sp-goldF)" stroke="none"/>
+            <polyline points="6,63 60,117 114,63"/>
+            <rect x="46" y="94" width="28" height="4" fill="url(#sp-goldF)" stroke="none"/>
+          </g>
+          <g fill="url(#sp-goldF)">
+            <polygon points="-6,53 24,53 24,57 -2,57"/>
+            <polygon points="126,53 96,53 96,57 122,57"/>
+            <polygon points="-6,67 24,67 24,63 -2,63"/>
+            <polygon points="126,67 96,67 96,63 122,63"/>
+          </g>
+        </symbol>
+        <!-- face completa: vidro + metal + neon + circuito -->
+        <symbol id="sp-aaFace" viewBox="0 0 120 120" overflow="visible">
+          <polygon points="60,3 114,57 6,57" fill="rgba(95,243,255,.05)"/>
+          <polygon points="60,117 114,63 6,63" fill="rgba(95,243,255,.05)"/>
+          <use href="#sp-aaGold"/>
+          <g fill="none" stroke="#5ff3ff" stroke-width="1.4" filter="url(#sp-glow)" opacity=".8">
+            <polyline points="18,51 60,10 102,51"/>
+            <polyline points="18,69 60,110 102,69"/>
+          </g>
+          <g stroke="#5ff3ff" stroke-width=".7" opacity=".45" fill="none">
+            <path d="M28 60 h10 l3 -3 h5"/><path d="M92 60 h-10 l-3 -3 h-5"/>
+            <circle cx="46" cy="57" r="1"/><circle cx="74" cy="57" r="1"/>
+          </g>
+        </symbol>
+        <!-- âncora -->
+        <symbol id="sp-anchor" viewBox="0 0 120 120" overflow="visible">
+          <g transform="translate(30 28) scale(.6)" fill="url(#sp-goldA)" stroke="url(#sp-goldA)">
+            <circle cx="50" cy="12" r="6" fill="none" stroke-width="4"/>
+            <rect x="48" y="17" width="4" height="66" rx="1.5" stroke="none"/>
+            <polygon points="26,30 74,30 71,34.5 29,34.5" stroke="none"/>
+            <path d="M50 94 L22 76 L11 63 L20 66 L27 63 L30 72 L50 83 L70 72 L73 63 L80 66 L89 63 L78 76 Z" stroke="none"/>
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div id="splash-emblem">
+      <div class="sp-stage">
+        <div class="sp-halo"></div>
+        <div class="sp-coin" id="sp-coin">
+          <!-- verso -->
+          <div class="sp-layer" style="transform:translateZ(-3px)"><svg viewBox="0 0 120 120"><use href="#sp-aaFace"/></svg></div>
+          <!-- espessura -->
+          <div class="sp-layer sp-edge" style="transform:translateZ(-2px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <div class="sp-layer sp-edge" style="transform:translateZ(-1px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <!-- âncora no miolo -->
+          <div class="sp-layer sp-anchor-edge" style="transform:translateZ(-.6px)"><svg viewBox="0 0 120 120"><use href="#sp-anchor"/></svg></div>
+          <div class="sp-layer sp-anchor-face" style="transform:translateZ(0)"><svg viewBox="0 0 120 120"><use href="#sp-anchor"/></svg></div>
+          <div class="sp-layer sp-anchor-edge" style="transform:translateZ(.6px)"><svg viewBox="0 0 120 120"><use href="#sp-anchor"/></svg></div>
+          <div class="sp-layer sp-edge" style="transform:translateZ(1px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <div class="sp-layer sp-edge" style="transform:translateZ(2px)"><svg viewBox="0 0 120 120"><use href="#sp-aaGold"/></svg></div>
+          <!-- frente -->
+          <div class="sp-layer" id="sp-front" style="transform:translateZ(3px)">
+            <svg viewBox="0 0 120 120">
+              <use href="#sp-aaFace"/>
+              <g fill="none" stroke="#c9fdff" stroke-width="1.8" stroke-linecap="round" filter="url(#sp-glow)">
+                <polyline class="sp-runner" pathLength="100" points="18,51 60,10 102,51"/>
+                <polyline class="sp-runner" pathLength="100" points="102,69 60,110 18,69"/>
+              </g>
+            </svg>
+            <div class="sp-sheen"><i id="sp-sheen"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="sp-shadow" id="sp-shadow"></div>
+    </div>
+    <div class="text-center">
+      <div class="font-serif font-semibold text-[22px] text-ink tracking-wide">Aprovação Oficial</div>
+      <div class="text-[11px] text-[#9bb5d2] mt-1.5 tracking-[0.2em] uppercase flex items-center justify-center">
+        Carregando
+        <span id="splash-dots"><span></span><span></span><span></span></span>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Mostra a tela de abertura por ~3s (mínimo), independente de quanto tempo o resto da
+    // página leva pra carregar, e some com um fade suave — roda assim que o parser chega
+    // aqui, antes do resto do body, pra contar o tempo certo desde o início real da visita.
+    (function () {
+      var running = true;
+
+      // Giro do emblema: 60% do ciclo girando, 40% parado de frente
+      (function () {
+        var coin = document.getElementById('sp-coin');
+        var front = document.getElementById('sp-front');
+        var shadow = document.getElementById('sp-shadow');
+        var sheen = document.getElementById('sp-sheen');
+        if (!coin || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var PERIOD = 3200, SPIN = 0.6;
+        var ease = function (p) { return p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; };
+        function frame(now) {
+          if (!running) return;
+          var t = (now % PERIOD) / PERIOD;
+          var angle = t < SPIN ? ease(t / SPIN) * 360 : 0;
+          var c = Math.cos(angle * Math.PI / 180);
+          coin.style.transform = 'rotateY(' + angle + 'deg)';
+          // sombra encolhe de perfil e cresce de frente
+          shadow.style.transform = 'scaleX(' + (.3 + .7 * Math.abs(c)) + ')';
+          shadow.style.opacity = .45 + .55 * Math.abs(c);
+          // metal fica mais claro quando encara a luz
+          front.style.filter = 'brightness(' + (.8 + .3 * Math.max(c, 0)) + ')';
+          // reflexo passa quando a peça termina de virar para a frente
+          if (t < SPIN && angle > 280) {
+            var k = (angle - 280) / 80;
+            sheen.style.left = (-80 + k * 220) + '%';
+            sheen.style.opacity = Math.sin(k * Math.PI);
+          } else {
+            sheen.style.opacity = 0;
+          }
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      })();
+
+      setTimeout(function () {
+        var splash = document.getElementById('splash-screen');
+        if (!splash) return;
+        splash.classList.add('splash-hide');
+        setTimeout(function () { splash.style.display = 'none'; running = false; }, 650);
+      }, 1800);
+    })();
+  </script>
+
+  <!-- Tela de acesso: login / cadastro / recuperação de senha via Supabase Auth -->
+  <div id="access-screen" class="hidden">
+    <header class="lp-nav">
+      <div class="lp-wrap lp-nav-in">
+        <a href="#lp-topo" class="lp-brand">
+          <span class="lp-brand-mark" aria-hidden="true"><i class="fa-solid fa-anchor"></i></span>
+          <span><b>Aprovação Oficial</b><small>CA-AA/AFN</small></span>
+        </a>
+        <nav class="lp-nav-links">
+          <a href="#lp-recursos">Recursos</a>
+          <a href="#lp-planos">Planos</a>
+          <a href="#lp-duvidas">Dúvidas</a>
+        </nav>
+        <div class="lp-nav-cta">
+          <button type="button" class="lp-btn lp-btn-ghost lp-btn-sm" onclick="abrirAcesso('login')">Entrar</button>
+          <a href="#lp-planos" class="lp-btn lp-btn-gold lp-btn-sm">Assinar</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="lp-topo" class="lp-hero">
+      <div class="lp-hero-bg" aria-hidden="true"></div>
+      <div class="lp-wrap lp-hero-in">
+        <div class="lp-hero-text">
+          <span class="lp-eyebrow"><i class="fa-solid fa-anchor"></i> Preparatório para o CA-AA/AFN</span>
+          <h1>A preparação completa para a sua aprovação.</h1>
+          <p class="lp-lead">Apostilas, banco de questões, flashcards, simulados e provas anteriores de todas as matérias do edital, organizados em uma plataforma que acompanha o seu progresso.</p>
+          <div class="lp-hero-ctas">
+            <a href="#lp-planos" class="lp-btn lp-btn-gold">Ver planos e preços</a>
+            <button type="button" class="lp-btn lp-btn-ghost" onclick="abrirAcesso('signup')">Criar conta grátis</button>
+          </div>
+          <ul class="lp-trust">
+            <li><i class="fa-solid fa-shield-halved"></i> Garantia de 7 dias</li>
+            <li><i class="fa-solid fa-bolt"></i> Acesso liberado na hora</li>
+            <li><i class="fa-solid fa-wifi"></i> Estude sem internet</li>
+          </ul>
+        </div>
+
+        <div id="access-card" class="lp-card">
+          <div class="lp-card-head">
+            <span class="lp-brand-mark" aria-hidden="true"><i class="fa-solid fa-anchor"></i></span>
+            <div>
+              <div class="lp-card-title">Área do aluno</div>
+              <div class="lp-card-sub">Entre ou crie sua conta para assinar.</div>
+            </div>
+          </div>
+          <div class="w-full bg-navy-900 p-1 rounded-lg flex text-xs mb-5" role="tablist">
+            <button type="button" id="tab-login" onclick="switchAuthTab('login')" class="flex-1 py-2 rounded-md font-semibold transition-all bg-[#c9a44c] text-[#071a2d]">Entrar</button>
+            <button type="button" id="tab-signup" onclick="switchAuthTab('signup')" class="flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-ink">Criar conta</button>
+          </div>
+
+          <form id="login-form" class="w-full flex flex-col gap-3" onsubmit="return handleLogin(event)">
+            <input id="login-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+            <input id="login-password" type="password" required autocomplete="current-password" placeholder="senha" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+            <button type="submit" class="w-full h-12 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] active:scale-[.99] text-white text-sm font-bold transition-all shadow-lg">Entrar</button>
+            <button type="button" onclick="handleForgotPassword()" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2 mt-1">Esqueci minha senha</button>
+          </form>
+
+          <form id="signup-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSignup(event)">
+            <input id="signup-name" type="text" required autocomplete="name" placeholder="nome completo" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+            <input id="signup-email" type="email" required autocomplete="email" placeholder="seu e-mail" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+            <input id="signup-password" type="password" required minlength="6" autocomplete="new-password" placeholder="crie uma senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+            <button type="submit" class="w-full h-12 rounded-xl bg-emerald-700 hover:bg-emerald-600 active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg">✉️ Criar conta</button>
+            <p class="text-[11px] leading-snug text-slate-400 text-center">Para proteger sua conta, registramos data, aparelho e cidade aproximada de cada login, por 90 dias.</p>
+          </form>
+
+          <form id="recovery-form" class="w-full hidden flex-col gap-3" onsubmit="return handleSetNewPassword(event)">
+            <p class="text-xs text-[#9bb5d2] mb-1">Defina sua nova senha de acesso.</p>
+            <input id="recovery-password" type="password" required minlength="6" autocomplete="new-password" placeholder="nova senha (mín. 6 caracteres)" class="w-full h-12 rounded-xl border border-[#c9a44c] bg-[#06172a] px-4 text-sm text-ink outline-none focus:ring-2 focus:ring-[#c9a44c] transition-shadow">
+            <button type="submit" class="w-full h-12 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] text-[#071a2d] text-sm font-bold transition-all shadow-lg">Salvar nova senha</button>
+          </form>
+
+          <div id="pending-panel" class="w-full hidden flex-col items-center gap-3 py-2">
+            <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+            <p class="text-sm text-amber-200">Sua conta está pronta! Para liberar o acesso, escolha um plano e pague com este mesmo e-mail.</p>
+            <div id="pending-plans" class="w-full flex flex-col gap-2 mt-1">
+              <button type="button" onclick="assinarPlano('ate_a_prova')" class="w-full h-11 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] text-[#071a2d] text-sm font-bold transition-colors">Até a prova · R$ 149,90</button>
+              <button type="button" onclick="assinarPlano('mensal')" class="w-full h-11 rounded-xl border-2 border-[#c9a44c] text-[#e0c26f] hover:bg-[#c9a44c]/10 text-sm font-bold transition-colors">Mensal · R$ 29,90/mês</button>
+              <button type="button" onclick="location.reload()" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2 mt-1">Já paguei, atualizar</button>
+            </div>
+            <button type="button" id="usar-aqui-btn" onclick="usarNesteAparelho()" class="hidden w-full h-11 rounded-xl bg-[#c9a44c] hover:bg-[#d9b968] text-[#071a2d] text-sm font-bold transition-colors">Usar neste aparelho</button>
+            <button type="button" onclick="handleLogout()" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Sair</button>
+            <button type="button" id="pending-retry-btn" onclick="location.reload()" class="hidden mt-1 text-xs font-semibold text-ink bg-[#0066CC] hover:bg-[#0055AA] px-4 py-2 rounded-lg transition-colors">Tentar novamente</button>
+          </div>
+
+          <div id="access-message" class="min-h-5 mt-4 text-xs" role="alert" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-stats">
+      <div class="lp-wrap lp-stats-in">
+        <div><b>2.700+</b><span>questões no banco</span></div>
+        <div><b>15</b><span>matérias do edital</span></div>
+        <div><b>400+</b><span>flashcards</span></div>
+        <div><b>100%</b><span>funciona offline</span></div>
+      </div>
+    </section>
+
+    <section id="lp-recursos" class="lp-section">
+      <div class="lp-wrap">
+        <div class="lp-head">
+          <span class="lp-kicker">O que você recebe</span>
+          <h2>Tudo o que você precisa, em um só lugar</h2>
+          <p>Conteúdo direcionado ao edital, do Conhecimento Geral ao Conhecimento Militar Naval.</p>
+        </div>
+        <div class="lp-grid">
+          <div class="lp-feat"><i class="fa-solid fa-book-open"></i><h3>Apostilas completas</h3><p>Material de cada matéria, com marcação do que você já leu e destaques.</p></div>
+          <div class="lp-feat"><i class="fa-solid fa-list-check"></i><h3>Banco de questões</h3><p>Milhares de questões por matéria e assunto, com favoritos e caderno de erros.</p></div>
+          <div class="lp-feat"><i class="fa-solid fa-layer-group"></i><h3>Flashcards e mapas mentais</h3><p>Revisão rápida para fixar o conteúdo e não esquecer na hora da prova.</p></div>
+          <div class="lp-feat"><i class="fa-solid fa-file-pen"></i><h3>Simulados e provas anteriores</h3><p>Treine no formato da prova e veja onde ainda precisa melhorar.</p></div>
+          <div class="lp-feat"><i class="fa-solid fa-chart-line"></i><h3>Desempenho e ranking</h3><p>Acompanhe sua evolução por matéria e compare-se com outros candidatos.</p></div>
+          <div class="lp-feat"><i class="fa-solid fa-mobile-screen"></i><h3>Celular, tablet e offline</h3><p>Estude no celular, no tablet ou no computador, mesmo sem internet. Seu progresso vai junto.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lp-planos" class="lp-section lp-section-alt">
+      <div class="lp-wrap">
+        <div class="lp-head">
+          <span class="lp-kicker">Planos</span>
+          <h2>Escolha como quer estudar</h2>
+          <p>Os dois planos dão acesso a todo o conteúdo. A diferença é só a forma de pagar.</p>
+        </div>
+        <div class="lp-plans">
+          <div class="lp-plan">
+            <div class="lp-plan-name">Mensal</div>
+            <div class="lp-price"><small>R$</small>29<sup>,90</sup><span>/mês</span></div>
+            <p class="lp-plan-note">Renovação automática. Cancele quando quiser.</p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Todo o conteúdo da plataforma</li>
+              <li><i class="fa-solid fa-check"></i> Estudo offline no celular e tablet</li>
+              <li><i class="fa-solid fa-check"></i> Novos conteúdos enquanto for assinante</li>
+            </ul>
+            <button type="button" class="lp-btn lp-btn-ghost lp-btn-block" onclick="assinarPlano('mensal')">Assinar o mensal</button>
+          </div>
+          <div class="lp-plan lp-plan-top">
+            <span class="lp-ribbon">Mais vantajoso</span>
+            <div class="lp-plan-name">Até a prova</div>
+            <div class="lp-price"><small>R$</small>149<sup>,90</sup><span>à vista</span></div>
+            <p class="lp-plan-note">Pagamento único. Acesso completo até o dia da prova, sem mensalidade.</p>
+            <ul>
+              <li><i class="fa-solid fa-check"></i> Todo o conteúdo da plataforma</li>
+              <li><i class="fa-solid fa-check"></i> Estudo offline no celular e tablet</li>
+              <li><i class="fa-solid fa-check"></i> Todas as atualizações até a prova</li>
+              <li><i class="fa-solid fa-check"></i> Sem cobrança recorrente</li>
+            </ul>
+            <button type="button" class="lp-btn lp-btn-gold lp-btn-block" onclick="assinarPlano('ate_a_prova')">Garantir meu acesso</button>
+          </div>
+        </div>
+        <p class="lp-pay"><i class="fa-solid fa-lock"></i> Pagamento seguro pela Kiwify · Pix, cartão ou boleto</p>
+      </div>
+    </section>
+
+    <section class="lp-section">
+      <div class="lp-wrap">
+        <div class="lp-head">
+          <span class="lp-kicker">Como funciona</span>
+          <h2>Comece a estudar em 3 passos</h2>
+        </div>
+        <ol class="lp-steps">
+          <li><b>1</b><h3>Crie sua conta</h3><p>Gratuita, leva menos de um minuto.</p></li>
+          <li><b>2</b><h3>Escolha seu plano</h3><p>Pague usando o mesmo e-mail da sua conta.</p></li>
+          <li><b>3</b><h3>Acesso liberado</h3><p>Assim que o pagamento é aprovado, tudo abre automaticamente.</p></li>
+        </ol>
+        <div class="lp-guarantee">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div><h3>Garantia de 7 dias</h3><p>Se não gostar, peça o reembolso em até 7 dias após a compra e receba seu dinheiro de volta.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="lp-duvidas" class="lp-section lp-section-alt">
+      <div class="lp-wrap lp-faq">
+        <div class="lp-head">
+          <span class="lp-kicker">Dúvidas frequentes</span>
+          <h2>Perguntas comuns</h2>
+        </div>
+        <details><summary>Já paguei. Quando o acesso é liberado?</summary><p>Pix e cartão liberam em poucos minutos. Boleto libera quando o banco confirmar o pagamento. Basta entrar com o e-mail usado na compra.</p></details>
+        <details><summary>Funciona sem internet?</summary><p>Sim. Depois de entrar uma vez, o conteúdo fica salvo no aparelho. Conecte-se pelo menos uma vez por semana para confirmar sua assinatura.</p></details>
+        <details><summary>Qual a diferença entre os planos?</summary><p>O conteúdo é o mesmo. No Mensal você paga todo mês e cancela quando quiser. No Até a prova você paga uma única vez e estuda até o dia da prova.</p></details>
+        <details><summary>Posso usar em mais de um aparelho?</summary><p>Sua conta funciona em um aparelho por vez. Ao entrar em outro, o anterior é desconectado, e seu progresso, flashcards e favoritos vão junto. Isso protege a sua assinatura contra o compartilhamento de senha.</p></details>
+        <details><summary>Quais dados de acesso vocês guardam?</summary><p>Para proteger sua conta contra o compartilhamento de senha, a cada login guardamos a data, o tipo de aparelho e a cidade aproximada (calculada pelo endereço de internet). Esses dados ficam guardados por 90 dias, são vistos só pela administração da plataforma e não são compartilhados com ninguém (LGPD).</p></details>
+        <details><summary>E se eu comprar antes de criar a conta?</summary><p>Sem problema. Crie a conta depois com o mesmo e-mail da compra e o acesso já estará liberado.</p></details>
+      </div>
+    </section>
+
+    <section class="lp-final">
+      <div class="lp-wrap">
+        <h2>Sua farda começa com a decisão de hoje.</h2>
+        <p>Comece agora e estude com método até o dia da prova.</p>
+        <a href="#lp-planos" class="lp-btn lp-btn-gold">Quero assinar</a>
+      </div>
+    </section>
+
+    <footer class="lp-footer">
+      <div class="lp-wrap">
+        <span>© 2026 Aprovação Oficial</span>
+        <span>Plataforma independente de estudos, sem vínculo com a Marinha do Brasil.</span>
+      </div>
+    </footer>
+  </div>
+
+  <div id="app-shell" class="flex-1 w-full flex">
+    <div id="sidebar-overlay" class="hidden fixed inset-0 bg-black/60 z-40 md:hidden" onclick="closeSidebar()"></div>
+
+    <!-- ===== Modal: entrar em sala de estudo com o código de alguém ===== -->
+    <div id="join-room-overlay" class="hidden fixed inset-0 z-[80] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4" onclick="if (event.target === this) closeJoinRoomPrompt();">
+      <div class="w-full max-w-[380px] bg-navy-900 border border-navy-700 rounded-2xl shadow-2xl p-6">
+        <h3 class="font-serif text-lg font-bold text-ink mb-1"><i class="fa-solid fa-people-group text-amber-400 mr-1"></i> Entrar em sala de estudo</h3>
+        <p class="text-xs text-slate-400 mb-4">Digite o código de 5 letras que a pessoa que criou a sala te passou.</p>
+        <input id="join-room-code-input" type="text" maxlength="5" placeholder="CÓDIGO" autocomplete="off"
+          class="w-full bg-navy-950 border border-navy-700 focus:border-navy-400 outline-none rounded-lg px-3 py-2.5 text-center text-lg font-bold tracking-[.2em] uppercase text-ink mb-2">
+        <p id="join-room-error" class="text-xs text-rose-400 min-h-[16px] mb-2"></p>
+        <button type="button" id="join-room-submit-btn" onclick="submitJoinRoomCode()" class="w-full bg-navy-600 hover:bg-navy-500 text-ink font-semibold text-sm rounded-lg py-2.5 mb-2 transition-colors">
+          <i class="fa-solid fa-right-to-bracket"></i> Entrar na sala
+        </button>
+        <button type="button" onclick="closeJoinRoomPrompt()" class="w-full text-slate-400 hover:text-ink text-sm py-1.5">Cancelar</button>
+      </div>
+    </div>
+
+    <aside id="sidebar" class="cyber-sidebar fixed md:sticky top-0 left-0 h-screen w-[250px] -translate-x-full md:translate-x-0 transition-transform duration-300 ease-out z-50 flex flex-col flex-shrink-0 border-r chrome-border-700">
+      <div class="flex items-center gap-3 px-5 py-5 border-b chrome-border-700">
+        <div class="bg-navy-600 chrome-text-white p-2.5 rounded-lg shadow flex-shrink-0">
+          <i class="fa-solid fa-anchor text-lg"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="font-serif text-sm font-semibold chrome-text-white leading-tight">CA-AA/AFN</div>
+          <div class="text-[10px] chrome-text-slate-400 leading-tight">Painel de Estudos</div>
+        </div>
+        <button type="button" onclick="closeSidebar()" class="md:hidden ml-auto chrome-text-slate-400 hover:text-white w-8 h-8 flex items-center justify-center flex-shrink-0" aria-label="Fechar menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="flex-1 overflow-y-auto py-4 px-3 flex flex-col gap-1">
+        <p class="sidebar-section-title">Principal</p>
+        <a href="#dashboard-top" class="sidebar-link active"><span class="sidebar-icon-badge"><i class="fa-solid fa-gauge-high"></i></span><span>Dashboard</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="cronograma.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-calendar-check"></i></span><span>Cronograma de Estudos</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#prova-simulada" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-shuffle"></i></span><span>Prova Simulada</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#" onclick="openJoinRoomPrompt(); return false;" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-people-group"></i></span><span>Entrar em sala de estudo</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#banco-questoes" onclick="openBankPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-bars"></i></span><span>Banco de Questões</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="provas.html" data-quiz-id="PROVAS_ANTERIORES" class="hidden sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-scroll"></i></span><span>Provas Anteriores</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="#flashcards" onclick="openFlashcardsPanel()" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-layer-group"></i></span><span>Flashcards</span><i class="fa-solid fa-chevron-right"></i></a>
+
+        <p class="sidebar-section-title">Desempenho</p>
+        <a href="ranking.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-trophy"></i></span><span>Ranking &amp; Conquistas</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="desempenho.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-chart-simple"></i></span><span>Meu Desempenho</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="ofensiva-estudos.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-fire"></i></span><span>Ofensiva de Estudos</span><i class="fa-solid fa-chevron-right"></i></a>
+
+        <p class="sidebar-section-title">Estudos</p>
+        <a href="caderno.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-book-bookmark"></i></span><span>Caderno de Estudos</span><i class="fa-solid fa-chevron-right"></i></a>
+        <a href="anotacoes.html" class="sidebar-link"><span class="sidebar-icon-badge"><i class="fa-solid fa-pen-to-square"></i></span><span>Minhas Anotações</span><i class="fa-solid fa-chevron-right"></i></a>
+      </nav>
+      <div class="px-3 pb-4 pt-2 border-t chrome-border-700">
+        <button type="button" id="offline-download-btn" onclick="baixarParaOffline()" class="sidebar-link w-full">
+          <span class="sidebar-icon-badge"><i class="fa-solid fa-cloud-arrow-down"></i></span><span>Baixar para usar offline</span>
+        </button>
+        <p id="offline-download-status" class="px-3 pb-2 text-[11px] text-slate-400 leading-snug"></p>
+        <button type="button" onclick="handleLogout()" class="sidebar-link w-full text-rose-300 hover:text-rose-200">
+          <span class="sidebar-icon-badge"><i class="fa-solid fa-right-from-bracket"></i></span><span>Sair</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header class="topbar chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30">
+        <div class="px-4 md:px-8 py-4 flex items-center gap-3 md:gap-4">
+          <button type="button" onclick="openSidebar()" class="md:hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="hidden sm:flex flex-1 max-w-md relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-xs chrome-text-slate-400"></i>
+            <input id="dashboard-search" type="text" placeholder="Buscar matéria, baralho..." class="w-full h-10 pl-9 pr-3 rounded-lg chrome-bg-800 border chrome-border-700 chrome-text-white text-xs placeholder:chrome-text-slate-400 outline-none focus:border-[#c9a44c] transition-colors">
+          </div>
+          <div class="flex-1 sm:hidden"></div>
+          <button type="button" onclick="document.getElementById('avisos-section').scrollIntoView({behavior:'smooth'})" class="relative chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Avisos">
+            <i class="fa-solid fa-bell text-sm"></i>
+            <span id="notif-dot" class="hidden absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#e0c26f]"></span>
+          </button>
+          <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro">
+            <i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i>
+            <i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i>
+          </button>
+          <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs pl-1.5 pr-3 py-1.5 rounded-full items-center gap-2">
+            <button type="button" onclick="triggerAvatarPicker()" class="cyber-avatar" id="avatar-btn" title="Trocar foto de perfil">
+              <img id="avatar-img" src="" alt="" class="hidden">
+              <span id="avatar-initial">?</span>
+            </button>
+            <input type="file" id="avatar-input" accept="image/*" class="hidden" onchange="handleAvatarChange(event)">
+            <span id="user-email" class="max-w-[90px] md:max-w-[150px] truncate"></span>
+            <a href="acessos.html" id="admin-acessos-link" class="hidden text-[#e0c26f] hover:text-white" title="Acessos dos alunos" aria-label="Acessos dos alunos"><i class="fa-solid fa-user-shield"></i></a>
+          </div>
+        </div>
+      </header>
+
+      <main class="flex-1 w-full max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8 pb-24 md:pb-8">
+
+        <!-- Cronograma de estudos: destaque no topo do painel -->
+        <a href="cronograma.html" id="cronograma-destaque" class="block mb-6 rounded-2xl border-2 border-[#e0c26f] bg-[#e0c26f]/10 hover:bg-[#e0c26f]/15 transition-colors px-5 py-5 md:px-7 md:py-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-start gap-4 min-w-0">
+              <span class="flex-shrink-0 w-12 h-12 rounded-xl bg-[#e0c26f] text-[#0c1116] flex items-center justify-center text-xl"><i class="fa-solid fa-calendar-check"></i></span>
+              <div class="min-w-0">
+                <p class="text-[11px] font-mono uppercase tracking-widest text-amber-400 mb-1">Comece por aqui</p>
+                <h2 class="font-serif text-xl md:text-2xl font-semibold text-ink">Cronograma de Estudos · nov/2026 a set/2027</h2>
+                <ul class="mt-2 text-sm text-slate-300 space-y-1 list-disc pl-5 max-w-[62ch]">
+                  <li>Abra todo dia: o quadro <b>Hoje</b> mostra os 2 capítulos, os exercícios e as revisões do dia.</li>
+                  <li>Cada capítulo volta para revisão <b>7 e 21 dias</b> depois. Marque cada tarefa ao terminar.</li>
+                  <li>Matemática aos domingos, redação às quartas e simulado no último sábado do mês.</li>
+                </ul>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-xl bg-[#e0c26f] text-[#0c1116] font-semibold px-5 py-3 text-sm">Abrir cronograma <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </a>
+
+        <section id="dashboard-top" class="cyber-hero relative overflow-hidden rounded-2xl border chrome-border-700 mb-6 px-6 py-7 md:px-9 md:py-9 scroll-mt-24">
+          <div class="cyber-hero-grid" aria-hidden="true"></div>
+          <svg class="cyber-hero-circuit" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g stroke="#c9a44c" stroke-width="1" opacity="0.55">
+              <path d="M40 10 H140 V50 H260"/>
+              <path d="M20 60 H100 V110 H220 V150"/>
+              <path d="M60 170 H160 V130 H280"/>
+              <path d="M0 100 H60"/>
+              <path d="M180 20 V70 H240"/>
+            </g>
+            <g fill="#e0c26f">
+              <circle cx="140" cy="10" r="3"/>
+              <circle cx="260" cy="50" r="3"/>
+              <circle cx="100" cy="60" r="3"/>
+              <circle cx="220" cy="110" r="3"/>
+              <circle cx="220" cy="150" r="3"/>
+              <circle cx="160" cy="170" r="3"/>
+              <circle cx="280" cy="130" r="3"/>
+              <circle cx="180" cy="70" r="3"/>
+              <circle cx="240" cy="70" r="3"/>
+            </g>
+            <g stroke="#4d9ee0" stroke-width="1" opacity="0.4">
+              <circle cx="150" cy="100" r="55"/>
+              <circle cx="150" cy="100" r="80"/>
+            </g>
+          </svg>
+          <div class="relative z-10 flex flex-wrap items-end justify-between gap-6">
+            <div class="flex items-center gap-4 min-w-0">
+              <button type="button" onclick="triggerAvatarPicker()" class="cyber-avatar cyber-avatar-lg hidden sm:flex" id="avatar-btn-lg" title="Trocar foto de perfil">
+                <img id="avatar-img-lg" src="" alt="" class="hidden">
+                <span id="avatar-initial-lg">?</span>
+              </button>
+              <div class="min-w-0">
+                <p id="hero-date" class="text-[11px] font-mono uppercase tracking-widest text-[#e0c26f] mb-2"></p>
+                <h2 class="font-serif text-2xl md:text-[28px] font-semibold text-white">Bem-vindo de volta, <span id="hero-nome">Aluno</span>!</h2>
+                <p id="hero-frase" class="text-sm text-slate-300 italic mt-2 max-w-[54ch]"></p>
+              </div>
+            </div>
+            <div class="flex items-center flex-wrap gap-3 flex-shrink-0">
+              <div id="hero-patente-chip" class="cyber-chip">
+                <i id="hero-patente-icon" class="fa-solid fa-user text-[#e0c26f]"></i>
+                <span id="hero-patente" class="font-mono font-semibold text-white text-sm">Recruta</span>
+              </div>
+              <div id="hero-countdown-chip" class="hidden cyber-chip">
+                <i class="fa-solid fa-calendar-days text-[#e0c26f]"></i>
+                <span id="hero-countdown" class="font-mono font-semibold text-white text-sm"></span>
+                <button type="button" id="edit-prova-btn" onclick="abrirDataProva()" class="hidden ml-1 text-[#e0c26f] hover:text-white" title="Mudar a data da prova" aria-label="Mudar a data da prova"><i class="fa-solid fa-pen-to-square"></i></button>
+              </div>
+              <div class="cyber-chip">
+                <i class="fa-solid fa-fire text-[#e0c26f]"></i>
+                <span id="hero-streak" class="font-mono font-semibold text-white text-sm">0 dias</span>
+              </div>
+              <a href="ranking.html" class="cyber-chip hover:border-[#c9a44c] transition-colors">
+                <i class="fa-solid fa-trophy text-[#e0c26f]"></i>
+                <span class="font-mono font-semibold text-white text-sm">Ranking</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-8">
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-file-circle-check"></i></span>
+            <span class="cyber-stat-value" id="stat-simulados">0</span>
+            <span class="cyber-stat-label">Simulados feitos</span>
+          </div>
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-bullseye"></i></span>
+            <span class="cyber-stat-value" id="stat-percentual">0%</span>
+            <span class="cyber-stat-label">Aproveitamento médio</span>
+          </div>
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-check-double"></i></span>
+            <span class="cyber-stat-value" id="stat-acertos">0</span>
+            <span class="cyber-stat-label">Questões corretas</span>
+          </div>
+          <div class="cyber-stat-card">
+            <span class="cyber-stat-icon"><i class="fa-solid fa-compass"></i></span>
+            <span class="cyber-stat-value" id="stat-materias">0</span>
+            <span class="cyber-stat-label">Matérias estudadas</span>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
+          <div class="lg:col-span-2">
+            <div class="cyber-card-header">
+              <div>
+                <p class="cyber-card-header-title"><i class="fa-solid fa-play"></i> Continue Estudando</p>
+                <p class="cyber-card-header-sub">Suas matérias mais relevantes agora</p>
+              </div>
+              <span class="cyber-card-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Inteligente</span>
+            </div>
+            <div id="continue-estudando-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <p id="continue-estudando-empty" class="hidden text-xs text-slate-400 sm:col-span-2">Assim que seu acesso for liberado, suas matérias aparecem aqui.</p>
+            </div>
+          </div>
+          <div>
+            <div class="cyber-card-header">
+              <p class="cyber-card-header-title"><i class="fa-solid fa-medal"></i> Conquistas Recentes</p>
+            </div>
+            <div id="badges-widget" class="cyber-panel flex flex-wrap gap-3 items-center min-h-[84px]">
+              <p id="badges-empty" class="text-xs text-slate-400">Complete simulados para desbloquear conquistas.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="avisos-section" class="mb-8 scroll-mt-24">
+          <div class="cyber-card-header">
+            <p class="cyber-card-header-title"><i class="fa-solid fa-bullhorn"></i> Avisos</p>
+            <span class="cyber-card-pill"><i class="fa-solid fa-circle text-[7px]"></i> Ao vivo</span>
+          </div>
+          <div id="notices-list" class="cyber-panel flex flex-col divide-y chrome-border-700"></div>
+        </section>
+
+        <!-- Prova Simulada: destaque isolado, fora do Banco de Questões -->
+    <a id="prova-simulada" href="prova-simulada.html" data-quiz-id="PROVA_SIMULADA" class="hidden scroll-mt-24 group relative block overflow-hidden rounded-2xl border border-cyan-500/30 bg-gradient-to-br from-navy-800 via-navy-800 to-navy-900 px-6 py-6 md:px-8 md:py-7 mb-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.6)] transition-colors hover:border-cyan-400/60">
+      <div class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size: 22px 22px;"></div>
+      <div class="relative flex items-center gap-5">
+        <div class="bg-navy-600 text-ink p-3.5 rounded-xl shadow-lg shadow-navy-900/40 flex-shrink-0 ring-1 ring-cyan-400/20">
+          <i class="fa-solid fa-shuffle text-xl"></i>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="block text-ink font-serif text-lg md:text-xl font-semibold">Prova Simulada</span>
+            <span class="bg-cyan-950/60 text-cyan-300 border border-cyan-700/60 text-[10px] px-2 py-0.5 rounded-full font-medium">50 questões</span>
+          </div>
+          <p class="text-xs md:text-sm text-slate-300 mt-1 max-w-[62ch]">Sorteio no formato exato da prova real: 8 Português + 8 História + 7 Geografia + 7 Matemática, e 2 de cada uma das 10 matérias de Conhecimento Militar Naval.</p>
+        </div>
+        <i class="fa-solid fa-arrow-right text-slate-400 group-hover:text-cyan-300 group-hover:translate-x-0.5 transition-all flex-shrink-0 hidden sm:block"></i>
+      </div>
+    </a>
+
+    <!-- Flashcards: agrupados atrás de um único toggle, mostrando permitidos e bloqueados -->
+    <section id="flashcards" class="mb-6 scroll-mt-24">
+      <button type="button" id="flashcards-toggle" class="w-full flex items-center justify-between gap-3 bg-navy-800/80 border border-navy-700 hover:border-navy-500 rounded-xl px-5 py-4 transition-colors">
+        <span class="flex items-center gap-3">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-layer-group"></i>
+          </span>
+          <span class="text-left">
+            <span class="block font-serif text-lg font-semibold text-ink">Flashcards</span>
+            <span class="block text-xs text-slate-400">Todos os baralhos, por matéria</span>
+          </span>
+        </span>
+        <i id="flashcards-chevron" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+      </button>
+
+      <div id="flashcards-panel" class="hidden mt-3 bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden">
+        <a href="flashcards-historia.html" class="flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de História</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">135 cartas · 5 baralhos</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+
+        <a href="flashcards-portugues.html" class="flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Português</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">44 cartas · 6 baralhos</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+
+        <a href="flashcards-nodam.html" data-quiz-id="NODAM_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de NODAM</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">34 cartas · 4 baralhos</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+
+        <a href="flashcards-geografia.html" data-quiz-id="GEOGRAFIA_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Geografia</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">230 cartas · 10 baralhos</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-matematica.html" data-quiz-id="MATEMATICA_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Matemática</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-caaml-703.html" data-quiz-id="CAAML_703_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de CAAML-703</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-cerimonial.html" data-quiz-id="CERIMONIAL_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Cerimonial da Marinha</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-rosas-virtudes.html" data-quiz-id="ROSAS_VIRTUDES_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Rosas das Virtudes</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-justica-disciplina.html" data-quiz-id="JUSTICA_DISCIPLINA_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Justiça e Disciplina</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-lideranca.html" data-quiz-id="LIDERANCA_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Liderança</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-ogsa.html" data-quiz-id="OGSA_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de OGSA</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-camaal-cav.html" data-quiz-id="CAMAAL_CAV_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de CAMAAL 1202 (CAV)</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-estatuto-rdm.html" data-quiz-id="ESTATUTO_RDM_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Estatuto dos Militares & RDM</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-pem2040.html" data-quiz-id="PEM2040_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de PEM-2040</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-doc-adm-mb.html" data-quiz-id="DOC_ADM_MB_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards de Documentação Administrativa</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+        <a href="flashcards-prova-simulada.html" data-quiz-id="PROVA_SIMULADA_FLASHCARDS" class="hidden flashcard-row topic-row flex items-center gap-3 px-5 py-3 hover:bg-navy-700/30 transition-colors">
+          <span class="flashcard-lock-icon w-7 flex-shrink-0 text-center text-emerald-400"><i class="fa-solid fa-circle-check"></i></span>
+          <span class="flex-1 min-w-0">
+            <span class="block text-ink text-sm font-medium">Flashcards da Prova Simulada</span>
+            <span class="block text-[11px] text-slate-400 font-mono mt-0.5">Só "Minhas Questões" por enquanto</span>
+          </span>
+          <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Recursos de Estudo -->
+    <section class="mb-10">
+      <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
+        <i class="fa-solid fa-compass text-navy-500"></i> Recursos de Estudo
+      </h3>
+      <div id="recursos-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <a href="provas.html" data-quiz-id="PROVAS_ANTERIORES" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-scroll"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Provas Anteriores</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">2011–2025 comentadas, por matéria</span>
+          </span>
+        </a>
+
+        <a href="linha-do-tempo-historia.html" data-quiz-id="LINHA_DO_TEMPO_HISTORIA" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-map"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Linha do Tempo</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">4 infográficos ilustrados</span>
+          </span>
+        </a>
+
+        <a href="comandantes-navais.html" data-quiz-id="COMANDANTES_NAVAIS" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-compass"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Comandantes Navais</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">13 comandantes · 1816-1865</span>
+          </span>
+        </a>
+
+        <a href="mapas-mentais.html" data-quiz-id="MAPAS_MENTAIS" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-diagram-project"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Mapas Mentais</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">CAV, Justiça e NODAM</span>
+          </span>
+        </a>
+
+        <a href="comando-naval.html" data-quiz-id="COMANDO_NAVAL" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-anchor"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Comando Naval</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">RPG de decisões · 11 campanhas</span>
+          </span>
+        </a>
+
+        <a href="diario-bordo.html" data-quiz-id="DIARIO_BORDO" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-compass"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Português Esquematizado</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Esquemas, Diário de Bordo, Sala de Análise e Oficina</span>
+          </span>
+        </a>
+
+        <a href="anotacoes.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-pen-to-square"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Minhas Anotações</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Suas notas, por matéria</span>
+          </span>
+        </a>
+
+        <a href="ranking.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-trophy"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Ranking & Conquistas</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Sua evolução, streak e o ranking geral</span>
+          </span>
+        </a>
+
+        <a href="ofensiva-estudos.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-fire"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Ofensiva de Estudos</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Sequência, meta diária e calendário de atividade</span>
+          </span>
+        </a>
+
+        <a href="caderno.html" class="resource-card bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-book-bookmark"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Caderno de Estudos</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Resumo, erros e anotações — pronto pra imprimir</span>
+          </span>
+        </a>
+
+        <a href="cobertura-banco.html" data-quiz-id="COBERTURA_BANCO" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Cobertura do Banco</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">% de questões únicas respondidas, por matéria</span>
+          </span>
+        </a>
+
+        <a href="redacao.html" data-quiz-id="REDACAO" class="resource-card hidden bg-navy-800/60 border border-navy-700 rounded-xl p-4 hover:border-navy-500 hover:bg-navy-800 transition-all flex flex-col gap-2.5">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center"><i class="fa-solid fa-pen-nib"></i></span>
+          <span>
+            <span class="block text-ink text-sm font-medium leading-tight">Redação</span>
+            <span class="block text-[11px] text-slate-400 mt-1 leading-snug">Monte a estrutura por parágrafo, veja na folha pautada</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Banco de Questões: agrupado atrás de um único toggle -->
+    <section id="banco-questoes" class="scroll-mt-24">
+      <button type="button" id="bank-toggle" class="w-full flex items-center justify-between gap-3 bg-navy-800/80 border border-navy-700 hover:border-navy-500 rounded-xl px-5 py-4 transition-colors">
+        <span class="flex items-center gap-3">
+          <span class="bg-navy-700 text-ink w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-bars"></i>
+          </span>
+          <span class="text-left">
+            <span class="block font-serif text-lg font-semibold text-ink">Banco de Questões</span>
+            <span class="block text-xs text-slate-400">15 matérias organizadas por área de conhecimento</span>
+          </span>
+        </span>
+        <i id="bank-chevron" class="fa-solid fa-chevron-down text-slate-400 transition-transform"></i>
+      </button>
+
+      <div id="bank-panel" class="hidden mt-3 bg-navy-800/60 border border-navy-700 rounded-xl overflow-hidden">
+        <div class="flex gap-2 p-2 border-b border-navy-700">
+          <button type="button" class="bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all" data-segment="geral">Conhecimento Geral</button>
+          <button type="button" class="bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all" data-segment="naval">Conhecimento Militar Naval</button>
+        </div>
+
+        <div id="bank-segment-geral" class="bank-segment-panel">
+          <a href="portugues.html" data-quiz-id="PORTUGUES" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Língua Portuguesa</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">372 questões · 21 assuntos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="historia-naval.html" data-quiz-id="HISTORIA_NAVAL" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">História Militar Naval</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">584 questões · 26 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="geografia.html" data-quiz-id="GEOGRAFIA" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Geografia</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões · 9 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="matematica.html" data-quiz-id="MATEMATICA" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Matemática</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões · 19 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <div class="flex items-center gap-3 px-5 py-3 text-slate-500">
+            <span class="flex-1 min-w-0">
+              <span class="block font-medium text-sm">Redação</span>
+              <span class="block text-[11px]">Em breve</span>
+            </span>
+          </div>
+        </div>
+
+        <div id="bank-segment-naval" class="bank-segment-panel hidden">
+          <a href="caaml-703.html" data-quiz-id="CAAML-703" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Embarcações Miúdas &amp; Segurança</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="cerimonial.html" data-quiz-id="CERIMONIAL" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Cerimonial da Marinha</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">280 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="rosas-virtudes.html" data-quiz-id="ROSAS_VIRTUDES" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Rosas das Virtudes</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="justica-disciplina.html" data-quiz-id="JUSTICA_DISCIPLINA" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Justiça e Disciplina</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões · 11 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="lideranca.html" data-quiz-id="LIDERANCA" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Liderança</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">210 questões · 8 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="lideranca-atributos.html" data-quiz-id="LIDERANCA_ATRIBUTOS" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Atributos de Liderança</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="ogsa.html" data-quiz-id="OGSA" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">OGSA</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">211 questões · 14 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="camaal-cav.html" data-quiz-id="CAMAAL_CAV" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">CAMAAL 1202 (CAV)</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões · 6 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="estatuto-rdm.html" data-quiz-id="ESTATUTO_RDM" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Estatuto dos Militares &amp; RDM</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões · 27 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="doc-adm-mb.html" data-quiz-id="DOC_ADM_MB" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">Documentação Administrativa na MB</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões · 7 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <a href="pem2040.html" data-quiz-id="PEM2040" class="hidden topic-row flex items-center gap-3 px-5 py-3 border-b border-navy-700/60 hover:bg-navy-700/30 transition-colors">
+            <span class="flex-1 min-w-0">
+              <span class="block text-ink text-sm font-medium">PEM-2040</span>
+              <span class="block text-[11px] text-slate-400 font-mono mt-0.5">200 questões · 5 tópicos</span>
+            </span>
+            <i class="fa-solid fa-chevron-right text-slate-600 text-xs flex-shrink-0"></i>
+          </a>
+          <div class="flex items-center gap-3 px-5 py-3 text-slate-500">
+            <span class="flex-1 min-w-0">
+              <span class="block font-medium text-sm">Novas matérias em breve</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+      </main>
+    </div>
+
+    <nav id="bottom-tabbar" class="md:hidden" aria-label="Navegação principal">
+      <a href="#dashboard-top" class="tabbar-link active" data-tabbar="inicio"><i class="fa-solid fa-house"></i><span>Início</span></a>
+      <a href="#banco-questoes" onclick="openBankPanel()" class="tabbar-link" data-tabbar="questoes"><i class="fa-solid fa-bars"></i><span>Questões</span></a>
+      <a href="ranking.html" class="tabbar-link" data-tabbar="ranking"><i class="fa-solid fa-trophy"></i><span>Ranking</span></a>
+      <a href="caderno.html" class="tabbar-link" data-tabbar="caderno"><i class="fa-solid fa-book-bookmark"></i><span>Caderno</span></a>
+      <button type="button" onclick="openSidebar()" class="tabbar-link" data-tabbar="mais"><i class="fa-solid fa-ellipsis"></i><span>Mais</span></button>
+    </nav>
+  </div>
+
+  <footer class="max-w-6xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script>
+    // --- Supabase: autenticação central da plataforma ---
+    const SUPABASE_URL = 'https://ghlaukrbwwecpeanlmlp.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jKB_xy4LMBIBcLV_i0wa3A_TgBJAihh';
+    let sb = null;
+    let currentUser = null;
+
+    function traduzErro(msg) {
+      const map = {
+        'Invalid login credentials': 'E-mail ou senha incorretos.',
+        'User already registered': 'Já existe uma conta com esse e-mail.',
+        'Email not confirmed': 'Confirme seu e-mail antes de entrar (verifique sua caixa de entrada).',
+        'Password should be at least 6 characters': 'A senha precisa ter pelo menos 6 caracteres.'
+      };
+      return map[msg] || msg;
+    }
+
+    function shakeAccessCard() {
+      const card = document.getElementById('access-card');
+      card.classList.remove('shake');
+      void card.offsetWidth;
+      card.classList.add('shake');
+    }
+
+    function toggleAccordion(panel, chevron, isOpening) {
+      if (isOpening) {
+        panel.classList.remove('hidden');
+        const targetHeight = panel.scrollHeight;
+        panel.style.maxHeight = '0px';
+        void panel.offsetHeight; // força o navegador a recalcular antes de animar
+        panel.style.maxHeight = targetHeight + 'px';
+        panel.classList.add('open');
+        if (chevron) chevron.classList.add('rotate-180');
+        panel.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName === 'max-height') {
+            panel.style.maxHeight = 'none';
+            panel.removeEventListener('transitionend', handler);
+          }
+        });
+      } else {
+        const currentHeight = panel.scrollHeight;
+        panel.style.maxHeight = currentHeight + 'px';
+        void panel.offsetHeight;
+        panel.style.maxHeight = '0px';
+        panel.classList.remove('open');
+        if (chevron) chevron.classList.remove('rotate-180');
+        panel.addEventListener('transitionend', function handler(e) {
+          if (e.propertyName === 'max-height') {
+            panel.classList.add('hidden');
+            panel.removeEventListener('transitionend', handler);
+          }
+        });
+      }
+    }
+
+    function hideAccessScreenWithWave() {
+      const screen = document.getElementById('access-screen');
+      if (screen.classList.contains('hidden')) {
+        return;
+      }
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        screen.classList.add('hidden');
+        return;
+      }
+      screen.classList.add('exiting');
+      screen.addEventListener('animationend', function handler() {
+        screen.classList.add('hidden');
+        screen.classList.remove('exiting');
+        screen.removeEventListener('animationend', handler);
+      });
+    }
+
+    function showForm(name) {
+      ['login-form', 'signup-form', 'recovery-form', 'pending-panel'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(name);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-message').textContent = '';
+      // Botão "Tentar novamente" só deve aparecer quando showLoadTimeoutFallback()
+      // explicitamente o mostra de novo (ela chama showForm primeiro, e só depois
+      // revela o botão) — some por padrão em qualquer outra troca de tela.
+      const retryBtn = document.getElementById('pending-retry-btn');
+      if (retryBtn) retryBtn.classList.add('hidden');
+    }
+
+    // Links de pagamento da Kiwify (Produtos → produto → Links → checkout).
+    // Sem link, o botão leva para "Criar conta".
+    const LINKS_PLANOS = {
+      mensal: 'https://pay.kiwify.com.br/HjAPnHk',
+      ate_a_prova: 'https://pay.kiwify.com.br/2a5RLeV'
+    };
+
+    function abrirAcesso(aba) {
+      switchAuthTab(aba);
+      document.getElementById('access-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const campo = document.getElementById(aba === 'login' ? 'login-email' : 'signup-name');
+      if (campo) setTimeout(() => campo.focus({ preventScroll: true }), 400);
+    }
+
+    function assinarPlano(plano) {
+      const link = LINKS_PLANOS[plano];
+      if (link) {
+        window.open(link, '_blank', 'noopener');
+        return;
+      }
+      abrirAcesso('signup');
+    }
+
+    function switchAuthTab(tab) {
+      const tabLogin = document.getElementById('tab-login');
+      const tabSignup = document.getElementById('tab-signup');
+      const activeCls = 'flex-1 py-2 rounded-md font-semibold transition-all bg-[#c9a44c] text-[#071a2d]';
+      const inactiveCls = 'flex-1 py-2 rounded-md font-semibold transition-all text-slate-400 hover:text-ink';
+      showForm(tab === 'login' ? 'login-form' : 'signup-form');
+      tabLogin.className = tab === 'login' ? activeCls : inactiveCls;
+      tabSignup.className = tab === 'signup' ? activeCls : inactiveCls;
+    }
+
+    async function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const msg = document.getElementById('access-message');
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Entrando...';
+      registrarAoEntrar = true;
+      const { error } = await sb.auth.signInWithPassword({ email, password });
+      if (error) registrarAoEntrar = false;
+      else AlfaDispositivo.registrarAcesso(sb, 'login');
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+        shakeAccessCard();
+      } else {
+        msg.textContent = '';
+      }
+      return false;
+    }
+
+    async function handleSignup(event) {
+      event.preventDefault();
+      const nome = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const password = document.getElementById('signup-password').value;
+      const msg = document.getElementById('access-message');
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Criando conta...';
+      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { nome }, emailRedirectTo: window.location.origin + '/index.html' } });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+      } else if (data.user && !data.session) {
+        msg.className = 'min-h-5 mt-4 text-xs text-emerald-300';
+        msg.textContent = 'Conta criada! Verifique seu e-mail para confirmar o acesso.';
+      } else {
+        msg.textContent = '';
+      }
+      return false;
+    }
+
+    async function handleForgotPassword() {
+      const email = document.getElementById('login-email').value.trim();
+      const msg = document.getElementById('access-message');
+      if (!email) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = 'Digite seu e-mail no campo acima e clique novamente.';
+        return;
+      }
+      msg.className = 'min-h-5 mt-4 text-xs text-slate-300';
+      msg.textContent = 'Enviando link de recuperação...';
+      const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: window.location.href.split('#')[0] });
+      msg.className = error ? 'min-h-5 mt-4 text-xs text-rose-300' : 'min-h-5 mt-4 text-xs text-emerald-300';
+      msg.textContent = error ? traduzErro(error.message) : 'Link enviado! Verifique seu e-mail.';
+    }
+
+    async function handleSetNewPassword(event) {
+      event.preventDefault();
+      const password = document.getElementById('recovery-password').value;
+      const msg = document.getElementById('access-message');
+      const { error } = await sb.auth.updateUser({ password });
+      if (error) {
+        msg.className = 'min-h-5 mt-4 text-xs text-rose-300';
+        msg.textContent = traduzErro(error.message);
+      } else {
+        msg.className = 'min-h-5 mt-4 text-xs text-emerald-300';
+        msg.textContent = 'Senha atualizada com sucesso!';
+      }
+      return false;
+    }
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora se indisponível */ }
+      applyThemeIcon();
+    }
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    function showOfflineNoCacheIndex() {
+      document.getElementById('access-screen').classList.remove('hidden');
+      const panel = document.getElementById('pending-panel');
+      if (panel) {
+        const p = panel.querySelector('p');
+        if (p) p.textContent = 'Sem conexão com a internet, e ainda não há dados salvos neste aparelho. Conecte-se à internet e tente novamente.';
+        const icon = panel.querySelector('i');
+        if (icon) icon.className = 'fa-solid fa-wifi text-3xl text-amber-300';
+        const planos = document.getElementById('pending-plans');
+        if (planos) planos.classList.add('hidden');
+      }
+      showForm('pending-panel');
+    }
+
+    // Rede de segurança: se depois de um tempo razoável nem a tela de login
+    // nem o painel logado apareceram (trava em alguma consulta ao Supabase,
+    // por exemplo), mostra uma tela de "demorando mais que o normal" com
+    // botão pra tentar de novo — em vez de deixar a pessoa olhando pra uma
+    // tela girando/carregando pra sempre sem explicação, o que parecia
+    // "o site quebrou". Checa o estado real do DOM (não uma flag separada)
+    // pra funcionar mesmo que a travada seja numa consulta dentro de
+    // onUserAuthenticated(), depois do evento de auth já ter disparado.
+    function showLoadTimeoutFallback() {
+      const screen = document.getElementById('access-screen');
+      const bar = document.getElementById('user-bar');
+      const dashboardShown = bar && bar.classList.contains('flex');
+      const loginShown = screen && !screen.classList.contains('hidden');
+      if (dashboardShown || loginShown) return; // já resolveu de algum jeito, não precisa
+      screen.classList.remove('hidden');
+      showForm('pending-panel');
+      const panel = document.getElementById('pending-panel');
+      if (panel) {
+        const p = panel.querySelector('p');
+        if (p) p.textContent = 'Isso está demorando mais que o normal pra carregar. Pode ser uma conexão lenta ou uma instabilidade passageira — tente novamente em alguns segundos.';
+        const icon = panel.querySelector('i');
+        if (icon) icon.className = 'fa-solid fa-triangle-exclamation text-3xl text-amber-300';
+        const planos = document.getElementById('pending-plans');
+        if (planos) planos.classList.add('hidden');
+      }
+      const retryBtn = document.getElementById('pending-retry-btn');
+      if (retryBtn) retryBtn.classList.remove('hidden');
+    }
+
+    let isAdmin = false;
+    let ultimasLiberadas = [];
+
+    // Login feito agora neste aparelho: ele passa a ser o único da conta.
+    let registrarAoEntrar = false;
+
+    async function usarNesteAparelho() {
+      await AlfaDispositivo.registrar(sb);
+      await AlfaDispositivo.registrarAcesso(sb, 'trocou_aparelho');
+      location.reload();
+    }
+
+    async function onUserAuthenticated() {
+      const nome = currentUser.user_metadata && currentUser.user_metadata.nome;
+      let aprovado;
+      let motivoBloqueio = null;
+      try {
+        const { data: perfil, error } = await AlfaGamification.selectPerfilAcesso(sb, currentUser.id);
+        if (error) throw error;
+        isAdmin = !!(perfil && perfil.admin);
+
+        if (!perfil) {
+          await sb.from('profiles').upsert({ id: currentUser.id, nome: nome || null });
+        } else if (nome) {
+          await sb.from('profiles').update({ nome }).eq('id', currentUser.id);
+        }
+
+        // Primeiro aparelho da conta, ou acabou de entrar com a senha aqui.
+        if (perfil && !perfil.admin && 'dispositivo' in perfil && (registrarAoEntrar || !perfil.dispositivo)) {
+          registrarAoEntrar = false;
+          await AlfaDispositivo.registrar(sb);
+          perfil.dispositivo = AlfaDispositivo.id();
+        }
+
+        aprovado = AlfaGamification.acessoEmDia(perfil);
+        const acessoAte = perfil ? perfil.acesso_ate || null : null;
+        AlfaGamification.setAccessCacheAprovado(currentUser.id, aprovado, acessoAte);
+        if (!aprovado && AlfaGamification.outroAparelho(perfil)) motivoBloqueio = { motivo: 'outro_aparelho' };
+        else if (!aprovado && perfil && perfil.aprovado) motivoBloqueio = { motivo: 'vencido', acessoAte };
+      } catch (e) {
+        const cached = AlfaGamification.getAccessCache(currentUser.id);
+        if (!cached) {
+          showOfflineNoCacheIndex();
+          return;
+        }
+        aprovado = cached.aprovado;
+        if (cached.motivo) motivoBloqueio = { motivo: cached.motivo, acessoAte: cached.acessoAte };
+      }
+
+      if (!aprovado) {
+        document.getElementById('access-screen').classList.remove('hidden');
+        document.getElementById('user-bar').classList.add('hidden');
+        document.getElementById('user-bar').classList.remove('flex');
+        showForm('pending-panel');
+        if (motivoBloqueio) AlfaGamification.mostrarMotivoBloqueio(motivoBloqueio.motivo, motivoBloqueio.acessoAte);
+        return;
+      }
+
+      // Veio redirecionado de uma página protegida (middleware.js) porque o
+      // login precisava ser renovado: agora que está tudo certo, volta pra ela.
+      const destino = new URLSearchParams(location.search).get('next');
+      if (destino && destino.startsWith('/') && !destino.startsWith('//')) {
+        let ultimaTentativa = null;
+        try { ultimaTentativa = JSON.parse(sessionStorage.getItem('alfa_next_tentativa') || 'null'); } catch (e) { /* ignora */ }
+        // Evita ficar indo e voltando se o servidor recusar de novo.
+        if (!ultimaTentativa || ultimaTentativa.url !== destino || Date.now() - ultimaTentativa.em > 30000) {
+          try { sessionStorage.setItem('alfa_next_tentativa', JSON.stringify({ url: destino, em: Date.now() })); } catch (e) { /* ignora */ }
+          location.replace(destino);
+          return;
+        }
+      }
+
+      hideAccessScreenWithWave();
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      const liberadas = await applyAccessLocks();
+      ultimasLiberadas = liberadas;
+      // Carrega a data da prova/ciclo atual (e, se o ciclo for novo neste
+      // aparelho, limpa as respostas locais do banco de questões).
+      await AlfaCiclo.applyCycle(sb, currentUser.id);
+      await renderDashboardData(liberadas);
+      mostrarAvisoCiclo();
+    }
+
+    // Painel cibernético: hero, cartões de estatísticas, "continue estudando",
+    // conquistas recentes e avisos — tudo a partir de uma única busca de
+    // `resultados` (evita repetir a mesma consulta em vários lugares).
+    async function renderDashboardData(liberadas) {
+      const nome = (currentUser.user_metadata && currentUser.user_metadata.nome) || currentUser.email.split('@')[0];
+      document.getElementById('hero-nome').textContent = nome;
+      document.getElementById('hero-date').textContent = new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' });
+      document.getElementById('hero-frase').textContent = AlfaGamification.fraseDoDia();
+      renderAvatarPlaceholder(nome);
+      renderCountdown();
+
+      // Busca a foto de perfil à parte, sem bloquear o resto do painel caso
+      // o admin ainda não tenha rodado o supabase_avatar_setup.sql (a coluna
+      // avatar_url só existe depois disso).
+      try {
+        const { data: perfil, error } = await sb.from('profiles').select('avatar_url').eq('id', currentUser.id).maybeSingle();
+        if (!error && perfil && perfil.avatar_url) renderAvatarImage(perfil.avatar_url);
+      } catch (e) { /* coluna/bucket ainda não configurados — mantém a inicial */ }
+
+      let resultados = [];
+      try {
+        // Só o ciclo atual da prova conta (ver AlfaCiclo em sync-offline.js).
+        const { data, error } = await AlfaCiclo.filtrar(sb
+          .from('resultados')
+          .select('quiz_id, acertos, erros, percentual, criado_em')
+          .eq('user_id', currentUser.id));
+        if (error) throw error;
+        resultados = data || [];
+      } catch (e) {
+        console.warn('Falha ao carregar dados do painel:', e);
+      }
+
+      // Ofensiva: mesma conta da página "Ofensiva de Estudos" (qualquer
+      // questão respondida no dia conta, não só simulado finalizado).
+      const mostrarOfensiva = (streak) => {
+        document.getElementById('hero-streak').textContent =
+          streak.atual > 0 ? `${streak.atual} dia${streak.atual === 1 ? '' : 's'} seguidos` : 'Comece hoje';
+      };
+      mostrarOfensiva(AlfaGamification.computeStreak(resultados));
+      AlfaGamification.carregarAtividade(sb, currentUser.id).then(({ dias }) => {
+        const streak = AlfaGamification.streakDeDias(dias);
+        mostrarOfensiva(streak);
+        renderBadgesWidget(resultados, streak);
+      }).catch(() => {});
+
+      const stats = AlfaGamification.personalStats(resultados);
+      document.getElementById('stat-simulados').textContent = stats.totalSimulados;
+      document.getElementById('stat-percentual').textContent = stats.percentualMedio + '%';
+      document.getElementById('stat-acertos').textContent = stats.totalAcertos;
+      document.getElementById('stat-materias').textContent = stats.materiasDistintas + '/' + AlfaGamification.TOTAL_SUBJECTS;
+
+      const patente = AlfaGamification.patenteFor(stats.totalAcertos);
+      document.getElementById('hero-patente').textContent = patente.nome;
+      document.getElementById('hero-patente-icon').className = 'fa-solid ' + patente.icon + ' text-[#e0c26f]';
+
+      renderContinueEstudando(liberadas, stats);
+      renderBadgesWidget(resultados);
+      renderNotices(resultados, stats);
+    }
+
+    function renderCountdown() {
+      const info = AlfaGamification.diasParaProva();
+      const chip = document.getElementById('hero-countdown-chip');
+      document.getElementById('edit-prova-btn').classList.toggle('hidden', !isAdmin);
+      document.getElementById('admin-acessos-link').classList.toggle('hidden', !isAdmin);
+      if (!info && !isAdmin) { chip.classList.add('hidden'); return; }
+      const el = document.getElementById('hero-countdown');
+      if (!info) el.textContent = 'Definir data da prova';
+      else if (info.dias > 1) el.textContent = info.dias + ' dias para a prova';
+      else if (info.dias === 1) el.textContent = '1 dia para a prova';
+      else if (info.dias === 0) el.textContent = 'A prova é hoje!';
+      else el.textContent = isAdmin ? 'Prova realizada · definir próxima' : 'Prova realizada';
+      chip.classList.remove('hidden');
+    }
+
+    // ---- Avatar (foto de perfil) ----
+    let currentAvatarUrl = null;
+
+    function renderAvatarPlaceholder(nomeOuEmail) {
+      const inicial = AlfaGamification.initialFor(nomeOuEmail);
+      ['avatar-initial', 'avatar-initial-lg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = inicial;
+      });
+      ['avatar-img', 'avatar-img-lg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+
+    function renderAvatarImage(url) {
+      currentAvatarUrl = url;
+      ['avatar-img', 'avatar-img-lg'].forEach(id => {
+        const img = document.getElementById(id);
+        if (!img) return;
+        img.src = url;
+        img.classList.remove('hidden');
+      });
+      ['avatar-initial', 'avatar-initial-lg'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+
+    function triggerAvatarPicker() {
+      document.getElementById('avatar-input').click();
+    }
+
+    async function handleAvatarChange(event) {
+      const file = event.target.files && event.target.files[0];
+      event.target.value = ''; // permite escolher o mesmo arquivo de novo depois
+      if (!file || !currentUser) return;
+      try {
+        const url = await AlfaGamification.uploadAvatar(sb, currentUser.id, file);
+        renderAvatarImage(url);
+      } catch (e) {
+        console.warn('Falha ao enviar foto de perfil:', e);
+        alert('Não foi possível enviar a foto: ' + (e && e.message ? e.message : 'tente novamente.') +
+          '\n\nSe for a primeira vez, confirme se o script supabase_avatar_setup.sql já foi rodado no Supabase.');
+      }
+    }
+
+    // ===== Entrar em sala de estudo com o código de alguém (menu principal) =====
+    // Mapeia o quiz_id salvo em salas_estudo pra qual página abrir.
+    const QUIZ_PAGES = {
+      PROVA_SIMULADA: 'prova-simulada.html',
+      'CAAML-703': 'caaml-703.html',
+      CAMAAL_CAV: 'camaal-cav.html',
+      CERIMONIAL: 'cerimonial.html',
+      DOC_ADM_MB: 'doc-adm-mb.html',
+      ESTATUTO_RDM: 'estatuto-rdm.html',
+      GEOGRAFIA: 'geografia.html',
+      HISTORIA_NAVAL: 'historia-naval.html',
+      JUSTICA_DISCIPLINA: 'justica-disciplina.html',
+      LIDERANCA_ATRIBUTOS: 'lideranca-atributos.html',
+      LIDERANCA: 'lideranca.html',
+      MATEMATICA: 'matematica.html',
+      OGSA: 'ogsa.html',
+      PEM2040: 'pem2040.html',
+      PORTUGUES: 'portugues.html',
+      ROSAS_VIRTUDES: 'rosas-virtudes.html',
+    };
+
+    function openJoinRoomPrompt() {
+      const overlay = document.getElementById('join-room-overlay');
+      const input = document.getElementById('join-room-code-input');
+      const errEl = document.getElementById('join-room-error');
+      errEl.textContent = '';
+      input.value = '';
+      overlay.classList.remove('hidden');
+      setTimeout(() => input.focus(), 50);
+    }
+
+    function closeJoinRoomPrompt() {
+      document.getElementById('join-room-overlay').classList.add('hidden');
+    }
+
+    async function submitJoinRoomCode() {
+      const input = document.getElementById('join-room-code-input');
+      const errEl = document.getElementById('join-room-error');
+      const btn = document.getElementById('join-room-submit-btn');
+      const codigo = (input.value || '').trim().toUpperCase();
+      errEl.textContent = '';
+      if (codigo.length < 4) { errEl.textContent = 'Digite o código da sala.'; return; }
+      if (!currentUser) { errEl.textContent = 'Você precisa estar logado.'; return; }
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procurando...';
+      try {
+        const { data: sala, error } = await sb.from('salas_estudo').select('quiz_id, status').eq('codigo', codigo).maybeSingle();
+        if (error || !sala) {
+          errEl.textContent = 'Não achei essa sala. Confere o código com quem te chamou.';
+          return;
+        }
+        if (sala.status === 'finalizada') {
+          errEl.textContent = 'Essa sala já foi encerrada.';
+          return;
+        }
+        const page = QUIZ_PAGES[sala.quiz_id];
+        if (!page) {
+          errEl.textContent = 'Essa sala é de um quiz que não reconheço.';
+          return;
+        }
+        window.location.href = page + '?sala=' + encodeURIComponent(codigo);
+      } catch (e) {
+        errEl.textContent = 'Não deu pra procurar a sala agora. Tenta de novo.';
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Entrar na sala';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const input = document.getElementById('join-room-code-input');
+      if (input) {
+        input.addEventListener('input', () => { input.value = input.value.toUpperCase().replace(/[^A-Z0-9]/g, ''); });
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter') submitJoinRoomCode(); });
+      }
+    });
+
+    function openBankPanel() {
+      const panel = document.getElementById('bank-panel');
+      const chevron = document.getElementById('bank-chevron');
+      if (panel && !panel.classList.contains('open')) toggleAccordion(panel, chevron, true);
+    }
+
+    function openFlashcardsPanel() {
+      const panel = document.getElementById('flashcards-panel');
+      const chevron = document.getElementById('flashcards-chevron');
+      if (panel && !panel.classList.contains('open')) toggleAccordion(panel, chevron, true);
+    }
+
+    function renderContinueEstudando(liberadas, stats) {
+      const grid = document.getElementById('continue-estudando-grid');
+      const emptyMsg = document.getElementById('continue-estudando-empty');
+      grid.querySelectorAll('.cyber-resource-card').forEach(el => el.remove());
+
+      const ids = Object.keys(AlfaGamification.SUBJECTS).filter(id => id !== 'PROVA_SIMULADA' && liberadas.has(id));
+      // Prioriza matérias já iniciadas (aparecem em `resultados`), depois completa com as demais liberadas.
+      const iniciadas = ids.filter(id => stats.materiasFeitas[id]);
+      const restantes = ids.filter(id => !stats.materiasFeitas[id]);
+      const escolhidas = iniciadas.concat(restantes).slice(0, 4);
+
+      if (escolhidas.length === 0) {
+        emptyMsg.classList.remove('hidden');
+        return;
+      }
+      emptyMsg.classList.add('hidden');
+
+      escolhidas.forEach(id => {
+        const info = AlfaGamification.SUBJECTS[id];
+        if (!info) return;
+        const a = document.createElement('a');
+        a.href = info.url;
+        a.className = 'cyber-resource-card';
+        a.innerHTML =
+          '<span class="cyber-resource-icon"><i class="fa-solid fa-book"></i></span>' +
+          '<span class="flex-1 min-w-0">' +
+            '<span class="block text-ink text-sm font-medium truncate">' + info.label + '</span>' +
+            '<span class="block text-[11px] text-slate-400 mt-0.5">' + (stats.materiasFeitas[id] ? 'Continuar estudando' : 'Começar agora') + '</span>' +
+          '</span>' +
+          '<i class="fa-solid fa-arrow-right text-slate-500 flex-shrink-0"></i>';
+        grid.appendChild(a);
+      });
+    }
+
+    function renderBadgesWidget(resultados, streak) {
+      const widget = document.getElementById('badges-widget');
+      const emptyMsg = document.getElementById('badges-empty');
+      const badges = AlfaGamification.computeBadges(resultados, streak).filter(b => b.unlocked);
+      widget.querySelectorAll('.cyber-badge').forEach(el => el.remove());
+
+      if (badges.length === 0) {
+        emptyMsg.classList.remove('hidden');
+        return;
+      }
+      emptyMsg.classList.add('hidden');
+      badges.slice(-6).reverse().forEach(b => {
+        const el = document.createElement('div');
+        el.className = 'cyber-badge';
+        el.title = b.label + ': ' + b.desc;
+        el.innerHTML = '<i class="fa-solid ' + b.icon + '"></i>';
+        widget.appendChild(el);
+      });
+    }
+
+    function renderNotices(resultados, stats) {
+      const list = document.getElementById('notices-list');
+      const dot = document.getElementById('notif-dot');
+      const notices = [];
+
+      if (stats.totalSimulados === 0) {
+        notices.push({ icon: 'fa-flag-checkered', text: 'Você ainda não fez nenhum simulado — comece agora pelo Banco de Questões.', href: '#banco-questoes' });
+      } else {
+        const ultimo = resultados.slice().sort((a, b) => new Date(b.criado_em) - new Date(a.criado_em))[0];
+        if (ultimo) {
+          const dataFmt = new Date(ultimo.criado_em).toLocaleDateString('pt-BR');
+          notices.push({ icon: 'fa-clock-rotate-left', text: `Último estudo em ${dataFmt} — ${AlfaGamification.labelFor(ultimo.quiz_id)}.`, href: null });
+        }
+        if (stats.totalSimulados >= 3 && stats.percentualMedio < 60) {
+          notices.push({ icon: 'fa-triangle-exclamation', text: `Seu aproveitamento médio está em ${stats.percentualMedio}% — vale revisar os erros no Caderno de Estudos.`, href: 'caderno.html' });
+        }
+      }
+      notices.push({ icon: 'fa-book-bookmark', text: 'Resumos, caderno de erros e anotações organizados por matéria no Caderno de Estudos.', href: 'caderno.html' });
+
+      list.innerHTML = notices.map(n => {
+        const inner = '<i class="fa-solid ' + n.icon + '"></i><span>' + n.text + '</span>';
+        return n.href ? `<a href="${n.href}" class="notice-row hover:text-white transition-colors">${inner}</a>` : `<div class="notice-row">${inner}</div>`;
+      }).join('');
+
+      if (dot) dot.classList.toggle('hidden', notices.length === 0);
+    }
+
+    async function applyAccessLocks() {
+      let quizIds;
+      try {
+        const { data: acessos, error } = await sb.from('acessos').select('quiz_id').eq('user_id', currentUser.id);
+        if (error) throw error;
+        quizIds = (acessos || []).map(a => a.quiz_id);
+        AlfaGamification.setAccessCacheFull(currentUser.id, true, quizIds);
+      } catch (e) {
+        const cached = AlfaGamification.getAccessCache(currentUser.id);
+        quizIds = cached ? (cached.quizIds || []) : [];
+      }
+      const liberadas = new Set(quizIds);
+
+      document.querySelectorAll('[data-quiz-id]').forEach(card => {
+        const quizId = card.getAttribute('data-quiz-id');
+        if (liberadas.has(quizId)) {
+          card.classList.remove('hidden');
+        }
+        // Sem acesso: permanece com a classe "hidden" que já vem no HTML por padrão.
+      });
+
+      return liberadas;
+    }
+
+    function openSidebar() {
+      document.getElementById('sidebar').classList.remove('-translate-x-full');
+      document.getElementById('sidebar-overlay').classList.remove('hidden');
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.add('-translate-x-full');
+      document.getElementById('sidebar-overlay').classList.add('hidden');
+    }
+
+    function showAccessScreen() {
+      document.getElementById('access-screen').classList.remove('hidden');
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showForm('login-form');
+      const loginEmail = document.getElementById('login-email');
+      if (loginEmail) loginEmail.focus();
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyThemeIcon();
+      sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+      const flashcardsToggle = document.getElementById('flashcards-toggle');
+      const flashcardsPanel = document.getElementById('flashcards-panel');
+      const flashcardsChevron = document.getElementById('flashcards-chevron');
+      flashcardsPanel.classList.add('accordion-panel');
+
+      flashcardsToggle.addEventListener('click', () => {
+        const isOpening = !flashcardsPanel.classList.contains('open');
+        toggleAccordion(flashcardsPanel, flashcardsChevron, isOpening);
+      });
+
+      const bankToggle = document.getElementById('bank-toggle');
+      const bankPanel = document.getElementById('bank-panel');
+      const bankChevron = document.getElementById('bank-chevron');
+      bankPanel.classList.add('accordion-panel');
+
+      bankToggle.addEventListener('click', () => {
+        const isOpening = !bankPanel.classList.contains('open');
+        toggleAccordion(bankPanel, bankChevron, isOpening);
+      });
+
+      const segmentActiveCls = 'bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all bg-navy-600 text-ink';
+      const segmentInactiveCls = 'bank-segment-btn flex-1 text-xs font-medium py-2 rounded-lg transition-all text-slate-400 hover:text-ink';
+
+      function setSegment(segment) {
+        document.querySelectorAll('.bank-segment-btn').forEach(btn => {
+          btn.className = btn.getAttribute('data-segment') === segment ? segmentActiveCls : segmentInactiveCls;
+        });
+        document.getElementById('bank-segment-geral').classList.toggle('hidden', segment !== 'geral');
+        document.getElementById('bank-segment-naval').classList.toggle('hidden', segment !== 'naval');
+      }
+
+      document.querySelectorAll('.bank-segment-btn').forEach(btn => {
+        btn.addEventListener('click', () => setSegment(btn.getAttribute('data-segment')));
+      });
+
+      setSegment('geral');
+
+      // Fecha o menu lateral (mobile) ao navegar por qualquer link/ação dele.
+      document.querySelectorAll('.sidebar-link:not(#offline-download-btn)').forEach(el => el.addEventListener('click', closeSidebar));
+
+      // Realce do link ativo na barra lateral conforme a seção visível na tela.
+      const spySections = ['dashboard-top', 'prova-simulada', 'flashcards', 'banco-questoes']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+      if (spySections.length && 'IntersectionObserver' in window) {
+        const tabbarMap = { 'dashboard-top': 'inicio', 'banco-questoes': 'questoes' };
+        const spyObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            document.querySelectorAll('.sidebar-link[href^="#"]').forEach(l => l.classList.remove('active'));
+            const link = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
+            if (link) link.classList.add('active');
+            const tabbarKey = tabbarMap[entry.target.id];
+            if (tabbarKey) {
+              document.querySelectorAll('.tabbar-link').forEach(l => l.classList.remove('active'));
+              const tab = document.querySelector(`.tabbar-link[data-tabbar="${tabbarKey}"]`);
+              if (tab) tab.classList.add('active');
+            }
+          });
+        }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+        spySections.forEach(el => spyObserver.observe(el));
+      }
+
+      // Busca rápida por matéria/baralho: abre os acordeões e mostra os dois
+      // segmentos do Banco de Questões enquanto o usuário digita.
+      const searchInput = document.getElementById('dashboard-search');
+      if (searchInput) {
+        let segmentBeforeSearch = null;
+        searchInput.addEventListener('input', () => {
+          const q = searchInput.value.trim().toLowerCase();
+          const bankNaval = document.getElementById('bank-segment-naval');
+
+          if (q) {
+            if (!flashcardsPanel.classList.contains('open')) toggleAccordion(flashcardsPanel, flashcardsChevron, true);
+            if (!bankPanel.classList.contains('open')) toggleAccordion(bankPanel, bankChevron, true);
+            if (segmentBeforeSearch === null) {
+              segmentBeforeSearch = bankNaval.classList.contains('hidden') ? 'geral' : 'naval';
+            }
+            document.getElementById('bank-segment-geral').classList.remove('hidden');
+            bankNaval.classList.remove('hidden');
+          } else if (segmentBeforeSearch) {
+            setSegment(segmentBeforeSearch);
+            segmentBeforeSearch = null;
+          }
+
+          document.querySelectorAll('#flashcards-panel .flashcard-row, #bank-panel .topic-row, #recursos-grid .resource-card').forEach(row => {
+            const matches = !q || row.textContent.toLowerCase().indexOf(q) !== -1;
+            row.classList.toggle('search-hide', !matches);
+          });
+        });
+      }
+
+      sb.auth.onAuthStateChange((event, session) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          document.getElementById('access-screen').classList.remove('hidden');
+          showForm('recovery-form');
+          return;
+        }
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+
+      // Watchdog: se em 12s nada do Supabase respondeu (nem login nem sessão),
+      // mostra a tela de "demorando mais que o normal" em vez de deixar a
+      // pessoa travada numa tela carregando pra sempre sem explicação.
+      setTimeout(showLoadTimeoutFallback, 12000);
+    });
+  </script>
+
+  <script>
+    // Registro do Service Worker (PWA instalável, com cache offline).
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+        // Mantém tudo baixado e atualizado em segundo plano (no máximo a cada 12h).
+        AlfaOffline.autoDownload();
+        mostrarStatusOffline();
+      });
+    }
+
+    // ===== Baixar o site inteiro (páginas, apostilas, provas) pro aparelho =====
+    function mostrarStatusOffline(texto) {
+      const el = document.getElementById('offline-download-status');
+      if (!el) return;
+      if (texto) { el.textContent = texto; return; }
+      const t = AlfaOffline.lastDownloadAt();
+      el.textContent = t
+        ? `Pronto para usar sem internet. Atualizado em ${new Date(t).toLocaleDateString('pt-BR')} às ${new Date(t).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}.`
+        : 'Baixa todas as matérias, apostilas e provas para estudar sem internet.';
+    }
+
+    async function baixarParaOffline() {
+      if (!('serviceWorker' in navigator)) {
+        mostrarStatusOffline('Este navegador não permite uso offline.');
+        return;
+      }
+      if (navigator.onLine === false) {
+        mostrarStatusOffline('Conecte-se à internet para baixar.');
+        return;
+      }
+      const btn = document.getElementById('offline-download-btn');
+      btn.disabled = true;
+      btn.querySelector('i').className = 'fa-solid fa-circle-notch fa-spin';
+      try {
+        await navigator.serviceWorker.ready;
+        const r = await AlfaOffline.downloadAll((p) => {
+          mostrarStatusOffline(p.fase === 'paginas'
+            ? `Procurando páginas... (${p.feitos})`
+            : `Baixando ${p.feitos} de ${p.total} arquivos...`);
+        });
+        mostrarStatusOffline();
+        if (r.falhas) mostrarStatusOffline(`Baixado, mas ${r.falhas} arquivo(s) falharam. Tente de novo com uma conexão melhor.`);
+      } catch (e) {
+        mostrarStatusOffline('Não foi possível baixar agora. Tente de novo.');
+      } finally {
+        btn.disabled = false;
+        btn.querySelector('i').className = 'fa-solid fa-cloud-arrow-down';
+      }
+    }
+  </script>
+  <!-- Data da prova (só admin): definir uma nova data inicia um novo ciclo -->
+  <div id="data-prova-modal" class="hidden fixed inset-0 z-[120] bg-black/70 flex items-center justify-center px-4">
+    <div class="w-full max-w-md bg-[#0b1b30] border border-[#1E3E62] rounded-2xl p-6 text-slate-200 shadow-2xl">
+      <h2 class="font-serif text-xl font-semibold text-white mb-1"><i class="fa-solid fa-calendar-days text-[#e0c26f] mr-2"></i>Data da prova</h2>
+      <p class="text-xs text-slate-400 mb-4">Defina a data da próxima prova. A contagem regressiva aparece para todos os alunos.</p>
+      <label for="data-prova-input" class="block text-xs font-medium text-slate-300 mb-1">Nova data</label>
+      <input id="data-prova-input" type="date" class="w-full bg-[#06111f] border border-[#1E3E62] rounded-lg px-3 py-2 text-white mb-4">
+      <div class="rounded-lg border border-amber-500/50 bg-amber-500/10 p-3 text-xs text-amber-100 mb-5 leading-relaxed">
+        <p class="font-semibold mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Ao salvar, começa um novo ciclo para todos os alunos:</p>
+        <p>Ranking, desempenho, conquistas, simulados feitos, questões corretas, aproveitamento, matérias estudadas, cobertura e o progresso do banco de questões recomeçam do zero.</p>
+        <p class="mt-1 text-amber-200/80">Favoritos, flashcards, anotações, caderno de erros e itens lidos das apostilas continuam.</p>
+      </div>
+      <p id="data-prova-erro" class="hidden text-xs text-rose-300 mb-3"></p>
+      <div class="flex justify-end gap-2">
+        <button type="button" onclick="fecharDataProva()" class="px-4 py-2 rounded-lg text-sm text-slate-300 hover:text-white">Cancelar</button>
+        <button type="button" id="data-prova-salvar" onclick="salvarDataProva()" class="px-4 py-2 rounded-lg text-sm font-semibold bg-[#c9a44c] hover:bg-[#e0c26f] text-[#0b1b30]">Salvar e reiniciar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso de novo ciclo (aparece uma vez por aparelho) -->
+  <div id="ciclo-aviso-modal" class="hidden fixed inset-0 z-[120] bg-black/70 flex items-center justify-center px-4">
+    <div class="w-full max-w-md bg-[#0b1b30] border border-[#c9a44c] rounded-2xl p-6 text-slate-200 shadow-2xl">
+      <h2 class="font-serif text-xl font-semibold text-white mb-2"><i class="fa-solid fa-flag-checkered text-[#e0c26f] mr-2"></i>Novo ciclo de estudos</h2>
+      <p id="ciclo-aviso-texto" class="text-sm leading-relaxed mb-5"></p>
+      <div class="flex justify-end">
+        <button type="button" onclick="fecharAvisoCiclo()" class="px-4 py-2 rounded-lg text-sm font-semibold bg-[#c9a44c] hover:bg-[#e0c26f] text-[#0b1b30]">Entendi, vamos lá!</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== Data da prova e ciclo de estudos =====
+    function formatarDataProva(iso) {
+      const [a, m, d] = iso.split('-');
+      return `${d}/${m}/${a}`;
+    }
+
+    function abrirDataProva() {
+      if (!isAdmin) return;
+      const info = AlfaGamification.diasParaProva();
+      document.getElementById('data-prova-input').value = info ? info.data : '';
+      document.getElementById('data-prova-erro').classList.add('hidden');
+      document.getElementById('data-prova-modal').classList.remove('hidden');
+    }
+
+    function fecharDataProva() {
+      document.getElementById('data-prova-modal').classList.add('hidden');
+    }
+
+    async function salvarDataProva() {
+      const data = document.getElementById('data-prova-input').value;
+      const erro = document.getElementById('data-prova-erro');
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(data)) {
+        erro.textContent = 'Escolha uma data.';
+        erro.classList.remove('hidden');
+        return;
+      }
+      if (!confirm(`Confirmar a prova em ${formatarDataProva(data)}?\n\nIsso reinicia ranking, desempenho, conquistas e o banco de questões de TODOS os alunos.`)) return;
+      const btn = document.getElementById('data-prova-salvar');
+      btn.disabled = true;
+      try {
+        await AlfaCiclo.setDataProva(sb, data);
+        await AlfaCiclo.applyCycle(sb, currentUser.id);
+        fecharDataProva();
+        await renderDashboardData(ultimasLiberadas);
+        mostrarAvisoCiclo();
+      } catch (e) {
+        erro.textContent = 'Não foi possível salvar. Confira a internet e se o script supabase_ciclo_prova.sql já foi rodado no Supabase.';
+        erro.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function mostrarAvisoCiclo() {
+      if (!currentUser || !AlfaCiclo.precisaAviso(currentUser.id)) return;
+      const info = AlfaGamification.diasParaProva();
+      const inicio = new Date(AlfaCiclo.inicio()).toLocaleDateString('pt-BR');
+      document.getElementById('ciclo-aviso-texto').innerHTML =
+        `A data da prova foi atualizada${info ? ` para <strong class="text-white">${formatarDataProva(info.data)}</strong>` : ''} e um novo ciclo começou em ${inicio}. ` +
+        'Por isso foram reiniciados: <strong class="text-white">ranking, desempenho, conquistas, simulados feitos, questões corretas, aproveitamento, matérias estudadas, cobertura e o banco de questões</strong>. ' +
+        'Seus favoritos, flashcards, anotações, caderno de erros e itens lidos continuam salvos.';
+      document.getElementById('ciclo-aviso-modal').classList.remove('hidden');
+    }
+
+    function fecharAvisoCiclo() {
+      document.getElementById('ciclo-aviso-modal').classList.add('hidden');
+      if (currentUser) AlfaCiclo.marcarAvisado(currentUser.id);
+    }
+  </script>
+</body>
+</html>

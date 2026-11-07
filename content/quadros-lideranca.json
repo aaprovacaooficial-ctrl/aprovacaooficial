@@ -1,0 +1,605 @@
+{
+ "slug": "lideranca",
+ "quadros": [
+  {
+   "titulo": "Conceitos Básicos",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Liderança (MB)",
+     "def": "\"Processo que consiste em influenciar pessoas no sentido de que ajam, voluntariamente, em prol do cumprimento da missão.\"",
+     "itens": "Palavra-chave: VOLUNTARIAMENTE",
+     "ex": "Processo dinâmico e progressivo de aprendizado."
+    },
+    {
+     "nome": "Chefia",
+     "def": "Ações e decisões do mais antigo, com autoridade, na sua esfera de competência.",
+     "itens": "Autoridade da função + posto/graduação",
+     "ex": "Chefe = investido em cargo."
+    },
+    {
+     "nome": "Líder",
+     "def": "Condutor de pessoas que influencia e inspira.",
+     "itens": "Papel de \"condutor de homens\"",
+     "ex": "Capacidade de influenciar."
+    },
+    {
+     "nome": "Comandar",
+     "def": "Exercer chefia E liderança para conduzir a organização na missão.",
+     "itens": "Chefe + líder",
+     "ex": "Não são alternativos: são simultâneos e complementares."
+    },
+    {
+     "nome": "Elementos básicos",
+     "def": "Grupo, Situação e Líder.",
+     "itens": "Tríade",
+     "ex": "Não confundir com agentes."
+    },
+    {
+     "nome": "Agentes",
+     "def": "Líder, Liderados e Relações.",
+     "itens": "Implícitos na definição",
+     "ex": "Agentes x elementos."
+    }
+   ]
+  },
+  {
+   "titulo": "Aspectos Fundamentais",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Filosóficos",
+     "def": "Senso crítico para examinar a situação e decidir.",
+     "itens": "Axiologia: teoria dos valores, parte mais nobre da Filosofia",
+     "ex": "Hierarquizar valores morais acima dos materiais."
+    },
+    {
+     "nome": "Psicológicos",
+     "def": "Liderança é realizar objetivos com e através de pessoas.",
+     "itens": "Hersey e Blanchard · inteligência emocional (QE)",
+     "ex": "Autoconhecimento e conhecer os subordinados."
+    },
+    {
+     "nome": "Sociológicos",
+     "def": "Liderança como relação e interação social.",
+     "itens": "Militares e a Marinha são subculturas",
+     "ex": "Líder, liderados e contexto."
+    },
+    {
+     "nome": "Cooperação",
+     "def": "Trabalhar em conjunto; opção pelo coletivo.",
+     "itens": "Forma ideal de atuação",
+     "ex": "Nem sempre possível sozinha."
+    },
+    {
+     "nome": "Competição",
+     "def": "Luta por recompensas de oferta limitada.",
+     "itens": "Pessoal (rivais se conhecem) ou impessoal (concursos)",
+     "ex": "Deve ser saudável; pode virar conflito."
+    },
+    {
+     "nome": "Conflito",
+     "def": "Exacerbação da competição: eliminar ou enfraquecer rivais.",
+     "itens": "Cumulativo · pode chegar à violência",
+     "ex": "Tem lado positivo: autocrítica e revisão."
+    }
+   ]
+  },
+  {
+   "titulo": "Os 7 Estilos de Liderança",
+   "rotulos": {
+    "itens": "Eixo",
+    "ex": "Quando usar / cuidado"
+   },
+   "linhas": [
+    {
+     "nome": "Centralizadora",
+     "def": "Autoridade formal, disciplina rígida, afastamento e inspeções.",
+     "itens": "Grau de centralização de poder",
+     "ex": "Útil em combate e decisão rápida; tolhe a iniciativa."
+    },
+    {
+     "nome": "Participativa (Democrática)",
+     "def": "Grupo opina; decisão final do líder.",
+     "itens": "Grau de centralização · ex.: Estado-Maior",
+     "ex": "Chefe inseguro acaba conduzido pelo grupo."
+    },
+    {
+     "nome": "Delegativa",
+     "def": "Assessores decidem assuntos técnicos por si.",
+     "itens": "Grau de centralização",
+     "ex": "Gente muito qualificada; delegar sem perder o controle."
+    },
+    {
+     "nome": "Transformacional",
+     "def": "Líder e seguidores elevam um ao outro em motivação e moral.",
+     "itens": "Tipo de incentivo · Burns",
+     "ex": "Pressão, crise e mudança."
+    },
+    {
+     "nome": "Transacional",
+     "def": "Recompensas econômicas ou psicológicas em troca de esforço.",
+     "itens": "Tipo de incentivo · recompensa contingente",
+     "ex": "Administração por exceção: corrige desvios."
+    },
+    {
+     "nome": "Orientada para Tarefa",
+     "def": "Foco no desempenho, padrões e maneiras de fazer.",
+     "itens": "Foco do líder",
+     "ex": "Orientações específicas."
+    },
+    {
+     "nome": "Orientada para Relacionamento",
+     "def": "Foco nas relações, clima e moral do grupo.",
+     "itens": "Foco do líder",
+     "ex": "Tensão, frustração e desmotivação."
+    }
+   ]
+  },
+  {
+   "titulo": "Transformacional: 4 Aspectos",
+   "rotulos": {
+    "itens": "Detalhe",
+    "ex": "Palavra-chave"
+   },
+   "linhas": [
+    {
+     "nome": "Carisma (influência idealizada)",
+     "def": "Poder de referência que desperta respeito, confiança e admiração.",
+     "itens": "1º aspecto",
+     "ex": "Admiração."
+    },
+    {
+     "nome": "Inspiração motivadora",
+     "def": "Apresentar uma visão, dar sentido à missão, criar símbolos e slogans.",
+     "itens": "2º aspecto",
+     "ex": "Visão."
+    },
+    {
+     "nome": "Estimulação intelectual",
+     "def": "Encorajar a questionar o modo usual e a criatividade.",
+     "itens": "3º aspecto",
+     "ex": "Questionar."
+    },
+    {
+     "nome": "Consideração individualizada",
+     "def": "Atenção pessoal às necessidades de cada subordinado.",
+     "itens": "4º aspecto",
+     "ex": "Cada um."
+    }
+   ]
+  },
+  {
+   "titulo": "Seleção de Estilo e Fatores",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Variáveis do estilo",
+     "def": "Qualidade da decisão, aceitação, tempo, riscos, produtividade x satisfação, maturidade.",
+     "itens": "Abordagem situacional (contingencial)",
+     "ex": "Não existe uma melhor forma de liderar."
+    },
+    {
+     "nome": "Grupo pouco maduro",
+     "def": "Mais centralização, foco na tarefa, incentivos transacionais.",
+     "itens": "Licença, rancho, conforto",
+     "ex": "Imaturo → centraliza."
+    },
+    {
+     "nome": "Grupo maduro",
+     "def": "Menos centralização, incentivos de autorrealização.",
+     "itens": "Estilo transformacional",
+     "ex": "Maduro → transforma."
+    },
+    {
+     "nome": "Fator: o Líder",
+     "def": "Conhecer a si mesmo; bons líderes são bons seguidores.",
+     "itens": "IP 20-10 (Exército, 1991)",
+     "ex": "Modifica o comportamento dos liderados."
+    },
+    {
+     "nome": "Fator: os Liderados",
+     "def": "Conhecer a natureza humana, necessidades e emoções.",
+     "itens": "Base para delegar",
+     "ex": "Conhecer os homens."
+    },
+    {
+     "nome": "Fator: a Situação",
+     "def": "Não há fórmulas; aplicar o conhecimento a cada caso.",
+     "itens": "Cultura organizacional",
+     "ex": "Prática exaustiva."
+    },
+    {
+     "nome": "Fator: a Comunicação",
+     "def": "Troca de ordens, informações e ideias; só ocorre quando compreendida.",
+     "itens": "Base da disciplina e da coesão",
+     "ex": "Palavras com o mesmo sentido para todos."
+    }
+   ]
+  },
+  {
+   "titulo": "Níveis de Liderança",
+   "rotulos": {
+    "itens": "Onde",
+    "ex": "Marca"
+   },
+   "linhas": [
+    {
+     "nome": "Direta",
+     "def": "Face a face, contato constante; primeira linha.",
+     "itens": "Seções, divisões, navios, companhias, pelotões",
+     "ex": "Vê os resultados quase de imediato."
+    },
+    {
+     "nome": "Organizacional",
+     "def": "Influência indireta por políticas, diretivas e staff.",
+     "itens": "Organizações maiores, com Estado-Maior",
+     "ex": "Resultados menos visíveis; presença em momentos críticos."
+    },
+    {
+     "nome": "Estratégica",
+     "def": "Níveis que definem política e estratégia da Força.",
+     "itens": "Cúpula",
+     "ex": "Prepara hoje a instituição para o amanhã."
+    }
+   ]
+  },
+  {
+   "titulo": "Exercício da Liderança na MB",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Liderança Naval",
+     "def": "Influência em todos os escalões, harmonizando instituição e interesses pessoais.",
+     "itens": "Só no âmbito INTERNO",
+     "ex": "No externo busca-se persuasão."
+    },
+    {
+     "nome": "Ética Militar Naval",
+     "def": "Princípios, valores, costumes, normas e regulamentos da conduta.",
+     "itens": "Estatuto arts. 27 e 28, Rosa das Virtudes, Juramento",
+     "ex": "Base da liderança naval."
+    },
+    {
+     "nome": "Carreirismo",
+     "def": "Pôr egoisticamente os próprios interesses acima do grupo.",
+     "itens": "Atitude desagregadora",
+     "ex": "A Ética o inibe."
+    },
+    {
+     "nome": "Autoconfiança",
+     "def": "Atributo prioritário para assumir cargos.",
+     "itens": "Preparo + habilidade de transmitir + satisfação",
+     "ex": "Três origens."
+    },
+    {
+     "nome": "Tornar-se referência",
+     "def": "Sinceridade, obediência, verdade, justiça, esporte, respeito, coesão, criatividade.",
+     "itens": "Procedimentos do líder",
+     "ex": "Conhecer também os deveres dos postos acima."
+    },
+    {
+     "nome": "Lema",
+     "def": "\"É na paz que se constrói a liderança para a guerra.\"",
+     "itens": "Avaliação contínua ao longo da carreira",
+     "ex": "Estudos de Casos nos adestramentos."
+    },
+    {
+     "nome": "Com outras Forças",
+     "def": "Atenção a terminologia, regulamentos, hierarquia e atividades.",
+     "itens": "Ponto de partida: dever militar (valor e ética)",
+     "ex": "Estatuto dos Militares."
+    },
+    {
+     "nome": "Com estrangeiros",
+     "def": "Diferenças culturais, sociais e religiosas.",
+     "itens": "Representa a Nação",
+     "ex": "O mais complexo."
+    },
+    {
+     "nome": "Com civis",
+     "def": "Sem ascendência hierárquica: negociação e comunicação.",
+     "itens": "Poder: conhecimento, relações, carisma",
+     "ex": "Influência sem hierarquia."
+    }
+   ]
+  },
+  {
+   "titulo": "Atributos de um Líder (Anexo A)",
+   "rotulos": {
+    "itens": "Definição",
+    "ex": "Palavra-chave"
+   },
+   "linhas": [
+    {
+     "nome": "Exemplo",
+     "def": "Apresentação e comportamento coerentes com os valores, sempre.",
+     "itens": "O que mais se exige do líder",
+     "ex": "Exemplo."
+    },
+    {
+     "nome": "Integridade Ética",
+     "def": "Honestidade, transparência e compromisso com os valores.",
+     "itens": "Inclui Lealdade, Coragem e Caráter",
+     "ex": "Ética."
+    },
+    {
+     "nome": "Coragem física x moral",
+     "def": "Física: superar medo do dano · Moral: defender convicções e assumir erros.",
+     "itens": "Parte da Integridade Ética",
+     "ex": "Moral = assumir responsabilidade."
+    },
+    {
+     "nome": "Caráter",
+     "def": "Traços que dão consistência ao comportamento, com base em valores.",
+     "itens": "Honestidade e integridade",
+     "ex": "Consistência."
+    },
+    {
+     "nome": "Humildade",
+     "def": "Saber que pode não saber tudo e aceitar ajuda.",
+     "itens": "Mais modernos podem saber mais",
+     "ex": "Não sabe tudo."
+    },
+    {
+     "nome": "Competência Profissional",
+     "def": "Conhecimentos, habilidades e atitudes em sinergia.",
+     "itens": "CHA",
+     "ex": "Desempenho."
+    },
+    {
+     "nome": "Determinação",
+     "def": "Persistência até concluir com eficácia, no prazo.",
+     "itens": "Vencer dificuldades",
+     "ex": "Persistir."
+    },
+    {
+     "nome": "Entusiasmo",
+     "def": "Vibração espontânea e contagiante.",
+     "itens": "Assumir desafios",
+     "ex": "Vibração."
+    },
+    {
+     "nome": "Capacidade Decisória",
+     "def": "Escolher em tempo hábil a melhor linha de ação.",
+     "itens": "Decisões impopulares com firmeza",
+     "ex": "Firme, não irredutível."
+    },
+    {
+     "nome": "Autoconfiança / Autocontrole",
+     "def": "Convicção de competência / humor estável sob pressão.",
+     "itens": "Segurança e otimismo · equilíbrio",
+     "ex": "Pressão."
+    },
+    {
+     "nome": "Flexibilidade",
+     "def": "Integrar ideias novas e adaptar-se.",
+     "itens": "Agir diferente em situações diferentes",
+     "ex": "Adaptar."
+    },
+    {
+     "nome": "Altruísmo",
+     "def": "Pôr-se no lugar dos liderados.",
+     "itens": "Interesse genuíno",
+     "ex": "Empatia."
+    },
+    {
+     "nome": "Respeito / Relacionamento",
+     "def": "Dignidade humana, tato, imparcialidade, papel de mentor.",
+     "itens": "Feedback construtivo",
+     "ex": "Tato."
+    },
+    {
+     "nome": "Comunicação",
+     "def": "Persuadir e inspirar; clareza oral e escrita.",
+     "itens": "Ordens mal executadas por falta de clareza de quem deu",
+     "ex": "Clareza."
+    },
+    {
+     "nome": "Iniciativa",
+     "def": "Deliberar bem em imprevistos ou na ausência dos superiores.",
+     "itens": "Dentro da doutrina",
+     "ex": "Imprevisto."
+    },
+    {
+     "nome": "Senso de Justiça",
+     "def": "Julgar imparcialmente pelo mérito.",
+     "itens": "Sem preconceitos",
+     "ex": "Imparcial."
+    }
+   ]
+  },
+  {
+   "titulo": "Juramento e Rosa das Virtudes (Anexo B)",
+   "rotulos": {
+    "itens": "Definição",
+    "ex": "Frase-chave"
+   },
+   "linhas": [
+    {
+     "nome": "Juramento à Bandeira",
+     "def": "Braço direito estendido, mão aberta, palma para baixo, diante da Bandeira desfraldada.",
+     "itens": "Art. 176 do Regulamento de Continências",
+     "ex": "\"…defenderei com o sacrifício da própria vida.\""
+    },
+    {
+     "nome": "Honra",
+     "def": "Prática do Bem, da Justiça e da Moral.",
+     "itens": "Virtude por excelência; contém todas",
+     "ex": "\"Um navio nunca se entrega ao inimigo.\""
+    },
+    {
+     "nome": "Lealdade",
+     "def": "Devotamento espontâneo e incansável; obediência sincera.",
+     "itens": "Mais do que obediência",
+     "ex": "Franqueza respeitosa é lealdade."
+    },
+    {
+     "nome": "Iniciativa",
+     "def": "Ânimo pronto para conceber e executar.",
+     "itens": "Vê onde aperfeiçoar",
+     "ex": "Deliberar no imprevisto."
+    },
+    {
+     "nome": "Cooperação",
+     "def": "Auxiliar eficiente e desinteressadamente.",
+     "itens": "Faz a eficiência da Marinha",
+     "ex": "Contra egoísmo e intriga."
+    },
+    {
+     "nome": "Espírito de Sacrifício",
+     "def": "Oferecer interesses, comodidades e a vida pelo dever.",
+     "itens": "Vencer pequenos incômodos",
+     "ex": "\"Quem não é fiel no pouco…\""
+    },
+    {
+     "nome": "Zelo",
+     "def": "Comum a todos; não depende de preparo especial.",
+     "itens": "Amor próprio, à Marinha e à Nação · ligado à probidade",
+     "ex": "Serve-se à Nação, não a pessoas."
+    },
+    {
+     "nome": "Coragem",
+     "def": "Dominar o medo; destemor em combate; também coragem moral.",
+     "itens": "Com sabedoria e prudência",
+     "ex": "Otimista e confiante."
+    },
+    {
+     "nome": "Ordem",
+     "def": "Diligência (economiza tempo) e previdência (conserva).",
+     "itens": "Disciplina e método",
+     "ex": "Tempo perdido não volta."
+    },
+    {
+     "nome": "Fidelidade",
+     "def": "Honestidade para agir pelo bem contra conveniências.",
+     "itens": "Não cuidar de assuntos estranhos em serviço",
+     "ex": "Ordens difíceis são mais dignas."
+    },
+    {
+     "nome": "Fogo Sagrado",
+     "def": "Paixão, fé e entusiasmo pela carreira.",
+     "itens": "Ir além do dever",
+     "ex": "\"A alma da Marinha!\""
+    },
+    {
+     "nome": "Tenacidade",
+     "def": "Saber querer longamente, sem trégua.",
+     "itens": "Aplicação: estudar material e regulamentos",
+     "ex": "Continuidade da ação."
+    },
+    {
+     "nome": "Decisão",
+     "def": "Tomar resolução e orientar a ação.",
+     "itens": "Exame de situação antes da ordem",
+     "ex": "O que mais aumenta respeito e confiança."
+    },
+    {
+     "nome": "Abnegação",
+     "def": "Esquecer o egoísmo em proveito de uma causa.",
+     "itens": "Consciência do \"servir\"",
+     "ex": "Unidade de ação."
+    },
+    {
+     "nome": "Espírito Militar",
+     "def": "Cumprir os deveres querendo ver brilhar navio, classe e Marinha.",
+     "itens": "Apuro do uniforme, saudação, discrição",
+     "ex": "Compostura."
+    },
+    {
+     "nome": "Disciplina",
+     "def": "Força de coesão; único inimigo: o egoísmo.",
+     "itens": "Obediência pronta, energia, cooperação",
+     "ex": "Inseparável da hierarquia."
+    },
+    {
+     "nome": "Patriotismo",
+     "def": "Sentimento que prende à terra natal.",
+     "itens": "Hino e Bandeira",
+     "ex": "Bem querer, servir, honrar e defender."
+    }
+   ]
+  },
+  {
+   "titulo": "Expedição de Ordens (Anexo C)",
+   "rotulos": {
+    "itens": "Detalhe",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Ser claro",
+     "def": "Palavras com o mesmo significado para chefe e subordinado.",
+     "itens": "Sobretudo por escrito",
+     "ex": "Clareza é essencial."
+    },
+    {
+     "nome": "Tom de voz",
+     "def": "Firme, natural e vigoroso.",
+     "itens": "Sem exasperação nem fadiga",
+     "ex": "Firme."
+    },
+    {
+     "nome": "Evitar ordens simultâneas",
+     "def": "Várias ao mesmo tempo geram confusão.",
+     "itens": "Uma por vez",
+     "ex": "Não empilhar."
+    },
+    {
+     "nome": "Ordens simples e em sequência",
+     "def": "As mais importantes primeiro.",
+     "itens": "Ordem de prioridade",
+     "ex": "Prioridade."
+    },
+    {
+     "nome": "Mínimo de ordens negativas",
+     "def": "Dê conteúdo positivo: o que DEVE ser feito.",
+     "itens": "Negativas são contraproducentes",
+     "ex": "Positivo."
+    },
+    {
+     "nome": "Evitar contraditórias",
+     "def": "Mudança só com razões fundadas e ciência do subordinado.",
+     "itens": "Chefe parece inseguro",
+     "ex": "Coerência."
+    },
+    {
+     "nome": "Atenção e memória",
+     "def": "Ordem curta e clara; verificar se foi compreendida.",
+     "itens": "Recepção, transmissão e execução",
+     "ex": "Confira o entendimento."
+    },
+    {
+     "nome": "Normas de Beckman",
+     "def": "Informar-se, instruções breves, pedir que repita, não importunar, usar os canais.",
+     "itens": "18 normas (a a r)",
+     "ex": "Não infringir as linhas de autoridade."
+    },
+    {
+     "nome": "Quando escrever",
+     "def": "Outro local, números ou detalhes, responsabilidade estrita, importância, boletim, ordens gerais.",
+     "itens": "7 situações de Beckman",
+     "ex": "Séria responsabilidade: por escrito se o subalterno pedir."
+    },
+    {
+     "nome": "Explicar a finalidade?",
+     "def": "Nem sempre é possível.",
+     "itens": "Combate e emergências",
+     "ex": "Exceção comentada."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,533 @@
+{
+ "slug": "justica-disciplina",
+ "quadros": [
+  {
+   "titulo": "Conceitos básicos",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Sindicância",
+     "def": "Procedimento administrativo sumário e preparatório para apurar fatos.",
+     "itens": "Cap. 3",
+     "ex": "Não é processo: não pune por si."
+    },
+    {
+     "nome": "Polícia Judiciária Militar (PJM)",
+     "def": "Apura crimes militares e sua autoria.",
+     "itens": "CPPM",
+     "ex": "Controle externo: MPM."
+    },
+    {
+     "nome": "IPM",
+     "def": "Inquérito para apurar crime militar e sua autoria.",
+     "itens": "Cap. 8 · art. 9º CPM",
+     "ex": "Peça informativa para o MPM."
+    },
+    {
+     "nome": "Indiciado",
+     "def": "A quem se atribui a autoria no IPM.",
+     "itens": "Maior de 18 anos",
+     "ex": "Réu = já denunciado em ação penal."
+    },
+    {
+     "nome": "Crime militar",
+     "def": "Definido no CPM.",
+     "itens": "Art. 9º (paz) · art. 10 (guerra)",
+     "ex": "Transgressão ≠ crime."
+    },
+    {
+     "nome": "Contravenção",
+     "def": "Infração penal de menor gravidade.",
+     "itens": "—",
+     "ex": "Crime + contravenção da mesma natureza: sem PAD."
+    },
+    {
+     "nome": "MP e MPM",
+     "def": "Titular da ação penal pública; o MPM atua na Justiça Militar.",
+     "itens": "Ação penal privativa",
+     "ex": "Requisição do MP: cumprimento obrigatório."
+    },
+    {
+     "nome": "STF",
+     "def": "Cúpula do Poder Judiciário.",
+     "itens": "11 Ministros",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Controle de militares processados",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Comunicação do militar",
+     "def": "Deve comunicar imediatamente, por escrito, qualquer processo ou ocorrência.",
+     "itens": "Obrigação do próprio militar",
+     "ex": "Por escrito e imediatamente."
+    },
+    {
+     "nome": "Comunicação da OM",
+     "def": "Informa DPMM/CPesFN por mensagem + ofício.",
+     "itens": "Resumo semestral: dia 10 de fevereiro e de agosto",
+     "ex": "Datas: 10/fev e 10/ago."
+    },
+    {
+     "nome": "Agregação",
+     "def": "Deixa a vaga e permanece sem número no Quadro.",
+     "itens": "Desertor · suspenso · preso cautelar na Justiça Comum · condenado a mais de 6 meses (trânsito em julgado)",
+     "ex": "Ato do CM ou autoridade delegada."
+    },
+    {
+     "nome": "Reversão",
+     "def": "Retorno do agregado ao Quadro.",
+     "itens": "Absolvição ou condenação ≤ 6 meses",
+     "ex": "Agregação ↔ reversão."
+    },
+    {
+     "nome": "Independência das instâncias",
+     "def": "Penal, civil e administrativa são independentes.",
+     "itens": "—",
+     "ex": "Exceção: falta residual."
+    },
+    {
+     "nome": "Sub judice",
+     "def": "Militar respondendo a processo.",
+     "itens": "—",
+     "ex": "Não é mencionado em solenidades."
+    }
+   ]
+  },
+  {
+   "titulo": "Efeitos na carreira",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Quadro de Acesso",
+     "def": "Não entra: denunciado, submetido a CJ ex officio, condenado, desertor, preso.",
+     "itens": "Promoção",
+     "ex": "Decore os 5 casos."
+    },
+    {
+     "nome": "Deslocamento",
+     "def": "Não pode sair da sede do Foro sem autorização.",
+     "itens": "—",
+     "ex": "Fica à disposição da Justiça."
+    },
+    {
+     "nome": "Reserva a pedido",
+     "def": "Vedada a quem responde a inquérito, processo, cumpre pena ou responde a PAD.",
+     "itens": "—",
+     "ex": "Compulsória continua possível."
+    },
+    {
+     "nome": "Tempo não computado",
+     "def": "Suspensão, pena privativa de liberdade e tempo como desertor.",
+     "itens": "Exceção: quota compulsória",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Sindicância",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Natureza",
+     "def": "Sumária e preparatória.",
+     "itens": "Cap. 3",
+     "ex": "Vedado: prisão, exumação, busca domiciliar."
+    },
+    {
+     "nome": "Instauração",
+     "def": "Portaria de Instauração.",
+     "itens": "Em até 48 h",
+     "ex": "48 h, igual ao IPM."
+    },
+    {
+     "nome": "Encarregado",
+     "def": "Mais antigo que o suposto autor.",
+     "itens": "—",
+     "ex": "Antiguidade sobre o sindicado."
+    },
+    {
+     "nome": "Escrivão",
+     "def": "Oficial Subalterno se envolver oficial; senão SO/Sgt.",
+     "itens": "Ad hoc se não houver",
+     "ex": "Envolvendo oficial: grau RESERVADO."
+    },
+    {
+     "nome": "Oitivas",
+     "def": "Ordem: ofendido → testemunhas → sindicado.",
+     "itens": "Recusa de assinar: 2 testemunhas",
+     "ex": "Sindicado por último."
+    },
+    {
+     "nome": "Prazo",
+     "def": "Até 40 dias; total preferencialmente ≤ 60.",
+     "itens": "Sem prazo mínimo",
+     "ex": "40 dias."
+    },
+    {
+     "nome": "Relatório e solução",
+     "def": "Relatório em 2 partes; solução da autoridade.",
+     "itens": "Solução em 10 dias",
+     "ex": "Indício de crime → abre IPM."
+    },
+    {
+     "nome": "Arquivo",
+     "def": "Fica na OM e depois vai para a DPHDM.",
+     "itens": "5 anos na OM",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "IPM — Inquérito Policial Militar",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Finalidade",
+     "def": "Apurar crime militar e autoria.",
+     "itens": "Art. 9º CPM",
+     "ex": "Obrigatório se militar desaparecido."
+    },
+    {
+     "nome": "Dispensa",
+     "def": "O Auto de Prisão em Flagrante pode substituir o IPM.",
+     "itens": "—",
+     "ex": "APF basta para a denúncia."
+    },
+    {
+     "nome": "Delegação",
+     "def": "A oficial de posto superior ao do indiciado.",
+     "itens": "Portaria em 48 h",
+     "ex": "Encarregado: no mínimo Capitão-Tenente."
+    },
+    {
+     "nome": "Prazo",
+     "def": "20 dias com indiciado preso; 40 dias solto.",
+     "itens": "Art. 20 CPPM",
+     "ex": "Prorrogação pedida ao ComImSup."
+    },
+    {
+     "nome": "Arquivamento",
+     "def": "A autoridade NÃO pode arquivar.",
+     "itens": "Remessa ao Juiz-Auditor da CJM",
+     "ex": "Só o Juiz/MPM arquivam."
+    },
+    {
+     "nome": "Punição",
+     "def": "Não se pune só com base no IPM (sem contraditório).",
+     "itens": "Abre PAD",
+     "ex": "Contraditório e ampla defesa."
+    },
+    {
+     "nome": "Indiciado preso",
+     "def": "Capa com \"PRESO\" em tinta vermelha.",
+     "itens": "URGENTE",
+     "ex": "—"
+    },
+    {
+     "nome": "Testemunhas",
+     "def": "As da sindicância devem ser reinquiridas.",
+     "itens": "—",
+     "ex": "Sindicância não vale como prova no IPM."
+    }
+   ]
+  },
+  {
+   "titulo": "Crime propriamente x impropriamente militar",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Propriamente militar",
+     "def": "Só o militar pode cometer (motim, revolta, insubordinação, deserção…).",
+     "itens": "Detenção sem flagrante nem ordem judicial",
+     "ex": "Exceção constitucional à ordem judicial."
+    },
+    {
+     "nome": "Impropriamente militar",
+     "def": "Previsto também na lei comum (furto, lesão…).",
+     "itens": "Exige preventiva do Juiz-Auditor",
+     "ex": "Fora do flagrante, só com ordem judicial."
+    },
+    {
+     "nome": "Crime permanente",
+     "def": "A consumação se prolonga (ex.: deserção).",
+     "itens": "Flagrante enquanto durar",
+     "ex": "Desertor está sempre em flagrante."
+    }
+   ]
+  },
+  {
+   "titulo": "Deserção",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Conceito",
+     "def": "Ausência sem licença por mais de 8 dias.",
+     "itens": "Arts. 187 a 194 CPM",
+     "ex": "8 dias completos."
+    },
+    {
+     "nome": "Parte de Ausência",
+     "def": "Em D+1.",
+     "itens": "Oficial: Imediato · Praça: Encarregado de Pessoal/Divisão",
+     "ex": "—"
+    },
+    {
+     "nome": "Consumação",
+     "def": "Em D+9, à zero hora.",
+     "itens": "Parte + Termo de Deserção",
+     "ex": "Termo: Comandante + 2 testemunhas; publicado em OS."
+    },
+    {
+     "nome": "Deserção especial",
+     "def": "Deixar de se apresentar à partida do navio/aeronave.",
+     "itens": "Art. 190 · imediata",
+     "ex": "Não espera 8 dias."
+    },
+    {
+     "nome": "Situação do desertor",
+     "def": "Praça sem estabilidade/especial: excluída · praça estável e oficial: agregados.",
+     "itens": "—",
+     "ex": "Exclusão x agregação."
+    },
+    {
+     "nome": "Espólio",
+     "def": "Entregue à família.",
+     "itens": "Após 90 dias sem captura",
+     "ex": "90 dias."
+    },
+    {
+     "nome": "IPD",
+     "def": "Instrução Provisória de Deserção.",
+     "itens": "Peça informativa",
+     "ex": "Não julgado em 60 dias → solto."
+    },
+    {
+     "nome": "Captura/apresentação",
+     "def": "Inspeção de saúde.",
+     "itens": "Sem estabilidade apto: reincluído · estável: revertido",
+     "ex": "Estável reverte independente da inspeção."
+    },
+    {
+     "nome": "Audiência de custódia",
+     "def": "Apresentação sem demora ao juiz.",
+     "itens": "Resolução 228/2016 (JMU)",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Prisão em flagrante",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Quem determina a lavratura",
+     "def": "Comandante ou Oficial de Serviço/Quarto.",
+     "itens": "Cap. 10",
+     "ex": "—"
+    },
+    {
+     "nome": "Quem prende",
+     "def": "Qualquer pessoa pode; militares devem prender desertor/insubmisso.",
+     "itens": "—",
+     "ex": "\"Pode\" x \"deve\"."
+    },
+    {
+     "nome": "Auto (APF)",
+     "def": "Exige testemunhas.",
+     "itens": "Mínimo 2 testemunhas",
+     "ex": "—"
+    },
+    {
+     "nome": "Escrivão",
+     "def": "Oficial Intermediário/Subalterno se o preso for oficial; SO/Sgt se praça.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Nota de Culpa",
+     "def": "Entregue ao preso.",
+     "itens": "Em 24 h",
+     "ex": "24 h."
+    },
+    {
+     "nome": "Insubordinação/desacato",
+     "def": "Primeiro alerta, depois voz de prisão.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Transferência",
+     "def": "Para outra jurisdição só com autorização do Juiz-Auditor.",
+     "itens": "—",
+     "ex": "Menor infrator → Delegacia da Criança."
+    }
+   ]
+  },
+  {
+   "titulo": "Execução penal na MB",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Espécies de prisão",
+     "def": "Definitiva (sentença transitada) · civil (alimentos) · administrativa (disciplinar/estrangeiro) · provisória.",
+     "itens": "Provisória: flagrante, preventiva, temporária, pronúncia, sentença recorrível",
+     "ex": "4 espécies."
+    },
+    {
+     "nome": "Prerrogativa",
+     "def": "Militar cumpre prisão em OM da sua Força, com titular de maior precedência.",
+     "itens": "Perde a condição militar → sistema comum",
+     "ex": "Polícia só prende militar em flagrante."
+    },
+    {
+     "nome": "Responsáveis",
+     "def": "DPMM: orientação técnica · Com do DN: supervisão (Núcleos de PJM).",
+     "itens": "Art. 68 CPM: pode cumprir em outro DN",
+     "ex": "—"
+    },
+    {
+     "nome": "Ordem de recolhimento",
+     "def": "PM → GptFN da área → OM mais próxima → Exército/Aeronáutica → PM/Bombeiros → sistema comum.",
+     "itens": "Art. 61 CPM",
+     "ex": "Juízo cientificado antes de transferências."
+    },
+    {
+     "nome": "Penas privativas",
+     "def": "Reclusão, detenção e prisão.",
+     "itens": "Art. 55 CPM",
+     "ex": "Até 2 anos: convertida em prisão · mais de 2 anos: penitenciária militar."
+    },
+    {
+     "nome": "Algemas",
+     "def": "Só em imperiosa necessidade (fuga ou agressão).",
+     "itens": "Art. 234 § 1º CPPM",
+     "ex": "Oficial preso não é transportado com o preso comum."
+    },
+    {
+     "nome": "Direitos do preso",
+     "def": "Ala arejada, visitas, correspondência, assistência médica e religiosa, audiência com o titular, banho de sol diário.",
+     "itens": "Separar disciplinares, provisórios e condenados",
+     "ex": "—"
+    },
+    {
+     "nome": "Regimes",
+     "def": "Fechado · semiaberto · aberto (Casa do Albergado).",
+     "itens": "LEP 7.210/1984",
+     "ex": "Na MB, só o PM tem regime fechado."
+    },
+    {
+     "nome": "Presídio da Marinha (PM)",
+     "def": "Condenados (fechado), medida de segurança, provisórios, desertores e disciplinares até Cabo.",
+     "itens": "Exame no CPMM antes",
+     "ex": "Disciplinar: só CB e SD/MN."
+    },
+    {
+     "nome": "Período eleitoral",
+     "def": "Prisão disciplinar restrita.",
+     "itens": "5 dias antes até 48 h depois · art. 236 Código Eleitoral",
+     "ex": "Salvo flagrante."
+    }
+   ]
+  },
+  {
+   "titulo": "Prazos e números para decorar",
+   "rotulos": {
+    "itens": "Norma · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "48 horas",
+     "def": "Portaria de Sindicância e de IPM.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "24 horas",
+     "def": "Nota de Culpa.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "40 dias",
+     "def": "Sindicância (≤ 60 no total) · IPM com indiciado solto.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "20 dias",
+     "def": "IPM com indiciado preso.",
+     "itens": "Art. 20 CPPM",
+     "ex": "—"
+    },
+    {
+     "nome": "10 dias",
+     "def": "Solução da sindicância.",
+     "itens": "10/fev e 10/ago: resumo semestral",
+     "ex": "—"
+    },
+    {
+     "nome": "8 dias",
+     "def": "Ausência que caracteriza deserção (consuma em D+9).",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "6 meses",
+     "def": "Condenação acima disso → agregação.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "60 / 90 dias",
+     "def": "60: desertor não julgado é solto · 90: espólio à família.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "5 anos",
+     "def": "Sindicância arquivada na OM.",
+     "itens": "Depois DPHDM",
+     "ex": "—"
+    },
+    {
+     "nome": "2 anos",
+     "def": "Pena até 2 anos → prisão; acima → penitenciária.",
+     "itens": "Art. 59 CPM",
+     "ex": "—"
+    }
+   ]
+  }
+ ]
+}

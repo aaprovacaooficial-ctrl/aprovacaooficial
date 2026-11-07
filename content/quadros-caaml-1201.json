@@ -1,0 +1,386 @@
+{
+ "slug": "caaml-1201",
+ "quadros": [
+  {
+   "titulo": "Propósito e atribuições do CAv",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Propósito",
+     "def": "Manter ao máximo o poder combatente do navio.",
+     "itens": "2.3.1",
+     "ex": "—"
+    },
+    {
+     "nome": "Responsável",
+     "def": "Encarregado do CAv, perante o Comandante.",
+     "itens": "Planejar, preparar e executar",
+     "ex": "Antes e após o sinistro."
+    },
+    {
+     "nome": "Medidas preliminares",
+     "def": "Condição de fechamento, recursos de CAv, estabilidade e flutuabilidade, adestramento, reduzir riscos de incêndio, equipamentos de emergência.",
+     "itens": "6 medidas",
+     "ex": "Porto, antes de suspender, mau tempo e combate."
+    },
+    {
+     "nome": "Medidas após avarias",
+     "def": "Combater incêndio, controlar alagamento, recuperar estanqueidade, força em avaria, socorrer feridos.",
+     "itens": "Coordena: alijamento, socorro externo, colisão, abandono, salvamento/destruição, NBQ",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Estações do CAv",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Numa fragata",
+     "def": "Estação Central (ECCAv), Estações de Reparo, Enfermaria de Combate e CICE.",
+     "itens": "4 componentes",
+     "ex": "Atuação descentralizada."
+    },
+    {
+     "nome": "ECCAv informa o Comando",
+     "def": "Incêndios, fumaça, alagamentos, avarias estruturais, perda de energia, acidentes com pessoal.",
+     "itens": "6 informações",
+     "ex": "Sob ou fora de controle."
+    },
+    {
+     "nome": "ECCAv pede autorização",
+     "def": "Mudar condição de fechamento, alagar paióis, HALON/CO2, lastro/deslastro, cabos de força em avaria, contra-alagamento, alijamento.",
+     "itens": "7 fainas",
+     "ex": "Sempre com autorização do Comando."
+    },
+    {
+     "nome": "Quadros da ECCAv",
+     "def": "Planos isométricos, plotagem de avarias, quadro de estabilidade, sistemas elétricos, registro de fechamento.",
+     "itens": "—",
+     "ex": "Sugere o abandono e coordena o GSD."
+    },
+    {
+     "nome": "Enfermaria de Combate",
+     "def": "Primária: enfermaria · secundária: local de refeição (ex.: Praça d'Armas).",
+     "itens": "Acima de 300 militares: mínimo 2",
+     "ex": "Ativadas em Postos de Combate."
+    },
+    {
+     "nome": "CICE",
+     "def": "Centro de Inventário e Controle de Estoque: sobressalentes em combate.",
+     "itens": "Condição I",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Reparos: atribuições",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Comuns a todos",
+     "def": "Extinguir todas as classes de incêndio, avaliar avarias, reparos elétricos e CI, primeiros socorros.",
+     "itens": "4 atribuições",
+     "ex": "Áreas definidas na OA."
+    },
+    {
+     "nome": "Pessoal recomendado",
+     "def": "Artífices de Máquinas, eletricistas e um paioleiro (onde houver paióis).",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Flutuabilidade",
+     "def": "Escorar, bujonar, tamponar; sondar, drenar, esgotar, lastrar.",
+     "itens": "Quadro de estabilidade + quadro de avarias",
+     "ex": "Abaixo da linha d'água."
+    },
+    {
+     "nome": "Integridade e manobrabilidade",
+     "def": "Governo, clarear escombros, sistemas vitais, força em avaria, apoiar Crache.",
+     "itens": "—",
+     "ex": "Recolher sobreviventes."
+    },
+    {
+     "nome": "Propulsão",
+     "def": "Reparar máquinas principais, segregação de sistemas vitais.",
+     "itens": "Quadro de avarias de máquinas",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Turmas do Reparo (1)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Encarregado do Reparo",
+     "def": "Oficial, SO ou Sargento; responde por pessoal e material.",
+     "itens": "Limites de incêndio e fumaça; isolamentos",
+     "ex": "Papel ativo no adestramento."
+    },
+    {
+     "nome": "Telefonista/Plotador",
+     "def": "Comunicações pelos circuitos 2JZ, 4JZ, 5JZ e plotagem no quadro.",
+     "itens": "Curso CEXP-TEL",
+     "ex": "—"
+    },
+    {
+     "nome": "Mensageiro",
+     "def": "Liga o Líder da Cena de Ação ao Encarregado.",
+     "itens": "Bloco de mensagens",
+     "ex": "Pode ser dispensado com comunicação confiável."
+    },
+    {
+     "nome": "Líder da Cena de Ação",
+     "def": "Líder do Reparo: escolhe agente extintor, método e direção do ataque.",
+     "itens": "Estabelece limites de incêndio e fumaça",
+     "ex": "Não confundir com Líder da Turma de Incêndio."
+    },
+    {
+     "nome": "Líder da Turma de Incêndio",
+     "def": "Dirige o agente extintor usando a Câmara de Imagem Térmica.",
+     "itens": "Suporte A ou B",
+     "ex": "—"
+    },
+    {
+     "nome": "Turma de Ataque",
+     "def": "Líder + eletricista + 2 praças.",
+     "itens": "Mínimo 4 militares · curso C-EXP-CBINC",
+     "ex": "Eletricista isola 440 V e para ventilação."
+    },
+    {
+     "nome": "Suporte A e B",
+     "def": "Dão efetivamente o combate.",
+     "itens": "Suporte A rende a Ataque em até 3 min",
+     "ex": "Já chegam de máscara."
+    }
+   ]
+  },
+  {
+   "titulo": "Turmas do Reparo (2)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Investigador",
+     "def": "Coordena contenções, limites de incêndio, busca feridos nos adjacentes.",
+     "itens": "Máscara autônoma + EPI",
+     "ex": "Elo EncRep ↔ Líder da Cena."
+    },
+    {
+     "nome": "Contenção",
+     "def": "Resfria limites primários, protege equipamentos, remove inflamáveis.",
+     "itens": "Sob ordens do investigador",
+     "ex": "—"
+    },
+    {
+     "nome": "Máscaras",
+     "def": "Controlador + 2 ajudantes.",
+     "itens": "Controla no máximo 8 militares",
+     "ex": "Condição III: conta da hora do alarme."
+    },
+    {
+     "nome": "Bombas",
+     "def": "Instala bombas portáteis e esgoto.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Rescaldo",
+     "def": "Após extinto, procura pontos quentes (machado, ancinho).",
+     "itens": "Pode ser a própria turma de incêndio",
+     "ex": "Não entra no total do reparo."
+    },
+    {
+     "nome": "Eletricista",
+     "def": "Isolamento elétrico e controle de fumaça.",
+     "itens": "Coordenação: Central de CAv El",
+     "ex": "—"
+    },
+    {
+     "nome": "Primeiros Socorros",
+     "def": "Tratamento de emergência no local.",
+     "itens": "—",
+     "ex": "Excedentes vão preferencialmente para cá."
+    },
+    {
+     "nome": "Serviços Gerais e Sondagem",
+     "def": "SG: borrifo de paióis, alagamento · Sondagem: tanques, transferência, lastro.",
+     "itens": "Alagamento: botas de cano longo, capacete de aba total",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Turma de Ataque Rápido (TAR)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Conceito",
+     "def": "Combate inicial com o navio em regime de viagem.",
+     "itens": "Serviço permanente ou por quartos",
+     "ex": "Fora da Condição I/IA."
+    },
+    {
+     "nome": "Composição básica",
+     "def": "Líder, Linha de Ataque, Linha de Proteção e Eletricista.",
+     "itens": "4 militares",
+     "ex": "Líder com transceptor UHF/VHF."
+    },
+    {
+     "nome": "Vantagens",
+     "def": "Resposta imediata, ação inicial de qualidade, não interrompe operações nem sofre atraso por rendição ou condição ZULU.",
+     "itens": "7 vantagens",
+     "ex": "—"
+    },
+    {
+     "nome": "Grande avaria",
+     "def": "A TAR combate até chegar o Grupo de Reparo.",
+     "itens": "—",
+     "ex": "Pode ser incorporada em Condição I/IA."
+    },
+    {
+     "nome": "Quem altera",
+     "def": "Comandantes de Força/Esquadrão podem autorizar alterações.",
+     "itens": "—",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Organização administrativa",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Encarregado do CAv",
+     "def": "Subordinado ao Chefe de Máquinas; manutenção, normas, adestramento, livro de CAv.",
+     "itens": "Autoriza corte e solda e testes de atmosfera",
+     "ex": "—"
+    },
+    {
+     "nome": "Imediato",
+     "def": "Informa o Comandante sobre prontidão do CAv; supervisão geral.",
+     "itens": "Grande avaria: no CCM ou perto",
+     "ex": "Prover água e alimento ao pessoal."
+    },
+    {
+     "nome": "Fiel de CAv do navio",
+     "def": "Auxiliar direto do Encarregado; inspeções diárias.",
+     "itens": "Curso C-EXP-FICAV",
+     "ex": "Coordena os Fiéis das Divisões."
+    },
+    {
+     "nome": "Encarregado de Divisão",
+     "def": "Medidas preventivas na sua área: estanqueidade, prevenção de incêndio.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Fiel de CAv da Divisão",
+     "def": "Pesa extintores de CO2, confere marcações, listas e fechamento.",
+     "itens": "Curso CEXP-ELCAV",
+     "ex": "Inspeções diárias."
+    },
+    {
+     "nome": "No porto (licenciados)",
+     "def": "Oficial de Serviço atua como Encarregado do CAv na ECCAv.",
+     "itens": "Se houver OSv de Máquinas: ele coordena",
+     "ex": "—"
+    },
+    {
+     "nome": "Patrulha de CAv",
+     "def": "Patrulha contínua e irregular, alerta a fogo e alagamento.",
+     "itens": "Lista de verificação",
+     "ex": "Confere fechamento e escurecimento."
+    }
+   ]
+  },
+  {
+   "titulo": "Grupo de Socorro Externo (GSE)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Propósito",
+     "def": "Auxiliar com pessoal e material outros navios ou instalações de terra.",
+     "itens": "8.13",
+     "ex": "—"
+    },
+    {
+     "nome": "Quem aciona",
+     "def": "Oficial de Serviço (porto) ou Oficial de Quarto (viagem).",
+     "itens": "—",
+     "ex": "Forma com estrutura de reparo."
+    },
+    {
+     "nome": "Subir a bordo",
+     "def": "Só depois que o mais antigo do GSE se apresenta.",
+     "itens": "—",
+     "ex": "Navio atracado: militar com PRC levanta necessidades."
+    },
+    {
+     "nome": "Navio sinistrado",
+     "def": "Oficial no portaló define prioridades; diagrama da área.",
+     "itens": "Preferência: GSE de navio da mesma classe",
+     "ex": "—"
+    },
+    {
+     "nome": "Composição",
+     "def": "Encarregado, Líder da Cena, Controlador de Máscara, Incêndio (3/4), Bombas (2/3), Alagamento (3/4), Sinaleiro, Socorros, Eletricista, Lancha (3).",
+     "itens": "Incêndio: 14/16 · Alagamento: 13/15",
+     "ex": "Mínimo/ideal."
+    },
+    {
+     "nome": "Câmara de Imagem Térmica",
+     "def": "Responsabilidade do Líder da Turma de Incêndio.",
+     "itens": "—",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Papeletas",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Compartimento não ventilado",
+     "def": "Controle de gases tóxicos, oxigênio e explosividade.",
+     "itens": "Papeleta de Controle",
+     "ex": "—"
+    },
+    {
+     "nome": "Corte e solda",
+     "def": "Navio, data, divisão, horário, local, EPI, recursos de combate a incêndio.",
+     "itens": "Papeleta de Autorização",
+     "ex": "Preenchida pelo requisitante e pelo fiel de serviço."
+    }
+   ]
+  }
+ ]
+}

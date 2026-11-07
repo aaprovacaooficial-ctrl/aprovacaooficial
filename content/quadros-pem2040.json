@@ -1,0 +1,725 @@
+{
+ "slug": "pem2040",
+ "quadros": [
+  {
+   "titulo": "Ambiente Operacional: Conceitos",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Amazônia Azul",
+     "def": "Área marítima jurisdicional brasileira, tratada como patrimônio.",
+     "itens": "≈ 5,7 milhões de km² · hidrovias ≈ 60.000 km",
+     "ex": "Quase o tamanho da Amazônia terrestre."
+    },
+    {
+     "nome": "Elevação do Rio Grande",
+     "def": "Formação submarina do Atlântico Sul com potencial mineral e energético.",
+     "itens": "≈ 1.200 km da costa do RS",
+     "ex": "Exemplo do valor da plataforma continental."
+    },
+    {
+     "nome": "Poder Marítimo",
+     "def": "\"Projeção do Poder Nacional, resultante da integração dos recursos… para a utilização do mar e das águas interiores\", como ação política e militar e fator de desenvolvimento.",
+     "itens": "Inclui marinha mercante, portos, indústria naval, pesca",
+     "ex": "A MB é o braço militar; não é o Poder Marítimo inteiro."
+    },
+    {
+     "nome": "Territorialização",
+     "def": "Busca de poder dos Estados sobre os espaços marítimos.",
+     "itens": "Oceanopolítica",
+     "ex": "Explica o conceito de Amazônia Azul."
+    },
+    {
+     "nome": "CNUDM III",
+     "def": "Convenção da ONU sobre o Direito do Mar.",
+     "itens": "Princípios: soberania sobre recursos e liberdade de navegação",
+     "ex": "Marco jurídico internacional."
+    },
+    {
+     "nome": "Águas territoriais",
+     "def": "Soberania plena.",
+     "itens": "12 milhas náuticas",
+     "ex": "Uma das 3 porções de interesse."
+    },
+    {
+     "nome": "Águas patrimoniais",
+     "def": "A própria Amazônia Azul: ZEE + Plataforma Continental.",
+     "itens": "Plataforma até 350 milhas onde a ONU reconhecer",
+     "ex": "Além delas: águas de interesse marítimo."
+    },
+    {
+     "nome": "Sobrevivência e prosperidade",
+     "def": "O mar é fonte de riqueza e fronteira a defender.",
+     "itens": "Síntese do capítulo 1",
+     "ex": "Justifica uma Marinha forte."
+    }
+   ]
+  },
+  {
+   "titulo": "Funções, Fatores e Vertentes",
+   "rotulos": {
+    "itens": "O que é",
+    "ex": "Pegadinha"
+   },
+   "linhas": [
+    {
+     "nome": "4 Funções do Poder Marítimo",
+     "def": "Intercomunicação, Defesa marítima e ribeirinha, Pesquisa, Explotação.",
+     "itens": "Intercomunicação é a mais antiga",
+     "ex": "—"
+    },
+    {
+     "nome": "Fator: Mentalidade Marítima",
+     "def": "\"Elemento intangível\" a fomentar na sociedade e nos atores marítimos.",
+     "itens": "Consciência da importância do mar",
+     "ex": "Um dos 5 fatores."
+    },
+    {
+     "nome": "Fator: Capacidade de Financiamento",
+     "def": "Recursos públicos e privados para meios, portos, indústria e pesquisa.",
+     "itens": "Dinheiro",
+     "ex": "Um dos 5 fatores."
+    },
+    {
+     "nome": "Fator: Desenvolvimento Sustentável",
+     "def": "Explorar sem comprometer as gerações futuras.",
+     "itens": "Necessidade de Desenvolvimento Sustentável",
+     "ex": "Um dos 5 fatores."
+    },
+    {
+     "nome": "Fator: Capacidade de Mobilização",
+     "def": "Reunir e empregar rapidamente recursos humanos e materiais.",
+     "itens": "Civis e militares",
+     "ex": "Um dos 5 fatores."
+    },
+    {
+     "nome": "Fator: Capacidade Tecnológica e Industrial",
+     "def": "Tecnologia e indústria naval próprias.",
+     "itens": "Reduz dependência externa",
+     "ex": "Um dos 5 fatores."
+    },
+    {
+     "nome": "NÃO é fator",
+     "def": "\"Capacidade Bélica\".",
+     "itens": "Distrator clássico",
+     "ex": "Capacidade Bélica NÃO."
+    },
+    {
+     "nome": "4 Vertentes da Amazônia Azul",
+     "def": "Soberania, Científica, Ambiental, Econômica.",
+     "itens": "Uso sustentável do patrimônio",
+     "ex": "\"Mobilidade\" NÃO é vertente."
+    }
+   ]
+  },
+  {
+   "titulo": "Entorno Estratégico",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Limites",
+     "def": "Norte: paralelo 16ºN · Sul: Antártica · Leste: África Ocidental · Oeste: América do Sul.",
+     "itens": "Atlântico Sul",
+     "ex": "Decore o 16ºN."
+    },
+    {
+     "nome": "Áreas prioritárias (END)",
+     "def": "Faixa entre Santos e Vitória e foz do rio Amazonas.",
+     "itens": "Pré-sal e foz",
+     "ex": "Postura defensiva proativa."
+    },
+    {
+     "nome": "AMAS",
+     "def": "Área Marítima do Atlântico Sul: Argentina, Brasil, Paraguai e Uruguai.",
+     "itens": "Derivada do TIAR · segurança do tráfego desde a 2ª Guerra",
+     "ex": "4 países."
+    },
+    {
+     "nome": "ZOPACAS",
+     "def": "Zona de Paz e Cooperação do Atlântico Sul.",
+     "itens": "1986 · Resolução da AG da ONU · 24 países",
+     "ex": "Contra rivalidades extrarregionais."
+    }
+   ]
+  },
+  {
+   "titulo": "Ameaças (Capítulo 2)",
+   "rotulos": {
+    "itens": "Descrição",
+    "ex": "Pilar atingido"
+   },
+   "linhas": [
+    {
+     "nome": "Defesa da Soberania",
+     "def": "Ameaças militares ou políticas à soberania sobre território, águas e recursos.",
+     "itens": "Seção própria, mais ampla",
+     "ex": "Soberania."
+    },
+    {
+     "nome": "Pirataria",
+     "def": "Violência ou depredação para fins privados contra navios, tripulações ou cargas.",
+     "itens": "Mar ou águas interiores",
+     "ex": "Intercomunicação."
+    },
+    {
+     "nome": "Pesca INN",
+     "def": "Ilegal, Não Declarada e Não Regulamentada.",
+     "itens": "Sem autorização ou fora das normas",
+     "ex": "Explotação."
+    },
+    {
+     "nome": "Biopirataria",
+     "def": "Acesso ilegal a conhecimentos: fauna, flora e patrimônio genético.",
+     "itens": "Agentes estrangeiros",
+     "ex": "Explotação."
+    },
+    {
+     "nome": "Crime organizado e conflitos urbanos",
+     "def": "Uso de portos e hidrovias para tráfico de drogas e armas.",
+     "itens": "Vias marítimas e fluviais",
+     "ex": "Intercomunicação."
+    },
+    {
+     "nome": "Terrorismo",
+     "def": "Ataques a portos, plataformas e infraestrutura crítica.",
+     "itens": "Objetivos políticos ou ideológicos",
+     "ex": "Defesa."
+    },
+    {
+     "nome": "Ameaças cibernéticas",
+     "def": "Ataques a sistemas de informação, comunicação e controle.",
+     "itens": "Operações navais e portuárias",
+     "ex": "Defesa."
+    },
+    {
+     "nome": "Ambientais, desastres e pandemias",
+     "def": "Derramamento de óleo, poluição, crises sanitárias.",
+     "itens": "Resposta emergencial da MB",
+     "ex": "Explotação e Pesquisa."
+    },
+    {
+     "nome": "Disputa por recursos naturais",
+     "def": "Competição por minérios, energia e pesca.",
+     "itens": "Inclusive áreas controversas",
+     "ex": "Explotação."
+    }
+   ]
+  },
+  {
+   "titulo": "Conceito Estratégico Marítimo-Naval",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Combate no Mar",
+     "def": "Conceito clássico: garantir o uso do mar e negá-lo ao inimigo.",
+     "itens": "Guerra contra outra força naval",
+     "ex": "3 tarefas básicas."
+    },
+    {
+     "nome": "Negação do Uso do Mar",
+     "def": "Impedir que o inimigo use uma área marítima.",
+     "itens": "Tarefa básica 1",
+     "ex": "Negar."
+    },
+    {
+     "nome": "Controle de Áreas Marítimas",
+     "def": "Garantir o uso temporário e localizado de uma área.",
+     "itens": "Tarefa básica 2",
+     "ex": "Temporário e localizado."
+    },
+    {
+     "nome": "Projeção de Poder sobre Terra",
+     "def": "Levar a influência do Poder Naval do mar para a terra.",
+     "itens": "Tarefa básica 3",
+     "ex": "Do mar para a terra."
+    },
+    {
+     "nome": "Combate pelo Mar",
+     "def": "Paradigma recente: defesa dos interesses da Amazônia Azul.",
+     "itens": "Interoperabilidade e operações interagências",
+     "ex": "Ameaças não só militares."
+    },
+    {
+     "nome": "Diplomacia Naval",
+     "def": "Poder Naval como instrumento de política externa, sem uso da força.",
+     "itens": "Visitas, exercícios combinados, missões de paz",
+     "ex": "Presença e imagem do Brasil."
+    },
+    {
+     "nome": "Defesa proativa",
+     "def": "Antecipa e neutraliza ameaças: Controle + Proteção.",
+     "itens": "CISMAR (interagências)",
+     "ex": "Dois requisitos."
+    },
+    {
+     "nome": "Safety",
+     "def": "Segurança do Tráfego Aquaviário: inspeções, prevenção, busca e salvamento.",
+     "itens": "Prevenção de acidentes",
+     "ex": "Safety = prevenir."
+    },
+    {
+     "nome": "Security",
+     "def": "Proteção Marítima: emprego coercitivo contra ilícitos.",
+     "itens": "Pirataria, tráfico, terrorismo",
+     "ex": "Security = proteger contra hostis."
+    }
+   ]
+  },
+  {
+   "titulo": "12 Princípios de Guerra",
+   "rotulos": {
+    "itens": "Definição",
+    "ex": "Não confundir"
+   },
+   "linhas": [
+    {
+     "nome": "Objetivo",
+     "def": "Toda operação dirigida a objetivo claro, decisivo e alcançável.",
+     "itens": "Rumo definido",
+     "ex": "—"
+    },
+    {
+     "nome": "Ofensiva",
+     "def": "Levar a ação ao inimigo para obter e manter a iniciativa.",
+     "itens": "Impor a vontade",
+     "ex": "—"
+    },
+    {
+     "nome": "Massa",
+     "def": "Forças superiores concentradas no ponto decisivo, no tempo devido.",
+     "itens": "Concentração",
+     "ex": "x Economia de Forças."
+    },
+    {
+     "nome": "Economia de Forças",
+     "def": "Distribuir os meios com juízo para o esforço máximo onde decide.",
+     "itens": "Uso judicioso",
+     "ex": "x Massa."
+    },
+    {
+     "nome": "Manobra",
+     "def": "Pôr o inimigo em desvantagem com emprego flexível do poder de combate.",
+     "itens": "Liberdade de ação",
+     "ex": "É princípio, NÃO característica."
+    },
+    {
+     "nome": "Unidade de Comando",
+     "def": "Esforço sob uma única autoridade responsável.",
+     "itens": "Comando único",
+     "ex": "—"
+    },
+    {
+     "nome": "Segurança",
+     "def": "Medidas para liberdade de ação e preservação do poder de combate.",
+     "itens": "Mitigar riscos",
+     "ex": "—"
+    },
+    {
+     "nome": "Surpresa",
+     "def": "Golpear quando, onde ou como o inimigo não está preparado.",
+     "itens": "Despreparo inimigo",
+     "ex": "x Exploração."
+    },
+    {
+     "nome": "Simplicidade",
+     "def": "Ordens e planos claros e inteligíveis.",
+     "itens": "Sem complexidade",
+     "ex": "—"
+    },
+    {
+     "nome": "Moral",
+     "def": "Estado de ânimo do indivíduo ou grupo refletido na conduta.",
+     "itens": "Atitude mental",
+     "ex": "—"
+    },
+    {
+     "nome": "Exploração",
+     "def": "Intensificar a ofensiva após o 1º êxito.",
+     "itens": "Não dar trégua",
+     "ex": "x Surpresa."
+    },
+    {
+     "nome": "Prontidão",
+     "def": "Pronto atendimento a qualquer situação, em combate ou não.",
+     "itens": "Estar pronto",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Características da Força Naval",
+   "rotulos": {
+    "itens": "Definição",
+    "ex": "Palavra-chave"
+   },
+   "linhas": [
+    {
+     "nome": "Mobilidade",
+     "def": "Deslocar-se prontamente e a grandes distâncias, com prontidão.",
+     "itens": "Grandes distâncias",
+     "ex": "Deslocar."
+    },
+    {
+     "nome": "Flexibilidade",
+     "def": "Organizar grupamentos de diferentes valores; emprego gradativo.",
+     "itens": "Grupamentos sob medida",
+     "ex": "Gradativo."
+    },
+    {
+     "nome": "Versatilidade",
+     "def": "Executar ampla gama de tarefas ao mesmo tempo.",
+     "itens": "Várias tarefas",
+     "ex": "Gama de tarefas."
+    },
+    {
+     "nome": "Permanência",
+     "def": "Operar continuamente, com independência, por longos períodos e longe.",
+     "itens": "Longos períodos",
+     "ex": "Ficar."
+    },
+    {
+     "nome": "NÃO é característica",
+     "def": "\"Manobra\" é Princípio de Guerra.",
+     "itens": "Pegadinha EXCETO",
+     "ex": "Mobilidade também não é vertente da Amazônia Azul."
+    }
+   ]
+  },
+  {
+   "titulo": "Planejamento Estratégico (PEM/SPAN)",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Estratégia",
+     "def": "Caminho para alcançar objetivos ou superar desafios.",
+     "itens": "Produto do planejamento: Plano Estratégico",
+     "ex": "PEM 2040 é o plano da MB."
+    },
+    {
+     "nome": "Nível Nacional",
+     "def": "Mais altas autoridades do país.",
+     "itens": "Presidência",
+     "ex": "Nível 1."
+    },
+    {
+     "nome": "Nível Setorial",
+     "def": "Ministério da Defesa e órgãos de Defesa.",
+     "itens": "MD",
+     "ex": "Nível 2."
+    },
+    {
+     "nome": "Nível Subsetorial",
+     "def": "Forças Armadas, cada uma com seu sistema.",
+     "itens": "MB → SPAN",
+     "ex": "Nível 3."
+    },
+    {
+     "nome": "Bases legais",
+     "def": "PND, END e LC 97/99 (alterada pelas LC 117/04 e 136/10).",
+     "itens": "Atribuições subsidiárias",
+     "ex": "—"
+    },
+    {
+     "nome": "SPAN",
+     "def": "Sistemática de Planejamento de Alto Nível da MB.",
+     "itens": "Documento de maior nível: Política Naval (define os OBNAV)",
+     "ex": "SPAN NÃO é documento condicionante."
+    },
+    {
+     "nome": "Documentos condicionantes",
+     "def": "PND, END, LBDN e PMN.",
+     "itens": "Política e Estratégia Nacional de Defesa, Livro Branco, Política Marítima Nacional",
+     "ex": "Pegadinha: incluir SPAN."
+    },
+    {
+     "nome": "PEM: quem e quando",
+     "def": "Elaborado pelo Estado-Maior da Armada; aprovado pelo Comandante da Marinha.",
+     "itens": "Horizonte 20 anos · revisão a cada 4 anos",
+     "ex": "EMA elabora, CM aprova."
+    },
+    {
+     "nome": "Prazos",
+     "def": "Curto: até 4 anos (1 PPA) · Médio: 5 a 12 (até 3 PPA) · Longo: 13 a 20 (até 5 PPA).",
+     "itens": "2020–2040",
+     "ex": "Decore os intervalos."
+    }
+   ]
+  },
+  {
+   "titulo": "Identidade Estratégica",
+   "rotulos": {
+    "itens": "Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Missão",
+     "def": "Preparar e empregar o Poder Naval para: Defesa da Pátria; garantia dos poderes constitucionais e da lei e da ordem; atribuições subsidiárias; apoio à Política Externa.",
+     "itens": "4 finalidades",
+     "ex": "Defesa da Pátria é a preponderante."
+    },
+    {
+     "nome": "Visão de Futuro",
+     "def": "Força moderna, aprestada e motivada, com alto grau de independência tecnológica, compatível com a estatura do Brasil.",
+     "itens": "No mar e em águas interiores",
+     "ex": "Em sintonia com a sociedade."
+    },
+    {
+     "nome": "Moderna",
+     "def": "Evolução tecnológica e doutrinária; independência tecnológica.",
+     "itens": "Meios atualizados",
+     "ex": "Atributo da Visão."
+    },
+    {
+     "nome": "Aprestada",
+     "def": "Pronta para emprego imediato.",
+     "itens": "Pessoal e material em condições",
+     "ex": "Atributo da Visão."
+    },
+    {
+     "nome": "Motivada",
+     "def": "Pessoal com formação moral, identificação com valores e capacidade.",
+     "itens": "Recursos humanos",
+     "ex": "Atributo da Visão."
+    },
+    {
+     "nome": "Valores",
+     "def": "Rosa das Virtudes: 16 virtudes.",
+     "itens": "Missão + Visão + Valores = Identidade",
+     "ex": "Três elementos."
+    },
+    {
+     "nome": "Mapa Estratégico",
+     "def": "Instrumento visual com os OBNAV em perspectivas interligadas.",
+     "itens": "Balanced Scorecard (BSC)",
+     "ex": "As de baixo sustentam as de cima."
+    }
+   ]
+  },
+  {
+   "titulo": "Rosa das Virtudes",
+   "rotulos": {
+    "itens": "Definição resumida",
+    "ex": "Palavra-chave"
+   },
+   "linhas": [
+    {
+     "nome": "Zelo",
+     "def": "Virtude comum a todos que servem à Marinha; consequência do amor próprio, à Marinha e à Nação.",
+     "itens": "Não depende de preparo especial",
+     "ex": "Comum a todos."
+    },
+    {
+     "nome": "Honra",
+     "def": "Induz à prática do Bem, da Justiça e da Moral.",
+     "itens": "Patrimônio moral",
+     "ex": "Bem e Justiça."
+    },
+    {
+     "nome": "Lealdade",
+     "def": "Devotamento espontâneo e incansável; obediência sincera.",
+     "itens": "Respeito à dignidade alheia",
+     "ex": "Devotamento."
+    },
+    {
+     "nome": "Iniciativa",
+     "def": "Ânimo pronto para conceber e executar.",
+     "itens": "Inteligência e imaginação",
+     "ex": "Conceber e executar."
+    },
+    {
+     "nome": "Cooperação",
+     "def": "Auxiliar eficiente e desinteressadamente.",
+     "itens": "Faz a eficiência da Marinha",
+     "ex": "Causa comum."
+    },
+    {
+     "nome": "Espírito de Sacrifício",
+     "def": "Oferecer interesses, comodidades e a vida pelo dever.",
+     "itens": "Espontâneo",
+     "ex": "A própria vida."
+    },
+    {
+     "nome": "Coragem",
+     "def": "Dominar o medo e enfrentar o perigo.",
+     "itens": "Destemor em combate",
+     "ex": "Medo dominado."
+    },
+    {
+     "nome": "Abnegação",
+     "def": "Esquecer o egoísmo em prol de uma causa.",
+     "itens": "Sacrifício dos interesses",
+     "ex": "Sem egoísmo."
+    },
+    {
+     "nome": "Ordem",
+     "def": "Diligência (economiza o tempo) e previdência (o conserva).",
+     "itens": "Segurança",
+     "ex": "Tempo."
+    },
+    {
+     "nome": "Disciplina",
+     "def": "Força de coesão da coletividade.",
+     "itens": "Unidade sólida",
+     "ex": "Coesão."
+    },
+    {
+     "nome": "Fidelidade",
+     "def": "Honestidade e têmpera para agir pelo bem.",
+     "itens": "Mesmo contra conveniências",
+     "ex": "Honesto."
+    },
+    {
+     "nome": "Patriotismo",
+     "def": "Sentimento que prende à terra natal.",
+     "itens": "Hino e Bandeira",
+     "ex": "Terra natal."
+    },
+    {
+     "nome": "Fogo Sagrado",
+     "def": "Paixão, fé e entusiasmo pela carreira.",
+     "itens": "Amor à Marinha",
+     "ex": "Paixão."
+    },
+    {
+     "nome": "Tenacidade",
+     "def": "Dedicação: estudar material, organização e regulamentos.",
+     "itens": "Amor ao serviço",
+     "ex": "Estudo constante."
+    },
+    {
+     "nome": "Decisão",
+     "def": "Tomar resolução e orientar a ação.",
+     "itens": "A que mais aumenta o respeito dos subordinados",
+     "ex": "Resolver."
+    },
+    {
+     "nome": "Espírito Militar",
+     "def": "Cumprir os deveres com disciplina e lealdade, querendo ver brilhar navio e Marinha.",
+     "itens": "Dentro da ética",
+     "ex": "Brilho do navio."
+    }
+   ]
+  },
+  {
+   "titulo": "Ações Estratégicas Navais",
+   "rotulos": {
+    "itens": "Responde a",
+    "ex": "Detalhe"
+   },
+   "linhas": [
+    {
+     "nome": "OBNAV",
+     "def": "Objetivos Navais: o que fazer para alcançar a Visão.",
+     "itens": "\"O QUÊ\"",
+     "ex": "Estabelecidos na Política Naval."
+    },
+    {
+     "nome": "Estratégias Navais (EN)",
+     "def": "Como executar os OBNAV.",
+     "itens": "\"COMO\"",
+     "ex": "Curto prazo (4 anos)."
+    },
+    {
+     "nome": "Ações Estratégicas Navais (AEN)",
+     "def": "Detalhamento concreto das EN, adequado à realidade do País.",
+     "itens": "\"COM QUE AÇÕES\"",
+     "ex": "Geram Planos de Ação; vão aos PDS e ao PPA."
+    },
+    {
+     "nome": "Resultados para a Sociedade",
+     "def": "Perspectiva de topo: entregas à sociedade.",
+     "itens": "Ex.: Prover a Segurança Marítima",
+     "ex": "Entrega para fora."
+    },
+    {
+     "nome": "Processos",
+     "def": "Perspectiva intermediária: capacidades internas.",
+     "itens": "Modernizar a Força Naval, capacidade cibernética, inteligência, OCOP",
+     "ex": "Capacidade para dentro."
+    },
+    {
+     "nome": "Institucional",
+     "def": "Perspectiva de base: pessoal, orçamento, infraestrutura, gestão.",
+     "itens": "Alicerce",
+     "ex": "Sustenta as demais."
+    },
+    {
+     "nome": "Gestão Estratégica",
+     "def": "Realizada pelo COGEM e coordenada pelo Estado-Maior da Armada.",
+     "itens": "Assessora COPLAN e COFAMAR",
+     "ex": "Medição de desempenho (BSC)."
+    }
+   ]
+  },
+  {
+   "titulo": "7 Programas Estratégicos",
+   "rotulos": {
+    "itens": "Conteúdo",
+    "ex": "Palavra-chave"
+   },
+   "linhas": [
+    {
+     "nome": "Pessoal — Nosso Maior Patrimônio",
+     "def": "Gestão de pessoal em 5 eixos.",
+     "itens": "Gestão, Capacitação, Saúde Integrada, Família Naval, PROLIM",
+     "ex": "Pessoas."
+    },
+    {
+     "nome": "Programa Nuclear (PNM)",
+     "def": "Ciclo do Combustível Nuclear e Planta Nuclear Embarcada.",
+     "itens": "Submarino convencional com propulsão nuclear",
+     "ex": "Nuclear."
+    },
+    {
+     "nome": "Núcleo do Poder Naval",
+     "def": "Obtenção de meios.",
+     "itens": "PROSUB, Fragatas Classe Tamandaré, PROHIDRO, PROADSUMUS",
+     "ex": "Novos meios."
+    },
+    {
+     "nome": "OCOP",
+     "def": "Obtenção da Capacidade Operacional Plena: manter e modernizar o existente.",
+     "itens": "Sobressalentes, armas e munições",
+     "ex": "Manter."
+    },
+    {
+     "nome": "SisGAAz",
+     "def": "Monitorar e controlar as águas jurisdicionais e áreas SAR.",
+     "itens": "Sistema de sistemas · ciclo OODA",
+     "ex": "Monitorar."
+    },
+    {
+     "nome": "Apoio Logístico",
+     "def": "Complexo naval de uso múltiplo perto da foz do Amazonas.",
+     "itens": "Litoral norte/nordeste",
+     "ex": "Foz do Amazonas."
+    },
+    {
+     "nome": "Mentalidade Marítima",
+     "def": "Conscientizar população, governo e gente do mar.",
+     "itens": "Ensino Profissional Marítimo (EPM)",
+     "ex": "Três públicos."
+    },
+    {
+     "nome": "Consciência Situacional Marítima",
+     "def": "Compreensão de tudo no meio marinho que afete defesa, economia e ambiente.",
+     "itens": "Viabilizada pelo SisGAAz",
+     "ex": "OODA: Observar, Orientar, Decidir, Agir (não \"Organizar\")."
+    }
+   ]
+  }
+ ]
+}

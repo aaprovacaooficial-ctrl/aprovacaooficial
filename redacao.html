@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aprovação Oficial">
+  <title>Redação · Ferramenta de Estrutura — Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Ferramenta interativa para montar a estrutura da redação (introdução, desenvolvimento e conclusão) e visualizar em folha pautada de 30 linhas.">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0"></script>
+  <script src="sync-offline.js"></script>
+  <script src="gamification.js"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Fraunces (títulos, caráter naval/editorial) + Inter (texto e interface) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+    /* ===== Ferramenta de Redação ===== */
+    #paper-sheet {
+      background: #fdfcf7;
+      color: #1a1a1a;
+      border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      padding: 28px 22px 22px;
+      font-family: 'Fraunces', Georgia, serif;
+      overflow-x: auto;
+      width: fit-content;
+      max-width: 100%;
+    }
+    #paper-sheet .paper-title-box {
+      border: 1.5px solid #1a1a1a;
+      border-radius: 3px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      min-height: 40px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      gap: 6px;
+    }
+    .paper-line-row {
+      display: flex;
+      align-items: baseline;
+      border-bottom: 1px solid #b9b3a0;
+      min-height: 26px;
+      padding-left: 4px;
+    }
+    .paper-line-row.marker-5 { border-bottom-color: #8f8768; }
+    .paper-line-num {
+      width: 24px;
+      flex-shrink: 0;
+      font-style: italic;
+      font-size: 13px;
+      color: #8a8368;
+      text-align: right;
+      padding-right: 8px;
+    }
+    .paper-line-row.marker-5 .paper-line-num { color: #6b6449; font-weight: 700; }
+    .paper-line-text {
+      font-size: 14.5px;
+      line-height: 1;
+      color: #1a1a1a;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .paper-line-input {
+      width: 95ch;
+      max-width: 95ch;
+      flex: none;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: 'Courier New', ui-monospace, monospace;
+      font-size: 13.5px;
+      letter-spacing: 0;
+      color: #1a1a1a;
+      padding-bottom: 2px;
+    }
+    .paper-line-input.tem-recuo { padding-left: 22px; }
+    .marcador-meta {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: #a0451f;
+      background: #fdf0e6;
+      text-align: center;
+      padding: 2px 0;
+      border-top: 1px dashed #d4a373;
+      border-bottom: 1px dashed #d4a373;
+      letter-spacing: .02em;
+    }
+    .periodo-block { transition: box-shadow .2s; }
+    .periodo-over { box-shadow: 0 0 0 1px rgba(244,63,94,.5) inset; }
+    .linhas-badge-ok { color: #34d399; }
+    .linhas-badge-over { color: #fb7185; }
+    .paper-line-clickable { cursor: pointer; transition: background-color .15s; }
+    .paper-line-clickable:hover { background-color: rgba(28,58,92,.08); }
+    .periodo-highlight { animation: periodo-flash 1.2s ease-out; }
+    @keyframes periodo-flash {
+      0% { box-shadow: 0 0 0 2px rgba(30,86,160,.7); }
+      100% { box-shadow: 0 0 0 2px rgba(30,86,160,0); }
+    }
+    @media print {
+      body * { visibility: hidden; }
+      #paper-sheet, #paper-sheet * { visibility: visible; }
+      #paper-sheet {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: none;
+        width: auto;
+        max-width: none;
+      }
+      .paper-line-input { border: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">✍️</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Redação</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para acessar esta ferramenta.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div id="gate-no-access" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-lock text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Você ainda não tem acesso liberado a esta matéria. Fale com o administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Redação para Concursos</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3 min-w-0">
+        <a href="index.html" class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow flex-shrink-0" title="Voltar para a página inicial">
+          <i class="fa-solid fa-pen-nib"></i>
+        </a>
+        <div class="min-w-0">
+          <div class="font-serif font-semibold text-[17px] chrome-text-white tracking-tight truncate">Estrutura da Redação</div>
+          <div class="text-[11px] chrome-text-slate-400 truncate">Monte parágrafo por parágrafo e veja na folha pautada</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+        <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2" title="Conectado">
+          <i class="fa-solid fa-user text-navy-500"></i>
+          <span id="user-email" class="max-w-[140px] truncate"></span>
+          <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+        <button onclick="abrirBanco()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Gerenciar banco de frases">
+          <i class="fa-solid fa-inbox"></i> Banco de Frases
+        </button>
+        <button onclick="window.print()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Imprimir ou exportar como PDF">
+          <i class="fa-solid fa-print"></i> Imprimir / PDF
+        </button>
+        <button onclick="limparRascunho()" class="bg-rose-900/40 hover:bg-rose-800 text-rose-200 border border-rose-700/50 text-xs px-3 py-2 rounded-lg transition-all flex items-center gap-1.5" title="Limpar tudo">
+          <i class="fa-solid fa-trash"></i> Limpar
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 max-w-[1400px] w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-6">
+
+    <!-- Coluna principal: a folha, com linhas independentes e editáveis -->
+    <section class="flex flex-col gap-3 order-1">
+      <div class="flex items-center justify-between px-1">
+        <div class="text-sm font-semibold text-slate-300">Sua redação — clique em qualquer linha pra escrever</div>
+        <div id="linhas-total-badge" class="text-xs font-mono px-2 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-300">0 / 30 linhas</div>
+      </div>
+      <div id="paper-sheet"></div>
+      <div class="bg-slate-800/40 border border-slate-700 rounded-xl p-4 text-xs text-slate-400 leading-relaxed">
+        <i class="fa-solid fa-circle-info text-navy-500 mr-1"></i>
+        Cada linha é independente. Se você digitar até o fim de uma linha, o texto continua automaticamente na próxima (quebrando a palavra com hífen quando necessário). Apagar também puxa o texto de volta.
+      </div>
+    </section>
+
+    <!-- Coluna lateral: guia da estrutura (referência, não afeta a folha) -->
+    <section class="flex flex-col gap-5 order-2 lg:sticky lg:top-20 lg:self-start">
+
+      <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+        <label class="block text-xs font-semibold text-slate-400 mb-2">TÍTULO <span class="font-normal text-slate-500">— inclua a palavra-chave do tema</span></label>
+        <input id="input-titulo" type="text" placeholder="Ex.: A importância do Atlântico Sul para a defesa nacional" class="w-full h-11 rounded-lg bg-slate-900 border border-slate-600 focus:border-navy-500 focus:ring-1 focus:ring-navy-500 px-3 text-sm text-ink outline-none transition-colors">
+      </div>
+
+      <div class="bg-navy-900/20 border border-navy-700/50 rounded-xl p-4">
+        <div class="text-xs font-semibold text-navy-400 mb-1"><i class="fa-solid fa-map-signs mr-1"></i>Guia da estrutura</div>
+        <p class="text-[11px] text-slate-500 leading-relaxed">Isso é só referência — mostra o que escrever e onde, mas não altera a folha sozinho. Copie pra folha com o botão 📥 ou digite direto.</p>
+      </div>
+
+      <div id="secoes-container" class="flex flex-col gap-5 max-h-[60vh] overflow-y-auto pr-1"></div>
+    </section>
+
+  </main>
+
+  <!-- Modal: Banco de Frases -->
+  <div id="banco-modal" class="hidden fixed inset-0 z-[90] items-center justify-center bg-black/60 px-4" onclick="if(event.target===this) fecharBanco()">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl w-full max-w-md max-h-[80vh] flex flex-col">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-slate-700">
+        <h3 class="font-serif font-semibold text-ink text-sm">Banco de Frases</h3>
+        <button onclick="fecharBanco()" class="text-slate-400 hover:text-ink"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="p-4 border-b border-slate-700 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <label class="block text-[10px] font-semibold text-slate-500">CATEGORIA</label>
+          <button type="button" onclick="toggleReordenar()" class="text-[10px] text-navy-400 hover:text-navy-300"><i class="fa-solid fa-arrow-up-arrow-down"></i> reordenar categorias</button>
+        </div>
+        <select id="nova-frase-categoria" class="h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none"></select>
+        <div class="flex gap-2">
+          <input id="nova-frase-texto" type="text" placeholder="Digite a frase pra guardar..." class="flex-1 h-9 rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 text-sm text-ink outline-none">
+          <button onclick="adicionarFrase()" class="h-9 px-3 rounded-md bg-navy-600 hover:bg-navy-500 text-ink text-sm font-medium transition-colors">Guardar</button>
+        </div>
+      </div>
+      <div id="reordenar-painel" class="hidden px-4 py-3 border-b border-slate-700 bg-slate-950/40"></div>
+      <div class="px-4 pt-3">
+        <label class="block text-[10px] font-semibold text-slate-500 mb-1">FILTRAR POR CATEGORIA</label>
+        <select id="filtro-categoria" onchange="renderBanco()" class="w-full h-9 rounded-md bg-slate-950 border border-slate-700 px-2 text-sm text-ink outline-none"></select>
+      </div>
+      <div id="banco-lista" class="p-4 overflow-y-auto flex-1"></div>
+    </div>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://ghlaukrbwwecpeanlmlp.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jKB_xy4LMBIBcLV_i0wa3A_TgBJAihh';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const QUIZ_ID = 'REDACAO';
+    const CHARS_PER_LINE = 95; // padrão fixo — a 96ª letra empurra pra próxima linha
+    const DRAFT_KEY = 'redacao_rascunho_v2';
+    const BANCO_FRASES_KEY = 'redacao_banco_frases';
+
+    let currentUser = null;
+    let linhaFocada = null; // índice (0-29) da última linha em foco, pra inserir frases do banco
+
+    const STRUCTURE = [
+      { titulo: 'Introdução', metaLinhas: 6, periodos: [
+        { id: 'i1', conectivo: '', cat: 'contextualizacao', dica: 'Frase de abertura, contextualizando o tema.', targetLinhas: 2.5 },
+        { id: 'i2', conectivo: 'Nesse contexto,', cat: 'conectivo', dica: 'Continue desenvolvendo o contexto.', targetLinhas: 2 },
+        { id: 'i3', conectivo: 'Desse modo,', cat: 'argumento', dica: 'Tese com os 2 argumentos (ex.: suporte à economia e apoio à defesa).', targetLinhas: 1.5 },
+      ]},
+      { titulo: 'Desenvolvimento 1', metaLinhas: 9, periodos: [
+        { id: 'd1', conectivo: 'Primordialmente,', cat: 'topico_d1', dica: 'Tópico frasal — retoma o 1º argumento.', targetLinhas: 2 },
+        { id: 'd2', conectivo: 'Segundo, (AUTOR)', cat: 'repertorio_1p', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'd3', conectivo: 'Sob essa ótica,', cat: 'retomada_repertorio', dica: 'Retome e explique o repertório citado.', targetLinhas: 2.5 },
+        { id: 'd4', conectivo: 'Desse modo,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 5 },
+      ]},
+      { titulo: 'Desenvolvimento 2', metaLinhas: 8, periodos: [
+        { id: 'e1', conectivo: 'Ainda sobre esse prisma, verifica-se que', cat: 'topico_d2', dica: 'Tópico frasal — retoma o 2º argumento.', targetLinhas: 2 },
+        { id: 'e2', conectivo: 'Nesse sentido, (AUTOR) ao afirmar que', cat: 'repertorio_2p', dica: 'Repertório: uma frase de alguém relevante.', targetLinhas: 2 },
+        { id: 'e3', conectivo: 'Nessa direção,', cat: 'retomada_repertorio', dica: 'Retome e explique o repertório citado.', targetLinhas: 2 },
+        { id: 'e4', conectivo: 'Dessa forma,', cat: 'conectivo', dica: 'Síntese com o texto-base, fechando o parágrafo.', targetLinhas: 2 },
+      ]},
+      { titulo: 'Conclusão', metaLinhas: 6, periodos: [
+        { id: 'c1', conectivo: 'Em síntese, verifica-se que', cat: 'topico_conclusao', dica: 'Circularidade — retoma a introdução com um contraponto.', targetLinhas: 3 },
+        { id: 'c2', conectivo: 'Assim, conclui-se que', cat: 'conectivo', dica: '', targetLinhas: 3 },
+      ]},
+    ];
+
+    // marcadores de meta: linha (1-indexed) onde cada seção deveria terminar, arredondando pra cima
+    function calcularMarcadores() {
+      let linhaAtual = 0;
+      const marcadores = [];
+      STRUCTURE.forEach(secao => {
+        linhaAtual += secao.metaLinhas;
+        marcadores.push({ linha: linhaAtual, texto: `fim da meta: ${secao.titulo}` });
+      });
+      return marcadores;
+    }
+
+    // ===== Hifenização (heurística de sílabas em português) =====
+    const VOGAIS = 'aeiouáàâãéêíóôõúAEIOUÁÀÂÃÉÊÍÓÔÕÚ';
+    const DIGRAFOS = ['lh', 'nh', 'ch', 'qu', 'gu'];
+    const ENCONTROS = ['bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'pl', 'pr', 'tr', 'vr'];
+    const isVogal = c => VOGAIS.includes(c);
+
+    function silabificar(palavra) {
+      const silabas = [];
+      let atual = '';
+      let i = 0;
+      while (i < palavra.length) {
+        atual += palavra[i];
+        if (isVogal(palavra[i])) {
+          let j = i + 1;
+          while (j < palavra.length && isVogal(palavra[j])) { atual += palavra[j]; j++; }
+          let consoantes = '';
+          let k = j;
+          while (k < palavra.length && !isVogal(palavra[k])) { consoantes += palavra[k]; k++; }
+          const semVogalDepois = k >= palavra.length;
+          if (consoantes.length === 0) {
+            i = j - 1;
+          } else if (semVogalDepois) {
+            atual += consoantes; i = k - 1;
+          } else if (consoantes.length === 1) {
+            silabas.push(atual); atual = ''; i = j - 1;
+          } else {
+            const par = consoantes.slice(-2).toLowerCase();
+            const ehGrupo = DIGRAFOS.includes(par) || ENCONTROS.includes(par);
+            const ficaAqui = ehGrupo ? consoantes.slice(0, -2) : consoantes.slice(0, -1);
+            atual += ficaAqui;
+            silabas.push(atual); atual = '';
+            i = j + ficaAqui.length - 1;
+          }
+        }
+        i++;
+      }
+      if (atual) silabas.push(atual);
+      return silabas.length ? silabas : [palavra];
+    }
+
+    function hifenizarPalavra(palavra, espacoDisponivel) {
+      if (palavra.length <= espacoDisponivel) return [palavra, ''];
+      if (espacoDisponivel < 3) return [null, palavra];
+      const silabas = silabificar(palavra);
+      if (silabas.length < 2) return [null, palavra];
+      let acumulado = '', corte = '';
+      for (let i = 0; i < silabas.length - 1; i++) {
+        const tentativa = acumulado + silabas[i];
+        if (tentativa.length + 1 <= espacoDisponivel) { corte = tentativa; acumulado = tentativa; }
+        else break;
+      }
+      if (corte && (palavra.length - corte.length) >= 1) return [corte + '-', palavra.slice(corte.length)];
+      return [null, palavra];
+    }
+
+    // ===== Quebra de texto corrido em N linhas de até CHARS_PER_LINE, com hifenização =====
+    function quebrarEmLinhasFixas(texto, maxLinhas) {
+      const palavras = texto.split(/\s+/).filter(Boolean);
+      const linhas = [];
+      let atual = '';
+      palavras.forEach(p => {
+        let palavra = p;
+        let seguranca = 0;
+        while (palavra.length > 0 && seguranca < 50) {
+          seguranca++;
+          const precisaEspaco = atual.length > 0;
+          const espacoRestante = CHARS_PER_LINE - atual.length - (precisaEspaco ? 1 : 0);
+          if (palavra.length <= espacoRestante) {
+            atual += (precisaEspaco ? ' ' : '') + palavra;
+            palavra = '';
+          } else if (espacoRestante >= 3) {
+            const [parte, resto] = hifenizarPalavra(palavra, espacoRestante);
+            if (parte) {
+              atual += (precisaEspaco ? ' ' : '') + parte;
+              linhas.push(atual); atual = '';
+              palavra = resto;
+            } else {
+              if (atual) { linhas.push(atual); atual = ''; }
+            }
+          } else {
+            if (atual) { linhas.push(atual); atual = ''; }
+          }
+        }
+      });
+      if (atual) linhas.push(atual);
+      return linhas;
+    }
+
+    // ===== As 30 linhas independentes =====
+    let linhas = new Array(30).fill('');
+
+    function reflowFrom(idx) {
+      const textoCombinado = linhas.slice(idx).join(' ').replace(/\s+/g, ' ').trim();
+      const disponiveis = 30 - idx;
+      const novasLinhas = quebrarEmLinhasFixas(textoCombinado, disponiveis);
+      for (let i = 0; i < disponiveis; i++) {
+        linhas[idx + i] = novasLinhas[i] || '';
+      }
+      return novasLinhas.length > disponiveis; // true se transbordou da folha
+    }
+
+    function onLinhaInput(idx, valor) {
+      linhas[idx] = valor;
+
+      if (valor.length > CHARS_PER_LINE) {
+        // estourou o limite da linha: reflow de verdade, e o foco avança pra próxima linha
+        reflowFrom(idx);
+        renderPaperValues();
+        const proxima = idx + 1;
+        const el = document.getElementById('linha-' + proxima);
+        if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+      }
+      // dentro do limite: não mexe em mais nada do DOM, deixa o navegador cuidar do espaço normalmente
+
+      atualizarContador();
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(salvarRascunho, 400);
+    }
+
+    function onLinhaKeydown(idx, e) {
+      const el = e.target;
+
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (idx < 29) {
+          const proxima = document.getElementById('linha-' + (idx + 1));
+          if (proxima) { proxima.focus(); proxima.setSelectionRange(proxima.value.length, proxima.value.length); }
+        }
+        return;
+      }
+
+      // Backspace no início de uma linha: junta com o fim da linha anterior
+      if (e.key === 'Backspace' && el.selectionStart === 0 && el.selectionEnd === 0 && idx > 0) {
+        e.preventDefault();
+        const anterior = document.getElementById('linha-' + (idx - 1));
+        const posicaoJuncao = linhas[idx - 1].length;
+        linhas[idx - 1] = linhas[idx - 1] + (linhas[idx] ? ' ' + linhas[idx] : '');
+        reflowFrom(idx - 1);
+        renderPaperValues();
+        if (anterior) { anterior.focus(); anterior.setSelectionRange(posicaoJuncao, posicaoJuncao); }
+        atualizarContador();
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(salvarRascunho, 400);
+      }
+    }
+
+    function contarLinhasUsadas() {
+      let ultima = -1;
+      linhas.forEach((l, i) => { if (l.trim()) ultima = i; });
+      return ultima + 1;
+    }
+
+    function atualizarContador() {
+      const total = contarLinhasUsadas();
+      const badge = document.getElementById('linhas-total-badge');
+      badge.textContent = `${total} / 30 linhas`;
+      const fora = total > 30 || (total > 0 && total < 15);
+      badge.className = 'text-xs font-mono px-2 py-1 rounded-md border ' +
+        (fora ? 'bg-rose-950/40 border-rose-700 text-rose-300' : 'bg-slate-800 border-slate-700 text-slate-300');
+    }
+
+    function renderPaperSkeleton() {
+      const titulo = document.getElementById('input-titulo')?.value || '';
+      const marcadores = calcularMarcadores();
+      const iniciosDeParagrafo = new Set([1, ...marcadores.slice(0, -1).map(m => m.linha + 1)]);
+      let html = `<div class="paper-title-box"><span class="text-[13px] font-normal text-[#555]">TÍTULO:</span> <span id="paper-title-display">${titulo.replace(/</g, '&lt;')}</span></div>`;
+      for (let i = 1; i <= 30; i++) {
+        const marker5 = i % 5 === 0;
+        const recuo = iniciosDeParagrafo.has(i);
+        html += `<div class="paper-line-row${marker5 ? ' marker-5' : ''}">
+          <span class="paper-line-num">${i}</span>
+          <input type="text" id="linha-${i - 1}" class="paper-line-input${recuo ? ' tem-recuo' : ''}" autocomplete="off" spellcheck="false">
+        </div>`;
+        const marcador = marcadores.find(m => m.linha === i);
+        if (marcador) {
+          html += `<div class="marcador-meta">— ${marcador.texto} —</div>`;
+        }
+      }
+      document.getElementById('paper-sheet').innerHTML = html;
+
+      for (let i = 0; i < 30; i++) {
+        const el = document.getElementById('linha-' + i);
+        el.addEventListener('input', (e) => onLinhaInput(i, e.target.value));
+        el.addEventListener('focus', () => { linhaFocada = i; });
+        el.addEventListener('keydown', (e) => onLinhaKeydown(i, e));
+      }
+    }
+
+    function renderPaperValues() {
+      for (let i = 0; i < 30; i++) {
+        const el = document.getElementById('linha-' + i);
+        if (el && el.value !== linhas[i]) el.value = linhas[i];
+      }
+    }
+
+    function renderGuia() {
+      const container = document.getElementById('secoes-container');
+      container.innerHTML = STRUCTURE.map(secao => `
+        <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-serif font-semibold text-[14px] text-ink">${secao.titulo}</h3>
+            <span class="text-[10px] font-mono text-slate-500">meta: ${secao.metaLinhas} linhas</span>
+          </div>
+          <div class="flex flex-col gap-2.5">
+            ${secao.periodos.map((p, idx) => `
+              <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-2.5">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-[10px] font-semibold text-slate-500">${idx + 1}º período · ${p.targetLinhas} linhas</span>
+                  ${p.conectivo ? `<button type="button" onclick="inserirNaLinhaFocada('${p.id}')" title="Inserir conectivo na linha em foco" class="text-[10px] text-navy-400 hover:text-navy-300"><i class="fa-solid fa-arrow-turn-down"></i> usar</button>` : ''}
+                </div>
+                ${p.conectivo ? `<div class="text-[13px] font-medium italic" style="color:#e05252;">${p.conectivo}</div>` : ''}
+                ${p.dica ? `<div class="text-[10px] text-slate-500 mt-1"><i class="fa-solid fa-lightbulb text-amber-500/70 mr-1"></i>${p.dica}</div>` : ''}
+                <div class="flex gap-1.5 mt-2 pt-2 border-t border-slate-800">
+                  <input id="nova-${p.id}" type="text" placeholder="Guardar uma frase nova pra esse período..." class="flex-1 h-7 rounded-md bg-slate-950 border border-slate-700 focus:border-navy-500 px-2 text-[11px] text-ink outline-none">
+                  <button type="button" onclick="salvarFraseDoPeriodo('${p.id}', '${p.cat}')" title="Guardar no banco de frases" class="w-7 h-7 flex-shrink-0 rounded-md bg-slate-800 border border-slate-700 hover:border-emerald-500 text-slate-400 hover:text-emerald-400 transition-colors"><i class="fa-solid fa-plus text-xs"></i></button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function inserirNaLinhaFocada(periodoId) {
+      const secao = STRUCTURE.flatMap(s => s.periodos).find(p => p.id === periodoId);
+      if (!secao) return;
+      const idx = linhaFocada !== null ? linhaFocada : contarLinhasUsadas();
+      const atual = linhas[idx];
+      linhas[idx] = atual ? atual + ' ' + secao.conectivo : secao.conectivo;
+      reflowFrom(idx);
+      renderPaperValues();
+      atualizarContador();
+      const el = document.getElementById('linha-' + idx);
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); linhaFocada = idx; }
+      salvarRascunho();
+    }
+
+    let saveTimer = null;
+
+    // ===== Banco de Frases =====
+    const CATEGORIAS = [
+      { id: 'introducao', label: 'Introdução', icon: 'fa-signs-post' },
+      { id: 'contextualizacao', label: 'Contextualização', icon: 'fa-signs-post' },
+      { id: 'topico_d1', label: 'Tópico frasal — Desenvolvimento 1', icon: 'fa-signs-post' },
+      { id: 'topico_d2', label: 'Tópico frasal — Desenvolvimento 2', icon: 'fa-signs-post' },
+      { id: 'topico_conclusao', label: 'Tópico frasal — Conclusão', icon: 'fa-signs-post' },
+      { id: 'argumento', label: 'Argumento', icon: 'fa-scale-balanced' },
+      { id: 'conectivo', label: 'Conectivo', icon: 'fa-link' },
+      { id: 'conectivo_desse_modo', label: 'Síntese (Desse modo...)', icon: 'fa-arrows-turn-to-dots' },
+      { id: 'repertorio_1p', label: 'Repertório — 1º período (Segundo...)', icon: 'fa-quote-right' },
+      { id: 'repertorio_2p', label: 'Repertório — 2º período (Nesse sentido...)', icon: 'fa-quote-right' },
+      { id: 'retomada_repertorio', label: 'Retomada do Repertório (Sob essa ótica...)', icon: 'fa-rotate-left' },
+    ];
+
+    const ORDEM_CATEGORIAS_KEY = 'redacao_ordem_categorias';
+
+    function ordemCategorias() {
+      let ordemSalva = [];
+      try { ordemSalva = JSON.parse(localStorage.getItem(ORDEM_CATEGORIAS_KEY) || '[]'); } catch (e) { ordemSalva = []; }
+      const porId = Object.fromEntries(CATEGORIAS.map(c => [c.id, c]));
+      const ordenadas = ordemSalva.filter(id => porId[id]).map(id => porId[id]);
+      const faltando = CATEGORIAS.filter(c => !ordemSalva.includes(c.id));
+      return ordenadas.concat(faltando);
+    }
+
+    function salvarOrdemCategorias(lista) {
+      localStorage.setItem(ORDEM_CATEGORIAS_KEY, JSON.stringify(lista.map(c => c.id)));
+    }
+
+    function renderSeletoresDeCategoria() {
+      const cats = ordemCategorias();
+      const optsHtml = cats.map(c => `<option value="${c.id}">${c.label}</option>`).join('');
+      document.getElementById('nova-frase-categoria').innerHTML = optsHtml;
+      document.getElementById('filtro-categoria').innerHTML = '<option value="">— selecione uma categoria —</option>' + optsHtml;
+    }
+
+    function toggleReordenar() {
+      const painel = document.getElementById('reordenar-painel');
+      const abrindo = painel.classList.contains('hidden');
+      painel.classList.toggle('hidden');
+      if (abrindo) renderReordenar();
+    }
+
+    function renderReordenar() {
+      const cats = ordemCategorias();
+      const painel = document.getElementById('reordenar-painel');
+      painel.innerHTML = `
+        <p class="text-[10px] text-slate-500 mb-2">Use as setas pra mudar a ordem em que as categorias aparecem nos menus.</p>
+        ${cats.map((c, i) => `
+          <div class="flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-md px-2 py-1.5 mb-1 text-xs">
+            <span class="flex-1 text-slate-200">${c.label}</span>
+            <button type="button" onclick="moverCategoria(${i}, -1)" ${i === 0 ? 'disabled' : ''} class="text-slate-400 hover:text-navy-400 disabled:opacity-20 disabled:hover:text-slate-400"><i class="fa-solid fa-chevron-up"></i></button>
+            <button type="button" onclick="moverCategoria(${i}, 1)" ${i === cats.length - 1 ? 'disabled' : ''} class="text-slate-400 hover:text-navy-400 disabled:opacity-20 disabled:hover:text-slate-400"><i class="fa-solid fa-chevron-down"></i></button>
+          </div>
+        `).join('')}
+      `;
+    }
+
+    function moverCategoria(indice, direcao) {
+      const cats = ordemCategorias();
+      const alvo = indice + direcao;
+      if (alvo < 0 || alvo >= cats.length) return;
+      [cats[indice], cats[alvo]] = [cats[alvo], cats[indice]];
+      salvarOrdemCategorias(cats);
+      renderReordenar();
+      renderSeletoresDeCategoria();
+    }
+
+    function salvarFraseDoPeriodo(periodoId, categoria) {
+      const input = document.getElementById('nova-' + periodoId);
+      const texto = input.value.trim();
+      if (!texto) return;
+      const lista = carregarBanco();
+      lista.push({ id: Date.now().toString(36), categoria, texto });
+      salvarBanco(lista);
+      input.value = '';
+      input.placeholder = 'Guardado! Pode adicionar outra...';
+      setTimeout(() => { input.placeholder = "Guardar uma frase nova pra esse período..."; }, 1500);
+    }
+
+    function carregarBanco() {
+      try {
+        const lista = JSON.parse(localStorage.getItem(BANCO_FRASES_KEY) || '[]');
+        // migração: categoria "repertorio" antiga (genérica) vira 1º ou 2º período, pelo texto
+        let mudou = false;
+        lista.forEach(f => {
+          if (f.categoria === 'repertorio') {
+            f.categoria = /nesse sentido/i.test(f.texto) ? 'repertorio_2p' : 'repertorio_1p';
+            mudou = true;
+          }
+          if (f.categoria === 'topico' || f.categoria === 'introducao_contextualizacao') {
+            f.categoria = 'contextualizacao';
+            mudou = true;
+          }
+        });
+        if (mudou) localStorage.setItem(BANCO_FRASES_KEY, JSON.stringify(lista));
+        return lista;
+      } catch (e) { return []; }
+    }
+    function salvarBanco(lista) {
+      localStorage.setItem(BANCO_FRASES_KEY, JSON.stringify(lista));
+    }
+
+    const SEED_KEY = 'redacao_banco_seeded_v1';
+    function semearBancoPadrao() {
+      if (localStorage.getItem(SEED_KEY)) return; // já rodou antes, não duplica
+      const sinteses = [
+        ['Amazônia Azul', 'Desse modo, a atuação da Marinha do Brasil (MB), mostra-se essencial tanto para impulsionar a economia quanto para proteger os recursos naturais brasileiros.'],
+        ['PEM 2040', 'Desse modo, o PEM 2040 evidencia a importância da Marinha do Brasil (MB) tanto para fortalecer a defesa quanto para promover o desenvolvimento nacional.'],
+        ['Poder Naval', 'Desse modo, o Poder Naval revela-se fundamental para a Marinha do Brasil (MB), tanto na garantia da soberania quanto na dissuasão de possíveis ameaças.'],
+        ['Programa Nuclear da Marinha', 'Desse modo, o Programa Nuclear da Marinha contribui tanto para o avanço tecnológico quanto para a autonomia estratégica do Brasil.'],
+        ['SisGAAz', 'Desse modo, o SisGAAz fortalece a atuação da Marinha do Brasil (MB) tanto no monitoramento das águas quanto na garantia da segurança marítima.'],
+        ['Mentalidade Marítima', 'Desse modo, o fortalecimento da mentalidade marítima favorece tanto a conscientização da sociedade quanto a valorização do mar brasileiro.'],
+        ['Atlântico Sul', 'Desse modo, a atuação da Marinha do Brasil (MB) no Atlântico Sul é essencial tanto para os interesses geopolíticos quanto para a segurança estratégica nacional.'],
+      ];
+      const repertorios1p = [
+        ['Amazônia Azul', 'Segundo o Almirante Álvaro Alberto, "O mar não é um obstáculo, é uma via de comunicação e uma fonte inesgotável de riqueza."'],
+        ['PEM 2040', 'Segundo a instituição militar clássica Vegécio, "Se queres a paz, prepara para a guerra."'],
+        ['Poder Naval', 'Segundo Alfred Thayer Mahan, "A nação que negligencia o seu poder naval está à mercê da vontade de potências estrangeiras."'],
+        ['Programa Nuclear da Marinha', 'Segundo a visão tecnológica alinhada ao pensamento de Darcy Ribeiro sobre autonomia científica, "A tecnologia não é neutra; ela liberta os povos que a dominam e escraviza os que dela dependem."'],
+        ['SisGAAz', 'Segundo o adágio estratégico militar, "Não se pode defender o que não se conhece, nem controlar o que não se vê."'],
+        ['Mentalidade Marítima', 'Segundo o historiador e diplomata José Maria da Silva Paranhos (Barão do Rio Branco), "O Brasil é um país de costas para o mar."'],
+        ['Atlântico Sul', 'Segundo a ideia baseada na Zona de Paz e Cooperação do Atlântico Sul (ZOPACAS), "O Atlântico Sul deve ser uma zona de paz e cooperação, mas garantida pela força legítima de quem o protege."'],
+      ];
+      const repertorios2p = [
+        ['Amazônia Azul', 'Nesse sentido, Sir Walter Raleigh afirma que "Quem domina o mar, domina as riquezas do mundo."'],
+        ['PEM 2040', 'Nesse sentido, o conceito alinhado ao pensamento de Celso Furtado sobre soberania econômica e industrial afirma que "Um país não é independente apenas por sua bandeira, mas pela capacidade de produzir e proteger seus próprios meios."'],
+        ['Poder Naval', 'Nesse sentido, o princípio da dissuasão integral afirma que "A melhor forma de evitar a guerra é possuir forças armadas tão fortes que nenhum adversário ouse desafiá-las."'],
+        ['Programa Nuclear da Marinha', 'Nesse sentido, a ideia de consolidação da independência geopolítica do Brasil afirma que "A ciência e a tecnologia são o fundamento da soberania no século XXI."'],
+        ['SisGAAz', 'Nesse sentido, o conceito geopolítico sobre proteção contra ilícitos (pirataria, pesca ilegal, tráfico) afirma que "A segurança das linhas de comunicação marítima é a artéria vital da economia global."'],
+        ['Mentalidade Marítima', 'Nesse sentido, a ideia de patriotismo cívico-marítimo afirma que "Um povo que conhece o valor de seu mar aprende a defendê-lo como parte indissociável de sua identidade."'],
+        ['Atlântico Sul', 'Nesse sentido, a visão geoestratégica sobre o posicionamento atlântico brasileiro afirma que "Quem controla as rotas do Atlântico Sul controla o comércio e o destino do hemisfério sul."'],
+      ];
+      const retomadas = [
+        ['Economia e Desenvolvimento Nacional', 'Sob essa ótica, torna-se indispensável que a MB intensifique o fomento à Base Industrial de Defesa e a segurança das vias logísticas, garantindo o escoamento seguro de commodities, a expansão da cabotagem e a atração de investimentos de alta tecnologia para o setor naval.'],
+        ['Defesa da Soberania e Geopolítica', 'Sob essa ótica, torna-se indispensável que a MB mantenha uma esquadra de alta prontidão e capacidade de dissuasão integrada, capaz de assegurar a integridade territorial das águas jurisdicionais brasileiras e de projetar poder em cenários de instabilidade regional ou global.'],
+        ['Difusão da Mentalidade Marítima', 'Sob essa ótica, torna-se indispensável que a MB expanda parcerias educacionais e culturais para enraizar na sociedade a consciência de que o desenvolvimento nacional está indissociavelmente ligado ao mar, utilizando plataformas digitais, museus e projetos esportivos de base.'],
+        ['Proteção Ambiental e Sustentabilidade', 'Sob essa ótica, torna-se indispensável que a MB atue com rigor na fiscalização contra a poluição hídrica, na resposta rápida a desastres ecológicos (como vazamentos de óleo) e no apoio técnico a pesquisas oceanográficas e climáticas na Amazônia Azul e na Antártica.'],
+        ['Autonomia Tecnológica e Pesquisa', 'Sob essa ótica, torna-se indispensável que a MB acelere o desenvolvimento de tecnologias sensíveis e de duplo uso — a exemplo do Programa Nuclear da Marinha e de sistemas autônomos —, reduzindo a dependência externa e impulsionando a soberania científica do país.'],
+        ['Ajuda Humanitária e Assistência Médica', 'Sob essa ótica, torna-se indispensável que a MB utilize sua capilaridade logística e seus meios de grande deslocamento para prestar socorro imediato a populações atingidas por catástrofes naturais, além de levar assistência médica e odontológica a comunidades ribeirinhas isoladas.'],
+        ['Assuntos Atuais e Tendências Emergentes', 'Sob essa ótica, torna-se indispensável que a MB adapte suas doutrinas e capacidades para enfrentar ameaças híbridas e cibernéticas, garantir a segurança de cabos submarinos de comunicação de dados e monitorar novas rotas de navegação decorrentes das mudanças climáticas globais.'],
+      ];
+
+      const lista = carregarBanco();
+      sinteses.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'conectivo_desse_modo', texto: `[${tema}] ${texto}` }));
+      repertorios1p.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'repertorio_1p', texto: `[${tema}] ${texto}` }));
+      repertorios2p.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'repertorio_2p', texto: `[${tema}] ${texto}` }));
+      retomadas.forEach(([tema, texto]) => lista.push({ id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), categoria: 'retomada_repertorio', texto: `[${tema}] ${texto}` }));
+      salvarBanco(lista);
+      localStorage.setItem(SEED_KEY, '1');
+    }
+    function adicionarFrase() {
+      const categoria = document.getElementById('nova-frase-categoria').value;
+      const texto = document.getElementById('nova-frase-texto').value.trim();
+      if (!texto) return;
+      const lista = carregarBanco();
+      lista.push({ id: Date.now().toString(36), categoria, texto });
+      salvarBanco(lista);
+      document.getElementById('nova-frase-texto').value = '';
+      renderBanco();
+    }
+    function removerFrase(id) {
+      salvarBanco(carregarBanco().filter(f => f.id !== id));
+      renderBanco();
+    }
+    function renderBanco() {
+      const lista = carregarBanco();
+      const container = document.getElementById('banco-lista');
+      const filtro = document.getElementById('filtro-categoria')?.value || '';
+
+      if (!filtro) {
+        container.innerHTML = '<p class="text-xs text-slate-500 italic px-1">Selecione uma categoria acima pra ver as frases guardadas.</p>';
+        return;
+      }
+      const itens = lista.filter(f => f.categoria === filtro);
+      if (itens.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-500 italic px-1">Nenhuma frase guardada nessa categoria ainda.</p>';
+        return;
+      }
+      container.innerHTML = itens.map(f => `
+        <div class="flex items-center gap-2 bg-slate-900/70 border border-slate-700 rounded-md px-2 py-1.5 mb-1 text-xs">
+          <span class="flex-1 text-slate-200 cursor-pointer hover:text-navy-400" onclick="inserirFraseNaLinha('${f.id}')">${f.texto.replace(/</g, '&lt;')}</span>
+          <button type="button" onclick="removerFrase('${f.id}')" class="text-rose-400/70 hover:text-rose-300 flex-shrink-0"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      `).join('');
+    }
+    function abrirBanco() {
+      renderBanco();
+      document.getElementById('banco-modal').classList.remove('hidden');
+      document.getElementById('banco-modal').classList.add('flex');
+    }
+    function fecharBanco() {
+      document.getElementById('banco-modal').classList.add('hidden');
+      document.getElementById('banco-modal').classList.remove('flex');
+    }
+    function inserirFraseNaLinha(fraseId) {
+      const frase = carregarBanco().find(f => f.id === fraseId);
+      if (!frase) return;
+      const idx = linhaFocada !== null ? linhaFocada : contarLinhasUsadas();
+      const atual = linhas[idx];
+      linhas[idx] = atual ? atual + ' ' + frase.texto : frase.texto;
+      reflowFrom(idx);
+      renderPaperValues();
+      atualizarContador();
+      const el = document.getElementById('linha-' + idx);
+      if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); linhaFocada = idx; }
+      salvarRascunho();
+      fecharBanco();
+    }
+
+    function salvarRascunho() {
+      const dados = { titulo: document.getElementById('input-titulo').value, linhas };
+      try { localStorage.setItem(DRAFT_KEY, JSON.stringify(dados)); } catch (e) { /* ignora */ }
+    }
+    function carregarRascunho() {
+      let dados = {};
+      try { dados = JSON.parse(localStorage.getItem(DRAFT_KEY) || '{}'); } catch (e) { dados = {}; }
+      if (dados.titulo) document.getElementById('input-titulo').value = dados.titulo;
+      if (Array.isArray(dados.linhas)) {
+        linhas = dados.linhas.concat(new Array(30).fill('')).slice(0, 30);
+      }
+      renderPaperValues();
+      atualizarContador();
+    }
+    function limparRascunho() {
+      if (!confirm('Tem certeza que quer limpar tudo? Essa ação não pode ser desfeita.')) return;
+      localStorage.removeItem(DRAFT_KEY);
+      document.getElementById('input-titulo').value = '';
+      linhas = new Array(30).fill('');
+      renderPaperValues();
+      atualizarContador();
+    }
+
+    document.getElementById('input-titulo')?.addEventListener('input', (e) => {
+      const disp = document.getElementById('paper-title-display');
+      if (disp) disp.textContent = e.target.value;
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(salvarRascunho, 400);
+    });
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending', 'gate-no-access'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
+      applyThemeIcon();
+    }
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    async function onUserAuthenticated() {
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) { showGate('gate-pending'); return; }
+
+      const temAcesso = await AlfaGamification.fetchQuizAccess(sb, currentUser.id, QUIZ_ID);
+      if (!temAcesso) { showGate('gate-no-access'); return; }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      semearBancoPadrao();
+      renderSeletoresDeCategoria();
+      renderPaperSkeleton();
+      renderGuia();
+      carregarRascunho();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyThemeIcon();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+  </script>
+  <script>
+    // Registro do Service Worker (PWA instalável, com cache offline).
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

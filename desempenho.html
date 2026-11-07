@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    // Aplica o tema salvo (ou escuro por padrão) antes de qualquer coisa renderizar,
+    // pra evitar um "flash" da cor errada ao carregar a página.
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aprovação Oficial">
+  <title>Meu Desempenho · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Histórico e desempenho do aluno na Plataforma de Estudos CA-AA/AFN.">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0"></script>
+  <script src="sync-offline.js"></script>
+  <script src="gamification.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)',
+              100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252;
+  --tw-slate-100: 241 245 249;
+  --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225;
+  --tw-slate-400: 148 163 184;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105;
+  --tw-slate-700: 51 65 85;
+  --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42;
+  --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245;
+  --tw-emerald-100: 209 250 229;
+  --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183;
+  --tw-emerald-400: 52 211 153;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105;
+  --tw-emerald-700: 4 120 87;
+  --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59;
+  --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242;
+  --tw-rose-100: 255 228 230;
+  --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175;
+  --tw-rose-400: 251 113 133;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72;
+  --tw-rose-700: 190 18 60;
+  --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55;
+  --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235;
+  --tw-amber-100: 254 243 199;
+  --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77;
+  --tw-amber-400: 251 191 36;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6;
+  --tw-amber-700: 180 83 9;
+  --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15;
+  --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255;
+  --tw-cyan-100: 207 250 254;
+  --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249;
+  --tw-cyan-400: 34 211 238;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178;
+  --tw-cyan-700: 14 116 144;
+  --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99;
+  --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250;
+  --tw-navy-200: 192 219 245;
+  --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98;
+  --tw-navy-800: 11 25 44;
+  --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23;
+  --tw-slate-100: 15 23 42;
+  --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85;
+  --tw-slate-400: 71 85 105;
+  --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184;
+  --tw-slate-700: 203 213 225;
+  --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249;
+  --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34;
+  --tw-emerald-100: 6 78 59;
+  --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87;
+  --tw-emerald-400: 5 150 105;
+  --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153;
+  --tw-emerald-700: 110 231 183;
+  --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229;
+  --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25;
+  --tw-rose-100: 136 19 55;
+  --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60;
+  --tw-rose-400: 225 29 72;
+  --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133;
+  --tw-rose-700: 253 164 175;
+  --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230;
+  --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3;
+  --tw-amber-100: 120 53 15;
+  --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9;
+  --tw-amber-400: 217 119 6;
+  --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36;
+  --tw-amber-700: 252 211 77;
+  --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199;
+  --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68;
+  --tw-cyan-100: 22 78 99;
+  --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144;
+  --tw-cyan-400: 8 145 178;
+  --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238;
+  --tw-cyan-700: 103 232 249;
+  --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254;
+  --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248;
+  --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38;
+  --tw-navy-200: 11 25 44;
+  --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160;
+  --tw-navy-500: 0 102 204;
+  --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238;
+  --tw-navy-800: 192 219 245;
+  --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes shake {
+      10%, 90% { transform: translateX(-1px); }
+      20%, 80% { transform: translateX(2px); }
+      30%, 50%, 70% { transform: translateX(-4px); }
+      40%, 60% { transform: translateX(4px); }
+    }
+    .shake { animation: shake .5s; }
+    @media (prefers-reduced-motion: reduce) {
+      #access-card, .shake { animation: none !important; }
+      .lightning-flash, .rain-drop, #vortex-swirl { animation: none !important; }
+      #access-screen.exiting { animation: none !important; opacity: 0; }
+    }
+
+    /* ===== "Chrome" do cabeçalho: fica sempre navy escuro, independente do tema ===== */
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    .chrome-hover-text-white:hover { color: #FFFFFF !important; }
+
+    @keyframes access-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) { #access-card { animation: none !important; } }
+    button:focus-visible, a:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso: apenas verifica sessão/aprovação (login fica no index) -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2" style="animation: access-in .5s ease-out .1s forwards;">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">⚓</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Meu Desempenho</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial para ver seu desempenho.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+
+      <div class="text-[11px] text-[#7895b5] mt-6 pt-4 border-t border-[#1c3a5c] w-full">Plataforma de Estudos CA-AA/AFN</div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6 py-5 flex items-center gap-3">
+      <a href="index.html" class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow hover:bg-navy-500 transition-colors" title="Voltar à página inicial">
+        <i class="fa-solid fa-anchor text-2xl"></i>
+      </a>
+      <div class="flex-1">
+        <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Meu Desempenho</h1>
+        <p class="text-xs chrome-text-slate-400">Histórico de simulados realizados</p>
+      </div>
+      <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-xs text-slate-300 chrome-hover-text-white transition-colors">
+        <i class="fa-solid fa-book-open"></i> Simulados
+      </a>
+      <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <div id="user-bar" class="hidden chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg items-center gap-2">
+        <i class="fa-solid fa-user text-navy-500"></i>
+        <span id="user-email" class="max-w-[160px] truncate"></span>
+        <button onclick="handleLogout()" class="ml-1 text-rose-300 hover:text-rose-200 transition-colors" title="Sair da conta">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-6 py-10">
+
+    <!-- Visão geral -->
+    <h2 class="font-serif text-lg font-semibold text-ink mb-4">Visão Geral do Desempenho</h2>
+    <div id="gauges-row" class="bg-navy-800/80 border border-navy-700 rounded-xl p-6 mb-6 grid grid-cols-2 sm:grid-cols-4 gap-6 items-center justify-items-center"></div>
+
+    <div id="trend-wrap" class="hidden bg-navy-800/80 border border-navy-700 rounded-xl p-5 mb-10">
+      <h3 class="text-xs uppercase tracking-wide text-slate-400 mb-3">Evolução do aproveitamento (últimas tentativas)</h3>
+      <div id="trend-chart"></div>
+    </div>
+
+    <div id="empty-state" class="hidden bg-navy-800/40 border border-dashed border-navy-700 rounded-xl p-10 text-center text-slate-400 mb-10">
+      <i class="fa-solid fa-chart-simple text-3xl mb-3"></i>
+      <p class="text-sm">Você ainda não finalizou nenhum simulado. Assim que terminar um, o resultado aparece aqui.</p>
+    </div>
+
+    <!-- Prova Simulada: tentativas separadas, em destaque -->
+    <div id="prova-simulada-wrap" class="hidden mb-10">
+      <div class="flex items-center gap-2 mb-1">
+        <i class="fa-solid fa-file-pen text-navy-500"></i>
+        <h2 class="font-serif text-lg font-semibold text-ink">Prova Simulada — Histórico de Tentativas</h2>
+      </div>
+      <p class="text-xs text-slate-500 mb-4">Cada tentativa é mostrada separadamente — nada aqui é somado ou reduzido a um único índice.</p>
+      <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div class="flex items-center gap-4">
+            <div class="text-center">
+              <div class="font-serif text-2xl font-semibold text-ink" id="prova-indice-atual">—</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wide">Última tentativa</div>
+            </div>
+            <div class="text-center">
+              <div class="font-serif text-2xl font-semibold text-ink" id="prova-indice-melhor">—</div>
+              <div class="text-[10px] text-slate-400 uppercase tracking-wide">Melhor tentativa</div>
+            </div>
+          </div>
+          <div id="prova-trend-badge"></div>
+        </div>
+        <div id="prova-bars-chart" class="overflow-x-auto pb-1"></div>
+        <div id="prova-attempts-list" class="mt-4 space-y-1.5 text-xs"></div>
+      </div>
+    </div>
+
+    <!-- Ranking -->
+    <div id="ranking-wrap" class="hidden mb-10">
+      <h2 class="font-serif text-lg font-semibold text-ink mb-4">Meu Desempenho — Ranking</h2>
+      <div id="ranking-row" class="grid sm:grid-cols-2 gap-3 mb-3"></div>
+      <div id="attention-card"></div>
+    </div>
+
+    <!-- Grupos de matérias -->
+    <div id="grupo-geral-wrap" class="hidden mb-10">
+      <div class="flex items-center gap-2 mb-4">
+        <i class="fa-solid fa-graduation-cap text-navy-500"></i>
+        <h2 class="font-serif text-lg font-semibold text-ink">Análise: Conhecimento Geral</h2>
+      </div>
+      <div id="grupo-geral-cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+
+    <div id="grupo-naval-wrap" class="hidden mb-10">
+      <div class="flex items-center gap-2 mb-4">
+        <i class="fa-solid fa-anchor text-navy-500"></i>
+        <h2 class="font-serif text-lg font-semibold text-ink">Análise: Conhecimento Militar Naval</h2>
+      </div>
+      <div id="grupo-naval-cards" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </div>
+
+    <!-- Recomendação -->
+    <div id="recomendacao-wrap" class="hidden mb-10">
+      <div class="bg-navy-800/80 border border-amber-700/50 rounded-xl p-5 flex items-start gap-3">
+        <span class="text-xl">🎯</span>
+        <div>
+          <div class="text-xs uppercase tracking-wide text-amber-300 mb-1">O que estudar agora?</div>
+          <div id="recomendacao-text" class="text-sm text-slate-200"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desempenho por assunto -->
+    <div id="assunto-wrap" class="hidden">
+      <h2 class="font-serif text-lg font-semibold text-ink mb-4">Desempenho por Assunto</h2>
+      <p class="text-xs text-slate-500 mb-4">Baseado nos simulados feitos a partir de agora — tentativas anteriores a essa atualização não têm esse detalhe.</p>
+      <div id="assunto-cards" class="space-y-5"></div>
+    </div>
+
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-6 pb-8 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://ghlaukrbwwecpeanlmlp.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jKB_xy4LMBIBcLV_i0wa3A_TgBJAihh';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    let currentUser = null;
+
+    // ---- catálogo de matérias (rótulo + grupo) ----
+    const QUIZ_INFO = {
+      'PORTUGUES':            { label: 'Língua Portuguesa',              group: 'geral' },
+      'HISTORIA_NAVAL':       { label: 'História Militar Naval',         group: 'geral' },
+      'GEOGRAFIA':            { label: 'Geografia',                      group: 'geral' },
+      'CAAML-703':            { label: 'Embarcações Miúdas & Segurança', group: 'naval' },
+      'CERIMONIAL':           { label: 'Cerimonial da Marinha',          group: 'naval' },
+      'ROSAS_VIRTUDES':       { label: 'Rosas das Virtudes',             group: 'naval' },
+      'LIDERANCA_ATRIBUTOS':  { label: 'Liderança — Atributos',          group: 'naval' },
+      'JUSTICA_DISCIPLINA':   { label: 'Justiça e Disciplina',           group: 'naval' },
+      'LIDERANCA':            { label: 'Liderança',                      group: 'naval' },
+      'OGSA':                 { label: 'OGSA',                           group: 'naval' },
+      'CAMAAL_CAV':           { label: 'CAMAAL 1202 (CAV)',              group: 'naval' },
+      'ESTATUTO_RDM':         { label: 'Estatuto dos Militares & RDM',   group: 'naval' },
+      'PEM2040':              { label: 'PEM-2040',                       group: 'naval' },
+      'MATEMATICA':           { label: 'Matemática',                     group: 'geral' },
+      'PROVA_SIMULADA':       { label: 'Prova Simulada',                 group: 'geral' },
+    };
+    function quizLabel(id) { return (QUIZ_INFO[id] && QUIZ_INFO[id].label) || id; }
+    function quizGroup(id) { return (QUIZ_INFO[id] && QUIZ_INFO[id].group) || 'naval'; }
+
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora se indisponível */ }
+      applyThemeIcon();
+    }
+
+
+    async function handleLogout() {
+      await sb.auth.signOut();
+    }
+
+    function fmtDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }) +
+             ' às ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    // ---- classificação por faixa de aproveitamento ----
+    function classify(pct) {
+      if (pct >= 90) return { label: 'Excelente',        ring: '#34d399', text: 'text-emerald-400' };
+      if (pct >= 80) return { label: 'Muito bom',         ring: '#34d399', text: 'text-emerald-400' };
+      if (pct >= 70) return { label: 'Bom',                ring: '#a3e635', text: 'text-lime-400' };
+      if (pct >= 60) return { label: 'Regular',            ring: '#fbbf24', text: 'text-amber-400' };
+      return               { label: 'Precisa melhorar',   ring: '#fb7185', text: 'text-rose-400' };
+    }
+
+    // ---- gera um gauge circular (SVG) ----
+    function gaugeSVG(pct, opts) {
+      opts = opts || {};
+      const size = opts.size || 100;
+      const stroke = opts.stroke || 9;
+      const r = (size / 2) - stroke;
+      const c = 2 * Math.PI * r;
+      const clamped = Math.max(0, Math.min(100, pct));
+      const offset = c - (clamped / 100) * c;
+      const color = opts.color || classify(pct).ring;
+      const labelText = opts.labelText !== undefined ? opts.labelText : Math.round(pct) + '%';
+      return `
+        <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" class="-rotate-90">
+          <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="#0B192C" stroke-width="${stroke}" />
+          <circle cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke="${color}" stroke-width="${stroke}"
+                  stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset}"
+                  style="transition: stroke-dashoffset .6s ease-out" />
+          <text x="${size/2}" y="${size/2}" transform="rotate(90 ${size/2} ${size/2})"
+                text-anchor="middle" dominant-baseline="central"
+                class="fill-white font-serif font-semibold" style="font-size:${size*0.2}px">${labelText}</text>
+        </svg>`;
+    }
+
+    function gaugeBlock(pct, label, opts) {
+      return `
+        <div class="flex flex-col items-center gap-2">
+          ${gaugeSVG(pct, opts)}
+          <div class="text-[11px] text-slate-400 text-center">${label}</div>
+        </div>`;
+    }
+
+    // ---- mini gráfico de evolução (SVG simples, sem lib externa) ----
+    function trendSVG(points) {
+      if (points.length < 2) return '';
+      const w = 640, h = 140, pad = 24;
+      const xs = points.map((_, i) => pad + (i * (w - pad * 2)) / (points.length - 1));
+      const ys = points.map(p => h - pad - (p / 100) * (h - pad * 2));
+      const path = xs.map((x, i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ');
+      const dots = xs.map((x, i) => `<circle cx="${x.toFixed(1)}" cy="${ys[i].toFixed(1)}" r="3.5" fill="#2384d6" />`).join('');
+      return `
+        <svg viewBox="0 0 ${w} ${h}" class="w-full h-auto">
+          <line x1="${pad}" y1="${h-pad}" x2="${w-pad}" y2="${h-pad}" stroke="#1E3E62" stroke-width="1"/>
+          <path d="${path}" fill="none" stroke="#2384d6" stroke-width="2.5" />
+          ${dots}
+        </svg>`;
+    }
+
+    // ---- gráfico de barras verticais: uma barra por tentativa, em ordem cronológica ----
+    function verticalBarsSVG(attemptsChrono) {
+      const barW = 22, gap = 16, h = 130, padTop = 16, padBottom = 22;
+      const usableH = h - padTop - padBottom;
+      const totalW = attemptsChrono.length * (barW + gap) + gap;
+      const bars = attemptsChrono.map((a, i) => {
+        const pct = Math.max(0, Math.min(100, a.percentual));
+        const barH = Math.max(2, (pct / 100) * usableH);
+        const x = gap + i * (barW + gap);
+        const y = padTop + (usableH - barH);
+        const color = pct >= 80 ? '#34d399' : pct >= 60 ? '#fbbf24' : '#fb7185';
+        return `
+          <text x="${x + barW/2}" y="${y - 5}" text-anchor="middle" fill="#94A3B8" style="font-size:9px">${Math.round(pct)}%</text>
+          <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="4" fill="${color}" />
+          <text x="${x + barW/2}" y="${h - 6}" text-anchor="middle" fill="#64748B" style="font-size:9px">${i + 1}ª</text>
+        `;
+      }).join('');
+      return `<svg viewBox="0 0 ${totalW} ${h}" width="${totalW}" height="${h}" style="min-width:${totalW}px">
+        <line x1="0" y1="${h - padBottom}" x2="${totalW}" y2="${h - padBottom}" stroke="#1E3E62" stroke-width="1"/>
+        ${bars}
+      </svg>`;
+    }
+
+    // ---- indicador de melhora/piora: compara a ultima tentativa com a anterior ----
+    function trendBadge(attemptsChrono) {
+      if (attemptsChrono.length < 2) return '<span class="text-[11px] text-slate-500">ainda sem histórico suficiente pra comparar</span>';
+      const prev = attemptsChrono[attemptsChrono.length - 2].percentual;
+      const last = attemptsChrono[attemptsChrono.length - 1].percentual;
+      const diff = Math.round(last - prev);
+      if (Math.abs(diff) < 1) return '<span class="text-[11px] text-slate-400 flex items-center gap-1"><i class="fa-solid fa-minus"></i> estável em relação à tentativa anterior</span>';
+      if (diff > 0) return `<span class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up"></i> melhorou ${diff} pontos em relação à tentativa anterior</span>`;
+      return `<span class="text-[11px] text-rose-400 font-semibold flex items-center gap-1"><i class="fa-solid fa-arrow-trend-down"></i> caiu ${Math.abs(diff)} pontos em relação à tentativa anterior</span>`;
+    }
+
+    async function carregarDesempenho() {
+      // Só o ciclo atual da prova conta (ver AlfaCiclo em sync-offline.js).
+      const { data: resultados, error } = await AlfaCiclo.filtrar(sb
+        .from('resultados')
+        .select('id, quiz_id, acertos, erros, percentual, criado_em')
+        .eq('user_id', currentUser.id))
+        .order('criado_em', { ascending: false });
+
+      if (error || !resultados || resultados.length === 0) {
+        document.getElementById('empty-state').classList.remove('hidden');
+        return;
+      }
+
+      // Agrupa por matéria
+      const bySubject = {};
+      resultados.forEach(r => {
+        if (!bySubject[r.quiz_id]) bySubject[r.quiz_id] = [];
+        bySubject[r.quiz_id].push(r);
+      });
+      const subjectIds = Object.keys(bySubject);
+
+      const perSubject = subjectIds.map(id => {
+        const attempts = bySubject[id];
+        const best = Math.max(...attempts.map(a => a.percentual));
+        const totalAcertos = attempts.reduce((s, a) => s + a.acertos, 0);
+        const totalErros = attempts.reduce((s, a) => s + a.erros, 0);
+        return { id, attempts, best, totalAcertos, totalErros };
+      });
+
+      // ---- Prova Simulada: seção dedicada, tentativas separadas ----
+      const provaAttempts = (bySubject['PROVA_SIMULADA'] || [])
+        .slice()
+        .sort((a, b) => new Date(a.criado_em) - new Date(b.criado_em));
+      if (provaAttempts.length > 0) {
+        document.getElementById('prova-simulada-wrap').classList.remove('hidden');
+        const ultima = provaAttempts[provaAttempts.length - 1];
+        const melhor = provaAttempts.reduce((m, a) => a.percentual > m.percentual ? a : m, provaAttempts[0]);
+        document.getElementById('prova-indice-atual').textContent = Math.round(ultima.percentual) + '%';
+        document.getElementById('prova-indice-melhor').textContent = Math.round(melhor.percentual) + '%';
+        document.getElementById('prova-trend-badge').innerHTML = trendBadge(provaAttempts);
+        document.getElementById('prova-bars-chart').innerHTML = verticalBarsSVG(provaAttempts);
+
+        // Detalhamento por matéria de cada tentativa (ex.: "Português 4/8")
+        const idsComResultado = provaAttempts.map(a => a.id).filter(id => id !== undefined && id !== null);
+        let breakdownByResultado = {};
+        if (idsComResultado.length > 0) {
+          const { data: detalhesProva } = await sb
+            .from('respostas_detalhadas')
+            .select('resultado_id, subject, acertou')
+            .eq('user_id', currentUser.id)
+            .eq('quiz_id', 'PROVA_SIMULADA')
+            .in('resultado_id', idsComResultado);
+
+          (detalhesProva || []).forEach(d => {
+            if (d.resultado_id === null || d.resultado_id === undefined) return;
+            if (!breakdownByResultado[d.resultado_id]) breakdownByResultado[d.resultado_id] = {};
+            if (!breakdownByResultado[d.resultado_id][d.subject]) breakdownByResultado[d.resultado_id][d.subject] = { acertos: 0, total: 0 };
+            breakdownByResultado[d.resultado_id][d.subject].total++;
+            if (d.acertou) breakdownByResultado[d.resultado_id][d.subject].acertos++;
+          });
+        }
+
+        document.getElementById('prova-attempts-list').innerHTML = provaAttempts.slice().reverse().map((a, i) => {
+          const bySubjectAttempt = breakdownByResultado[a.id];
+          let breakdownHTML = '<div class="text-[10px] text-slate-600 italic mt-1">detalhamento por matéria não disponível pra essa tentativa</div>';
+          if (bySubjectAttempt) {
+            const chips = Object.entries(bySubjectAttempt)
+              .sort((x, y) => x[0].localeCompare(y[0]))
+              .map(([subject, s]) => {
+                const pct = 100 * s.acertos / s.total;
+                const color = pct >= 70 ? 'text-emerald-400 border-emerald-700/50' : pct >= 50 ? 'text-amber-400 border-amber-700/50' : 'text-rose-400 border-rose-700/50';
+                return `<span class="inline-flex items-center gap-1 border ${color} rounded-md px-2 py-1 text-[11px]">${subject} <strong>${s.acertos}/${s.total}</strong></span>`;
+              }).join('');
+            breakdownHTML = `<div class="flex flex-wrap gap-1.5 mt-2">${chips}</div>`;
+          }
+          return `
+            <div class="py-2.5 border-b border-navy-700/60 last:border-0">
+              <div class="flex items-center gap-3">
+                <span class="text-slate-500 w-16">${fmtDate(a.criado_em)}</span>
+                <span class="flex-1 text-slate-400">${a.acertos} acertos · ${a.erros} erros</span>
+                <span class="font-semibold ${a.percentual >= 80 ? 'text-emerald-400' : a.percentual >= 60 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(a.percentual)}%</span>
+              </div>
+              ${breakdownHTML}
+            </div>
+          `;
+        }).join('');
+      }
+
+      // ---- gauges gerais ----
+      const totalTentativas = resultados.length;
+      const totalAcertosGeral = resultados.reduce((s, r) => s + r.acertos, 0);
+      const totalErrosGeral = resultados.reduce((s, r) => s + r.erros, 0);
+      const taxaAcertosGeral = totalAcertosGeral + totalErrosGeral > 0
+        ? (100 * totalAcertosGeral / (totalAcertosGeral + totalErrosGeral)) : 0;
+      const mediaGeral = perSubject.reduce((s, x) => s + x.best, 0) / perSubject.length;
+
+      document.getElementById('gauges-row').innerHTML = `
+        ${gaugeBlock(mediaGeral, 'Média geral (melhores tentativas)')}
+        ${gaugeBlock(taxaAcertosGeral, 'Taxa de acertos (todas as respostas)')}
+        <div class="flex flex-col items-center gap-2">
+          <div class="font-serif text-3xl font-semibold text-ink">${totalTentativas}</div>
+          <div class="text-[11px] text-slate-400 text-center">Simulados feitos</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="font-serif text-3xl font-semibold text-ink">${subjectIds.length}</div>
+          <div class="text-[11px] text-slate-400 text-center">Matérias praticadas</div>
+        </div>
+      `;
+
+      // ---- gráfico de evolução (cronológico, todas as tentativas) ----
+      if (resultados.length >= 2) {
+        const chronological = [...resultados].reverse().map(r => r.percentual);
+        document.getElementById('trend-chart').innerHTML = trendSVG(chronological);
+        document.getElementById('trend-wrap').classList.remove('hidden');
+      }
+
+      // ---- ranking ----
+      const ranked = [...perSubject].filter(s => s.id !== 'PROVA_SIMULADA').sort((a, b) => b.best - a.best);
+      if (ranked.length >= 1) {
+        document.getElementById('ranking-wrap').classList.remove('hidden');
+        const medals = ['🥇', '🥈', '🥉'];
+        const rankingRow = document.getElementById('ranking-row');
+        rankingRow.innerHTML = ranked.slice(0, 3).map((s, i) => `
+          <div class="bg-navy-800/80 border border-navy-700 rounded-xl p-4 flex items-center gap-3">
+            <span class="text-2xl">${medals[i]}</span>
+            <div class="flex-1">
+              <div class="text-sm font-semibold text-ink">${quizLabel(s.id)}</div>
+              <div class="text-xs text-slate-400">${Math.round(s.best)}% de aproveitamento</div>
+            </div>
+          </div>
+        `).join('');
+
+        if (ranked.length >= 2) {
+          const worst = ranked[ranked.length - 1];
+          document.getElementById('attention-card').innerHTML = `
+            <div class="bg-rose-950/40 border border-rose-800/60 rounded-xl p-4 flex items-center gap-3">
+              <span class="text-xl">⚠️</span>
+              <div class="flex-1">
+                <div class="text-sm font-semibold text-rose-200">Precisa de mais atenção: ${quizLabel(worst.id)}</div>
+                <div class="text-xs text-rose-300/80">${Math.round(worst.best)}% de aproveitamento na melhor tentativa</div>
+              </div>
+            </div>`;
+        }
+      }
+
+      // ---- cards por matéria, agrupados (Prova Simulada tem seção própria acima) ----
+      const geralCards = document.getElementById('grupo-geral-cards');
+      const navalCards = document.getElementById('grupo-naval-cards');
+      geralCards.innerHTML = '';
+      navalCards.innerHTML = '';
+
+      perSubject
+        .filter(s => s.id !== 'PROVA_SIMULADA')
+        .sort((a, b) => quizLabel(a.id).localeCompare(quizLabel(b.id)))
+        .forEach(s => {
+          const chrono = s.attempts.slice().sort((a, b) => new Date(a.criado_em) - new Date(b.criado_em));
+          const atual = chrono[chrono.length - 1];
+          const c = classify(atual.percentual);
+          const card = document.createElement('div');
+          card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5 shadow-lg flex flex-col gap-3';
+          card.innerHTML = `
+            <h3 class="font-serif text-base font-semibold text-ink text-center">${quizLabel(s.id)}</h3>
+            <div class="flex items-center justify-center gap-6">
+              <div class="text-center">
+                <div class="font-serif text-2xl font-semibold ${c.text}">${Math.round(atual.percentual)}%</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wide">Índice atual</div>
+              </div>
+              <div class="text-center">
+                <div class="font-serif text-2xl font-semibold text-ink">${Math.round(s.best)}%</div>
+                <div class="text-[10px] text-slate-400 uppercase tracking-wide">Melhor</div>
+              </div>
+            </div>
+            <div class="text-center">${trendBadge(chrono)}</div>
+            <div class="overflow-x-auto pb-1 flex justify-center">${verticalBarsSVG(chrono)}</div>
+            <div class="text-[11px] text-slate-400 text-center">
+              ${s.attempts.length} tentativa${s.attempts.length > 1 ? 's' : ''} ·
+              ${s.totalAcertos} acertos · ${s.totalErros} erros
+            </div>
+            <div class="text-[10px] text-slate-500 text-center">última em ${fmtDate(atual.criado_em)}</div>
+          `;
+          (quizGroup(s.id) === 'geral' ? geralCards : navalCards).appendChild(card);
+        });
+
+      if (geralCards.children.length > 0) document.getElementById('grupo-geral-wrap').classList.remove('hidden');
+      if (navalCards.children.length > 0) document.getElementById('grupo-naval-wrap').classList.remove('hidden');
+
+      await carregarDesempenhoPorAssunto();
+    }
+
+    async function carregarDesempenhoPorAssunto() {
+      const { data: detalhes, error } = await AlfaCiclo.filtrar(sb
+        .from('respostas_detalhadas')
+        .select('quiz_id, subject, acertou')
+        .eq('user_id', currentUser.id), 'respondida_em');
+
+      if (error || !detalhes || detalhes.length === 0) return;
+
+      // Agrupa por matéria -> assunto
+      const byQuiz = {};
+      detalhes.forEach(d => {
+        if (!byQuiz[d.quiz_id]) byQuiz[d.quiz_id] = {};
+        if (!byQuiz[d.quiz_id][d.subject]) byQuiz[d.quiz_id][d.subject] = { total: 0, acertos: 0 };
+        byQuiz[d.quiz_id][d.subject].total++;
+        if (d.acertou) byQuiz[d.quiz_id][d.subject].acertos++;
+      });
+
+      // ---- recomendação: assunto com pior aproveitamento (mín. 3 respostas) ----
+      let pior = null;
+      Object.entries(byQuiz).forEach(([quizId, subjects]) => {
+        Object.entries(subjects).forEach(([subject, s]) => {
+          if (s.total < 3) return;
+          const pct = 100 * s.acertos / s.total;
+          if (!pior || pct < pior.pct) pior = { quizId, subject, pct, ...s };
+        });
+      });
+      if (pior) {
+        document.getElementById('recomendacao-wrap').classList.remove('hidden');
+        document.getElementById('recomendacao-text').innerHTML =
+          `Seu próximo foco deveria ser <strong>${pior.subject}</strong> (${quizLabel(pior.quizId)}).<br>
+           Você respondeu ${pior.total} questões desse assunto e acertou ${pior.acertos} (${Math.round(pior.pct)}%).`;
+      }
+
+      // ---- tabelas por matéria ----
+      const wrap = document.getElementById('assunto-cards');
+      wrap.innerHTML = '';
+      Object.keys(byQuiz).sort((a, b) => quizLabel(a).localeCompare(quizLabel(b))).forEach(quizId => {
+        const subjects = byQuiz[quizId];
+        const rows = Object.entries(subjects)
+          .map(([subject, s]) => ({ subject, ...s, pct: 100 * s.acertos / s.total }))
+          .sort((a, b) => a.pct - b.pct);
+
+        const card = document.createElement('div');
+        card.className = 'bg-navy-800/80 border border-navy-700 rounded-xl p-5';
+        card.innerHTML = `
+          <h3 class="font-serif text-base font-semibold text-ink mb-3">${quizLabel(quizId)}</h3>
+          <div class="space-y-1.5">
+            ${rows.map(r => `
+              <div class="flex items-center gap-3 text-xs py-1.5 border-b border-navy-700/60 last:border-0">
+                <span class="flex-1 text-slate-300 truncate">${r.subject}</span>
+                <span class="text-slate-500 w-20 text-right">${r.acertos}/${r.total}</span>
+                <div class="w-24 bg-navy-900 rounded-full h-1.5 overflow-hidden">
+                  <div class="${r.pct >= 70 ? 'bg-emerald-500' : r.pct >= 50 ? 'bg-amber-500' : 'bg-rose-500'} h-1.5 rounded-full" style="width:${Math.round(r.pct)}%"></div>
+                </div>
+                <span class="font-semibold w-10 text-right ${r.pct >= 70 ? 'text-emerald-400' : r.pct >= 50 ? 'text-amber-400' : 'text-rose-400'}">${Math.round(r.pct)}%</span>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        wrap.appendChild(card);
+      });
+
+      document.getElementById('assunto-wrap').classList.remove('hidden');
+    }
+
+    async function onUserAuthenticated() {
+      await AlfaCiclo.loadConfig(sb);
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+
+      document.getElementById('access-screen').classList.add('hidden');
+      const bar = document.getElementById('user-bar');
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      document.getElementById('user-email').textContent = currentUser.email;
+
+      await carregarDesempenho();
+    }
+
+    function showAccessScreen() {
+      document.getElementById('user-bar').classList.add('hidden');
+      document.getElementById('user-bar').classList.remove('flex');
+      showGate('gate-logged-out');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyThemeIcon();
+      sb.auth.onAuthStateChange((event, session) => {
+        if (session && session.user) {
+          currentUser = session.user;
+          onUserAuthenticated();
+        } else if (event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+          currentUser = null;
+          showAccessScreen();
+        }
+      });
+    });
+  </script>
+
+  <script>
+    // Registro do Service Worker (PWA instalável, com cache offline).
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

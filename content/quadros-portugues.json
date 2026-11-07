@@ -1,0 +1,1235 @@
+{
+ "slug": "portugues",
+ "quadros": [
+  {
+   "titulo": "Fonética e Fonologia",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Fonema x Letra",
+     "def": "Fonema é o som que distingue palavras; letra é só o sinal gráfico.",
+     "itens": "táxi: 4 letras, 5 fonemas · hoje: 4 letras, 3 fonemas",
+     "ex": "Nº de letras nem sempre = nº de fonemas."
+    },
+    {
+     "nome": "Ditongo",
+     "def": "Vogal + semivogal na MESMA sílaba.",
+     "itens": "pai, herói, mãe, põe",
+     "ex": "Se separar na divisão silábica, é hiato."
+    },
+    {
+     "nome": "Tritongo",
+     "def": "Semivogal + vogal + semivogal na mesma sílaba.",
+     "itens": "Paraguai, saguão, quão",
+     "ex": "Três sons vocálicos juntos."
+    },
+    {
+     "nome": "Hiato",
+     "def": "Duas vogais em sílabas DIFERENTES.",
+     "itens": "sa-í-da, vo-o, ra-iz",
+     "ex": "\"saída\" é hiato; \"pai\" é ditongo."
+    },
+    {
+     "nome": "Encontro consonantal",
+     "def": "Consoantes seguidas, cada uma com seu som.",
+     "itens": "pra-to, bra-ço (perfeito) · ap-to, rit-mo (imperfeito)",
+     "ex": "Duas letras, dois fonemas."
+    },
+    {
+     "nome": "Dígrafo",
+     "def": "DUAS letras para UM fonema.",
+     "itens": "ch, lh, nh, rr, ss, sc, sç, xc, qu, gu · am, en, in…",
+     "ex": "Duas letras, um fonema."
+    }
+   ]
+  },
+  {
+   "titulo": "Ortografia",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "X depois de ditongo e de en-/me-",
+     "def": "Use X após ditongo, após en- inicial e após me-.",
+     "itens": "caixa, deixar, enxada, enxugar, mexer",
+     "ex": "Exceções: encher, enchente (de cheio) · mecha."
+    },
+    {
+     "nome": "-IZAR x -ISAR",
+     "def": "Z se o radical não tem S; S se a palavra-base já tem S.",
+     "itens": "civilizar, otimizar · análise → analisar",
+     "ex": "Olhe a palavra de origem."
+    },
+    {
+     "nome": "-ês, -esa, -oso, -isa",
+     "def": "Sufixos de nacionalidade, qualidade e ofício feminino usam S.",
+     "itens": "francês, francesa, gostoso, poetisa",
+     "ex": "Sempre S."
+    },
+    {
+     "nome": "SC, SÇ, XC",
+     "def": "Palavras eruditas ligadas a crescer, nascer, descer.",
+     "itens": "crescer, nascimento, desço",
+     "ex": "\"cresço\" certo; \"creço\" errado."
+    },
+    {
+     "nome": "G x J",
+     "def": "G em -agem, -igem, -ugem; J em tupi/africano e em verbos -jar.",
+     "itens": "viagem, ferrugem · jiboia · viajei, viajemos",
+     "ex": "Exceção: pajem."
+    },
+    {
+     "nome": "Porquês",
+     "def": "por que (pergunta/pelo qual) · por quê (fim de frase) · porque (explicação) · porquê (substantivo).",
+     "itens": "Por que saiu? / Saiu, por quê? / Saí porque… / o porquê",
+     "ex": "Tem artigo antes? porquê. Explica? porque."
+    },
+    {
+     "nome": "Mau x Mal",
+     "def": "Mau é adjetivo (oposto de bom); mal é advérbio (oposto de bem) ou substantivo.",
+     "itens": "mau aluno · comportou-se mal",
+     "ex": "Troque por bom/bem."
+    },
+    {
+     "nome": "Senão x Se não",
+     "def": "Senão = caso contrário, mas sim; se não = condição + negação.",
+     "itens": "Estude, senão reprova. / Se não estudar…",
+     "ex": "Dá para trocar por \"caso não\"? Separado."
+    },
+    {
+     "nome": "Em vez de x Ao invés de",
+     "def": "Em vez de = no lugar de; ao invés de = ao contrário de.",
+     "itens": "Em vez de café, chá. / Ao invés de ajudar, prejudicou.",
+     "ex": "\"Ao invés\" só com oposição real."
+    }
+   ]
+  },
+  {
+   "titulo": "Acentuação Gráfica",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Oxítonas",
+     "def": "Acentua as terminadas em A(s), E(s), O(s), EM, ENS.",
+     "itens": "sofá, café, cipó, armazém, parabéns",
+     "ex": "Tônica na última sílaba."
+    },
+    {
+     "nome": "Paroxítonas",
+     "def": "Acentua as terminadas em L, N, R, X, PS, I(s), US, UM/UNS, Ã(s), ÃO(s), ditongo.",
+     "itens": "fácil, hífen, caráter, tórax, bíceps, júri, ônibus, álbum, órfã, órgão, mágoa",
+     "ex": "Terminadas em A, E, O (sem s) NÃO levam acento: casa, pente."
+    },
+    {
+     "nome": "Proparoxítonas",
+     "def": "TODAS são acentuadas.",
+     "itens": "árvore, médico, lâmpada",
+     "ex": "Sem exceção."
+    },
+    {
+     "nome": "Monossílabos tônicos",
+     "def": "Acentua os terminados em A(s), E(s), O(s).",
+     "itens": "pá, pé, nó, más",
+     "ex": "Mesma regra das oxítonas."
+    },
+    {
+     "nome": "Hiato com I/U tônico",
+     "def": "Acentua o I ou U tônico sozinho na sílaba (ou com S).",
+     "itens": "saída, saúde, baú, Piauí",
+     "ex": "Antes de NH não acentua: rainha."
+    },
+    {
+     "nome": "Acento diferencial",
+     "def": "Restaram poucos.",
+     "itens": "pôde x pode · pôr x por · vêm x vem",
+     "ex": "para, pelo, pera, polo perderam o acento."
+    },
+    {
+     "nome": "Mudanças do Acordo",
+     "def": "Fim do trema e do circunflexo em oo e eem.",
+     "itens": "linguiça, voo, leem, creem, veem",
+     "ex": "Mas \"vêm\" (eles vêm) continua."
+    }
+   ]
+  },
+  {
+   "titulo": "Hífen (Novo Acordo)",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Regra"
+   },
+   "linhas": [
+    {
+     "nome": "Mesma vogal",
+     "def": "Prefixo termina com a mesma vogal que inicia o 2º elemento.",
+     "itens": "micro-ondas, anti-inflamatório, contra-almirante",
+     "ex": "Vogal igual: SEPARA."
+    },
+    {
+     "nome": "Vogal diferente",
+     "def": "Prefixo em vogal + 2º elemento com vogal diferente.",
+     "itens": "autoescola, extraoficial",
+     "ex": "Vogal diferente: JUNTA."
+    },
+    {
+     "nome": "H",
+     "def": "2º elemento começando por H.",
+     "itens": "super-homem, anti-higiênico",
+     "ex": "H sempre pede hífen."
+    },
+    {
+     "nome": "R ou S após vogal",
+     "def": "Dobra a consoante e junta.",
+     "itens": "minissaia, antirrugas",
+     "ex": "Vogal + R/S: dobra."
+    },
+    {
+     "nome": "Mesma consoante",
+     "def": "Prefixo em consoante + mesma consoante.",
+     "itens": "inter-regional, super-realista, sub-bibliotecário",
+     "ex": "Consoante igual: separa."
+    },
+    {
+     "nome": "Sempre com hífen",
+     "def": "ex- (que deixou de ser), vice-, além-, recém-, sem-, pós-, pré-, pró- tônicos.",
+     "itens": "ex-presidente, vice-almirante, recém-nascido, pós-graduação",
+     "ex": "Decore a lista."
+    },
+    {
+     "nome": "Locuções",
+     "def": "Perderam o hífen, exceto nomes de espécies.",
+     "itens": "mão de obra, cor de vinho · bem-te-vi, joão-de-barro",
+     "ex": "Na dúvida, o Acordo REDUZIU hifens."
+    }
+   ]
+  },
+  {
+   "titulo": "Classes de Palavras",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Varia?"
+   },
+   "linhas": [
+    {
+     "nome": "Substantivo",
+     "def": "Nomeia seres, objetos, sentimentos, ações.",
+     "itens": "comum/próprio, concreto/abstrato, coletivo (esquadra, armada, flotilha, tripulação)",
+     "ex": "Variável."
+    },
+    {
+     "nome": "Artigo",
+     "def": "Define (o, a) ou indefine (um, uma) o substantivo.",
+     "itens": "\"O cão é fiel\" = todos os cães",
+     "ex": "Variável."
+    },
+    {
+     "nome": "Adjetivo",
+     "def": "Qualifica o substantivo; tem grau comparativo e superlativo.",
+     "itens": "de rio = fluvial · de inverno = hibernal · de olho = ocular",
+     "ex": "Variável."
+    },
+    {
+     "nome": "Numeral",
+     "def": "Quantidade, ordem, múltiplo ou fração.",
+     "itens": "dois, primeiro, dobro, terço · Art. 5º = artigo quinto",
+     "ex": "Variável."
+    },
+    {
+     "nome": "Pronome",
+     "def": "Substitui ou acompanha o substantivo indicando pessoa.",
+     "itens": "pessoal, possessivo, demonstrativo, relativo, indefinido, interrogativo",
+     "ex": "Variável. Tônico oblíquo sempre com preposição: para mim."
+    },
+    {
+     "nome": "Verbo",
+     "def": "Ação, estado, fenômeno; flexiona em pessoa, número, tempo, modo e voz.",
+     "itens": "Indicativo (certeza), Subjuntivo (hipótese), Imperativo (ordem)",
+     "ex": "Variável. \"Havia muitos navios\", nunca \"haviam\"."
+    },
+    {
+     "nome": "Advérbio",
+     "def": "Circunstância do verbo, adjetivo ou outro advérbio.",
+     "itens": "rapidamente, aqui, hoje, muito, não",
+     "ex": "Invariável."
+    },
+    {
+     "nome": "Preposição",
+     "def": "Liga termos com subordinação (base da regência).",
+     "itens": "a, ante, até, após, com, contra, de, desde, em, entre, para, perante, por, sem, sob, sobre, trás",
+     "ex": "Invariável."
+    },
+    {
+     "nome": "Conjunção",
+     "def": "Liga orações ou termos de mesma função.",
+     "itens": "e, mas, ou, porque, se, quando, embora, portanto",
+     "ex": "Invariável."
+    },
+    {
+     "nome": "Interjeição",
+     "def": "Emoção isolada.",
+     "itens": "Ah! Socorro! Que pena!",
+     "ex": "Invariável."
+    },
+    {
+     "nome": "Palavras camaleão",
+     "def": "Mudam de classe conforme o contexto.",
+     "itens": "que, como, mais, só (\"Só ele sabe\" x \"Ele estava só\")",
+     "ex": "Classifique pelo contexto."
+    }
+   ]
+  },
+  {
+   "titulo": "Vozes Verbais e Plurais Compostos",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Regra"
+   },
+   "linhas": [
+    {
+     "nome": "Voz ativa",
+     "def": "Sujeito pratica a ação.",
+     "itens": "O comandante assinou o documento.",
+     "ex": "Agente = sujeito."
+    },
+    {
+     "nome": "Passiva analítica",
+     "def": "Ser/estar + particípio; sujeito sofre a ação.",
+     "itens": "O documento foi assinado pelo comandante.",
+     "ex": "Tem agente da passiva."
+    },
+    {
+     "nome": "Passiva sintética",
+     "def": "VTD + SE; o substantivo é sujeito paciente.",
+     "itens": "Alugam-se casas.",
+     "ex": "Verbo concorda com o sujeito paciente."
+    },
+    {
+     "nome": "Voz reflexiva",
+     "def": "Sujeito pratica e recebe a ação.",
+     "itens": "Ele se feriu.",
+     "ex": "Cabe \"a si mesmo\"."
+    },
+    {
+     "nome": "Subst. + subst./adj.",
+     "def": "Os dois vão para o plural.",
+     "itens": "tenentes-coronéis, amores-perfeitos, más-línguas",
+     "ex": "Ambos variam."
+    },
+    {
+     "nome": "2º indica finalidade/tipo",
+     "def": "Só o 1º vai para o plural.",
+     "itens": "navios-escola, palavras-chave, salários-família",
+     "ex": "Só o primeiro."
+    },
+    {
+     "nome": "Com preposição",
+     "def": "Só o 1º vai para o plural.",
+     "itens": "pés de moleque, mulas sem cabeça",
+     "ex": "A preposição trava o 2º."
+    },
+    {
+     "nome": "Verbo ou invariável + subst.",
+     "def": "Só o elemento variável vai para o plural.",
+     "itens": "guarda-roupas, vice-almirantes, porta-malas (já plural)",
+     "ex": "Verbo e advérbio não variam."
+    },
+    {
+     "nome": "Adjetivo composto",
+     "def": "Só o ÚLTIMO elemento flexiona.",
+     "itens": "azul-escuras, luso-brasileiros",
+     "ex": "Exceção: surdos-mudos (os dois)."
+    },
+    {
+     "nome": "Cor + substantivo",
+     "def": "Fica invariável.",
+     "itens": "camisas azul-marinho, verde-oliva",
+     "ex": "O 2º é substantivo, não adjetivo."
+    }
+   ]
+  },
+  {
+   "titulo": "Pronomes Relativos e Colocação Pronominal",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Que",
+     "def": "Relativo mais genérico (pessoa ou coisa).",
+     "itens": "O navio que partiu ontem chegou.",
+     "ex": "Troque por \"o qual\"."
+    },
+    {
+     "nome": "O qual",
+     "def": "Usado após preposição para evitar ambiguidade.",
+     "itens": "O regulamento, sem o qual nada se decide…",
+     "ex": "Concorda com o antecedente."
+    },
+    {
+     "nome": "Quem",
+     "def": "Só para pessoas, com preposição quando exigida.",
+     "itens": "O oficial de quem falei chegou.",
+     "ex": "Somente pessoas."
+    },
+    {
+     "nome": "Cujo",
+     "def": "Indica posse; concorda com o termo DEPOIS dele.",
+     "itens": "O militar cujo desempenho foi elogiado…",
+     "ex": "Nunca \"cujo o\"."
+    },
+    {
+     "nome": "Onde",
+     "def": "Só lugar FÍSICO (= em que).",
+     "itens": "A base onde ele serviu.",
+     "ex": "\"A crise em que vivemos\", nunca \"onde\"."
+    },
+    {
+     "nome": "Preposição do relativo",
+     "def": "Se o verbo pede preposição, ela vem antes do relativo.",
+     "itens": "O livro de que gostei · O filme a que assisti",
+     "ex": "Gostar DE → de que."
+    },
+    {
+     "nome": "Próclise",
+     "def": "Pronome ANTES do verbo quando há palavra atrativa.",
+     "itens": "Não me diga. · Alguém me chamou. · Que Deus o proteja!",
+     "ex": "Atraem: negação, relativo, indefinido, advérbio, conjunção subordinativa, exclamação/desejo."
+    },
+    {
+     "nome": "Ênclise",
+     "def": "Pronome DEPOIS do verbo, sem atrativo; início de frase.",
+     "itens": "Chame-me quando chegar.",
+     "ex": "Nunca começar frase com pronome átono."
+    },
+    {
+     "nome": "Mesóclise",
+     "def": "Pronome NO MEIO do verbo no futuro do presente/pretérito, sem atrativo.",
+     "itens": "Convidar-vos-ei. · Dir-se-ia.",
+     "ex": "Com atrativo, vence a próclise: \"Não se convidarão\"."
+    }
+   ]
+  },
+  {
+   "titulo": "Partícula SE",
+   "rotulos": {
+    "itens": "Exemplo",
+    "ex": "Como reconhecer"
+   },
+   "linhas": [
+    {
+     "nome": "Conjunção condicional",
+     "def": "Introduz condição.",
+     "itens": "Se chover, cancelamos o desfile.",
+     "ex": "Troque por \"caso\"."
+    },
+    {
+     "nome": "Conjunção integrante",
+     "def": "Introduz oração substantiva.",
+     "itens": "Não sei se ele virá.",
+     "ex": "Depois de saber, perguntar, duvidar."
+    },
+    {
+     "nome": "Pronome reflexivo",
+     "def": "Sujeito pratica e recebe.",
+     "itens": "Ele se cortou.",
+     "ex": "Cabe \"a si mesmo\"."
+    },
+    {
+     "nome": "Reflexivo recíproco",
+     "def": "Ação mútua.",
+     "itens": "Os dois se abraçaram.",
+     "ex": "Cabe \"um ao outro\"."
+    },
+    {
+     "nome": "Parte integrante do verbo",
+     "def": "Verbo pronominal, sem função sintática.",
+     "itens": "Ele se arrepende.",
+     "ex": "O verbo não existe sem o SE."
+    },
+    {
+     "nome": "Índice de indeterminação",
+     "def": "VI, VTI ou VL + SE; sujeito indeterminado.",
+     "itens": "Vive-se bem aqui. · Precisa-se de secretária.",
+     "ex": "Verbo SEMPRE no singular."
+    },
+    {
+     "nome": "Partícula apassivadora",
+     "def": "VTD + SE; o substantivo é sujeito paciente.",
+     "itens": "Alugam-se casas. · Vende-se apartamento.",
+     "ex": "Verbo concorda: \"Aluga-se casas\" está errado."
+    }
+   ]
+  },
+  {
+   "titulo": "Termos da Oração",
+   "rotulos": {
+    "itens": "Exemplo",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Sujeito simples / composto",
+     "def": "Um núcleo / dois ou mais.",
+     "itens": "O comandante chegou. · O comandante e o imediato chegaram.",
+     "ex": "Conte os núcleos."
+    },
+    {
+     "nome": "Sujeito oculto",
+     "def": "Não aparece, mas a desinência mostra.",
+     "itens": "(Nós) Chegamos tarde.",
+     "ex": "Identificável pelo verbo."
+    },
+    {
+     "nome": "Sujeito indeterminado",
+     "def": "Não se sabe quem.",
+     "itens": "Falaram mal de você. · Precisa-se de ajudantes.",
+     "ex": "3ª plural sem referente ou VTI/VI + SE."
+    },
+    {
+     "nome": "Oração sem sujeito",
+     "def": "Fenômenos da natureza, haver = existir, fazer = tempo.",
+     "itens": "Choveu. · Havia navios. · Faz dois anos.",
+     "ex": "Verbo sempre na 3ª do singular."
+    },
+    {
+     "nome": "Predicado verbal / nominal / verbo-nominal",
+     "def": "Núcleo verbo / predicativo / os dois.",
+     "itens": "O navio partiu. · O mar parecia calmo. · Retornou exausta.",
+     "ex": "Verbo de ligação → nominal."
+    },
+    {
+     "nome": "Predicativo do objeto",
+     "def": "Característica atribuída ao objeto.",
+     "itens": "Consideraram o plano arriscado.",
+     "ex": "Refere-se ao objeto, não ao sujeito."
+    },
+    {
+     "nome": "Objeto direto / indireto",
+     "def": "Sem preposição / com preposição exigida pelo verbo.",
+     "itens": "Convocou os oficiais. · Obedeceu às ordens.",
+     "ex": "OD preposicionado: Amar a Deus."
+    },
+    {
+     "nome": "Complemento nominal",
+     "def": "Completa nome incompleto; sentido PASSIVO; sempre com preposição.",
+     "itens": "O medo da escuridão. · A destruição da cidade.",
+     "ex": "O termo \"recebe\" a ação: CN."
+    },
+    {
+     "nome": "Adjunto adnominal",
+     "def": "Caracteriza, determina ou indica posse do substantivo; sentido ativo.",
+     "itens": "O carro do diretor. · O velho comandante.",
+     "ex": "Posse ou qualidade: AA."
+    },
+    {
+     "nome": "Agente da passiva",
+     "def": "Quem pratica a ação na voz passiva.",
+     "itens": "Foi assinado pelo comandante.",
+     "ex": "Introduzido por \"por\" ou \"de\"."
+    },
+    {
+     "nome": "Adjunto adverbial",
+     "def": "Circunstância (tempo, lugar, modo, causa…).",
+     "itens": "Ontem, o navio partiu rapidamente do porto.",
+     "ex": "Deslocado pede vírgula."
+    },
+    {
+     "nome": "Aposto / Vocativo",
+     "def": "Aposto explica um termo; vocativo chama o interlocutor.",
+     "itens": "Tamandaré, o patrono da Marinha… · Comandante, assine aqui.",
+     "ex": "Vocativo não se liga à frase."
+    }
+   ]
+  },
+  {
+   "titulo": "Período Composto",
+   "rotulos": {
+    "itens": "Conectivos",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Coordenada aditiva",
+     "def": "Soma.",
+     "itens": "e, nem, não só… mas também",
+     "ex": "Estudou e passou."
+    },
+    {
+     "nome": "Coordenada adversativa",
+     "def": "Oposição.",
+     "itens": "mas, porém, contudo, todavia, entretanto",
+     "ex": "Estudou, mas não passou."
+    },
+    {
+     "nome": "Coordenada alternativa",
+     "def": "Alternância.",
+     "itens": "ou… ou, ora… ora",
+     "ex": "Ou estuda, ou reprova."
+    },
+    {
+     "nome": "Coordenada conclusiva",
+     "def": "Conclusão.",
+     "itens": "logo, portanto, por isso, pois (depois do verbo)",
+     "ex": "Já é tarde, vá, pois."
+    },
+    {
+     "nome": "Coordenada explicativa",
+     "def": "Explicação.",
+     "itens": "que, porque, pois (antes do verbo)",
+     "ex": "Vá, pois já é tarde."
+    },
+    {
+     "nome": "Subordinada substantiva",
+     "def": "Funciona como substantivo: subjetiva, objetiva direta/indireta, completiva nominal, predicativa, apositiva.",
+     "itens": "que, se (integrantes)",
+     "ex": "É necessário que todos compareçam (subjetiva)."
+    },
+    {
+     "nome": "Adjetiva restritiva",
+     "def": "Restringe o antecedente; SEM vírgula.",
+     "itens": "que, o qual, cujo, onde",
+     "ex": "Os alunos que estudaram passaram (só eles)."
+    },
+    {
+     "nome": "Adjetiva explicativa",
+     "def": "Informação extra sobre todo o antecedente; COM vírgula.",
+     "itens": "que, o qual",
+     "ex": "Os alunos, que estudaram, passaram (todos)."
+    },
+    {
+     "nome": "Adverbial causal",
+     "def": "Causa.",
+     "itens": "porque, já que, como (no início)",
+     "ex": "Como chovia, cancelamos."
+    },
+    {
+     "nome": "Adverbial condicional",
+     "def": "Condição.",
+     "itens": "se, caso, contanto que, desde que",
+     "ex": "Iremos, contanto que pare de chover."
+    },
+    {
+     "nome": "Adverbial concessiva",
+     "def": "Obstáculo que não impede.",
+     "itens": "embora, ainda que, mesmo que",
+     "ex": "Embora chovesse, houve desfile."
+    },
+    {
+     "nome": "Comparativa / Conformativa",
+     "def": "Comparação / conformidade.",
+     "itens": "como, tal qual · conforme, segundo",
+     "ex": "Lutou como um leão. · Fizemos conforme ordenado."
+    },
+    {
+     "nome": "Consecutiva / Final",
+     "def": "Consequência / finalidade.",
+     "itens": "tão… que, de modo que · para que, a fim de que",
+     "ex": "Estudou tanto que passou."
+    },
+    {
+     "nome": "Temporal / Proporcional",
+     "def": "Tempo / proporção.",
+     "itens": "quando, assim que · à medida que, quanto mais",
+     "ex": "À medida que estudava, ganhava confiança."
+    },
+    {
+     "nome": "Reduzidas",
+     "def": "Sem conectivo, verbo no infinitivo, gerúndio ou particípio.",
+     "itens": "Ao chegar · Vendo o perigo · Terminada a reunião",
+     "ex": "Desenvolva: Quando chegou… / Como viu…"
+    }
+   ]
+  },
+  {
+   "titulo": "Concordância",
+   "rotulos": {
+    "itens": "Exemplo",
+    "ex": "Regra"
+   },
+   "linhas": [
+    {
+     "nome": "Sujeito composto anteposto",
+     "def": "Verbo no plural.",
+     "itens": "O comandante e o imediato assinaram.",
+     "ex": "Plural."
+    },
+    {
+     "nome": "Sujeito composto posposto",
+     "def": "Plural ou concorda com o mais próximo.",
+     "itens": "Assinaram (ou assinou) o comandante e o imediato.",
+     "ex": "Dois aceitos."
+    },
+    {
+     "nome": "Ligados por OU / NEM / COM",
+     "def": "Ou de exclusão: singular · nem… nem: plural · com: concorda com o 1º.",
+     "itens": "José ou Pedro será o chefe.",
+     "ex": "Veja o sentido do conectivo."
+    },
+    {
+     "nome": "Partitivos",
+     "def": "A maioria de, grande parte de + plural.",
+     "itens": "A maioria dos oficiais chegou / chegaram.",
+     "ex": "Singular ou plural."
+    },
+    {
+     "nome": "Porcentagem",
+     "def": "Concorda com o numeral ou com o termo seguinte.",
+     "itens": "10% dos alunos faltaram. · 1% da turma faltou.",
+     "ex": "Olhe o especificador."
+    },
+    {
+     "nome": "Haver / Fazer impessoais",
+     "def": "Sempre 3ª do singular.",
+     "itens": "Havia muitos navios. · Faz dois anos.",
+     "ex": "\"Existir\" é pessoal: Existiam."
+    },
+    {
+     "nome": "Quem / Que",
+     "def": "Quem: 3ª singular ou antecedente · Que: antecedente.",
+     "itens": "Fui eu quem resolveu. · Fui eu que resolvi.",
+     "ex": "\"Que\" segue o antecedente."
+    },
+    {
+     "nome": "Verbo SER",
+     "def": "Data, hora, distância: concorda com o numeral; com isto/tudo, com o predicativo.",
+     "itens": "São 10 horas. · É uma hora. · Tudo são flores.",
+     "ex": "Concorda com o número."
+    },
+    {
+     "nome": "Adjetivo e vários substantivos",
+     "def": "Antes: o mais próximo · Depois, gêneros diferentes: masculino plural.",
+     "itens": "novo fuzil e pistola · fuzil e pistola novos",
+     "ex": "Posição decide."
+    },
+    {
+     "nome": "Bastante / Meio",
+     "def": "Advérbio invariável; adjetivo ou numeral concorda.",
+     "itens": "bastante cansada · bastantes soldados · meio preocupada · meia maçã",
+     "ex": "Advérbio não varia."
+    },
+    {
+     "nome": "Menos / Alerta",
+     "def": "Sempre invariáveis.",
+     "itens": "menos soldados · tropas alerta",
+     "ex": "Nunca \"menas\"."
+    },
+    {
+     "nome": "É bom / É proibido",
+     "def": "Sem artigo: invariável · com artigo: concorda.",
+     "itens": "Água é proibido. · Esta água é proibida.",
+     "ex": "Artigo muda a concordância."
+    },
+    {
+     "nome": "Mesmo / Próprio",
+     "def": "Concordam com o termo.",
+     "itens": "Ela mesma resolveu. · Eles próprios assinaram.",
+     "ex": "Variam."
+    }
+   ]
+  },
+  {
+   "titulo": "Regência",
+   "rotulos": {
+    "itens": "Regência",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Assistir",
+     "def": "Ver: TI (a) · Ajudar: TD · Caber: TI (a).",
+     "itens": "assistir A (ver) · assistir o (ajudar)",
+     "ex": "Assisti AO jogo. · O médico assistiu o paciente."
+    },
+    {
+     "nome": "Aspirar",
+     "def": "Desejar: TI (a) · Inalar: TD.",
+     "itens": "aspirar A (desejar)",
+     "ex": "Aspiro A um cargo. · Aspirou o ar."
+    },
+    {
+     "nome": "Visar",
+     "def": "Pretender: TI (a) · Dar visto, mirar: TD.",
+     "itens": "visar A (pretender)",
+     "ex": "Visa A uma promoção. · Visou o documento."
+    },
+    {
+     "nome": "Implicar",
+     "def": "Acarretar: TD (sem \"em\") · Implicar-se com: criar caso.",
+     "itens": "implicar algo",
+     "ex": "A decisão implicou o cancelamento."
+    },
+    {
+     "nome": "Namorar",
+     "def": "TD, sem preposição.",
+     "itens": "namorar alguém",
+     "ex": "Namora Maria, nunca \"com Maria\"."
+    },
+    {
+     "nome": "Obedecer / Desobedecer",
+     "def": "TI, sempre com \"a\".",
+     "itens": "obedecer A",
+     "ex": "Obedecem AOS superiores."
+    },
+    {
+     "nome": "Pagar / Perdoar",
+     "def": "Coisa: TD · Pessoa: TI (a).",
+     "itens": "pagar algo A alguém",
+     "ex": "Paguei a conta ao motorista."
+    },
+    {
+     "nome": "Preferir",
+     "def": "Uma coisa A outra; nunca \"do que\".",
+     "itens": "preferir X a Y",
+     "ex": "Prefiro estudar A descansar."
+    },
+    {
+     "nome": "Chegar / Ir",
+     "def": "Destino com \"a\", não \"em\".",
+     "itens": "chegar A, ir A",
+     "ex": "Cheguei A casa. · Fomos AO Rio."
+    },
+    {
+     "nome": "Querer",
+     "def": "Desejar: TD · Estimar: TI (a).",
+     "itens": "querer bem A",
+     "ex": "Quero água. · Quero bem a meus pais."
+    },
+    {
+     "nome": "Esquecer / Lembrar",
+     "def": "Sem SE: TD · Com SE: TI (de).",
+     "itens": "esquecer algo · esquecer-se DE algo",
+     "ex": "Esqueci-me DO nome."
+    },
+    {
+     "nome": "Informar / Avisar",
+     "def": "Algo a alguém ou alguém de algo.",
+     "itens": "dupla regência",
+     "ex": "Informei os alunos do resultado."
+    },
+    {
+     "nome": "Custar",
+     "def": "Ser difícil: TI (a alguém).",
+     "itens": "custar A alguém",
+     "ex": "Custou-me aceitar (nunca \"custou para mim\")."
+    },
+    {
+     "nome": "Simpatizar / Antipatizar",
+     "def": "TI com \"com\", sem pronome SE.",
+     "itens": "simpatizar COM",
+     "ex": "Simpatizei com ele (nunca \"simpatizei-me\")."
+    },
+    {
+     "nome": "Regência nominal",
+     "def": "Nomes com preposição fixa.",
+     "itens": "apto a/para · ávido de · fiel a · imbuído de · propenso a · orgulhoso de",
+     "ex": "Decore os pares."
+    }
+   ]
+  },
+  {
+   "titulo": "Crase",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Regra-mestra",
+     "def": "Preposição A + artigo A (feminino que admite artigo).",
+     "itens": "Fui à escola (ao colégio).",
+     "ex": "Troque por masculino: deu AO? Tem crase."
+    },
+    {
+     "nome": "Sempre",
+     "def": "Locuções femininas, lugares que aceitam artigo, horas.",
+     "itens": "à noite, às vezes, à medida que, à Bahia, às 14 horas",
+     "ex": "Vou à Bahia, volto da Bahia."
+    },
+    {
+     "nome": "Nunca",
+     "def": "Masculino, verbo, pronomes pessoais e de tratamento, cidades sem artigo, palavras repetidas.",
+     "itens": "a pé, a ajudar, a ela, a Vossa Excelência, a Brasília, frente a frente",
+     "ex": "Volto de Brasília: sem crase."
+    },
+    {
+     "nome": "Facultativa",
+     "def": "Nome próprio feminino, possessivo feminino, depois de \"até\".",
+     "itens": "a/à Maria · a/à sua irmã · até a/à praia",
+     "ex": "As duas formas valem."
+    },
+    {
+     "nome": "Cidade especificada",
+     "def": "Com determinante, a cidade aceita artigo.",
+     "itens": "à Brasília de minha infância",
+     "ex": "Especificou? Crase."
+    }
+   ]
+  },
+  {
+   "titulo": "Pontuação",
+   "rotulos": {
+    "itens": "Exemplo",
+    "ex": "Regra"
+   },
+   "linhas": [
+    {
+     "nome": "Enumeração",
+     "def": "Separa itens de mesma função.",
+     "itens": "arroz, feijão, óleo e sal",
+     "ex": "Sem vírgula antes do último \"e\" (mesmo sujeito)."
+    },
+    {
+     "nome": "Aposto e vocativo",
+     "def": "Sempre isolados.",
+     "itens": "Tamandaré, o patrono, … · Comandante, …",
+     "ex": "Vírgula obrigatória."
+    },
+    {
+     "nome": "Adjunto adverbial deslocado",
+     "def": "Fora do fim da frase, pede vírgula.",
+     "itens": "Ontem, o navio partiu.",
+     "ex": "Deslocou? Vírgula."
+    },
+    {
+     "nome": "Oração explicativa",
+     "def": "Vírgula só na explicativa, nunca na restritiva.",
+     "itens": "Os alunos, que estudaram, …",
+     "ex": "Vírgula muda o sentido."
+    },
+    {
+     "nome": "Conjunção deslocada",
+     "def": "Portanto, contudo, porém no meio da oração.",
+     "itens": "O plano, contudo, falhou.",
+     "ex": "Isolar."
+    },
+    {
+     "nome": "Elipse do verbo",
+     "def": "Vírgula marca o verbo omitido.",
+     "itens": "Uns preferem café; outros, chá.",
+     "ex": "Vírgula = verbo oculto."
+    },
+    {
+     "nome": "PROIBIDO",
+     "def": "Vírgula entre sujeito e verbo ou entre verbo e complemento.",
+     "itens": "\"O comandante, chegou.\" ERRADO",
+     "ex": "Erro clássico."
+    },
+    {
+     "nome": "Outros sinais",
+     "def": "; separa orações longas · : anuncia · — destaca/diálogo · aspas citam.",
+     "itens": "Perguntei se ele viria. (sem ?)",
+     "ex": "Pergunta indireta não leva interrogação."
+    }
+   ]
+  },
+  {
+   "titulo": "Formação de Palavras e Relações de Sentido",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Prefixal / Sufixal",
+     "def": "Acréscimo de prefixo ou de sufixo.",
+     "itens": "infeliz · felizmente",
+     "ex": "Um afixo."
+    },
+    {
+     "nome": "Prefixal e sufixal",
+     "def": "Os dois, mas cada um pode sair sozinho.",
+     "itens": "infelizmente",
+     "ex": "\"infeliz\" e \"felizmente\" existem."
+    },
+    {
+     "nome": "Parassintética",
+     "def": "Prefixo e sufixo SIMULTÂNEOS; não se retira um só.",
+     "itens": "anoitecer, entardecer",
+     "ex": "\"anoite\" e \"noitecer\" não existem."
+    },
+    {
+     "nome": "Regressiva",
+     "def": "Reduz o verbo para formar substantivo.",
+     "itens": "lutar → luta, debater → debate",
+     "ex": "Substantivo tirado do verbo."
+    },
+    {
+     "nome": "Imprópria",
+     "def": "Muda a classe sem mudar a forma.",
+     "itens": "o jantar, o não",
+     "ex": "Só a classe muda."
+    },
+    {
+     "nome": "Justaposição",
+     "def": "Junta sem perder som.",
+     "itens": "guarda-marinha, girassol, passatempo",
+     "ex": "Nada some."
+    },
+    {
+     "nome": "Aglutinação",
+     "def": "Junta com perda de som.",
+     "itens": "planalto, aguardente, embora",
+     "ex": "Algo some."
+    },
+    {
+     "nome": "Polissemia",
+     "def": "Uma palavra, vários sentidos relacionados.",
+     "itens": "manga da camisa, manga de sorvete",
+     "ex": "Sentidos aparentados."
+    },
+    {
+     "nome": "Homônimos",
+     "def": "Mesma forma ou som, origem e sentido diferentes.",
+     "itens": "cassar/caçar, acender/ascender, colher (ê/é)",
+     "ex": "Homófonos, homógrafos, perfeitos."
+    },
+    {
+     "nome": "Parônimos",
+     "def": "Parecidos, mas não iguais.",
+     "itens": "eminente/iminente, ratificar/retificar, tráfico/tráfego, deferir/diferir, infligir/infringir, despensa/dispensa",
+     "ex": "Retificar = corrigir; ratificar = confirmar."
+    },
+    {
+     "nome": "Sinonímia contextual",
+     "def": "Sinônimo que vale NAQUELA frase.",
+     "itens": "breve = logo (tempo) ou curto (extensão)",
+     "ex": "Teste na frase."
+    }
+   ]
+  },
+  {
+   "titulo": "Figuras de Linguagem",
+   "rotulos": {
+    "itens": "Exemplo",
+    "ex": "Tipo"
+   },
+   "linhas": [
+    {
+     "nome": "Metáfora",
+     "def": "Comparação implícita, sem conectivo.",
+     "itens": "Seus olhos são duas estrelas.",
+     "ex": "Palavra."
+    },
+    {
+     "nome": "Comparação",
+     "def": "Comparação explícita, com conectivo.",
+     "itens": "Olhos como estrelas.",
+     "ex": "Palavra."
+    },
+    {
+     "nome": "Metonímia",
+     "def": "Troca por proximidade (autor pela obra, parte pelo todo).",
+     "itens": "Li Machado de Assis.",
+     "ex": "Palavra."
+    },
+    {
+     "nome": "Catacrese",
+     "def": "Metáfora desgastada por falta de termo.",
+     "itens": "pé da mesa, asa da xícara",
+     "ex": "Palavra."
+    },
+    {
+     "nome": "Sinestesia",
+     "def": "Mistura de sentidos.",
+     "itens": "voz quente, cor gritante",
+     "ex": "Palavra."
+    },
+    {
+     "nome": "Antítese / Paradoxo",
+     "def": "Ideias opostas / contradição que revela verdade.",
+     "itens": "o melhor e o pior · fogo que arde sem se ver",
+     "ex": "Pensamento."
+    },
+    {
+     "nome": "Hipérbole / Eufemismo",
+     "def": "Exagero / suavização.",
+     "itens": "rios de lágrimas · ele partiu",
+     "ex": "Pensamento."
+    },
+    {
+     "nome": "Ironia",
+     "def": "Diz o contrário do que quer dizer.",
+     "itens": "Que belo serviço!",
+     "ex": "Pensamento."
+    },
+    {
+     "nome": "Prosopopeia / Apóstrofe",
+     "def": "Humaniza seres / invoca diretamente.",
+     "itens": "O mar sorria. · Ó pátria amada!",
+     "ex": "Pensamento."
+    },
+    {
+     "nome": "Gradação",
+     "def": "Ideias em escala crescente ou decrescente.",
+     "itens": "Cheguei, vi, venci.",
+     "ex": "Pensamento."
+    },
+    {
+     "nome": "Aliteração / Assonância",
+     "def": "Repete consoante / vogal.",
+     "itens": "O rato roeu a roupa do rei · mulato nato",
+     "ex": "Som."
+    },
+    {
+     "nome": "Onomatopeia / Paronomásia",
+     "def": "Imita som / joga com parônimos.",
+     "itens": "tique-taque · boca, Bahia, Roma",
+     "ex": "Som."
+    }
+   ]
+  },
+  {
+   "titulo": "Figuras de Sintaxe e Vícios",
+   "rotulos": {
+    "itens": "Exemplo",
+    "ex": "Macete"
+   },
+   "linhas": [
+    {
+     "nome": "Elipse",
+     "def": "Omite termo identificável.",
+     "itens": "Na sala, silêncio.",
+     "ex": "Omite o que não foi dito."
+    },
+    {
+     "nome": "Zeugma",
+     "def": "Omite termo JÁ dito antes.",
+     "itens": "Uns gostam de futebol; outros, de vôlei.",
+     "ex": "Elipse de algo já citado."
+    },
+    {
+     "nome": "Pleonasmo",
+     "def": "Repetição enfática (estilístico) ou inútil (vicioso).",
+     "itens": "Vi com meus olhos · subir para cima",
+     "ex": "Só é vício sem intenção."
+    },
+    {
+     "nome": "Polissíndeto / Assíndeto",
+     "def": "Repete a conjunção / omite a conjunção.",
+     "itens": "E corria, e gritava… · Chegou, viu, venceu.",
+     "ex": "Muitos \"e\" x nenhum."
+    },
+    {
+     "nome": "Anáfora",
+     "def": "Repete palavra no início de frases.",
+     "itens": "Amor é fogo… / Amor é ferida…",
+     "ex": "Repetição no começo."
+    },
+    {
+     "nome": "Hipérbato",
+     "def": "Inverte a ordem direta.",
+     "itens": "De tudo, ao meu amor serei atento",
+     "ex": "Ordem alterada."
+    },
+    {
+     "nome": "Anacoluto",
+     "def": "Termo solto, quebra a estrutura.",
+     "itens": "Eu, parece que tudo deu errado.",
+     "ex": "Sujeito sem função."
+    },
+    {
+     "nome": "Silepse",
+     "def": "Concorda com a ideia, não com a palavra.",
+     "itens": "São Paulo é linda. · Os brasileiros somos hospitaleiros.",
+     "ex": "De gênero, número ou pessoa. Mais cobrada!"
+    },
+    {
+     "nome": "Barbarismo",
+     "def": "Erro de grafia, pronúncia ou flexão.",
+     "itens": "interviu (interveio), mendingo",
+     "ex": "Erro na palavra."
+    },
+    {
+     "nome": "Solecismo",
+     "def": "Erro de sintaxe.",
+     "itens": "Fazem dois anos (Faz)",
+     "ex": "Erro na frase."
+    },
+    {
+     "nome": "Ambiguidade / Cacófato / Eco",
+     "def": "Duplo sentido / som feio / rima involuntária.",
+     "itens": "em sua moto · por cada · educação da nação",
+     "ex": "Vícios de construção."
+    }
+   ]
+  },
+  {
+   "titulo": "Texto e Interpretação",
+   "rotulos": {
+    "itens": "Marcas · Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Narrativo",
+     "def": "Fatos no tempo, com personagens.",
+     "itens": "Pretérito, marcadores de tempo · conto, notícia",
+     "ex": "Enredo: situação → conflito → clímax → desfecho."
+    },
+    {
+     "nome": "Descritivo",
+     "def": "Caracteriza seres e lugares.",
+     "itens": "Verbos de estado, adjetivos",
+     "ex": "Retrato, paisagem."
+    },
+    {
+     "nome": "Dissertativo-argumentativo",
+     "def": "Defende tese com argumentos.",
+     "itens": "Conectivos lógicos · artigo de opinião",
+     "ex": "Introdução (tese), desenvolvimento, conclusão."
+    },
+    {
+     "nome": "Expositivo",
+     "def": "Explica sem defender tese.",
+     "itens": "Presente, definições · verbete, didático",
+     "ex": "Informa."
+    },
+    {
+     "nome": "Injuntivo",
+     "def": "Instrui ou ordena.",
+     "itens": "Imperativo · receita, manual, regulamento",
+     "ex": "RDM e OGSA são injuntivos."
+    },
+    {
+     "nome": "Funções da linguagem",
+     "def": "Referencial (assunto), emotiva (emissor), conativa (receptor), poética (mensagem), metalinguística (código), fática (canal).",
+     "itens": "notícia · diário · propaganda · poema · dicionário · \"Alô?\"",
+     "ex": "Ache o elemento em destaque."
+    },
+    {
+     "nome": "Coesão",
+     "def": "Costura gramatical: referência, elipse, substituição, conectivos.",
+     "itens": "Ele (anáfora) · a embarcação (hiperônimo)",
+     "ex": "Ligação entre as partes."
+    },
+    {
+     "nome": "Coerência",
+     "def": "Sentido lógico sem contradição.",
+     "itens": "\"Choveu muito… a seca prejudicou\" é incoerente",
+     "ex": "Texto coeso pode ser incoerente."
+    },
+    {
+     "nome": "Interpretação",
+     "def": "Responda só com o que o texto diz ou permite inferir.",
+     "itens": "Explícito x implícito x extrapolação",
+     "ex": "\"Nem todos\" não é \"nenhum\"."
+    },
+    {
+     "nome": "Variação linguística",
+     "def": "Regional, social, histórica, estilística.",
+     "itens": "mandioca/aipim/macaxeira · vossa mercê → você",
+     "ex": "Prova cobra a norma-padrão, sem preconceito linguístico."
+    }
+   ]
+  }
+ ]
+}

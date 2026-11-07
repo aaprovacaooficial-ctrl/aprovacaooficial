@@ -1,0 +1,551 @@
+{
+ "slug": "matematica",
+ "quadros": [
+  {
+   "titulo": "Funções Elementares e Polinômios",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Função afim (1º grau)",
+     "def": "Gráfico é uma reta; a = inclinação, b = onde corta o eixo y.",
+     "itens": "f(x) = ax + b · raiz: x = -b/a · a > 0 crescente",
+     "ex": "f(x) = 3x - 6 → raiz x = 2, crescente."
+    },
+    {
+     "nome": "Função quadrática (2º grau)",
+     "def": "Gráfico é parábola: a > 0 boca para cima (mínimo); a < 0 para baixo (máximo).",
+     "itens": "f(x) = ax² + bx + c",
+     "ex": "f(x) = x² - 4x + 3 → raízes 1 e 3."
+    },
+    {
+     "nome": "Bhaskara e Δ",
+     "def": "Acha as raízes; Δ diz quantas existem.",
+     "itens": "Δ = b² - 4ac · x = (-b ± √Δ)/2a · Δ>0 duas, Δ=0 uma, Δ<0 nenhuma real",
+     "ex": "Δ = 16 - 12 = 4 → x = (4 ± 2)/2."
+    },
+    {
+     "nome": "Vértice",
+     "def": "Ponto de máximo ou mínimo da parábola.",
+     "itens": "x_v = -b/2a · y_v = f(x_v)",
+     "ex": "-2x² + 8x - 6 → (2, 2), máximo."
+    },
+    {
+     "nome": "Exponencial",
+     "def": "Variável no expoente; nunca toca o eixo x.",
+     "itens": "f(x) = a·bˣ · b > 1 cresce · 0 < b < 1 decresce",
+     "ex": "Juros compostos: M = C·(1,01)ˣ."
+    },
+    {
+     "nome": "Logarítmica",
+     "def": "Inversa da exponencial de mesma base.",
+     "itens": "f(x) = log_b(x) · só para x > 0",
+     "ex": "log₂ 8 = 3."
+    },
+    {
+     "nome": "Polinômio",
+     "def": "Grau = maior expoente com coeficiente não nulo; raiz zera P(x).",
+     "itens": "P(x) = aₙxⁿ + … + a₀",
+     "ex": "x³ - 6x² + 11x - 6 tem grau 3."
+    },
+    {
+     "nome": "Briot-Ruffini",
+     "def": "Divide P(x) por (x - r) quando r é raiz; baixa o grau em 1.",
+     "itens": "Teste raízes entre os divisores do termo constante",
+     "ex": "Raiz 1 → quociente x² - 5x + 6 → raízes 1, 2, 3."
+    }
+   ]
+  },
+  {
+   "titulo": "Álgebra e Equações",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Potências",
+     "def": "Mesma base: multiplica soma expoentes, divide subtrai.",
+     "itens": "aᵖ·aᵍ = aᵖ⁺ᵍ · aᵖ/aᵍ = aᵖ⁻ᵍ",
+     "ex": "(2ˣ⁺³ - 2ˣ)/2ˣ⁺¹ = 7/2."
+    },
+    {
+     "nome": "Produtos notáveis",
+     "def": "Fatorar para simplificar.",
+     "itens": "a² - b² = (a+b)(a-b) · (a±b)² = a² ± 2ab + b²",
+     "ex": "x² - 9 = (x+3)(x-3)."
+    },
+    {
+     "nome": "Exponencial: igualar bases",
+     "def": "Reescrever os dois lados na mesma base e igualar expoentes.",
+     "itens": "aˣ = aʸ ⇒ x = y",
+     "ex": "3ˣ = 9 = 3² → x = 2."
+    },
+    {
+     "nome": "Exponencial: substituição",
+     "def": "Quando aparece a²ˣ e aˣ: faça t = aˣ (t > 0) e resolva a quadrática.",
+     "itens": "4ˣ = (2ˣ)² → t² - 3t - 4 = 0",
+     "ex": "t = 4 (t = -1 descartado) → x = 2."
+    },
+    {
+     "nome": "Bases mistas (2ˣ, 3ˣ, 6ˣ)",
+     "def": "Divida tudo por uma das potências; o termo misto vira razão.",
+     "itens": "6ˣ/4ˣ = (3/2)ˣ → t = (3/2)ˣ",
+     "ex": "Mesmo método de substituição."
+    },
+    {
+     "nome": "Sistemas lineares",
+     "def": "Substituição, adição ou Cramer (determinantes).",
+     "itens": "Somar equações para eliminar variável",
+     "ex": "x + y = 10 e x - y = 4 → x = 7, y = 3."
+    }
+   ]
+  },
+  {
+   "titulo": "Progressões: PA x PG",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "PA: definição",
+     "def": "Cada termo = anterior + razão r (SOMA).",
+     "itens": "aₙ = a₁ + (n-1)·r",
+     "ex": "a₁ = 3, r = 5 → a₆ = 28."
+    },
+    {
+     "nome": "PA: razão por dois termos",
+     "def": "Não precisa de a₁.",
+     "itens": "aₙ - aₘ = (n - m)·r",
+     "ex": "a₃ = 11, a₇ = 27 → r = 4."
+    },
+    {
+     "nome": "PA: soma",
+     "def": "Soma dos n primeiros termos.",
+     "itens": "Sₙ = n·(a₁ + aₙ)/2",
+     "ex": "2, 5, 8… → S₁₀ = 155."
+    },
+    {
+     "nome": "PG: definição",
+     "def": "Cada termo = anterior × razão q (MULTIPLICAÇÃO).",
+     "itens": "aₙ = a₁·qⁿ⁻¹",
+     "ex": "a₁ = 3, q = 2 → a₅ = 48."
+    },
+    {
+     "nome": "PG: razão por dois termos",
+     "def": "Divida um termo pelo outro.",
+     "itens": "aₙ = aₘ·qⁿ⁻ᵐ",
+     "ex": "a₂ = 6, a₅ = 48 → q³ = 8 → q = 2."
+    },
+    {
+     "nome": "PG: soma finita",
+     "def": "Soma dos n primeiros termos (q ≠ 1).",
+     "itens": "Sₙ = a₁·(qⁿ - 1)/(q - 1)",
+     "ex": "1 + 2 + 4 + 8 = 15."
+    },
+    {
+     "nome": "PG: soma infinita",
+     "def": "Só converge se |q| < 1.",
+     "itens": "S = a₁/(1 - q)",
+     "ex": "1/3 + 1/9 + … = 1/2."
+    },
+    {
+     "nome": "PG: produto",
+     "def": "Termos equidistantes dos extremos têm produto a₁·aₙ.",
+     "itens": "Pₙ = (a₁·aₙ)^(n/2)",
+     "ex": "a₁ = 2, a₆ = 64 → P₆ = 128³."
+    },
+    {
+     "nome": "Interpolação",
+     "def": "Inserir k meios: a sequência fica com k + 2 termos.",
+     "itens": "Use aₙ com n = k + 2",
+     "ex": "3 meios entre 2 e 32 → 2, 4, 8, 16, 32."
+    },
+    {
+     "nome": "Padrão misto",
+     "def": "Ache o bloco que se repete e some blocos.",
+     "itens": "Soma = nº de blocos × soma do bloco",
+     "ex": "1, 2, -3 repetido: 12 termos somam 0."
+    }
+   ]
+  },
+  {
+   "titulo": "Contagem e Probabilidade",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Princípio multiplicativo",
+     "def": "Etapas independentes: multiplica as possibilidades.",
+     "itens": "Total = n₁ × n₂ × … × nₖ",
+     "ex": "3 pães × 4 recheios = 12."
+    },
+    {
+     "nome": "Arranjo",
+     "def": "Escolhe p de n e a ORDEM importa (fila, código, pódio).",
+     "itens": "A(n,p) = n!/(n-p)!",
+     "ex": "Números de 3 algarismos distintos com 1–5: 60."
+    },
+    {
+     "nome": "Permutação",
+     "def": "Ordena TODOS os n elementos.",
+     "itens": "P(n) = n!",
+     "ex": "5 pessoas em 5 cadeiras: 120."
+    },
+    {
+     "nome": "Combinação",
+     "def": "Escolhe p de n e a ordem NÃO importa (grupo, comissão, time).",
+     "itens": "C(n,p) = n!/[p!·(n-p)!]",
+     "ex": "5 de 8 jogadores: 56."
+    },
+    {
+     "nome": "Arranjo ou combinação?",
+     "def": "Troque a ordem: mudou o resultado? Arranjo. Não mudou? Combinação.",
+     "itens": "\"Fila/código\" x \"grupo/comissão\"",
+     "ex": "Comissão de 2 entre 6: C(6,2) = 15."
+    },
+    {
+     "nome": "Complementar",
+     "def": "Conte tudo e subtraia os casos proibidos.",
+     "itens": "Válidos = total - proibidos",
+     "ex": "3 de 6 sem A e B juntos: 20 - 4 = 16."
+    },
+    {
+     "nome": "Probabilidade",
+     "def": "Favoráveis sobre possíveis (pode usar combinação nos dois).",
+     "itens": "P = favoráveis / possíveis",
+     "ex": "2 vermelhas de 5V e 3A: 10/28 = 5/14."
+    },
+    {
+     "nome": "Conjuntos",
+     "def": "Liste os elementos ANTES de operar.",
+     "itens": "A ∩ B, A ∪ B, A - B",
+     "ex": "Divisores de 12 ∩ {x² ≤ 16} = {1,2,3,4}."
+    }
+   ]
+  },
+  {
+   "titulo": "Geometria Plana e Trigonometria",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Pitágoras",
+     "def": "Triângulo retângulo: catetos e hipotenusa.",
+     "itens": "a² + b² = c²",
+     "ex": "Catetos 6 e 8 → hipotenusa 10."
+    },
+    {
+     "nome": "Relações métricas",
+     "def": "Altura h e projeções m, n sobre a hipotenusa.",
+     "itens": "a² = c·n · b² = c·m · h² = m·n",
+     "ex": "m + n = c."
+    },
+    {
+     "nome": "Lei dos senos",
+     "def": "Dois ângulos e um lado, ou lado oposto a ângulo conhecido.",
+     "itens": "a/sen A = b/sen B = c/sen C = 2R",
+     "ex": "a = 10, A = 30°, B = 45° → b = 10√2."
+    },
+    {
+     "nome": "Lei dos cossenos",
+     "def": "Dois lados e o ângulo ENTRE eles, ou os três lados.",
+     "itens": "a² = b² + c² - 2bc·cos A",
+     "ex": "b = 5, c = 7, A = 60° → a = √39."
+    },
+    {
+     "nome": "Relação fundamental",
+     "def": "Base de toda simplificação trigonométrica.",
+     "itens": "sen²x + cos²x = 1 · tg x = sen x/cos x",
+     "ex": "Reescreva tudo em sen e cos."
+    },
+    {
+     "nome": "Arco duplo",
+     "def": "Dobro do ângulo.",
+     "itens": "sen 2x = 2 sen x cos x · cos 2x = cos²x - sen²x",
+     "ex": "sen²(2x) = 4 sen²x cos²x."
+    },
+    {
+     "nome": "Complementares",
+     "def": "Ângulos que somam 90°.",
+     "itens": "sen a = cos b",
+     "ex": "sen 30° = cos 60°."
+    },
+    {
+     "nome": "Áreas planas",
+     "def": "Unidades ao quadrado.",
+     "itens": "Triângulo bh/2 ou (ab·sen C)/2 · círculo πr² · trapézio (B + b)h/2",
+     "ex": "Lados 5 e 8 com 30° → área 10."
+    }
+   ]
+  },
+  {
+   "titulo": "Geometria Espacial",
+   "rotulos": {
+    "itens": "Volume · Área",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Relação de Euler",
+     "def": "Poliedro convexo: vértices, arestas, faces.",
+     "itens": "V - A + F = 2",
+     "ex": "V = 12, A = 30 → F = 20 (icosaedro)."
+    },
+    {
+     "nome": "Arestas pelas faces",
+     "def": "Cada aresta é compartilhada por 2 faces.",
+     "itens": "A = (soma dos lados de todas as faces)/2",
+     "ex": "(6h + 4s)/2 = 36."
+    },
+    {
+     "nome": "Cubo",
+     "def": "Aresta a.",
+     "itens": "V = a³ · A = 6a² · diagonal = a√3",
+     "ex": "a = 3 → V = 27, d = 3√3."
+    },
+    {
+     "nome": "Paralelepípedo",
+     "def": "Arestas x, y, z.",
+     "itens": "V = xyz · A = 2(xy + xz + yz) · d² = x² + y² + z²",
+     "ex": "Use (x+y+z)² = x²+y²+z² + 2(xy+xz+yz)."
+    },
+    {
+     "nome": "Prisma / Pirâmide",
+     "def": "Base B e altura h.",
+     "itens": "Prisma V = B·h · Pirâmide V = B·h/3",
+     "ex": "Pirâmide = 1/3 do prisma."
+    },
+    {
+     "nome": "Cilindro",
+     "def": "Raio r e altura h.",
+     "itens": "V = πr²h · A = 2πrh + 2πr²",
+     "ex": "Lateral + duas bases."
+    },
+    {
+     "nome": "Cone",
+     "def": "Raio r, altura h, geratriz g = √(r² + h²).",
+     "itens": "V = πr²h/3 · A = πrg + πr²",
+     "ex": "r = 3, h = 8 → V = 24π."
+    },
+    {
+     "nome": "Esfera",
+     "def": "Raio r.",
+     "itens": "V = (4/3)πr³ · A = 4πr²",
+     "ex": "r = 3 → V = 36π."
+    }
+   ]
+  },
+  {
+   "titulo": "Geometria Analítica e Vetores",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Distância entre pontos",
+     "def": "Pitágoras no plano.",
+     "itens": "d = √[(x₂-x₁)² + (y₂-y₁)²]",
+     "ex": "(0,0) e (6,8) → 10."
+    },
+    {
+     "nome": "Ponto médio",
+     "def": "Média das coordenadas.",
+     "itens": "M = ((x₁+x₂)/2, (y₁+y₂)/2)",
+     "ex": "(1,2) e (3,4) → (2,3)."
+    },
+    {
+     "nome": "Coeficiente angular",
+     "def": "Inclinação da reta.",
+     "itens": "m = (y₂-y₁)/(x₂-x₁) · em ax+by+c=0: m = -a/b",
+     "ex": "A(1,1), B(4,7) → m = 2."
+    },
+    {
+     "nome": "Paralelas / Perpendiculares",
+     "def": "Comparar coeficientes angulares.",
+     "itens": "Paralelas m₁ = m₂ · Perpendiculares m₁·m₂ = -1",
+     "ex": "m = 3/4 → perpendicular -4/3."
+    },
+    {
+     "nome": "Distância ponto-reta",
+     "def": "Do ponto (x₀,y₀) à reta ax + by + c = 0.",
+     "itens": "d = |ax₀ + by₀ + c|/√(a² + b²)",
+     "ex": "(2,-3) a 3x - 4y + 7 = 0 → 5."
+    },
+    {
+     "nome": "Vetores",
+     "def": "Módulo, produto escalar e ângulo.",
+     "itens": "|v| = √(x²+y²) · u·v = x₁x₂ + y₁y₂ · cos θ = u·v/(|u||v|)",
+     "ex": "u·v = 0 ⇒ perpendiculares."
+    },
+    {
+     "nome": "Reta no espaço",
+     "def": "Ponto + vetor diretor (a,b,c).",
+     "itens": "x = x₀+at, y = y₀+bt, z = z₀+ct",
+     "ex": "Interseção: iguale x, y, z das duas retas."
+    }
+   ]
+  },
+  {
+   "titulo": "Matrizes, Complexos e Logaritmos",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Soma de matrizes",
+     "def": "Mesma dimensão, elemento a elemento.",
+     "itens": "X + A = B ⇒ X = B - A",
+     "ex": "Produto de matrizes NÃO é comutativo."
+    },
+    {
+     "nome": "Determinante 2×2",
+     "def": "Diagonal principal menos secundária.",
+     "itens": "det = ad - bc",
+     "ex": "[[4,3],[2,5]] → 14."
+    },
+    {
+     "nome": "Determinante 3×3",
+     "def": "Regra de Sarrus ou Laplace.",
+     "itens": "Nunca use \"ad - bc\" em 3×3",
+     "ex": "[[2,0,1],[1,3,2],[0,1,1]] → 3."
+    },
+    {
+     "nome": "Complexo",
+     "def": "Parte real a e imaginária b.",
+     "itens": "z = a + bi · i² = -1",
+     "ex": "(1+2i)(3-i) = 5 + 5i."
+    },
+    {
+     "nome": "Módulo do complexo",
+     "def": "Distância à origem.",
+     "itens": "|z| = √(a² + b²)",
+     "ex": "|1 + 2i| = √5."
+    },
+    {
+     "nome": "Logaritmo",
+     "def": "Expoente que leva a base ao número.",
+     "itens": "log_b N = x ⟺ bˣ = N",
+     "ex": "log₂(1/8) = -3."
+    },
+    {
+     "nome": "Propriedades do log",
+     "def": "Produto vira soma; quociente vira subtração; potência sai multiplicando.",
+     "itens": "log(MN) = log M + log N · log(M/N) = log M - log N · log Mᵏ = k log M",
+     "ex": "log₂32 + log₂4 = log₂128 = 7."
+    },
+    {
+     "nome": "Mudança de base",
+     "def": "Troca para uma base conhecida.",
+     "itens": "log_b N = log_c N / log_c b",
+     "ex": "log₂₅125 = 3/2."
+    }
+   ]
+  },
+  {
+   "titulo": "Estatística",
+   "rotulos": {
+    "itens": "Fórmula",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "Média",
+     "def": "Soma dos valores dividida pela quantidade.",
+     "itens": "x̄ = Σxᵢ/n",
+     "ex": "6, 7, 8, 9, 10 → 8."
+    },
+    {
+     "nome": "Moda",
+     "def": "Valor mais frequente.",
+     "itens": "Pode haver mais de uma",
+     "ex": "2, 3, 3, 5 → 3."
+    },
+    {
+     "nome": "Mediana",
+     "def": "Valor central dos dados ORDENADOS.",
+     "itens": "n par: média dos dois centrais",
+     "ex": "6, 7, 8, 9, 10 → 8."
+    },
+    {
+     "nome": "Variância",
+     "def": "Média dos quadrados dos desvios (unidade ao quadrado).",
+     "itens": "Var = Σ(xᵢ - x̄)²/n",
+     "ex": "Desvios -2, -1, 0, 1, 2 → Var = 2."
+    },
+    {
+     "nome": "Desvio padrão",
+     "def": "Raiz da variância (mesma unidade dos dados).",
+     "itens": "σ = √Var",
+     "ex": "√2 ≈ 1,41."
+    },
+    {
+     "nome": "Função aplicada",
+     "def": "Substitua x na fórmula dada.",
+     "itens": "M(x) = C·(1 + i)ˣ",
+     "ex": "2000·1,02³ ≈ R$ 2.122,42."
+    }
+   ]
+  },
+  {
+   "titulo": "Pegadinhas",
+   "rotulos": {
+    "itens": "Regra",
+    "ex": "Cuidado"
+   },
+   "linhas": [
+    {
+     "nome": "Arranjo x Combinação",
+     "def": "Ordem importa → arranjo; não importa → combinação.",
+     "itens": "Fila, código x grupo, comissão",
+     "ex": "Releia o enunciado procurando a palavra-chave."
+    },
+    {
+     "nome": "PA x PG",
+     "def": "PA soma a razão; PG multiplica.",
+     "itens": "a₁ + (n-1)r x a₁·qⁿ⁻¹",
+     "ex": "Não troque as fórmulas."
+    },
+    {
+     "nome": "Área x Volume",
+     "def": "Área em m²; volume em m³.",
+     "itens": "Confira o que o enunciado pede",
+     "ex": "Erro comum de fórmula trocada."
+    },
+    {
+     "nome": "Determinante",
+     "def": "ad - bc só para 2×2.",
+     "itens": "3×3: Sarrus",
+     "ex": "Nunca \"estique\" a fórmula 2×2."
+    },
+    {
+     "nome": "i² = -1",
+     "def": "Substitua i² na distributiva.",
+     "itens": "-2i² = +2",
+     "ex": "O erro mais comum em complexos."
+    },
+    {
+     "nome": "Variância x Desvio",
+     "def": "Variância ao quadrado; desvio na unidade original.",
+     "itens": "σ = √Var",
+     "ex": "Desvio é o mais interpretável."
+    },
+    {
+     "nome": "Substituição t = aˣ",
+     "def": "t precisa ser positivo.",
+     "itens": "Descarte t negativo",
+     "ex": "t = -1 não serve."
+    }
+   ]
+  }
+ ]
+}

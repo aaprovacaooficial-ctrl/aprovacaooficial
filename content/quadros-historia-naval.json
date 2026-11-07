@@ -1,0 +1,602 @@
+{
+ "slug": "historia-naval",
+ "quadros": [
+  {
+   "titulo": "Antiguidade e Idade Média no Mar",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "Fenícios",
+     "def": "Primeiros grandes comerciantes marítimos do Mediterrâneo; fundaram Cartago.",
+     "itens": "c. 1200 a.C.",
+     "ex": "Sua supremacia naval foi herdada por Cartago, rival de Roma."
+    },
+    {
+     "nome": "Creta",
+     "def": "Primeira talassocracia (\"governo do mar\") da História.",
+     "itens": "c. 3400–1400 a.C.",
+     "ex": "Mostra como a geografia (ilha) leva ao poder marítimo."
+    },
+    {
+     "nome": "Salamina",
+     "def": "Frota grega atrai a persa, maior, para um estreito sem espaço de manobra.",
+     "itens": "480 a.C. · Temístocles x Xerxes",
+     "ex": "Manobra e disciplina vencem superioridade numérica; corta a logística persa."
+    },
+    {
+     "nome": "Guerras Púnicas / Milas",
+     "def": "Roma cria marinha do zero e usa o corvus (ponte de abordagem).",
+     "itens": "264–146 a.C. · Milas 260 a.C.",
+     "ex": "Transforma combate naval em combate de infantaria; Roma vence Cartago."
+    },
+    {
+     "nome": "Ácio",
+     "def": "Batalha naval entre Octávio e Marco Antônio/Cleópatra.",
+     "itens": "31 a.C. · Octávio (Agripa)",
+     "ex": "Fim da República e início do Império Romano (Mare Nostrum)."
+    },
+    {
+     "nome": "Fogo grego / Bizâncio",
+     "def": "Arma incendiária bizantina usada nos drômons.",
+     "itens": "677 · Constantinopla",
+     "ex": "Constantinopla resiste aos árabes; só cai para os turcos em 1453."
+    },
+    {
+     "nome": "Vikings",
+     "def": "Drakkar: navio longo, de quilha rasa, para mar aberto e rios.",
+     "itens": "séc. VIII–XI · Leif Erikson (c. 1000)",
+     "ex": "Chegaram à América 500 anos antes de Colombo, sem colonizar."
+    },
+    {
+     "nome": "Repúblicas italianas",
+     "def": "Veneza e Gênova dominam o comércio do Mediterrâneo.",
+     "itens": "séc. XII–XV",
+     "ex": "Bússola, portulanos e seguro marítimo: base técnica das navegações."
+    },
+    {
+     "nome": "Zheng He (China)",
+     "def": "Sete expedições com \"navios-tesouro\" até a África.",
+     "itens": "1405–1433 · dinastia Ming",
+     "ex": "Maior poder naval do início do séc. XV, mas a China optou pelo isolamento."
+    },
+    {
+     "nome": "Lepanto",
+     "def": "Última grande batalha só com galeras a remo.",
+     "itens": "1571 · cristãos x otomanos",
+     "ex": "Marca o fim da era das galeras."
+    }
+   ]
+  },
+  {
+   "titulo": "Pensamento Estratégico Naval",
+   "rotulos": {
+    "itens": "Quem",
+    "ex": "Ideia-chave"
+   },
+   "linhas": [
+    {
+     "nome": "Mahan",
+     "def": "Domínio do mar (sea power) decide a ascensão das potências.",
+     "itens": "Alfred T. Mahan (EUA) · 1890",
+     "ex": "Frota concentrada para a \"batalha decisiva\"; inspirou a corrida naval."
+    },
+    {
+     "nome": "Corbett",
+     "def": "Poder naval a serviço dos objetivos da guerra terrestre.",
+     "itens": "Julian Corbett (Reino Unido)",
+     "ex": "Controle de área e das linhas de comunicação; operações combinadas."
+    },
+    {
+     "nome": "Liddell Hart",
+     "def": "\"Abordagem indireta\": desequilibrar o inimigo antes do combate.",
+     "itens": "B. H. Liddell Hart",
+     "ex": "Manobra e surpresa em vez de ataque frontal (ex.: Blitzkrieg)."
+    },
+    {
+     "nome": "Mackinder",
+     "def": "Teoria do Heartland: o poder está no controle terrestre da Eurásia.",
+     "itens": "Halford Mackinder",
+     "ex": "Contraponto a Mahan; ajuda a explicar o \"espaço vital\" de Hitler."
+    },
+    {
+     "nome": "Elementos de Mahan",
+     "def": "Seis fatores do poder marítimo.",
+     "itens": "posição geográfica · configuração física · extensão · população · caráter do povo · caráter do governo",
+     "ex": "Base para a ideia de Amazônia Azul."
+    },
+    {
+     "nome": "Poder naval x Poder marítimo",
+     "def": "Naval = parte militar (esquadra, bases, pessoal). Marítimo = naval + marinha mercante, portos, indústria, vocação do povo.",
+     "itens": "",
+     "ex": "O poder marítimo CONTÉM o poder naval."
+    },
+    {
+     "nome": "Domínio do mar",
+     "def": "Garantir a si e negar ao inimigo o uso das comunicações marítimas.",
+     "itens": "por aniquilamento (batalha) ou paralisação (bloqueio)",
+     "ex": "Quando ninguém o alcança: domínio \"contrastado\"."
+    },
+    {
+     "nome": "Pirata x Corsário",
+     "def": "Pirata age por conta própria; corsário age com autorização de um governo.",
+     "itens": "",
+     "ex": "O submarino do séc. XX é o herdeiro da guerra de corso."
+    }
+   ]
+  },
+  {
+   "titulo": "Grandes Navegações",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "Ceuta",
+     "def": "Primeira conquista portuguesa no Norte da África.",
+     "itens": "1415 · Portugal",
+     "ex": "Marco inicial da expansão marítima portuguesa."
+    },
+    {
+     "nome": "Sagres e a caravela",
+     "def": "Centro de estudos náuticos; caravela de vela latina, ágil, navega contra o vento.",
+     "itens": "séc. XV · Infante D. Henrique",
+     "ex": "Meios técnicos para a exploração contínua da costa africana."
+    },
+    {
+     "nome": "Cabo da Boa Esperança",
+     "def": "Bartolomeu Dias contorna o sul da África.",
+     "itens": "1488",
+     "ex": "Prova que se chega ao Índico contornando a África."
+    },
+    {
+     "nome": "Colombo",
+     "def": "Busca as Índias pelo Ocidente e chega ao Caribe.",
+     "itens": "1492 · a serviço da Espanha",
+     "ex": "Início do contato europeu com a América."
+    },
+    {
+     "nome": "Tratado de Tordesilhas",
+     "def": "Divide as terras entre Portugal e Espanha: linha a 370 léguas de Cabo Verde.",
+     "itens": "1494",
+     "ex": "Base jurídica que garantiu o Brasil a Portugal."
+    },
+    {
+     "nome": "Vasco da Gama",
+     "def": "Chega a Calicute, na Índia.",
+     "itens": "1498",
+     "ex": "Rota direta das especiarias, fugindo do monopólio árabe-veneziano."
+    },
+    {
+     "nome": "Cabral",
+     "def": "Esquadra portuguesa chega à costa da Bahia.",
+     "itens": "1500",
+     "ex": "Marco oficial do início do Brasil português."
+    },
+    {
+     "nome": "Diu / Albuquerque",
+     "def": "19 veleiros portugueses vencem cerca de 300 embarcações muçulmanas; depois, Goa e Malaca.",
+     "itens": "1509–1511 · Almeida e Albuquerque",
+     "ex": "Domínio português do Índico."
+    },
+    {
+     "nome": "Circum-navegação",
+     "def": "Primeira volta ao mundo por mar.",
+     "itens": "1519–1522 · Magalhães / Elcano (Espanha)",
+     "ex": "Comprova que a Terra pode ser circundada."
+    },
+    {
+     "nome": "Instrumentos",
+     "def": "Bússola (direção) e astrolábio/quadrante (latitude).",
+     "itens": "",
+     "ex": "Permitiram navegar em mar aberto."
+    }
+   ]
+  },
+  {
+   "titulo": "Potências Europeias (séc. XVI–XVIII)",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "União Ibérica",
+     "def": "Portugal sob o trono da Espanha.",
+     "itens": "1580–1640",
+     "ex": "Envolveu o Brasil nas guerras espanholas (ex.: holandeses)."
+    },
+    {
+     "nome": "Invencível Armada",
+     "def": "Frota espanhola para invadir a Inglaterra; dispersa por táticas inglesas e tempestades.",
+     "itens": "1588 · Filipe II x Isabel I",
+     "ex": "Início do declínio naval espanhol e ascensão inglesa."
+    },
+    {
+     "nome": "Companhias holandesas",
+     "def": "VOC (Orientais) e WIC (Ocidentais): sociedades por ações com poderes quase estatais.",
+     "itens": "1602 e 1621",
+     "ex": "A WIC organizou as invasões ao Nordeste brasileiro."
+    },
+    {
+     "nome": "Atos de Navegação",
+     "def": "Leis inglesas que exigiam navios ingleses no comércio colonial.",
+     "itens": "a partir de 1651",
+     "ex": "Provocaram as Guerras Anglo-Holandesas e a tática da linha de batalha."
+    },
+    {
+     "nome": "Elefante x Baleia",
+     "def": "França (potência terrestre) x Inglaterra (potência marítima).",
+     "itens": "7 guerras, 1689–1815 · estratégia de Pitt",
+     "ex": "Bloquear no mar e financiar aliados em terra."
+    },
+    {
+     "nome": "Trafalgar",
+     "def": "Nelson vence a esquadra franco-espanhola.",
+     "itens": "1805",
+     "ex": "Supremacia naval britânica por um século."
+    }
+   ]
+  },
+  {
+   "titulo": "Brasil Colônia: Invasões e Fronteiras",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "França Antártica",
+     "def": "Colônia francesa (huguenote) na Baía de Guanabara.",
+     "itens": "1555–1567 · Villegagnon x Estácio e Mem de Sá",
+     "ex": "Expulsão funda o Rio de Janeiro (1565)."
+    },
+    {
+     "nome": "França Equinocial",
+     "def": "Franceses fundam São Luís no Maranhão.",
+     "itens": "1612–1615 · expulsos por Jerônimo de Albuquerque",
+     "ex": "Consolida o Maranhão português."
+    },
+    {
+     "nome": "Holandeses na Bahia",
+     "def": "WIC ocupa Salvador.",
+     "itens": "1624–1625",
+     "ex": "Expulsos pela \"Jornada dos Vassalos\" luso-espanhola."
+    },
+    {
+     "nome": "Holandeses em Pernambuco",
+     "def": "Ocupação longa; governo de Maurício de Nassau (1637–1644).",
+     "itens": "1630–1654",
+     "ex": "Recife urbanizado, tolerância religiosa, artes e ciências."
+    },
+    {
+     "nome": "Insurreição Pernambucana",
+     "def": "Luso-brasileiros, negros (Henrique Dias) e indígenas (Filipe Camarão) expulsam os holandeses.",
+     "itens": "1645–1654 · Guararapes 1648 e 1649",
+     "ex": "Marco da identidade brasileira."
+    },
+    {
+     "nome": "Uti possidetis",
+     "def": "\"Quem possui de fato, tem direito\": avanço bandeirante além de Tordesilhas.",
+     "itens": "Tratado de Madri 1750 · Santo Ildefonso 1777",
+     "ex": "Fronteiras reconhecidas pela ocupação efetiva."
+    },
+    {
+     "nome": "Colônia do Sacramento",
+     "def": "Posto português no Rio da Prata, muito disputado.",
+     "itens": "fundada em 1680",
+     "ex": "Origem das Questões do Prata."
+    },
+    {
+     "nome": "Capital no Rio",
+     "def": "Ciclo do ouro desloca o eixo econômico para o Centro-Sul.",
+     "itens": "1763",
+     "ex": "Capital sai de Salvador para o Rio de Janeiro."
+    }
+   ]
+  },
+  {
+   "titulo": "Corte, Independência e Cochrane",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "Bloqueio Continental",
+     "def": "Napoleão proíbe o comércio europeu com a Inglaterra.",
+     "itens": "1806",
+     "ex": "Portugal fica entre a França e a aliada Inglaterra."
+    },
+    {
+     "nome": "Fuga da Corte",
+     "def": "Cerca de 15 mil pessoas embarcam para o Brasil, escoltadas pelos ingleses.",
+     "itens": "nov. 1807 · chegada 1808",
+     "ex": "Centro do império português passa para a América."
+    },
+    {
+     "nome": "Abertura dos Portos",
+     "def": "Fim do monopólio comercial português.",
+     "itens": "1808",
+     "ex": "Autonomia econômica do Brasil (comércio com a Inglaterra)."
+    },
+    {
+     "nome": "Reino Unido",
+     "def": "Brasil elevado a Reino Unido de Portugal, Brasil e Algarves.",
+     "itens": "1815",
+     "ex": "Deixa de ser colônia juridicamente."
+    },
+    {
+     "nome": "Revolução do Porto",
+     "def": "Exige o retorno da Corte e a recolonização do Brasil.",
+     "itens": "1820 · D. João VI volta em 1821",
+     "ex": "D. Pedro fica como regente."
+    },
+    {
+     "nome": "Dia do Fico → Ipiranga",
+     "def": "D. Pedro fica (9 jan.) e proclama a Independência (7 set.).",
+     "itens": "1822 · José Bonifácio, o Patriarca",
+     "ex": "Coroação em 1º dez. 1822; Portugal reconhece em 1825."
+    },
+    {
+     "nome": "Cochrane",
+     "def": "Almirante britânico contratado para comandar a esquadra imperial.",
+     "itens": "1823",
+     "ex": "Bloqueia a Bahia (portugueses saem em 2 jul. 1823) e garante Maranhão e Pará."
+    },
+    {
+     "nome": "Grenfell",
+     "def": "Garante a adesão do Pará com o brigue Maranhão.",
+     "itens": "agosto 1823",
+     "ex": "Blefe estratégico: adesão sem grandes batalhas."
+    }
+   ]
+  },
+  {
+   "titulo": "Império: Revoltas e Questões do Prata",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "Confederação do Equador",
+     "def": "Movimento separatista contra a Constituição outorgada de 1824.",
+     "itens": "1824 · Pernambuco · Frei Caneca executado",
+     "ex": "Reprimida com a esquadra de Cochrane."
+    },
+    {
+     "nome": "Guerra da Cisplatina",
+     "def": "Banda Oriental se rebela (Lavalleja, Trinta e Três Orientais).",
+     "itens": "1825–1828",
+     "ex": "Mediação britânica cria o Uruguai independente."
+    },
+    {
+     "nome": "Cabanagem",
+     "def": "Revolta popular mais sangrenta do período regencial.",
+     "itens": "Grão-Pará, 1835–1840",
+     "ex": "Chegou a proclamar a independência da província."
+    },
+    {
+     "nome": "Farroupilha",
+     "def": "A mais longa (10 anos); República Rio-Grandense; Garibaldi participou.",
+     "itens": "RS, 1835–1845 · Bento Gonçalves",
+     "ex": "Encerrada por acordo, não por derrota completa."
+    },
+    {
+     "nome": "Sabinada · Balaiada · Malês",
+     "def": "Bahia (elitista, República Bahiense) · Maranhão (popular) · Bahia (escravizados muçulmanos).",
+     "itens": "1837–38 · 1838–41 · 1835",
+     "ex": "Mostram a fragilidade do país e levam à centralização."
+    },
+    {
+     "nome": "Guerra Grande / Monte Caseros",
+     "def": "Intervenção contra Oribe e Rosas.",
+     "itens": "1839–1852 · Caseros 1852",
+     "ex": "Garantir a livre navegação dos rios até Mato Grosso."
+    }
+   ]
+  },
+  {
+   "titulo": "Guerra do Paraguai (1864–1870)",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "Causas",
+     "def": "Navegação dos rios, crise no Uruguai e ambições de Solano López.",
+     "itens": "1864",
+     "ex": "Maior e mais custosa guerra da história do Brasil."
+    },
+    {
+     "nome": "Tríplice Aliança",
+     "def": "Brasil, Argentina e Uruguai contra o Paraguai.",
+     "itens": "1865",
+     "ex": "Coalizão que venceu a guerra."
+    },
+    {
+     "nome": "Riachuelo",
+     "def": "Vitória naval brasileira mesmo após ser surpreendida; primeira grande batalha só com navios a vapor.",
+     "itens": "11 jun. 1865 · Almirante Barroso",
+     "ex": "Controle dos rios Paraná e Paraguai; 11 de junho = Dia do Marinheiro."
+    },
+    {
+     "nome": "Humaitá",
+     "def": "Fortaleza paraguaia, a \"Sebastopol americana\".",
+     "itens": "cerco 1867–68 · passagem em fev. 1868",
+     "ex": "Encouraçados forçam a passagem."
+    },
+    {
+     "nome": "Caxias",
+     "def": "Assume o comando-em-chefe das forças brasileiras.",
+     "itens": "1866",
+     "ex": "Organiza e decide a campanha terrestre."
+    },
+    {
+     "nome": "Fim da guerra",
+     "def": "Queda de Assunção e morte de Solano López.",
+     "itens": "Assunção 1869 · Cerro Corá 1º mar. 1870",
+     "ex": "Militares ganham peso político no Brasil."
+    }
+   ]
+  },
+  {
+   "titulo": "Vapor, Encouraçados e Revoltas Navais",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "Primeiros vapores",
+     "def": "Correio Imperial (1º vapor) e fragata Dom Afonso (1º de combate).",
+     "itens": "1825 · 1847",
+     "ex": "Início da transição da vela ao vapor."
+    },
+    {
+     "nome": "Primeiros encouraçados",
+     "def": "Gloire (França) e Warrior (Reino Unido); no Brasil, a corveta Brasil.",
+     "itens": "1859 · 1860 · 1864",
+     "ex": "A madeira já não resiste ao ferro."
+    },
+    {
+     "nome": "Monitor x Merrimack",
+     "def": "Primeiro combate entre encouraçados.",
+     "itens": "1862 · Hampton Roads (EUA)",
+     "ex": "Junto com Riachuelo, prova a era do ferro."
+    },
+    {
+     "nome": "Dreadnought",
+     "def": "Encouraçado só de canhões pesados que revoluciona o projeto naval.",
+     "itens": "1906 · Reino Unido",
+     "ex": "No Brasil: Minas Gerais e São Paulo (1909–1910)."
+    },
+    {
+     "nome": "Revolta da Armada",
+     "def": "Oficiais da Marinha contra o governo.",
+     "itens": "1893–1894 · Custódio de Melo x Floriano",
+     "ex": "Fracassa e consolida o \"Marechal de Ferro\"."
+    },
+    {
+     "nome": "Revolta da Chibata",
+     "def": "Marinheiros exigem o fim dos castigos físicos.",
+     "itens": "1910 · João Cândido, o \"Almirante Negro\"",
+     "ex": "Tomaram o encouraçado Minas Gerais; anistia não cumprida."
+    }
+   ]
+  },
+  {
+   "titulo": "Brasil nas Guerras Mundiais",
+   "rotulos": {
+    "itens": "Quando · Quem",
+    "ex": "Por que importa"
+   },
+   "linhas": [
+    {
+     "nome": "Jutlândia",
+     "def": "Maior choque de encouraçados da 1ª Guerra.",
+     "itens": "1916 · Reino Unido x Alemanha",
+     "ex": "Empate tático, vitória estratégica britânica (mantém o bloqueio)."
+    },
+    {
+     "nome": "Brasil na 1ª Guerra",
+     "def": "Declara guerra após afundamento de navios mercantes.",
+     "itens": "26 out. 1917",
+     "ex": "Único país sul-americano a enviar forças."
+    },
+    {
+     "nome": "DNOG",
+     "def": "Divisão Naval em Operações de Guerra patrulha o Atlântico.",
+     "itens": "1918",
+     "ex": "Principal contribuição militar brasileira na 1ª Guerra."
+    },
+    {
+     "nome": "Brasil na 2ª Guerra",
+     "def": "Afundamentos de navios por submarinos alemães levam à guerra contra o Eixo.",
+     "itens": "agosto 1942",
+     "ex": "Cede bases no Nordeste aos aliados."
+    },
+    {
+     "nome": "Trampolim da Vitória",
+     "def": "Base aérea de Natal, ponto mais próximo da África.",
+     "itens": "1942–1945",
+     "ex": "Rota aliada para o Norte da África e a Europa."
+    },
+    {
+     "nome": "Marinha no Atlântico Sul",
+     "def": "Patrulha e escolta de comboios contra U-boats, com a FAB e os EUA.",
+     "itens": "1942–1945",
+     "ex": "Proteção das rotas marítimas."
+    },
+    {
+     "nome": "FEB",
+     "def": "Força Expedicionária Brasileira na Itália.",
+     "itens": "1944–1945",
+     "ex": "Dependia das rotas protegidas pela Marinha."
+    },
+    {
+     "nome": "Midway",
+     "def": "Porta-aviões substitui o encouraçado como navio capital.",
+     "itens": "jun. 1942 · EUA x Japão",
+     "ex": "Virada da guerra no Pacífico."
+    }
+   ]
+  },
+  {
+   "titulo": "Marinha Contemporânea",
+   "rotulos": {
+    "itens": "Sigla · Data",
+    "ex": "Para que serve"
+   },
+   "linhas": [
+    {
+     "nome": "UNITAS",
+     "def": "Exercícios navais com os EUA.",
+     "itens": "desde 1959",
+     "ex": "Alinhamento doutrinário na Guerra Fria."
+    },
+    {
+     "nome": "Amazônia Azul",
+     "def": "Águas jurisdicionais: mar territorial, ZEE e plataforma continental.",
+     "itens": "termo de 2004",
+     "ex": "Recursos estratégicos (pré-sal) e soberania."
+    },
+    {
+     "nome": "UNCLOS",
+     "def": "Convenção da ONU sobre o Direito do Mar.",
+     "itens": "Montego Bay, 1982",
+     "ex": "Base para estender a plataforma continental."
+    },
+    {
+     "nome": "PROSUB",
+     "def": "Parceria Brasil-França para submarinos.",
+     "itens": "classe Riachuelo + nuclear",
+     "ex": "Busca de uma marinha de águas azuis."
+    },
+    {
+     "nome": "Organização",
+     "def": "Comando da Marinha / EMA, Esquadra, Distritos Navais, CFN.",
+     "itens": "",
+     "ex": "Planejamento, meios operativos, área territorial e infantaria naval."
+    },
+    {
+     "nome": "UNIFIL",
+     "def": "Brasil comanda a Força-Tarefa Marítima da ONU no Líbano.",
+     "itens": "desde 2011",
+     "ex": "Primeiro país latino-americano a comandar força naval da ONU."
+    },
+    {
+     "nome": "Programa de 1967",
+     "def": "Renovação da frota, bem menor que o pedido do EMA.",
+     "itens": "1967 · US$ 353,2 milhões",
+     "ex": "Ex.: 10 fragatas (de 20 pedidas)."
+    }
+   ]
+  }
+ ]
+}

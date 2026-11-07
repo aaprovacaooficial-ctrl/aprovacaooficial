@@ -1,0 +1,374 @@
+{
+ "slug": "caaml-1202",
+ "quadros": [
+  {
+   "titulo": "Dinâmica do incêndio",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Fogo x incêndio",
+     "def": "Fogo: calor e luz da combustão · incêndio: fogo que lavra com intensidade e causa prejuízo.",
+     "itens": "2.1",
+     "ex": "—"
+    },
+    {
+     "nome": "Fases",
+     "def": "Inicial → desenvolvimento → incêndio desenvolvido → queda de intensidade.",
+     "itens": "4 fases",
+     "ex": "—"
+    },
+    {
+     "nome": "Rollover",
+     "def": "Gases não queimados se misturam ao ar e inflamam no teto.",
+     "itens": "Lean flashover · fase inicial",
+     "ex": "Aviso antes do flashover."
+    },
+    {
+     "nome": "Flashover",
+     "def": "Espalhamento repentino das chamas a todo o material do compartimento.",
+     "itens": "Teoria de P. H. Thomas (anos 60)",
+     "ex": "Marca o incêndio desenvolvido."
+    },
+    {
+     "nome": "Backdraft",
+     "def": "Reignição explosiva quando entra ar num ambiente sem oxigênio.",
+     "itens": "Fase de queda",
+     "ex": "Sinais: fumaça sob pressão e em lufadas, porta quente, ar assoviando para dentro."
+    }
+   ]
+  },
+  {
+   "titulo": "Causas e prevenção",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Causa principal",
+     "def": "Falha humana (fora os danos de combate).",
+     "itens": "—",
+     "ex": "Melhor combate: evitar que comece."
+    },
+    {
+     "nome": "Causas comuns",
+     "def": "Cigarros, trapos com óleo, gordura na cozinha, corte e solda, porão com óleo, vazamentos, lâmpadas sem proteção.",
+     "itens": "17 causas listadas",
+     "ex": "—"
+    },
+    {
+     "nome": "Armazenamento",
+     "def": "Combustível abaixo da linha d'água; acima, pronto para alijar.",
+     "itens": "Inflamáveis: ventilação forçada e tampa hermética",
+     "ex": "Nada nos dutos de descarga."
+    },
+    {
+     "nome": "Tabela de Inflamáveis",
+     "def": "Usada para retirar ou reduzir inflamáveis ao preparar para o combate.",
+     "itens": "2.6.1",
+     "ex": "—"
+    },
+    {
+     "nome": "Período de reparo",
+     "def": "Muito corte e solda, cabos emendados, gente estranha, acessórios de CAv retirados.",
+     "itens": "6 perigos",
+     "ex": "Guarnição reduzida."
+    },
+    {
+     "nome": "Em combate",
+     "def": "Calor de explosões, estilhaços, óleo em superfícies quentes, baixas de pessoal.",
+     "itens": "7 perigos",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Métodos de extinção",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Abafamento",
+     "def": "Reduzir o oxigênio.",
+     "itens": "Abaixo de 13% · perto de 8% não há combustão",
+     "ex": "Areia, cobertor, espuma, CO2."
+    },
+    {
+     "nome": "Resfriamento",
+     "def": "Baixar a temperatura abaixo da ignição.",
+     "itens": "Agente universal: água",
+     "ex": "Único para pólvora/celuloide."
+    },
+    {
+     "nome": "Isolamento",
+     "def": "Retirar o combustível (ex.: fechar válvula).",
+     "itens": "Etapa do processo",
+     "ex": "—"
+    },
+    {
+     "nome": "Quebra da reação em cadeia",
+     "def": "Substâncias inibem a reação química.",
+     "itens": "Ex.: halon, pó químico",
+     "ex": "4º lado do tetraedro."
+    }
+   ]
+  },
+  {
+   "titulo": "Classes de incêndio (NBR 12693)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Classe A",
+     "def": "Sólidos que fazem brasa e deixam resíduo (madeira, papel, tecido).",
+     "itens": "Resfriamento (água)",
+     "ex": "Pó só retarda."
+    },
+    {
+     "nome": "Classe B",
+     "def": "Líquidos inflamáveis, graxas e gases.",
+     "itens": "Abafamento ou quebra da reação",
+     "ex": "Muito quente: também resfriar."
+    },
+    {
+     "nome": "Classe C",
+     "def": "Equipamento elétrico energizado.",
+     "itens": "Agente não condutor",
+     "ex": "Desligou → vira A ou B."
+    },
+    {
+     "nome": "Classe D",
+     "def": "Metais (magnésio, sódio, potássio, lítio, titânio…).",
+     "itens": "Pó químico especial",
+     "ex": "Reage com água."
+    },
+    {
+     "nome": "Classe K",
+     "def": "Gordura animal e vegetal (cozinha).",
+     "itens": "Pó químico umedecido (acetato de potássio)",
+     "ex": "Autoignição entre 288 °C e 385 °C."
+    }
+   ]
+  },
+  {
+   "titulo": "Agentes extintores (1)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Água",
+     "def": "Jato sólido ou neblina; age por resfriamento.",
+     "itens": "Classe C só em neblina, a 2 m ou mais",
+     "ex": "Muita água reduz a flutuabilidade."
+    },
+    {
+     "nome": "Espuma mecânica",
+     "def": "Água + LGE + ar (Venturi); flutua e abafa.",
+     "itens": "~85% de água em peso",
+     "ex": "Preferencial para classe B; conduz eletricidade."
+    },
+    {
+     "nome": "Vapor",
+     "def": "Age por abafamento, sem resfriar.",
+     "itens": "Classe B em praças de caldeiras",
+     "ex": "Retirar todo o pessoal."
+    },
+    {
+     "nome": "CO2",
+     "def": "Gás inerte, mau condutor; abafamento.",
+     "itens": "Classes B e C",
+     "ex": "Risco de asfixia e de eletricidade estática."
+    },
+    {
+     "nome": "Halon",
+     "def": "Quebra da reação em cadeia; só em sistemas fixos.",
+     "itens": "5x mais denso que o ar · Protocolo de Montreal (1987)",
+     "ex": "Não deixa resíduo."
+    },
+    {
+     "nome": "Halon 1301 x 1211",
+     "def": "1301: 5–7% por até 5 min sem dano · 1211 (BCF): mais tóxico, até 4% por 5 min.",
+     "itens": "1211: motores e turbinas",
+     "ex": "1211 não em compartimento guarnecido."
+    }
+   ]
+  },
+  {
+   "titulo": "Agentes extintores (2)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Halocarbonados",
+     "def": "Substitutos do halon (ex.: FM-200).",
+     "itens": "FM-200: substituto mais eficiente do 1301",
+     "ex": "Não para metais reativos."
+    },
+    {
+     "nome": "PKP (Purple-K)",
+     "def": "Bicarbonato de potássio.",
+     "itens": "Líquidos e gases inflamáveis",
+     "ex": "—"
+    },
+    {
+     "nome": "Plus Fifty (PQS)",
+     "def": "Bicarbonato de sódio.",
+     "itens": "Levemente alcalino",
+     "ex": "Pode corroer."
+    },
+    {
+     "nome": "Pó ABC (Foray)",
+     "def": "Fosfato de monoamônia; cor amarela.",
+     "itens": "Também classe A",
+     "ex": "Levemente ácido com umidade."
+    },
+    {
+     "nome": "MET-L-X",
+     "def": "Pó seco especial (cloreto de sódio).",
+     "itens": "Só classe D",
+     "ex": "Forma capa sólida; não quebrar."
+    },
+    {
+     "nome": "APC",
+     "def": "Solução aquosa de carbonato de potássio.",
+     "itens": "Gorduras: fritadeiras e dutos da cozinha",
+     "ex": "Saponificação."
+    }
+   ]
+  },
+  {
+   "titulo": "Extintores portáteis",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Êxito depende de",
+     "def": "Distribuição, inspeção, manutenção e pessoal habilitado.",
+     "itens": "4 fatores",
+     "ex": "Nunca atrasar recursos maiores."
+    },
+    {
+     "nome": "Água pressurizada",
+     "def": "Classe A.",
+     "itens": "10 L · alcance 4 m · 50 s",
+     "ex": "Recarga em no máximo 5 anos."
+    },
+    {
+     "nome": "CO2",
+     "def": "Classes B e C.",
+     "itens": "850 lb/pol² · 1–2 kg: 8 s · 4–6 kg: 13 s",
+     "ex": "Difusor de metal: não usar em C."
+    },
+    {
+     "nome": "CO2: manutenção",
+     "def": "Pesagem mensal; recarga a cada 12 meses.",
+     "itens": "Teste hidrostático a cada 5 anos",
+     "ex": "Fica a até 10 m de equipamento de risco."
+    },
+    {
+     "nome": "Pó químico",
+     "def": "Classes B e C (D só com pó especial).",
+     "itens": "1–4 kg e 4–12 kg",
+     "ex": "Propelente seco: CO2, N2 ou ar."
+    },
+    {
+     "nome": "Halon portátil",
+     "def": "Classes B e C; eletrônicos.",
+     "itens": "1, 2, 4 e 6 kg · até 8 s",
+     "ex": "Substituir a cada 5 anos."
+    },
+    {
+     "nome": "Classe K",
+     "def": "Acetato de potássio em neblina.",
+     "itens": "6 L · 90 s",
+     "ex": "Melhor para cozinhas."
+    }
+   ]
+  },
+  {
+   "titulo": "Carretas (sobre rodas)",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Operação",
+     "def": "Exige pelo menos 2 operadores.",
+     "itens": "Água, espuma, pó e CO2",
+     "ex": "—"
+    },
+    {
+     "nome": "Carreta de água",
+     "def": "Classe A.",
+     "itens": "75–150 L · 13 m · 180 s (75 L)",
+     "ex": "—"
+    },
+    {
+     "nome": "Carreta de espuma",
+     "def": "Classes A e B.",
+     "itens": "75–150 L · 7,5 m · 180 s (75 L)",
+     "ex": "—"
+    },
+    {
+     "nome": "Carreta de pó",
+     "def": "Classes B e C (D com PQS especial).",
+     "itens": "20–100 kg · 120 s (20 kg)",
+     "ex": "—"
+    },
+    {
+     "nome": "Carreta de CO2",
+     "def": "Classes B e C.",
+     "itens": "25–50 kg · 3 m · 60 s (30 kg)",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Inspeção, identificação e distribuição",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Rotina",
+     "def": "Semanal: acesso e sinalização · mensal: bico, manômetro, lacre, pino · anual: 2º nível · quinquenal: teste hidrostático.",
+     "itens": "NBR 12962",
+     "ex": "Intempérie: mais frequente."
+    },
+    {
+     "nome": "Identificação",
+     "def": "A: triângulo verde · B: quadrado vermelho · C: círculo azul · D: estrela amarela · K: quadrado preto.",
+     "itens": "4.12",
+     "ex": "Decore forma + cor."
+    },
+    {
+     "nome": "Riscos (DGMM-0602)",
+     "def": "Pequeno, médio, grande e especial.",
+     "itens": "Especial: combustíveis, munição",
+     "ex": "Seleção pelo material existente."
+    },
+    {
+     "nome": "Observações",
+     "def": "Água e areia a balde também servem; gás/pó perdem eficácia com vento forte.",
+     "itens": "4.11",
+     "ex": "—"
+    }
+   ]
+  }
+ ]
+}

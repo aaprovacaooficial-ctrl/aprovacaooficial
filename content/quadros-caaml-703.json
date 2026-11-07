@@ -1,0 +1,467 @@
+{
+ "slug": "caaml-703",
+ "quadros": [
+  {
+   "titulo": "Embarcações miúdas: tipos e propulsão",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Classificação (construção)",
+     "def": "Lanchas, baleeiras, botes infláveis, casco semirrígido, chalanas e balsas salva-vidas.",
+     "itens": "6 tipos",
+     "ex": "—"
+    },
+    {
+     "nome": "Casco semirrígido",
+     "def": "Fibra de vidro + flutuadores de borracha; a mais recente na MB.",
+     "itens": "Rápida, mar pior, mais veloz, boa manobrabilidade",
+     "ex": "Não é feita para abicar/abarrancar."
+    },
+    {
+     "nome": "Propulsão",
+     "def": "A motor, a vela ou a remos.",
+     "itens": "Motor fixo (interno) ou removível (de popa)",
+     "ex": "Jato d'água e hovercraft: pouco uso."
+    },
+    {
+     "nome": "Palamenta",
+     "def": "Descrita no Arte Naval e no CAAML 1212.",
+     "itens": "Manual de Sobrevivência no Mar",
+     "ex": "—"
+    },
+    {
+     "nome": "Responsável pelo equipamento",
+     "def": "A guarnição da embarcação.",
+     "itens": "Perdas: avisar patrão e oficial de serviço",
+     "ex": "Arejar coletes molhados."
+    }
+   ]
+  },
+  {
+   "titulo": "Turcos e arrumação",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Onde ficam",
+     "def": "Picadeiros ou turcos, prontas para arriar.",
+     "itens": "Turcos: aos pares",
+     "ex": "Lanças e guindastes servem várias embarcações."
+    },
+    {
+     "nome": "Turco comum",
+     "def": "Gira em torno do eixo vertical (ou fixo).",
+     "itens": "Ferro redondo ou perfil",
+     "ex": "—"
+    },
+    {
+     "nome": "Turco de rebater",
+     "def": "Rebatido para dentro em eixo horizontal paralelo ao costado.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Turco quadrantal",
+     "def": "Setor dentado engrazando numa cremalheira no convés.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Turco rolante/deslizante",
+     "def": "Dois braços com rodetes sobre calhas; dispara pela gravidade.",
+     "itens": "Cabos-guia: sea jackstay",
+     "ex": "Peso da própria embarcação."
+    }
+   ]
+  },
+  {
+   "titulo": "Arriar e içar: quem faz o quê",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Contramestre",
+     "def": "Pede permissão ao OSv, confere lista de verificação, EPI, andorinhos e boças; coordena o embarque.",
+     "itens": "9 tarefas",
+     "ex": "—"
+    },
+    {
+     "nome": "Patrão",
+     "def": "Palamenta completa, tampona bueiros, confere coletes/capacetes, cana do leme e comunicações.",
+     "itens": "7 tarefas",
+     "ex": "Apresentação impecável da guarnição."
+    },
+    {
+     "nome": "Proeiro e popeiro",
+     "def": "Na água, retiram gatos e largam boças; o popeiro primeiro.",
+     "itens": "Proeiro larga a boça de viagem",
+     "ex": "—"
+    },
+    {
+     "nome": "Motorista (MO)",
+     "def": "Óleo, combustível, combate a incêndio, ferramentas e partida do motor.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Instante crítico",
+     "def": "Quando a embarcação toca a água ainda presa aos cabos.",
+     "itens": "—",
+     "ex": "Quanto mais rápido, menor o risco."
+    },
+    {
+     "nome": "Baleeira com navio em movimento",
+     "def": "Velocidade limite para arriar/içar.",
+     "itens": "5 nós",
+     "ex": "Demais: Procedimentos Operativos."
+    },
+    {
+     "nome": "Boça de viagem",
+     "def": "Pode ser dispensada fundeado/atracado sem corrente.",
+     "itens": "—",
+     "ex": "Usam-se só boças de proa e popa."
+    },
+    {
+     "nome": "Mau tempo",
+     "def": "Estropos de segurança e de mau tempo.",
+     "itens": "Todos guarnecem os andorinhos",
+     "ex": "Natação aprovada no TAF."
+    }
+   ]
+  },
+  {
+   "titulo": "Conduzir a embarcação a motor",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Passo do hélice",
+     "def": "Direito: horário visto de ré · esquerdo: anti-horário.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Ângulo de leme",
+     "def": "Efeito máximo em torno de 35°.",
+     "itens": "35°",
+     "ex": "Além disso o efeito diminui."
+    },
+    {
+     "nome": "Ponto pivô",
+     "def": "Cerca de 1/3 do comprimento a partir da proa.",
+     "itens": "1/3",
+     "ex": "—"
+    },
+    {
+     "nome": "Trim",
+     "def": "Pessoas e carga distribuídas a meia-nau.",
+     "itens": "Com mar/reboque: trim de popa",
+     "ex": "Hélice imerso governa melhor."
+    },
+    {
+     "nome": "Mar pela proa",
+     "def": "Atacar as maiores ondas de frente e reduzir a velocidade.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Atracar no cais",
+     "def": "Sempre contra o vento ou a corrente, em baixa velocidade.",
+     "itens": "1 nó de corrente ≈ vento força 3–4 · 2 nós ≈ força 5–6",
+     "ex": "Cais desconhecido: sondar com o croque."
+    },
+    {
+     "nome": "Espringues",
+     "def": "Passados com as boças de vante e ré; ajudam a desatracar.",
+     "itens": "—",
+     "ex": "Usar efeitos naturais antes da máquina."
+    }
+   ]
+  },
+  {
+   "titulo": "Cuidados e comunicações",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Após o serviço",
+     "def": "Içar, baldear e limpar; chalana içada logo.",
+     "itens": "—",
+     "ex": "Chalana não passa a noite arriada."
+    },
+    {
+     "nome": "Atracada",
+     "def": "Não ficar no portaló/escada; ficar ao largo ou no surriola.",
+     "itens": "—",
+     "ex": "Patrão não se ausenta da embarcação."
+    },
+    {
+     "nome": "Causa principal de problemas",
+     "def": "Falha de manutenção dos turcos + falta de adestramento.",
+     "itens": "Testes de carga obrigatórios",
+     "ex": "Briefing com o patrão antes de sair."
+    },
+    {
+     "nome": "Rádio",
+     "def": "Mesmo com rádio orgânico, levar 1 PRC reserva.",
+     "itens": "Sem rádio: 2 PRC",
+     "ex": "Direção em código de horas (relógio)."
+    },
+    {
+     "nome": "Bandeiras",
+     "def": "Encarnada: preparar · verde na Manobra: arriar/içar.",
+     "itens": "Comunicação visual",
+     "ex": "Útil com rádio restrito."
+    }
+   ]
+  },
+  {
+   "titulo": "Apresentação marinheira",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Conceito",
+     "def": "Razões práticas, não só estéticas; o bom aspecto mostra eficiência.",
+     "itens": "Anexo A",
+     "ex": "Incluir no adestramento interno."
+    },
+    {
+     "nome": "Embarcações",
+     "def": "Espelho/cartão de visita da unidade.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Inspeção no porto",
+     "def": "Encarregados de Divisão, Mestre e Sargento-Polícia; após expediente: OSv.",
+     "itens": "Em viagem: Mestre, CM de Quarto, Sgt-Polícia",
+     "ex": "—"
+    },
+    {
+     "nome": "Sinais de rotina",
+     "def": "Por apito, da alvorada ao silêncio; quartos pelo sino.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Falhas comuns",
+     "def": "Pintura borrada, cabos em desalinho, defensas esquecidas, ferrugem, bandeiras enroscadas, vazamentos.",
+     "itens": "Bandeira atopetada até \"beijar\"",
+     "ex": "—"
+    },
+    {
+     "nome": "Continência em formatura",
+     "def": "Só o mais antigo faz; os demais em sentido.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Portaló",
+     "def": "Cartão de visita do navio, rigorosamente limpo.",
+     "itens": "—",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Segurança nas fainas marinheiras",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Capacete branco",
+     "def": "Oficiais · cruz verde: Oficial de Segurança · cruz vermelha: Enfermeiro.",
+     "itens": "Código de cores",
+     "ex": "—"
+    },
+    {
+     "nome": "Outras cores",
+     "def": "Amarelo: Mestre · verde: raqueteiro/telefonista · vermelho: lança-retinida · marrom: cabrestante/CAv · púrpura: reparador · azul: laboradores · laranja: inspetor · cinza: outros.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "4 regras dos cabos",
+     "def": "Não ficar por dentro do cabo; não aumentar carga após dar volta; observador de segurança; socairo mínimo.",
+     "itens": "Socairo de 2 m",
+     "ex": "Espias e cabos de reboque com fusível."
+    },
+    {
+     "nome": "Transferência no mar",
+     "def": "Enfermeiro e Oficial de Segurança na estação; ninguém entre a carga e a borda.",
+     "itens": "NTTP 4-01.4",
+     "ex": "Tirar anéis e relógios."
+    },
+    {
+     "nome": "Reboque",
+     "def": "Proibido transitar na área de passeio do cabo.",
+     "itens": "—",
+     "ex": "Enfermeiro com kit na área."
+    },
+    {
+     "nome": "Homem ao mar",
+     "def": "Nadador com neoprene e palamenta; nadador reserva pronto; cabo de polipropileno.",
+     "itens": "Noite: cyalume no sling",
+     "ex": "Atirador contra tubarões."
+    }
+   ]
+  },
+  {
+   "titulo": "Embarque de prático",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Escada",
+     "def": "Homologada pela DPC.",
+     "itens": "Lançada a sotavento",
+     "ex": "Montada por militar capacitado sob supervisão de Oficial."
+    },
+    {
+     "nome": "Altura de subida",
+     "def": "Mínimo 1,50 m, máximo 9 m.",
+     "itens": "Acima de 9 m: combinar com escada de portaló",
+     "ex": "—"
+    },
+    {
+     "nome": "Boças",
+     "def": "Duas boças prontas.",
+     "itens": "Diâmetro mínimo 32 mm",
+     "ex": "—"
+    },
+    {
+     "nome": "Navio em movimento",
+     "def": "Máquinas adiante.",
+     "itens": "Velocidade máxima 5 a 6 nós",
+     "ex": "—"
+    },
+    {
+     "nome": "Recepção",
+     "def": "Recebido e acompanhado ao passadiço por Oficial.",
+     "itens": "Boia com luz automática junto à escada",
+     "ex": "Iluminação à noite."
+    }
+   ]
+  },
+  {
+   "titulo": "Irradiação eletromagnética",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Perigo para o homem",
+     "def": "Aquecimento do corpo; indução em cabos de aço e estruturas.",
+     "itens": "< 1 GHz: penetra fundo · > 3 GHz: superfície (pele)",
+     "ex": "Nunca olhar para o lóbulo da antena."
+    },
+    {
+     "nome": "Prevenção",
+     "def": "Cargas fantasmas em testes, aterrar antes da manutenção, avisos.",
+     "itens": "—",
+     "ex": "Radares desligados em mastros."
+    },
+    {
+     "nome": "HERO",
+     "def": "Perigo para o armamento (estopilhas e espoletas).",
+     "itens": "Ordnance",
+     "ex": "Ex.: granadas de CHAFF."
+    },
+    {
+     "nome": "HERF",
+     "def": "Perigo para o combustível (gasolina de aviação).",
+     "itens": "Transmissor a 15 m de abastecimento",
+     "ex": "Nunca apontar o radar para quem abastece."
+    },
+    {
+     "nome": "LASER",
+     "def": "Risco à visão, agravado por binóculos.",
+     "itens": "—",
+     "ex": "Filtros e proteção."
+    },
+    {
+     "nome": "AH-11A",
+     "def": "Restrição de HF durante operações aéreas.",
+     "itens": "Do acionamento à decolagem e na aproximação final",
+     "ex": "Interferências nos instrumentos."
+    }
+   ]
+  },
+  {
+   "titulo": "Elétrica, incêndio, aviação e geral",
+   "rotulos": {
+    "itens": "Números · Detalhe",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Tensão a bordo",
+     "def": "440 V, 60 ciclos, trifásica; iluminação 115 V.",
+     "itens": "Ambas podem matar",
+     "ex": "Considere todo circuito perigoso."
+    },
+    {
+     "nome": "Etiqueta",
+     "def": "\"PERIGO - NÃO ALIMENTAR\" em encarnado.",
+     "itens": "Não tirar fusível de 440 V alimentado",
+     "ex": "Nunca usar \"gatilhos\"."
+    },
+    {
+     "nome": "Medição",
+     "def": "Liga primeiro o terra (preta), depois a viva (encarnada); desfaz ao contrário.",
+     "itens": "Acima de 300 V: cuidados especiais",
+     "ex": "Nunca trabalhe sozinho."
+    },
+    {
+     "nome": "Tanques e espaços vazios",
+     "def": "Limpos, desgaseificados e ventilados.",
+     "itens": "Nunca entrar sozinho",
+     "ex": "Observador do lado de fora."
+    },
+    {
+     "nome": "Pintura",
+     "def": "Tinta e solvente para no máximo 1 dia; iluminação à prova de explosão.",
+     "itens": "Avisar a Central do CAv",
+     "ex": "—"
+    },
+    {
+     "nome": "Corte e solda",
+     "def": "Vigilância no compartimento adjacente.",
+     "itens": "Até 25 min após o término",
+     "ex": "Autorização do OSv/Encarregado do CAv."
+    },
+    {
+     "nome": "Operações aéreas",
+     "def": "Aproximação do helicóptero no setor de 45° por bordo a partir da proa.",
+     "itens": "Lixo proibido ~15 min antes",
+     "ex": "Proibido fumar no hangar."
+    },
+    {
+     "nome": "Período de manutenção",
+     "def": "Comissão de segurança; ao menos 1 reparo de CAv pronto.",
+     "itens": "Patrulhas de CAv e vigias",
+     "ex": "—"
+    }
+   ]
+  }
+ ]
+}

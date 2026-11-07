@@ -1,0 +1,653 @@
+{
+ "slug": "geografia",
+ "quadros": [
+  {
+   "titulo": "Setores da Economia e DIT",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Primário",
+     "def": "Extrai e produz matérias-primas direto da natureza, sem transformação industrial.",
+     "itens": "Agricultura, pecuária, mineração, pesca, extrativismo",
+     "ex": "Peso maior nos países em desenvolvimento."
+    },
+    {
+     "nome": "Secundário",
+     "def": "Transforma matérias-primas em produtos manufaturados.",
+     "itens": "Indústria de base, bens de consumo, construção civil",
+     "ex": "Construção civil é secundário, não terciário."
+    },
+    {
+     "nome": "Terciário",
+     "def": "Prestação de serviços.",
+     "itens": "Comércio, transporte, educação, saúde, turismo, finanças",
+     "ex": "\"Terciarização\": nos países ricos concentra a maior parte do PIB e do emprego."
+    },
+    {
+     "nome": "Quaternário",
+     "def": "Produção e difusão de informação e conhecimento.",
+     "itens": "Pesquisa científica, TI, consultoria",
+     "ex": "Para alguns autores é parte do terciário."
+    },
+    {
+     "nome": "DIT clássica",
+     "def": "Centro industrializado exporta manufaturados; periferia fornece matéria-prima e alimentos.",
+     "itens": "Séc. XVI/XIX até meados do séc. XX",
+     "ex": "Papel FIXO de cada país."
+    },
+    {
+     "nome": "Nova DIT",
+     "def": "Transnacionais fragmentam a produção entre vários países para reduzir custos.",
+     "itens": "2ª metade do séc. XX, com a globalização",
+     "ex": "Mesma cadeia em vários países (ex.: smartphone projetado nos EUA, montado na China)."
+    }
+   ]
+  },
+  {
+   "titulo": "Globalização: marcos e conceitos",
+   "rotulos": {
+    "itens": "Quando · Onde",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Globalização",
+     "def": "Aceleração dos fluxos de capital, mercadorias, informação, pessoas e cultura, gerando interdependência.",
+     "itens": "Ganha força nos anos 1970–1980",
+     "ex": "Motor: revolução técnico-científica-informacional (\"compressão do espaço-tempo\")."
+    },
+    {
+     "nome": "Bretton Woods",
+     "def": "Conferência de 44 países aliados para organizar a economia do pós-guerra.",
+     "itens": "1944",
+     "ex": "Criou FMI e BIRD (Banco Mundial); dólar como referência."
+    },
+    {
+     "nome": "GATT",
+     "def": "Acordo Geral sobre Tarifas e Comércio, para reduzir barreiras tarifárias.",
+     "itens": "1947",
+     "ex": "Era acordo, não organização; antecessor da OMC."
+    },
+    {
+     "nome": "Bandung",
+     "def": "Reunião de nações recém-independentes da Ásia e da África.",
+     "itens": "1955 · Indonésia",
+     "ex": "Base do Movimento dos Não-Alinhados (foco geopolítico, não financeiro)."
+    },
+    {
+     "nome": "AID / IDA",
+     "def": "Órgão do Banco Mundial que empresta sem juros (ou quase) aos países mais pobres.",
+     "itens": "1960",
+     "ex": "Ajuda + assistência técnica aos países mais pobres."
+    },
+    {
+     "nome": "Agentes",
+     "def": "Quem move a globalização.",
+     "itens": "Transnacionais, ONU/OMC/FMI/Banco Mundial, blocos regionais",
+     "ex": "Algumas transnacionais faturam mais que o PIB de países."
+    },
+    {
+     "nome": "Espaços luminosos x opacos",
+     "def": "Luminosos: polos de fluxo intenso; opacos: regiões à margem dos fluxos.",
+     "itens": "Conceito de Milton Santos",
+     "ex": "Globalização é SELETIVA/excludente, não homogênea."
+    },
+    {
+     "nome": "Ordem mundial",
+     "def": "Bipolar (EUA x URSS) → unipolaridade relativa dos EUA → multipolar.",
+     "itens": "Fim da URSS: 1991",
+     "ex": "Multipolaridade: ascensão da China, UE, Rússia, emergentes."
+    },
+    {
+     "nome": "BRICS",
+     "def": "Bloco de grandes economias emergentes fora do eixo EUA-Europa.",
+     "itens": "Brasil, Rússia, Índia, China + África do Sul (2011)",
+     "ex": "Expandiu-se depois com novos membros; exemplo de multipolarização."
+    }
+   ]
+  },
+  {
+   "titulo": "Comércio Internacional e Blocos",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Livre-comércio",
+     "def": "Reduz ou elimina barreiras ao comércio entre países.",
+     "itens": "Tarifas zeradas, especialização produtiva",
+     "ex": "Oposto do protecionismo."
+    },
+    {
+     "nome": "Protecionismo",
+     "def": "Medidas para proteger a produção nacional da concorrência estrangeira.",
+     "itens": "Tarifas de importação, cotas, subsídios",
+     "ex": "Barreiras tarifárias e não tarifárias."
+    },
+    {
+     "nome": "Dumping",
+     "def": "Vender no exterior abaixo do custo de produção para eliminar concorrentes.",
+     "itens": "Prática desleal",
+     "ex": "Sujeito a sanções da OMC."
+    },
+    {
+     "nome": "Balança comercial",
+     "def": "Exportações menos importações.",
+     "itens": "Superávit (exporta mais) · Déficit (importa mais)",
+     "ex": "Agronegócio mantém a balança brasileira superavitária no setor."
+    },
+    {
+     "nome": "OMC",
+     "def": "Organização que sucedeu o GATT, com solução formal de controvérsias.",
+     "itens": "1995 · após a Rodada Uruguai (1986–1994)",
+     "ex": "OMC sucedeu o GATT, não o contrário."
+    },
+    {
+     "nome": "União Europeia",
+     "def": "Integração mais profunda do mundo; moeda única (euro) na maioria.",
+     "itens": "27 membros · Brexit efetivado em 2020",
+     "ex": "Exemplo de união econômica e monetária."
+    },
+    {
+     "nome": "Mercosul",
+     "def": "União aduaneira (tarifa externa comum) rumo a um mercado comum.",
+     "itens": "Brasil, Argentina, Paraguai, Uruguai",
+     "ex": "Dificuldade: assimetrias entre as economias."
+    },
+    {
+     "nome": "T-MEC (ex-NAFTA)",
+     "def": "Zona de livre comércio da América do Norte.",
+     "itens": "EUA, México, Canadá · NAFTA 1994 → T-MEC 2020",
+     "ex": "Também chamado USMCA."
+    },
+    {
+     "nome": "ASEAN",
+     "def": "Cooperação econômica e política do Sudeste Asiático.",
+     "itens": "Indonésia, Tailândia, Vietnã, Filipinas…",
+     "ex": "Bloco asiático regional."
+    }
+   ]
+  },
+  {
+   "titulo": "Níveis de Integração (do simples ao complexo)",
+   "rotulos": {
+    "itens": "Soma",
+    "ex": "Exemplo"
+   },
+   "linhas": [
+    {
+     "nome": "1. Zona de livre comércio",
+     "def": "Elimina tarifas entre os membros; cada um mantém sua política com terceiros.",
+     "itens": "Só tarifas internas",
+     "ex": "T-MEC"
+    },
+    {
+     "nome": "2. União aduaneira",
+     "def": "Zona de livre comércio + tarifa externa comum (TEC).",
+     "itens": "+ TEC",
+     "ex": "Mercosul"
+    },
+    {
+     "nome": "3. Mercado comum",
+     "def": "União aduaneira + livre circulação de capitais e mão de obra.",
+     "itens": "+ pessoas e capitais",
+     "ex": "Objetivo do Mercosul"
+    },
+    {
+     "nome": "4. União econômica e monetária",
+     "def": "Mercado comum + moeda única e políticas macroeconômicas coordenadas.",
+     "itens": "+ moeda única",
+     "ex": "União Europeia (euro)"
+    }
+   ]
+  },
+  {
+   "titulo": "Revoluções Industriais e Modelos de Produção",
+   "rotulos": {
+    "itens": "Quando · Onde",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "1ª Revolução",
+     "def": "Máquina a vapor, mecanização têxtil e metalúrgica, ferrovias.",
+     "itens": "A partir de 1760 · Inglaterra",
+     "ex": "Fábrica substitui o trabalho artesanal."
+    },
+    {
+     "nome": "2ª Revolução",
+     "def": "Eletricidade, motor a combustão, aço, química.",
+     "itens": "1850–1870 · EUA, Alemanha, França, Japão",
+     "ex": "Grandes conglomerados; capitalismo financeiro/monopolista."
+    },
+    {
+     "nome": "3ª Revolução",
+     "def": "Eletrônica, informática, telecomunicações, automação.",
+     "itens": "Meados do séc. XX",
+     "ex": "Técnico-científica-informacional: base da globalização."
+    },
+    {
+     "nome": "4ª Revolução (Indústria 4.0)",
+     "def": "IA, internet das coisas, robótica avançada, big data.",
+     "itens": "Desde c. 2010",
+     "ex": "Fábricas automatizadas e conectadas."
+    },
+    {
+     "nome": "Fordismo",
+     "def": "Produção em massa, padronizada, em linha de montagem, com grandes estoques.",
+     "itens": "Início do séc. XX · Henry Ford",
+     "ex": "Surgiu PRIMEIRO."
+    },
+    {
+     "nome": "Toyotismo",
+     "def": "Produção flexível, just in time, estoques mínimos, círculos de qualidade, terceirização.",
+     "itens": "Japão, pós-2ª Guerra · Toyota",
+     "ex": "Mais associado à globalização e à Nova DIT."
+    }
+   ]
+  },
+  {
+   "titulo": "Indústria no Mundo",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Países centrais",
+     "def": "Primeiros a industrializar; mantêm indústria de alto valor e tecnologia.",
+     "itens": "EUA, Alemanha, Japão, Reino Unido, França",
+     "ex": "Transferiram a produção de menor valor agregado."
+    },
+    {
+     "nome": "Desconcentração",
+     "def": "Parte da indústria (sobretudo a intensiva em mão de obra) migra para países periféricos.",
+     "itens": "2ª metade do séc. XX",
+     "ex": "Ligada à Nova DIT."
+    },
+    {
+     "nome": "Tigres Asiáticos / NICs",
+     "def": "Industrialização rápida com apoio estatal e capital estrangeiro, voltada à exportação.",
+     "itens": "1ª geração: Coreia do Sul, Taiwan, Singapura, Hong Kong · 2ª: Malásia, Tailândia, Indonésia",
+     "ex": "Não confundir as gerações."
+    },
+    {
+     "nome": "China",
+     "def": "\"Fábrica do mundo\": mão de obra abundante + investimento estatal em infraestrutura.",
+     "itens": "Reformas de Deng Xiaoping, 1978",
+     "ex": "Maior exportador industrial em várias categorias."
+    },
+    {
+     "nome": "Tecnopolos",
+     "def": "Polos de alta tecnologia perto de universidades e centros de pesquisa.",
+     "itens": "Vale do Silício, Rota 128 (EUA), Bangalore (Índia)",
+     "ex": "Ligados ao setor quaternário."
+    }
+   ]
+  },
+  {
+   "titulo": "Industrialização Brasileira",
+   "rotulos": {
+    "itens": "Quando · Onde",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Origem cafeeira",
+     "def": "Capital do café financia as primeiras fábricas (têxteis, bens simples).",
+     "itens": "Fim do séc. XIX/início do XX · São Paulo",
+     "ex": "\"Complexo cafeeiro\"."
+    },
+    {
+     "nome": "Substituição de importações",
+     "def": "Produzir aqui o que antes era importado, com o Estado à frente.",
+     "itens": "Após a crise de 1929 · anos 1930–1950",
+     "ex": "Estado entra onde o investimento é alto e o retorno é lento."
+    },
+    {
+     "nome": "CSN",
+     "def": "Companhia Siderúrgica Nacional.",
+     "itens": "Criada 1941 · opera 1946 em Volta Redonda",
+     "ex": "Siderurgia estatal."
+    },
+    {
+     "nome": "Petrobras",
+     "def": "Estatal do petróleo.",
+     "itens": "1953 · \"O petróleo é nosso\"",
+     "ex": "Petróleo estatal."
+    },
+    {
+     "nome": "Plano de Metas",
+     "def": "Energia, transporte e indústria de base; capital estrangeiro na indústria automobilística.",
+     "itens": "1956–1961 · JK",
+     "ex": "\"Cinquenta anos em cinco\"."
+    },
+    {
+     "nome": "Milagre econômico",
+     "def": "PIB acelerado com endividamento externo e obras estatais.",
+     "itens": "1968–1973 · regime militar",
+     "ex": "Termina com os choques do petróleo (1973 e 1979)."
+    },
+    {
+     "nome": "Década perdida",
+     "def": "Baixo crescimento, inflação alta, crise da dívida externa.",
+     "itens": "Anos 1980",
+     "ex": "Juros internacionais altos."
+    },
+    {
+     "nome": "Abertura econômica",
+     "def": "Redução de tarifas, privatizações, reestruturação produtiva.",
+     "itens": "Anos 1990 · Plano Real 1994",
+     "ex": "Integração às cadeias globais de valor."
+    },
+    {
+     "nome": "Desconcentração no Brasil",
+     "def": "Indústria sai do Sudeste (SP) para outras regiões.",
+     "itens": "Interior de SP e Sul; Nordeste (têxtil, calçados, eólica)",
+     "ex": "Causa: guerra fiscal, mão de obra e terra mais baratas."
+    },
+    {
+     "nome": "Zona Franca de Manaus",
+     "def": "Polo com incentivos fiscais especiais na Região Norte.",
+     "itens": "Eletroeletrônicos e duas rodas",
+     "ex": "Fica no NORTE (não no Nordeste); ocupação estratégica da Amazônia."
+    }
+   ]
+  },
+  {
+   "titulo": "Energia",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Fósseis",
+     "def": "Não renováveis.",
+     "itens": "Petróleo, gás natural, carvão mineral",
+     "ex": "Carvão: mais abundante e um dos mais poluentes."
+    },
+    {
+     "nome": "Renováveis",
+     "def": "Renovam-se em escala humana de tempo.",
+     "itens": "Hidráulica, eólica, solar, biomassa, geotérmica",
+     "ex": "Hidrelétrica também tem impacto (alagamento)."
+    },
+    {
+     "nome": "Nuclear",
+     "def": "Fissão do urânio.",
+     "itens": "Não é fóssil nem renovável",
+     "ex": "Não emite gases de efeito estufa, mas gera rejeito radioativo."
+    },
+    {
+     "nome": "Hidrelétrica (Brasil)",
+     "def": "Principal fonte de eletricidade do país.",
+     "itens": "Rios Paraná e São Francisco",
+     "ex": "Participação caindo com a diversificação e as secas."
+    },
+    {
+     "nome": "Petróleo (Brasil)",
+     "def": "Principal fonte para transporte.",
+     "itens": "Pré-sal descoberto em 2006–2007",
+     "ex": "Pré-sal elevou muito a produção."
+    },
+    {
+     "nome": "Biocombustíveis",
+     "def": "Etanol da cana e biodiesel.",
+     "itens": "Biodiesel: soja, sebo bovino, dendê",
+     "ex": "Disputa \"food versus fuel\" (terra para comida x energia)."
+    },
+    {
+     "nome": "Eólica e solar",
+     "def": "Fontes em rápido crescimento.",
+     "itens": "Litoral do Nordeste (ventos constantes)",
+     "ex": "Matriz brasileira é mais renovável que a média mundial."
+    },
+    {
+     "nome": "Transição energética",
+     "def": "Troca gradual de fósseis por renováveis.",
+     "itens": "Clima + queda no custo de painéis e turbinas",
+     "ex": "Explica a perda de espaço do carvão."
+    }
+   ]
+  },
+  {
+   "titulo": "Agricultura",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Intensiva",
+     "def": "Muito capital, tecnologia, insumos e máquinas por área; alta produtividade.",
+     "itens": "Agronegócio exportador",
+     "ex": "Produtividade alta por hectare."
+    },
+    {
+     "nome": "Extensiva",
+     "def": "Pouco capital por área, compensado por grandes extensões de terra.",
+     "itens": "Pecuária extensiva",
+     "ex": "Produtividade baixa por hectare."
+    },
+    {
+     "nome": "Itinerante",
+     "def": "Cultiva poucos anos, abandona para pousio e abre nova área.",
+     "itens": "Comunidades tradicionais em floresta tropical",
+     "ex": "Também chamada de subsistência."
+    },
+    {
+     "nome": "Familiar",
+     "def": "Pequenas propriedades com mão de obra da família.",
+     "itens": "Feijão, mandioca, hortaliças",
+     "ex": "Menos terra, mas grande parte da comida do mercado interno."
+    },
+    {
+     "nome": "Revolução Verde",
+     "def": "Sementes híbridas, fertilizantes, defensivos, máquinas e irrigação.",
+     "itens": "Anos 1960–1970",
+     "ex": "Subiu a produtividade, mas concentrou terra/renda e gerou impactos ambientais."
+    },
+    {
+     "nome": "Agronegócio",
+     "def": "Produção capitalizada e mecanizada de commodities.",
+     "itens": "Soja, milho, açúcar, café, carnes",
+     "ex": "Brasil é um dos maiores exportadores mundiais."
+    }
+   ]
+  },
+  {
+   "titulo": "População",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Natalidade / Mortalidade",
+     "def": "Nascimentos / óbitos por mil habitantes ao ano.",
+     "itens": "Taxas por mil (‰)",
+     "ex": "Base de todo cálculo demográfico."
+    },
+    {
+     "nome": "Crescimento natural",
+     "def": "Natalidade menos mortalidade.",
+     "itens": "Não inclui migração",
+     "ex": "Crescimento real = natural + saldo migratório."
+    },
+    {
+     "nome": "Fecundidade",
+     "def": "Número médio de filhos por mulher.",
+     "itens": "Em queda no Brasil",
+     "ex": "Não confundir com natalidade."
+    },
+    {
+     "nome": "IDH",
+     "def": "Índice da ONU (PNUD) de 0 a 1.",
+     "itens": "Renda + educação + saúde (expectativa de vida)",
+     "ex": "Três dimensões."
+    },
+    {
+     "nome": "Malthusiana",
+     "def": "População cresce em PG, alimentos em PA → fome inevitável.",
+     "itens": "Thomas Malthus, fim do séc. XVIII",
+     "ex": "Defendia controle de natalidade."
+    },
+    {
+     "nome": "Reformista",
+     "def": "Fome vem da má distribuição de renda e recursos, não do excesso de gente.",
+     "itens": "Reformas sociais e econômicas",
+     "ex": "Problema social, não demográfico."
+    },
+    {
+     "nome": "Neomalthusiana",
+     "def": "Retoma Malthus para países em desenvolvimento.",
+     "itens": "Séc. XX · planejamento familiar, contraceptivos",
+     "ex": "Políticas ativas de controle de natalidade."
+    },
+    {
+     "nome": "Transição demográfica",
+     "def": "Alta natalidade e mortalidade → queda da mortalidade (explosão) → ambas baixas.",
+     "itens": "Brasil em fase avançada",
+     "ex": "Na fase do meio a população cresce muito."
+    },
+    {
+     "nome": "Envelhecimento",
+     "def": "Mais idosos com natalidade baixa e vida mais longa.",
+     "itens": "Brasil envelhece mais rápido que os países ricos envelheceram",
+     "ex": "Pressão sobre previdência e saúde."
+    },
+    {
+     "nome": "Povo brasileiro",
+     "def": "Indígenas, europeus, africanos e imigrantes; concentração no litoral, Sudeste e Sul.",
+     "itens": "Redistribuição para Centro-Oeste e Amazônia",
+     "ex": "Causa: expansão da fronteira agrícola."
+    }
+   ]
+  },
+  {
+   "titulo": "Urbanização",
+   "rotulos": {
+    "itens": "Exemplos",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Urbanização",
+     "def": "População urbana cresce mais que a rural.",
+     "itens": "Expansão física das cidades",
+     "ex": "É processo de PROPORÇÃO, não só de tamanho."
+    },
+    {
+     "nome": "Conurbação",
+     "def": "Área urbana contínua que ultrapassa os limites de um município.",
+     "itens": "Cidades vizinhas \"coladas\"",
+     "ex": "Definição de aglomeração da ONU."
+    },
+    {
+     "nome": "Urbanização brasileira",
+     "def": "Acelerada, com \"inchaço urbano\".",
+     "itens": "Anos 1950–1970 · indústria atrai e campo modernizado expulsa",
+     "ex": "Infraestrutura não acompanhou."
+    },
+    {
+     "nome": "Região Metropolitana",
+     "def": "Município-polo + vizinhos integrados, reconhecidos por lei.",
+     "itens": "RMs de São Paulo, Rio, Belo Horizonte",
+     "ex": "Unidade de planejamento."
+    },
+    {
+     "nome": "Macrocefalia urbana",
+     "def": "Uma cidade concentra demais população e funções do país.",
+     "itens": "Comum em países em desenvolvimento",
+     "ex": "É CONCENTRAÇÃO; urbanização acelerada é RITMO."
+    },
+    {
+     "nome": "Hierarquia urbana",
+     "def": "Cidades por alcance das funções.",
+     "itens": "Metrópole → capital regional → centro sub-regional → centro local",
+     "ex": "Metrópole tem alcance nacional/internacional."
+    },
+    {
+     "nome": "Megacidade",
+     "def": "Aglomeração com mais de 10 milhões de habitantes.",
+     "itens": "São Paulo, Rio de Janeiro",
+     "ex": "Mais de 10 mi."
+    },
+    {
+     "nome": "Problemas urbanos",
+     "def": "Efeitos da urbanização rápida e sem planejamento.",
+     "itens": "Favelização, trânsito, poluição, ilhas de calor, enchentes, áreas de risco",
+     "ex": "Enchentes: impermeabilização do solo."
+    }
+   ]
+  },
+  {
+   "titulo": "Linha do Tempo para Decorar",
+   "rotulos": {
+    "itens": "Ano",
+    "ex": "Ligação"
+   },
+   "linhas": [
+    {
+     "nome": "1760",
+     "def": "Início da 1ª Revolução Industrial.",
+     "itens": "Inglaterra",
+     "ex": "Máquina a vapor."
+    },
+    {
+     "nome": "1929",
+     "def": "Crise mundial (Crash).",
+     "itens": "Brasil inicia substituição de importações",
+     "ex": "Café em crise."
+    },
+    {
+     "nome": "1944 · 1947",
+     "def": "Bretton Woods (FMI e BIRD) · GATT.",
+     "itens": "Pós-guerra",
+     "ex": "Ordem econômica mundial."
+    },
+    {
+     "nome": "1953 · 1955",
+     "def": "Petrobras · Conferência de Bandung.",
+     "itens": "Brasil · Indonésia",
+     "ex": "Estado empresário · Não-Alinhados."
+    },
+    {
+     "nome": "1956–1961 · 1960",
+     "def": "Plano de Metas (JK) · AID/IDA.",
+     "itens": "Brasil · Banco Mundial",
+     "ex": "50 anos em 5."
+    },
+    {
+     "nome": "1968–1973 · 1973/1979",
+     "def": "Milagre econômico · Choques do petróleo.",
+     "itens": "Regime militar",
+     "ex": "Leva à década perdida (1980)."
+    },
+    {
+     "nome": "1978",
+     "def": "Reformas de Deng Xiaoping.",
+     "itens": "China",
+     "ex": "\"Fábrica do mundo\"."
+    },
+    {
+     "nome": "1991 · 1994 · 1995",
+     "def": "Fim da URSS · Plano Real e NAFTA · OMC.",
+     "itens": "Pós-Guerra Fria",
+     "ex": "Rodada Uruguai: 1986–1994."
+    },
+    {
+     "nome": "2006–2007 · 2011 · 2020",
+     "def": "Pré-sal · África do Sul no BRICS · Brexit e T-MEC.",
+     "itens": "Brasil · Emergentes · Europa/América do Norte",
+     "ex": "Datas recentes mais cobradas."
+    }
+   ]
+  }
+ ]
+}

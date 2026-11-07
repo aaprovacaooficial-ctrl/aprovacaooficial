@@ -1,0 +1,539 @@
+{
+ "slug": "doc-adm-mb",
+ "quadros": [
+  {
+   "titulo": "Grupos e tipos de documentos",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Documento",
+     "def": "Unidade de registro de informações, em qualquer suporte ou formato.",
+     "itens": "NODAM 1.1",
+     "ex": "—"
+    },
+    {
+     "nome": "Grupos de documentos da MB",
+     "def": "Administrativos, Operativos, Publicações e Especiais.",
+     "itens": "4 grupos",
+     "ex": "DA = Documento Administrativo."
+    },
+    {
+     "nome": "DA Normativos",
+     "def": "IN, INST, NORM, OI e Portaria.",
+     "itens": "5 tipos",
+     "ex": "Estabelecem normas."
+    },
+    {
+     "nome": "DA de Correspondência",
+     "def": "Carta, Circ, CP, CPPJ, Desp, DD, Memo, Of, OfExt e Req.",
+     "itens": "10 tipos",
+     "ex": "Comunicam."
+    },
+    {
+     "nome": "DA Declaratórios",
+     "def": "Atestado, Certidão, OD, OS, Parecer e Termo.",
+     "itens": "6 tipos",
+     "ex": "Declaram fatos/direitos."
+    },
+    {
+     "nome": "Sistema",
+     "def": "Todos os DA tramitam e são registrados no SiGDEM.",
+     "itens": "Decreto 8.539/2015",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Classificação do DA",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Âmbito",
+     "def": "Interno (só entre OM da MB) ou externo (com entidades extra-MB).",
+     "itens": "2.1.1",
+     "ex": "—"
+    },
+    {
+     "nome": "Precedência",
+     "def": "Urgente (ação imediata) · Especial (só âmbito interno) · Rotina (a maioria).",
+     "itens": "2.1.2",
+     "ex": "Especial: só DA interno."
+    },
+    {
+     "nome": "Acesso",
+     "def": "Informação Pessoal, Ostensivo ou Sigiloso.",
+     "itens": "Lei 12.527/2011 (LAI) · Dec. 7.724/2012",
+     "ex": "Sigilosos: U, S e R."
+    },
+    {
+     "nome": "Reprodução de sigiloso",
+     "def": "Mesmo grau do original, com autorização da autoridade expedidora.",
+     "itens": "2.2",
+     "ex": "—"
+    },
+    {
+     "nome": "Extratos",
+     "def": "Grau igual ou inferior ao original.",
+     "itens": "U: autoridade classificadora · S: ela ou superior · R: destinatário",
+     "ex": "—"
+    },
+    {
+     "nome": "Anexo sigiloso",
+     "def": "O DA recebe grau igual ou superior ao maior anexo.",
+     "itens": "2.4",
+     "ex": "Retirado o anexo, o DA é desclassificado."
+    },
+    {
+     "nome": "TCI",
+     "def": "Termo de Classificação de Informação: formaliza classificar, desclassificar, reclassificar ou reduzir prazo.",
+     "itens": "Modelo EMA-414 · criado no SiGDEM",
+     "ex": "—"
+    },
+    {
+     "nome": "Informação Pessoal",
+     "def": "Tratada nos moldes do grau RESERVADO.",
+     "itens": "3.5.1",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Gestão de documentos",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Conceito",
+     "def": "Procedimentos de produção, tramitação, uso, avaliação e arquivamento (fase corrente e intermediária).",
+     "itens": "3.1",
+     "ex": "Fim: eliminação ou guarda permanente."
+    },
+    {
+     "nome": "Fases (CONARQ)",
+     "def": "Produção → Utilização → Destinação.",
+     "itens": "3.2",
+     "ex": "3 fases."
+    },
+    {
+     "nome": "DA físico",
+     "def": "Produzido em no mínimo 2 vias originais.",
+     "itens": "3.2.1",
+     "ex": "1 para o arquivo da OM."
+    },
+    {
+     "nome": "Classificação",
+     "def": "Etapa mais importante da gestão documental.",
+     "itens": "Código: Portaria CONARQ 47/2020 (meio) · 154/2013 (fim, MD)",
+     "ex": "Feita na produção e no recebimento."
+    },
+    {
+     "nome": "TTDD",
+     "def": "Tabela de Temporalidade e Destinação: prazos de guarda e destino final.",
+     "itens": "Campos: código, prazos, destinação, observações",
+     "ex": "Destinação: eliminação ou guarda permanente."
+    },
+    {
+     "nome": "Arquivamento",
+     "def": "No SECOM da OM, pelo código de classificação, por espécie, dentro do ano.",
+     "itens": "3.5",
+     "ex": "—"
+    },
+    {
+     "nome": "LVA",
+     "def": "Lista de Verificação Anual: documentos de um mesmo tipo em vigor.",
+     "itens": "3.6",
+     "ex": "Não cancela documento."
+    }
+   ]
+  },
+  {
+   "titulo": "Documentos digitais e assinatura",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Nato-digital x digitalizado",
+     "def": "Criado em meio eletrônico x convertido de documento físico.",
+     "itens": "4.1",
+     "ex": "—"
+    },
+    {
+     "nome": "Assinatura tipo II (avançada)",
+     "def": "Orion, da DCTIM.",
+     "itens": "Não acessível extra-MB",
+     "ex": "Exige via impressa e assinada no arquivo."
+    },
+    {
+     "nome": "Assinatura tipo III (qualificada)",
+     "def": "Certificado digital ICP-Brasil (AC Defesa, SERPRO…).",
+     "itens": "MP 2.200-2/2001",
+     "ex": "Validade jurídica; arquiva só digital."
+    },
+    {
+     "nome": "Formato",
+     "def": "Nato-digital assinado em PDF/A.",
+     "itens": "CONARQ/CTDE",
+     "ex": "Assinado, não pode ser alterado."
+    },
+    {
+     "nome": "Autenticação digital",
+     "def": "Cópia de documento físico digitalizado com ICP-Brasil.",
+     "itens": "Decreto 10.278/2020",
+     "ex": "Original físico fica na OM."
+    },
+    {
+     "nome": "Criptografia",
+     "def": "RESERVADO: uma cifra · SECRETO e ULTRASSECRETO: dupla cifra, após compactar.",
+     "itens": "4.8",
+     "ex": "Ultrassecreto por meio eletrônico só em casos extremos."
+    }
+   ]
+  },
+  {
+   "titulo": "DA normativos",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Instrução Normativa (IN)",
+     "def": "Exclusiva do CM; instruções de caráter geral para executar leis e decretos.",
+     "itens": "5.1",
+     "ex": "INC: Comandantes das 3 Forças."
+    },
+    {
+     "nome": "Instrução Permanente (INST)",
+     "def": "EMA, ODS, GCM, OMOT e DE: normas para toda a MB.",
+     "itens": "5.2",
+     "ex": "Uso restrito ao mínimo."
+    },
+    {
+     "nome": "Norma Permanente (NORM)",
+     "def": "Almirantes em Comando/Direção/Chefia e Of. Sup. Cmt de Força: para OM subordinadas.",
+     "itens": "5.3",
+     "ex": "Titular mais antigo de Complexo Naval também."
+    },
+    {
+     "nome": "Ordem Interna (OI)",
+     "def": "Titular de OM: normas internas da sua OM.",
+     "itens": "5.4",
+     "ex": "Cancelamento em Plano do Dia."
+    },
+    {
+     "nome": "Portaria (Port)",
+     "def": "Políticas, criação de OM, regulamentos, incorporação de navios, delegação de competência, nomeações.",
+     "itens": "5.5",
+     "ex": "Punição de militar não vai por Portaria."
+    },
+    {
+     "nome": "Portaria Normativa (PN)",
+     "def": "Do Ministro da Defesa; não regida pela NODAM.",
+     "itens": "5.5.1",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "DA de correspondência",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Ofício (Of)",
+     "def": "CM e Titulares de OM entre si.",
+     "itens": "5.13",
+     "ex": "Pode ser assinado por delegação."
+    },
+    {
+     "nome": "Ofício Externo (OfExt)",
+     "def": "CM/Titulares com autoridades e entidades extra-MB.",
+     "itens": "5.14",
+     "ex": "Exclusivamente oficial."
+    },
+    {
+     "nome": "Despacho (Desp)",
+     "def": "Continuação de um Of, só no âmbito interno.",
+     "itens": "Expediente = Of inicial + Despachos",
+     "ex": "Organizado em ordem inversa."
+    },
+    {
+     "nome": "Despacho Decisório (DD)",
+     "def": "Do CM, decide requerimento ou ordena serviços.",
+     "itens": "5.11",
+     "ex": "—"
+    },
+    {
+     "nome": "Memorando (Memo)",
+     "def": "CM/Titulares a subordinados: ordens sucintas de cumprimento imediato.",
+     "itens": "5.12",
+     "ex": "—"
+    },
+    {
+     "nome": "Circular (Circ)",
+     "def": "Altera DA normativos (exceto Portarias) ou divulga assunto temporário.",
+     "itens": "Não passa para o ano seguinte · renumerar até 15 de janeiro",
+     "ex": "Titular mudou: reeditar."
+    },
+    {
+     "nome": "Comunicação Padronizada (CP)",
+     "def": "Entre Elementos Organizacionais, assuntos de rotina.",
+     "itens": "5.8",
+     "ex": "Envolveu o Titular → Ofício."
+    },
+    {
+     "nome": "CPPJ",
+     "def": "Das Centrais de Processos Judiciários; sempre URGENTE.",
+     "itens": "3 vias",
+     "ex": "Texto previamente aprovado."
+    },
+    {
+     "nome": "Carta",
+     "def": "Comunicações sociais, convites.",
+     "itens": "Só extra-MB",
+     "ex": "—"
+    },
+    {
+     "nome": "Requerimento (Req)",
+     "def": "Pessoa pleiteia direito à autoridade.",
+     "itens": "Rotina: sem Of · extra-MB: OfExt · recurso: Of via autoridade recorrida",
+     "ex": "Sempre restituído ao interessado."
+    }
+   ]
+  },
+  {
+   "titulo": "DA declaratórios",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Atestado",
+     "def": "Comprova, a pedido, fato de que a autoridade tem conhecimento.",
+     "itens": "5.16",
+     "ex": "Conhecimento x documento."
+    },
+    {
+     "nome": "Certidão",
+     "def": "Declara fatos com base em documentos existentes na OM.",
+     "itens": "5.17",
+     "ex": "Baseada em documentos."
+    },
+    {
+     "nome": "Ordem do Dia (OD)",
+     "def": "Exalta datas históricas ou fatos significativos.",
+     "itens": "5.19",
+     "ex": "Extra-MB: ouvido o GCM."
+    },
+    {
+     "nome": "Ordem de Serviço (OS)",
+     "def": "Direitos do pessoal, ratificação de atos, punição de Oficiais e Suboficiais, designações internas.",
+     "itens": "5.20",
+     "ex": "Punição de Of e SO: OS."
+    },
+    {
+     "nome": "Parecer",
+     "def": "Opinião fundamentada de especialista: histórico, análise e conclusão.",
+     "itens": "Termo de Aprovação pelo Titular superior",
+     "ex": "Não usa \"Referência:\"."
+    },
+    {
+     "nome": "Prazos do Parecer legislativo",
+     "def": "Tramitação ordinária: 40 dias · preferência/urgência: 20 dias · Requerimento de Informação: 20 dias.",
+     "itens": "5.21.10",
+     "ex": "Enviado ao GCM."
+    },
+    {
+     "nome": "Termo",
+     "def": "Relata fatos, inventaria bens, registra inspeções.",
+     "itens": "5.22",
+     "ex": "Lavrado por pessoa autorizada."
+    },
+    {
+     "nome": "Curriculum vitae",
+     "def": "Dados pessoais, carreira, comissões, cursos, condecorações, trabalhos.",
+     "itens": "Sem cursos < 3 meses",
+     "ex": "Sem área de inteligência."
+    }
+   ]
+  },
+  {
+   "titulo": "Formatação (Manual Técnico)",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Arquivo",
+     "def": "ODF (.odt, .ods, .odp) ou PDF.",
+     "itens": "e-PING",
+     "ex": "Entre OM: preferir PDF."
+    },
+    {
+     "nome": "Fonte",
+     "def": "Carlito ou Calibri, preta: 12 texto · 11 citações · 10 rodapé.",
+     "itens": "Sigilo/precedência: 14 negrito",
+     "ex": "Descrição da Lei: 8 itálico."
+    },
+    {
+     "nome": "Papel",
+     "def": "A4 (29,7 x 21 cm), branco.",
+     "itens": "—",
+     "ex": "—"
+    },
+    {
+     "nome": "Margens",
+     "def": "Esquerda 3,0 cm · direita 1,5 cm · superior e inferior 2,0 cm.",
+     "itens": "Frente e verso: margem espelho",
+     "ex": "—"
+    },
+    {
+     "nome": "Partes básicas",
+     "def": "Cabeçalho, texto, assinatura e cópias/distribuição.",
+     "itens": "1.3",
+     "ex": "—"
+    },
+    {
+     "nome": "NUP",
+     "def": "Número Único de Protocolo, no rodapé de todas as páginas, à direita, acima da numeração.",
+     "itens": "Pedido à DAdM",
+     "ex": "Anexos não levam NUP."
+    },
+    {
+     "nome": "Fecho de cortesia",
+     "def": "\"Respeitosamente\": superiores (inclusive o PR) · \"Atenciosamente\": mesma hierarquia ou inferior.",
+     "itens": "1.10",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Datas, números e menções",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Datas",
+     "def": "Sem zero à esquerda; primeiro dia = \"1º\".",
+     "itens": "Interno: DDMMMAAAA (02JAN2022)",
+     "ex": "DD/MM/AAAA só externo."
+    },
+    {
+     "nome": "Data-hora",
+     "def": "16 caracteres: DDHHHHF/MMM/AAAA.",
+     "itens": "Ex.: 131212Z/MAI/2021",
+     "ex": "F = fuso."
+    },
+    {
+     "nome": "Horas",
+     "def": "12h · 7h15 · 11h30min.",
+     "itens": "1.9 b",
+     "ex": "—"
+    },
+    {
+     "nome": "Números",
+     "def": "Uma palavra: por extenso (quinze) · mais de uma: algarismos (25).",
+     "itens": "Não escrever 25% (vinte e cinco por cento)",
+     "ex": "Dinheiro: R$ 100,00 (cem reais)."
+    },
+    {
+     "nome": "Artigos e parágrafos",
+     "def": "Ordinal até o 9º, cardinal a partir do 10.",
+     "itens": "art. 9º, art. 10 · § 3º, § 10",
+     "ex": "Um só: \"parágrafo único\"."
+    },
+    {
+     "nome": "Menção a militar",
+     "def": "Posto/graduação, corpo ou especialidade, NIP e NOME em maiúsculas.",
+     "itens": "Ex.: CC (EN) (NIP) (NOME)",
+     "ex": "Corpo da Armada (CA) não se escreve."
+    },
+    {
+     "nome": "Reserva e reforma",
+     "def": "RM1: reserva remunerada · Refº: reformado · RM2/RM3/RM4: não remunerada.",
+     "itens": "1.8",
+     "ex": "—"
+    },
+    {
+     "nome": "Siglas",
+     "def": "Não flexionam; na 1ª vez, por extenso.",
+     "itens": "MD33-M-02",
+     "ex": "Interno: dispensa para siglas comuns."
+    }
+   ]
+  },
+  {
+   "titulo": "Assinaturas e processos",
+   "rotulos": {
+    "itens": "Regra · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Modalidades",
+     "def": "Interinamente · Por delegação (\"Por ordem:\") · No impedimento.",
+     "itens": "1.11",
+     "ex": "Documento só existe após assinado."
+    },
+    {
+     "nome": "Por ordem (interno)",
+     "def": "Mesmo efeito da autoridade delegante.",
+     "itens": "Externo: \"Incumbiu-me\" no texto",
+     "ex": "Para superior: \"Na ausência\"."
+    },
+    {
+     "nome": "Não cabe \"Por ordem\"",
+     "def": "Pena disciplinar, apreciação de atos de escalão superior, firmar doutrina, ordem a superior, DA ao CM/CEMA/AE.",
+     "itens": "1.11.2 f",
+     "ex": "Salvo assuntos de rotina."
+    },
+    {
+     "nome": "No impedimento",
+     "def": "Assina o substituto legal quando o DA não pode esperar.",
+     "itens": "\"No impedimento de:\" (interno)",
+     "ex": "Externo: \"Incumbiu-me\"."
+    },
+    {
+     "nome": "Várias assinaturas",
+     "def": "Do mais antigo ao mais moderno, esquerda→direita, cima→baixo.",
+     "itens": "1.11.4",
+     "ex": "—"
+    },
+    {
+     "nome": "Volume de processo",
+     "def": "Até 200 folhas por volume.",
+     "itens": "Exceção: documento de conclusão com até 20 folhas",
+     "ex": "Não se desmembra documento."
+    },
+    {
+     "nome": "Anexação x apensação",
+     "def": "Anexação: união definitiva · apensação: união provisória (cadarço ≥ 30 mm).",
+     "itens": "3.4 e 3.5",
+     "ex": "Anexação renumera; apensação mantém numeração."
+    },
+    {
+     "nome": "Desentranhamento x desmembramento",
+     "def": "Retirar folhas · retirar folhas para formar outro processo.",
+     "itens": "Não renumera",
+     "ex": "Processo eletrônico: sem numeração de folhas."
+    }
+   ]
+  }
+ ]
+}

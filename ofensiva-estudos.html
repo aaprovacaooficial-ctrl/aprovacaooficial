@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('site_theme');
+        var theme = saved === 'light' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b1b30">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aprovação Oficial">
+  <title>Ofensiva de Estudos · Plataforma de Estudos CA-AA/AFN</title>
+  <meta name="description" content="Sua sequência de dias estudados, meta diária e o calendário de atividade — construa o hábito de estudar todo dia.">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0"></script>
+  <script src="sync-offline.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            serif: ['Fraunces', 'ui-serif', 'Georgia']
+          },
+          colors: {
+            navy: {
+              100: 'rgb(var(--tw-navy-100) / <alpha-value>)', 200: 'rgb(var(--tw-navy-200) / <alpha-value>)',
+              300: 'rgb(var(--tw-navy-300) / <alpha-value>)', 400: 'rgb(var(--tw-navy-400) / <alpha-value>)',
+              500: 'rgb(var(--tw-navy-500) / <alpha-value>)', 600: 'rgb(var(--tw-navy-600) / <alpha-value>)',
+              700: 'rgb(var(--tw-navy-700) / <alpha-value>)', 800: 'rgb(var(--tw-navy-800) / <alpha-value>)',
+              900: 'rgb(var(--tw-navy-900) / <alpha-value>)'
+            },
+            ink: 'rgb(var(--tw-ink) / <alpha-value>)',
+            slate: {
+              50: 'rgb(var(--tw-slate-50) / <alpha-value>)', 100: 'rgb(var(--tw-slate-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-slate-200) / <alpha-value>)', 300: 'rgb(var(--tw-slate-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-slate-400) / <alpha-value>)', 500: 'rgb(var(--tw-slate-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-slate-600) / <alpha-value>)', 700: 'rgb(var(--tw-slate-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-slate-800) / <alpha-value>)', 900: 'rgb(var(--tw-slate-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-slate-950) / <alpha-value>)'
+            },
+            emerald: {
+              50: 'rgb(var(--tw-emerald-50) / <alpha-value>)', 100: 'rgb(var(--tw-emerald-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-emerald-200) / <alpha-value>)', 300: 'rgb(var(--tw-emerald-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-emerald-400) / <alpha-value>)', 500: 'rgb(var(--tw-emerald-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-emerald-600) / <alpha-value>)', 700: 'rgb(var(--tw-emerald-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-emerald-800) / <alpha-value>)', 900: 'rgb(var(--tw-emerald-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-emerald-950) / <alpha-value>)'
+            },
+            rose: {
+              50: 'rgb(var(--tw-rose-50) / <alpha-value>)', 100: 'rgb(var(--tw-rose-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-rose-200) / <alpha-value>)', 300: 'rgb(var(--tw-rose-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-rose-400) / <alpha-value>)', 500: 'rgb(var(--tw-rose-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-rose-600) / <alpha-value>)', 700: 'rgb(var(--tw-rose-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-rose-800) / <alpha-value>)', 900: 'rgb(var(--tw-rose-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-rose-950) / <alpha-value>)'
+            },
+            amber: {
+              50: 'rgb(var(--tw-amber-50) / <alpha-value>)', 100: 'rgb(var(--tw-amber-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-amber-200) / <alpha-value>)', 300: 'rgb(var(--tw-amber-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-amber-400) / <alpha-value>)', 500: 'rgb(var(--tw-amber-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-amber-600) / <alpha-value>)', 700: 'rgb(var(--tw-amber-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-amber-800) / <alpha-value>)', 900: 'rgb(var(--tw-amber-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-amber-950) / <alpha-value>)'
+            },
+            cyan: {
+              50: 'rgb(var(--tw-cyan-50) / <alpha-value>)', 100: 'rgb(var(--tw-cyan-100) / <alpha-value>)',
+              200: 'rgb(var(--tw-cyan-200) / <alpha-value>)', 300: 'rgb(var(--tw-cyan-300) / <alpha-value>)',
+              400: 'rgb(var(--tw-cyan-400) / <alpha-value>)', 500: 'rgb(var(--tw-cyan-500) / <alpha-value>)',
+              600: 'rgb(var(--tw-cyan-600) / <alpha-value>)', 700: 'rgb(var(--tw-cyan-700) / <alpha-value>)',
+              800: 'rgb(var(--tw-cyan-800) / <alpha-value>)', 900: 'rgb(var(--tw-cyan-900) / <alpha-value>)',
+              950: 'rgb(var(--tw-cyan-950) / <alpha-value>)'
+            },
+            sky: { 400: 'rgb(var(--tw-sky-400) / <alpha-value>)' },
+            lime: { 400: 'rgb(var(--tw-lime-400) / <alpha-value>)' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+:root {
+  --tw-slate-50: 248 250 252; --tw-slate-100: 241 245 249; --tw-slate-200: 226 232 240;
+  --tw-slate-300: 203 213 225; --tw-slate-400: 148 163 184; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 71 85 105; --tw-slate-700: 51 65 85; --tw-slate-800: 30 41 59;
+  --tw-slate-900: 15 23 42; --tw-slate-950: 2 6 23;
+  --tw-emerald-50: 236 253 245; --tw-emerald-100: 209 250 229; --tw-emerald-200: 167 243 208;
+  --tw-emerald-300: 110 231 183; --tw-emerald-400: 52 211 153; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 5 150 105; --tw-emerald-700: 4 120 87; --tw-emerald-800: 6 95 70;
+  --tw-emerald-900: 6 78 59; --tw-emerald-950: 2 44 34;
+  --tw-rose-50: 255 241 242; --tw-rose-100: 255 228 230; --tw-rose-200: 254 205 211;
+  --tw-rose-300: 253 164 175; --tw-rose-400: 251 113 133; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 225 29 72; --tw-rose-700: 190 18 60; --tw-rose-800: 159 18 57;
+  --tw-rose-900: 136 19 55; --tw-rose-950: 76 5 25;
+  --tw-amber-50: 255 251 235; --tw-amber-100: 254 243 199; --tw-amber-200: 253 230 138;
+  --tw-amber-300: 252 211 77; --tw-amber-400: 251 191 36; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 217 119 6; --tw-amber-700: 180 83 9; --tw-amber-800: 146 64 14;
+  --tw-amber-900: 120 53 15; --tw-amber-950: 69 26 3;
+  --tw-cyan-50: 236 254 255; --tw-cyan-100: 207 250 254; --tw-cyan-200: 165 243 252;
+  --tw-cyan-300: 103 232 249; --tw-cyan-400: 34 211 238; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 8 145 178; --tw-cyan-700: 14 116 144; --tw-cyan-800: 21 94 117;
+  --tw-cyan-900: 22 78 99; --tw-cyan-950: 8 51 68;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 230 240 250; --tw-navy-200: 192 219 245; --tw-navy-300: 143 193 238;
+  --tw-navy-400: 77 158 224; --tw-navy-500: 0 102 204; --tw-navy-600: 30 86 160;
+  --tw-navy-700: 30 62 98; --tw-navy-800: 11 25 44; --tw-navy-900: 0 15 38;
+  --tw-ink: 255 255 255;
+}
+[data-theme="light"] {
+  --tw-slate-50: 2 6 23; --tw-slate-100: 15 23 42; --tw-slate-200: 30 41 59;
+  --tw-slate-300: 51 65 85; --tw-slate-400: 71 85 105; --tw-slate-500: 100 116 139;
+  --tw-slate-600: 148 163 184; --tw-slate-700: 203 213 225; --tw-slate-800: 226 232 240;
+  --tw-slate-900: 241 245 249; --tw-slate-950: 248 250 252;
+  --tw-emerald-50: 2 44 34; --tw-emerald-100: 6 78 59; --tw-emerald-200: 6 95 70;
+  --tw-emerald-300: 4 120 87; --tw-emerald-400: 5 150 105; --tw-emerald-500: 16 185 129;
+  --tw-emerald-600: 52 211 153; --tw-emerald-700: 110 231 183; --tw-emerald-800: 167 243 208;
+  --tw-emerald-900: 209 250 229; --tw-emerald-950: 236 253 245;
+  --tw-rose-50: 76 5 25; --tw-rose-100: 136 19 55; --tw-rose-200: 159 18 57;
+  --tw-rose-300: 190 18 60; --tw-rose-400: 225 29 72; --tw-rose-500: 244 63 94;
+  --tw-rose-600: 251 113 133; --tw-rose-700: 253 164 175; --tw-rose-800: 254 205 211;
+  --tw-rose-900: 255 228 230; --tw-rose-950: 255 241 242;
+  --tw-amber-50: 69 26 3; --tw-amber-100: 120 53 15; --tw-amber-200: 146 64 14;
+  --tw-amber-300: 180 83 9; --tw-amber-400: 217 119 6; --tw-amber-500: 245 158 11;
+  --tw-amber-600: 251 191 36; --tw-amber-700: 252 211 77; --tw-amber-800: 253 230 138;
+  --tw-amber-900: 254 243 199; --tw-amber-950: 255 251 235;
+  --tw-cyan-50: 8 51 68; --tw-cyan-100: 22 78 99; --tw-cyan-200: 21 94 117;
+  --tw-cyan-300: 14 116 144; --tw-cyan-400: 8 145 178; --tw-cyan-500: 6 182 212;
+  --tw-cyan-600: 34 211 238; --tw-cyan-700: 103 232 249; --tw-cyan-800: 165 243 252;
+  --tw-cyan-900: 207 250 254; --tw-cyan-950: 236 254 255;
+  --tw-sky-400: 56 189 248; --tw-lime-400: 163 230 53;
+  --tw-navy-100: 0 15 38; --tw-navy-200: 11 25 44; --tw-navy-300: 30 62 98;
+  --tw-navy-400: 30 86 160; --tw-navy-500: 0 102 204; --tw-navy-600: 77 158 224;
+  --tw-navy-700: 143 193 238; --tw-navy-800: 192 219 245; --tw-navy-900: 230 240 250;
+  --tw-ink: 11 25 44;
+}
+    @keyframes access-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    #access-card { animation: access-in .5s ease-out .1s forwards; }
+    .chrome-bg-900 { background-color: #000F26 !important; }
+    .chrome-bg-800 { background-color: #0B192C !important; }
+    .chrome-bg-600 { background-color: #1E56A0 !important; }
+    .chrome-border-700 { border-color: #1E3E62 !important; }
+    .chrome-border-600 { border-color: #1E56A0 !important; }
+    .chrome-text-white { color: #FFFFFF !important; }
+    .chrome-text-slate-400 { color: #94A3B8 !important; }
+    .chrome-text-slate-200 { color: #E2E8F0 !important; }
+    .chrome-hover-border-500:hover { border-color: #0066CC !important; }
+    button:focus-visible, select:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #2384d6; outline-offset: 2px; }
+
+    /* ===== Ofensiva ===== */
+    .card { background: rgb(var(--tw-navy-800) / .6); border: 1px solid rgb(var(--tw-navy-700)); border-radius: 16px; }
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgb(var(--tw-slate-400)); }
+    .hero-card { position: relative; overflow: hidden; }
+    .hero-card::before { content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(120% 90% at 0% 0%, rgba(245,158,11,.14), transparent 55%); }
+    .hero-card.apagada::before { background: radial-gradient(120% 90% at 0% 0%, rgba(56,189,248,.14), transparent 55%); }
+    .flame-badge { width: 76px; height: 76px; border-radius: 22px; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(160deg, #f59e0b, #ea580c); color: #fff; font-size: 34px;
+      box-shadow: 0 10px 28px rgba(234,88,12,.35); flex-shrink: 0; }
+    .apagada .flame-badge { background: linear-gradient(160deg, #7dd3fc, #0284c7); box-shadow: 0 10px 28px rgba(2,132,199,.3); }
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600;
+      padding: 4px 10px; border-radius: 999px; border: 1px solid transparent; }
+    .status-ok { background: rgba(16,185,129,.14); color: rgb(var(--tw-emerald-400)); border-color: rgba(16,185,129,.3); }
+    .status-risco { background: rgba(245,158,11,.14); color: rgb(var(--tw-amber-400)); border-color: rgba(245,158,11,.3); }
+    .status-zero { background: rgb(var(--tw-navy-900) / .6); color: rgb(var(--tw-slate-300)); border-color: rgb(var(--tw-navy-700)); }
+
+    .week-day { display: flex; flex-direction: column; align-items: center; gap: 6px; flex: 1; min-width: 0; }
+    .week-dot { width: 34px; height: 34px; border-radius: 999px; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; border: 2px solid rgb(var(--tw-navy-700)); color: rgb(var(--tw-slate-500)); background: rgb(var(--tw-navy-900) / .5); }
+    .week-dot.feito { background: linear-gradient(160deg, #f59e0b, #ea580c); border-color: transparent; color: #fff; }
+    .week-dot.gelo { background: rgba(56,189,248,.14); border-color: rgba(56,189,248,.45); color: #38bdf8; }
+    .week-dot.hoje { border-color: #f59e0b; border-style: dashed; }
+    .week-dot.feito.hoje { border-style: solid; border-color: transparent; }
+
+    .kpi-icon { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+
+    .goal-ring { transform: rotate(-90deg); }
+    .goal-ring circle { transition: stroke-dashoffset .6s ease-out; }
+    .preset { font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid rgb(var(--tw-navy-700));
+      color: rgb(var(--tw-slate-300)); background: rgb(var(--tw-navy-900) / .5); transition: all .15s; }
+    .preset:hover { border-color: rgb(var(--tw-navy-500)); }
+    .preset.ativo { background: #2869b7; border-color: #2869b7; color: #fff; }
+
+    .bar { height: 8px; border-radius: 999px; background: rgb(var(--tw-navy-900) / .7); overflow: hidden; }
+    .bar > span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #f59e0b, #ea580c); transition: width .6s ease-out; }
+    .marco { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; padding: 10px 4px; border-radius: 12px;
+      border: 1px solid rgb(var(--tw-navy-700)); background: rgb(var(--tw-navy-900) / .4); }
+    .marco i { font-size: 16px; color: rgb(var(--tw-slate-500)); }
+    .marco.ok { border-color: rgba(245,158,11,.45); background: rgba(245,158,11,.1); }
+    .marco.ok i { color: #f59e0b; }
+
+    /* Calendário de atividade */
+    .heat-wrap { display: flex; gap: 6px; }
+    .heat-weekdays { display: grid; grid-template-rows: repeat(7, var(--cell)); gap: var(--gap); font-size: 9px;
+      color: rgb(var(--tw-slate-500)); padding-top: 16px; }
+    .heat-weekdays span { line-height: var(--cell); }
+    .heat-body { flex: 1; min-width: 0; }
+    .heat-months { display: grid; grid-auto-flow: column; grid-auto-columns: var(--cell); gap: var(--gap);
+      font-size: 10px; color: rgb(var(--tw-slate-400)); height: 16px; white-space: nowrap; }
+    .heat-grid { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, var(--cell)); grid-auto-columns: var(--cell); gap: var(--gap); }
+    .heat-cell { width: var(--cell); height: var(--cell); border-radius: 3px; background: rgb(var(--tw-navy-900) / .8);
+      border: 1px solid rgb(var(--tw-navy-700) / .7); padding: 0; cursor: pointer; }
+    .heat-cell.lvl-1 { background: #0e4b3a; border-color: #0e4b3a; }
+    .heat-cell.lvl-2 { background: #0f7a57; border-color: #0f7a57; }
+    .heat-cell.lvl-3 { background: #16a06e; border-color: #16a06e; }
+    .heat-cell.lvl-4 { background: #34d399; border-color: #34d399; }
+    [data-theme="light"] .heat-cell.lvl-1 { background: #bbf7d0; border-color: #bbf7d0; }
+    [data-theme="light"] .heat-cell.lvl-2 { background: #6ee7b7; border-color: #6ee7b7; }
+    [data-theme="light"] .heat-cell.lvl-3 { background: #10b981; border-color: #10b981; }
+    [data-theme="light"] .heat-cell.lvl-4 { background: #047857; border-color: #047857; }
+    .reg-row { display: grid; grid-template-columns: 26px 92px 1fr auto; align-items: center; gap: 10px; padding: 7px 0; }
+    .reg-row + .reg-row { border-top: 1px solid rgb(var(--tw-navy-700) / .5); }
+    .reg-icon { width: 26px; height: 26px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    .reg-icon.fogo { background: linear-gradient(160deg, #f59e0b, #ea580c); color: #fff; }
+    .reg-icon.gelo { background: rgba(56,189,248,.14); color: #38bdf8; }
+    .reg-bar { height: 6px; border-radius: 999px; background: rgb(var(--tw-navy-900) / .7); overflow: hidden; }
+    .reg-bar > span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #f59e0b, #ea580c); }
+    .reg-mes { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-top: 14px; padding-bottom: 6px;
+      border-bottom: 1px solid rgb(var(--tw-navy-700)); }
+    .heat-cell.hoje { outline: 2px solid #f59e0b; outline-offset: 1px; }
+    .heat-cell.sel { outline: 2px solid rgb(var(--tw-ink)); outline-offset: 1px; }
+    .heat-cell.future { visibility: hidden; }
+    .legend-cell { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+    @media (prefers-reduced-motion: reduce) { .goal-ring circle, .bar > span { transition: none; } }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+  <!-- Tela de acesso -->
+  <div id="access-screen" class="fixed inset-0 z-[100] flex items-center justify-center px-5 py-8 overflow-y-auto" style="background:linear-gradient(135deg,#061326,#08182b 55%,#0b1b30);">
+    <div id="access-card" class="w-full max-w-[440px] rounded-[22px] border border-[#284b6d] bg-[#071a2d] shadow-[0_24px_70px_rgba(0,0,0,.35)] px-8 py-10 flex flex-col items-center text-center opacity-0 translate-y-2">
+      <div class="text-[46px] leading-none mb-2" aria-hidden="true">🔥</div>
+      <div class="font-serif font-semibold text-[26px] text-ink tracking-tight">Ofensiva de Estudos</div>
+      <div class="text-[13px] text-[#9bb5d2] mt-1 mb-6">Plataforma de Estudos · CA-AA/AFN</div>
+
+      <div id="gate-checking" class="flex flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-circle-notch fa-spin text-2xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Verificando seu acesso...</p>
+      </div>
+
+      <div id="gate-logged-out" class="hidden flex-col items-center gap-4 py-2">
+        <i class="fa-solid fa-lock text-3xl text-[#8fb3dd]"></i>
+        <p class="text-sm text-slate-300">Você precisa entrar pela página inicial pra ver sua ofensiva.</p>
+        <a href="index.html" class="w-full h-12 rounded-xl bg-[#2869b7] hover:bg-[#3479ca] active:scale-[.99] text-ink text-sm font-bold transition-all shadow-lg flex items-center justify-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> Ir para o login
+        </a>
+      </div>
+
+      <div id="gate-pending" class="hidden flex-col items-center gap-3 py-2">
+        <i class="fa-solid fa-hourglass-half text-3xl text-amber-300"></i>
+        <p class="text-sm text-amber-200">Seu acesso ainda está aguardando liberação do administrador.</p>
+        <a href="index.html" class="text-xs text-[#8fb3dd] hover:text-ink underline underline-offset-2">Voltar para a página inicial</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="chrome-bg-900 border-b chrome-border-700 sticky top-0 z-30 shadow-lg">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="chrome-bg-600 chrome-text-white p-2.5 rounded-lg shadow">
+          <i class="fa-solid fa-fire text-2xl"></i>
+        </div>
+        <div>
+          <h1 class="font-serif text-xl font-semibold chrome-text-white tracking-wide">Ofensiva de Estudos</h1>
+          <p class="text-xs chrome-text-slate-400">Sua sequência de dias, sua meta e seu calendário</p>
+        </div>
+      </div>
+      <button id="theme-toggle-btn" onclick="toggleTheme()" class="chrome-bg-800 border chrome-border-700 chrome-hover-border-500 chrome-text-slate-200 w-9 h-9 rounded-lg flex items-center justify-center transition-colors flex-shrink-0" title="Alternar entre modo claro e escuro" aria-label="Alternar tema claro/escuro"><i class="fa-solid fa-moon text-sm" id="theme-toggle-icon-moon"></i><i class="fa-solid fa-sun text-sm hidden" id="theme-toggle-icon-sun"></i></button>
+      <a href="index.html" class="chrome-bg-800 border chrome-border-700 chrome-text-slate-200 text-xs px-3 py-2 rounded-lg flex items-center gap-1.5 chrome-hover-border-500 transition-colors">
+        <i class="fa-solid fa-house"></i> Painel geral
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-5xl w-full mx-auto px-4 md:px-6 py-6 space-y-4">
+
+    <div id="loading-panel" class="text-center py-16 text-slate-400">
+      <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+      <p class="text-sm mt-3">Carregando sua ofensiva...</p>
+    </div>
+
+    <div id="content-panel" class="hidden space-y-4">
+
+      <p id="offline-aviso" class="hidden text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 rounded-lg px-3 py-2">
+        <i class="fa-solid fa-wifi mr-1"></i> Sem conexão: mostrando os dados salvos neste aparelho.
+      </p>
+
+      <!-- Sequência atual -->
+      <section id="hero" class="card hero-card p-5 md:p-6">
+        <div class="relative flex flex-wrap items-center gap-5">
+          <div class="flame-badge" aria-hidden="true"><i class="fa-solid fa-fire" id="hero-icon"></i></div>
+          <div class="flex-1 min-w-[200px]">
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl font-serif font-bold text-ink leading-none" id="streak-atual">0</span>
+              <span class="text-base text-slate-300 font-medium" id="streak-atual-label">dias seguidos</span>
+            </div>
+            <div class="mt-2"><span id="status-pill" class="status-pill status-zero"></span></div>
+          </div>
+          <a href="index.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#2869b7] hover:bg-[#3479ca] text-white text-sm font-semibold px-5 py-3 rounded-xl transition-colors shadow-lg">
+            <i class="fa-solid fa-play"></i> Estudar agora
+          </a>
+        </div>
+        <p class="relative text-sm text-slate-200 mt-4" id="streak-mensagem"></p>
+
+        <div class="relative mt-5 pt-4 border-t border-navy-700">
+          <p class="eyebrow mb-3">Últimos 7 dias</p>
+          <div class="flex justify-between gap-1" id="week-strip"></div>
+        </div>
+      </section>
+
+      <!-- Números -->
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div class="card p-4 flex items-center gap-3">
+          <div class="kpi-icon bg-amber-500/15 text-amber-400"><i class="fa-solid fa-trophy"></i></div>
+          <div class="min-w-0"><div class="text-xl font-bold text-ink font-serif leading-tight" id="kpi-recorde">0</div><div class="text-[11px] text-slate-400">Recorde de dias</div></div>
+        </div>
+        <div class="card p-4 flex items-center gap-3">
+          <div class="kpi-icon bg-emerald-500/15 text-emerald-400"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="min-w-0"><div class="text-xl font-bold text-ink font-serif leading-tight" id="kpi-dias">0</div><div class="text-[11px] text-slate-400">Dias estudados</div></div>
+        </div>
+        <div class="card p-4 flex items-center gap-3">
+          <div class="kpi-icon bg-navy-500/15 text-navy-400"><i class="fa-solid fa-list-check"></i></div>
+          <div class="min-w-0"><div class="text-xl font-bold text-ink font-serif leading-tight" id="kpi-total">0</div><div class="text-[11px] text-slate-400">Questões no total</div></div>
+        </div>
+        <div class="card p-4 flex items-center gap-3">
+          <div class="kpi-icon bg-cyan-500/15 text-cyan-400"><i class="fa-solid fa-chart-simple"></i></div>
+          <div class="min-w-0"><div class="text-xl font-bold text-ink font-serif leading-tight" id="kpi-media">0</div><div class="text-[11px] text-slate-400">Questões por dia estudado</div></div>
+        </div>
+      </section>
+
+      <section class="grid md:grid-cols-2 gap-4">
+        <!-- Meta diária -->
+        <div class="card p-5">
+          <div class="flex items-center justify-between mb-4">
+            <p class="eyebrow">Meta de hoje</p>
+            <span class="text-[11px] text-slate-400" id="goal-sync"></span>
+          </div>
+          <div class="flex items-center gap-5">
+            <div class="relative flex-shrink-0" style="width:96px;height:96px">
+              <svg class="goal-ring" width="96" height="96" viewBox="0 0 96 96">
+                <circle cx="48" cy="48" r="40" fill="none" stroke="rgb(var(--tw-navy-700))" stroke-width="9" />
+                <circle id="goal-ring-fg" cx="48" cy="48" r="40" fill="none" stroke="#34d399" stroke-width="9"
+                  stroke-dasharray="251.33" stroke-dashoffset="251.33" stroke-linecap="round" />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-xl font-bold text-ink font-serif leading-none" id="goal-pct">0%</span>
+              </div>
+            </div>
+            <div class="min-w-0">
+              <p class="text-lg font-semibold text-ink"><span id="goal-respondidas">0</span> <span class="text-slate-400 font-normal">de</span> <span id="goal-alvo">20</span> questões</p>
+              <p class="text-xs mt-1 text-slate-400" id="goal-status"></p>
+            </div>
+          </div>
+          <div class="mt-5">
+            <p class="text-[11px] text-slate-400 mb-2">Escolha sua meta diária</p>
+            <div class="flex flex-wrap gap-2" id="goal-presets">
+              <button type="button" class="preset" data-meta="10">10</button>
+              <button type="button" class="preset" data-meta="20">20</button>
+              <button type="button" class="preset" data-meta="30">30</button>
+              <button type="button" class="preset" data-meta="50">50</button>
+              <button type="button" class="preset" data-meta="100">100</button>
+              <label class="inline-flex items-center gap-1.5 text-[11px] text-slate-400">
+                <span class="sr-only">Outra meta</span>
+                <input id="goal-input" type="number" min="1" max="500" inputmode="numeric" placeholder="outra"
+                  class="w-[70px] bg-navy-900 border border-navy-700 text-slate-200 text-xs rounded-full px-3 py-1.5 outline-none focus:ring-2 focus:ring-navy-500 text-center">
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Próximo marco -->
+        <div class="card p-5">
+          <p class="eyebrow mb-4">Próximo marco</p>
+          <div class="flex items-center gap-3 mb-3">
+            <div class="kpi-icon bg-amber-500/15 text-amber-400" id="marco-icon"><i class="fa-solid fa-medal"></i></div>
+            <div class="min-w-0">
+              <p class="text-sm font-semibold text-ink" id="marco-nome"></p>
+              <p class="text-xs text-slate-400" id="marco-falta"></p>
+            </div>
+          </div>
+          <div class="bar"><span id="marco-bar" style="width:0%"></span></div>
+          <div class="grid grid-cols-6 gap-1.5 mt-5" id="marcos"></div>
+        </div>
+      </section>
+
+      <!-- Calendário -->
+      <section class="card p-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+          <p class="eyebrow">Calendário de estudo</p>
+          <div class="flex items-center gap-1 text-[10px] text-slate-400">
+            <span class="mr-1">menos</span>
+            <span class="legend-cell heat-cell"></span><span class="legend-cell heat-cell lvl-1"></span><span class="legend-cell heat-cell lvl-2"></span><span class="legend-cell heat-cell lvl-3"></span><span class="legend-cell heat-cell lvl-4"></span>
+            <span class="ml-1">mais</span>
+          </div>
+        </div>
+        <div class="heat-wrap" id="heat-wrap">
+          <div class="heat-weekdays" aria-hidden="true"><span>D</span><span></span><span>T</span><span></span><span>Q</span><span></span><span>S</span></div>
+          <div class="heat-body" id="heat-body">
+            <div class="heat-months" id="heat-months"></div>
+            <div class="heat-grid" id="heat-grid" role="grid" aria-label="Dias estudados"></div>
+          </div>
+        </div>
+        <p class="text-xs text-slate-300 mt-4 min-h-[18px]" id="heat-detalhe">Toque em um dia para ver quantas questões você respondeu.</p>
+      </section>
+
+      <!-- Registro diário -->
+      <section class="card p-5">
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p class="eyebrow">Registro diário</p>
+            <p class="text-xs text-slate-400 mt-1">Quantas questões você respondeu em cada dia.</p>
+          </div>
+          <div class="text-right">
+            <div class="text-2xl font-bold text-ink font-serif leading-none" id="reg-total">0</div>
+            <div class="text-[11px] text-slate-400 mt-1" id="reg-total-label">questões somando tudo</div>
+          </div>
+        </div>
+        <div id="registro" class="mt-1"></div>
+        <button type="button" id="reg-mais" class="hidden mt-4 w-full text-xs font-semibold text-slate-300 border border-navy-700 hover:border-navy-500 rounded-lg py-2.5 transition-colors">
+          Mostrar dias anteriores
+        </button>
+      </section>
+
+      <details class="card px-5 py-4 text-sm text-slate-300">
+        <summary class="cursor-pointer font-semibold text-ink text-sm"><i class="fa-regular fa-circle-question mr-1.5 text-slate-400"></i> Como a ofensiva funciona</summary>
+        <ul class="mt-3 space-y-1.5 text-xs text-slate-400 list-disc pl-5">
+          <li>Cada dia em que você responde pelo menos uma questão (em qualquer matéria, simulado ou refação de erros) conta para a sua ofensiva.</li>
+          <li>Se você ainda não estudou hoje, a sequência continua de pé até a meia-noite.</li>
+          <li>Dia estudado ganha o foguinho 🔥; dia sem nenhuma questão fica com o gelinho 🧊.</li>
+          <li>Pular um dia inteiro zera a sequência atual, mas o seu recorde fica guardado.</li>
+          <li>Funciona em todos os seus aparelhos e também sem internet (sincroniza quando a conexão voltar).</li>
+        </ul>
+      </details>
+
+    </div>
+  </main>
+
+  <footer class="max-w-5xl w-full mx-auto px-4 md:px-6 pb-6 pt-2 text-center text-[11px] text-slate-500">
+    Plataforma de Estudos · CA-AA/AFN
+  </footer>
+
+  <script src="gamification.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://ghlaukrbwwecpeanlmlp.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_jKB_xy4LMBIBcLV_i0wa3A_TgBJAihh';
+    const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    applyThemeIcon();
+
+    let currentUser = null;
+    let dias = {};
+    let metaAtual = 20;
+    let carregando = false;
+
+    function applyThemeIcon() {
+      const theme = document.documentElement.getAttribute('data-theme') || 'dark';
+      document.getElementById('theme-toggle-icon-moon').classList.toggle('hidden', theme === 'light');
+      document.getElementById('theme-toggle-icon-sun').classList.toggle('hidden', theme !== 'light');
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('site_theme', next); } catch (e) { /* ignora */ }
+      applyThemeIcon();
+    }
+    function showGate(panel) {
+      ['gate-checking', 'gate-logged-out', 'gate-pending'].forEach(id => {
+        const el = document.getElementById(id);
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(panel);
+      target.classList.remove('hidden');
+      target.classList.add('flex');
+      document.getElementById('access-screen').classList.remove('hidden');
+    }
+
+    const diaISO = (d) => AlfaGamification.diaISO(d);
+    const plural = (n, um, varios) => n + ' ' + (n === 1 ? um : varios);
+    const MESES_ABREV = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+    const DIAS_LETRA = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+
+    const MARCOS = [
+      { dias: 3, nome: 'Sequência de Ferro', icon: 'fa-fire' },
+      { dias: 7, nome: 'Disciplina Naval', icon: 'fa-fire-flame-curved' },
+      { dias: 15, nome: 'Quinzena de Aço', icon: 'fa-shield-halved' },
+      { dias: 30, nome: 'Inabalável', icon: 'fa-anchor' },
+      { dias: 60, nome: 'Veterano de Convés', icon: 'fa-ship' },
+      { dias: 100, nome: 'Almirante da Constância', icon: 'fa-crown' }
+    ];
+
+    // ---- Meta diária: salva no aparelho e na nuvem (dados_usuario). ----
+    const goalKey = (uid) => 'alfa_meta_diaria_' + uid;
+    function metaLocal(uid) {
+      try { const n = parseInt(localStorage.getItem(goalKey(uid)), 10); if (n > 0) return n; } catch (e) {}
+      return 20;
+    }
+    async function carregarMeta() {
+      metaAtual = metaLocal(currentUser.id);
+      try {
+        const remoto = await AlfaSync.getValue(sb, currentUser.id, 'meta_diaria');
+        if (remoto && remoto.meta > 0) {
+          metaAtual = remoto.meta;
+          try { localStorage.setItem(goalKey(currentUser.id), String(metaAtual)); } catch (e) {}
+        }
+      } catch (e) { /* sem tabela ou sem internet: fica a do aparelho */ }
+    }
+    async function salvarMeta(valor) {
+      valor = Math.max(1, Math.min(500, parseInt(valor, 10) || 20));
+      metaAtual = valor;
+      try { localStorage.setItem(goalKey(currentUser.id), String(valor)); } catch (e) {}
+      confettiDisparado = false;
+      renderMeta();
+      const syncEl = document.getElementById('goal-sync');
+      syncEl.textContent = 'Salvando...';
+      try {
+        await AlfaSync.setValue(sb, currentUser.id, 'meta_diaria', { meta: valor });
+        syncEl.innerHTML = '<i class="fa-solid fa-check text-emerald-400"></i> Salva';
+      } catch (e) {
+        syncEl.textContent = 'Salva neste aparelho';
+      }
+      setTimeout(() => { syncEl.textContent = ''; }, 2500);
+    }
+
+    // ---- Sequência + últimos 7 dias ----
+    function renderHero(streak) {
+      const hoje = dias[diaISO()] || 0;
+      const hero = document.getElementById('hero');
+      const pill = document.getElementById('status-pill');
+      const msg = document.getElementById('streak-mensagem');
+      document.getElementById('streak-atual').textContent = streak.atual;
+      document.getElementById('streak-atual-label').textContent = streak.atual === 1 ? 'dia seguido' : 'dias seguidos';
+      hero.classList.toggle('apagada', streak.atual === 0);
+      document.getElementById('hero-icon').className = 'fa-solid ' + (streak.atual === 0 ? 'fa-snowflake' : 'fa-fire');
+
+      if (streak.atual === 0) {
+        pill.className = 'status-pill status-zero';
+        pill.innerHTML = '<i class="fa-solid fa-snowflake"></i> Ofensiva congelada';
+        msg.textContent = streak.recorde > 0
+          ? `Seu recorde é de ${plural(streak.recorde, 'dia', 'dias')}. Responda uma questão hoje para recomeçar.`
+          : 'Responda uma questão hoje para acender o primeiro dia da sua ofensiva.';
+      } else if (hoje > 0) {
+        pill.className = 'status-pill status-ok';
+        pill.innerHTML = '<i class="fa-solid fa-circle-check"></i> Hoje garantido';
+        msg.textContent = streak.atual >= streak.recorde && streak.atual > 1
+          ? `Você está no seu melhor momento: ${plural(streak.atual, 'dia', 'dias')} é o seu recorde. Volte amanhã para aumentar.`
+          : `Você já estudou hoje (${plural(hoje, 'questão', 'questões')}). Volte amanhã para chegar a ${plural(streak.atual + 1, 'dia', 'dias')}.`;
+      } else {
+        pill.className = 'status-pill status-risco';
+        pill.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Estude hoje para não perder';
+        msg.textContent = `Sua sequência de ${plural(streak.atual, 'dia', 'dias')} termina à meia-noite se você não responder nenhuma questão hoje.`;
+      }
+
+      const strip = document.getElementById('week-strip');
+      strip.innerHTML = '';
+      for (let i = 6; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        const n = dias[diaISO(d)] || 0;
+        const el = document.createElement('div');
+        el.className = 'week-day';
+        el.title = d.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'short' }) + ': ' + plural(n, 'questão', 'questões');
+        // Hoje sem questão ainda não é gelo: o dia não acabou.
+        const estado = n > 0 ? 'feito' : (i === 0 ? '' : 'gelo');
+        const icone = n > 0 ? '<i class="fa-solid fa-fire"></i>' : (i === 0 ? d.getDate() : '<i class="fa-solid fa-snowflake"></i>');
+        el.innerHTML = `<span class="text-[10px] font-semibold ${i === 0 ? 'text-amber-400' : 'text-slate-400'}">${i === 0 ? 'Hoje' : DIAS_LETRA[d.getDay()]}</span>
+          <span class="week-dot ${estado} ${i === 0 ? 'hoje' : ''}">${icone}</span>
+          <span class="text-[10px] ${n > 0 ? 'text-slate-200 font-semibold' : 'text-slate-500'}">${n > 0 ? n : '0'}</span>`;
+        strip.appendChild(el);
+      }
+    }
+
+    function renderKpis(streak) {
+      const valores = Object.values(dias).filter(n => n > 0);
+      const total = valores.reduce((a, b) => a + b, 0);
+      document.getElementById('kpi-recorde').textContent = streak.recorde;
+      document.getElementById('kpi-dias').textContent = streak.diasEstudados;
+      document.getElementById('kpi-total').textContent = total.toLocaleString('pt-BR');
+      document.getElementById('kpi-media').textContent = valores.length ? Math.round(total / valores.length) : 0;
+    }
+
+    let confettiDisparado = false;
+    function renderMeta() {
+      const hoje = dias[diaISO()] || 0;
+      const meta = metaAtual;
+      const pct = Math.max(0, Math.min(1, hoje / meta));
+      document.getElementById('goal-respondidas').textContent = hoje;
+      document.getElementById('goal-alvo').textContent = meta;
+      document.getElementById('goal-pct').textContent = Math.round(pct * 100) + '%';
+      document.getElementById('goal-ring-fg').setAttribute('stroke-dashoffset', String(251.33 * (1 - pct)));
+      document.querySelectorAll('#goal-presets .preset').forEach(b => b.classList.toggle('ativo', Number(b.dataset.meta) === meta));
+      const input = document.getElementById('goal-input');
+      if (document.activeElement !== input) input.value = [10, 20, 30, 50, 100].includes(meta) ? '' : meta;
+
+      const statusEl = document.getElementById('goal-status');
+      if (hoje === 0) {
+        statusEl.textContent = 'Responda questões em qualquer matéria para avançar.';
+        statusEl.className = 'text-xs mt-1 text-slate-400';
+      } else if (hoje < meta) {
+        statusEl.textContent = `Faltam ${plural(meta - hoje, 'questão', 'questões')} para bater a meta.`;
+        statusEl.className = 'text-xs mt-1 text-amber-300';
+      } else {
+        statusEl.textContent = 'Meta de hoje batida! 🎉';
+        statusEl.className = 'text-xs mt-1 text-emerald-400 font-medium';
+        if (!confettiDisparado) {
+          confettiDisparado = true;
+          if (AlfaGamification.celebrar) AlfaGamification.celebrar();
+        }
+      }
+    }
+
+    function renderMarcos(streak) {
+      const proximo = MARCOS.find(m => streak.recorde < m.dias);
+      if (proximo) {
+        document.getElementById('marco-nome').textContent = `${proximo.nome} · ${proximo.dias} dias seguidos`;
+        document.getElementById('marco-falta').textContent = `Faltam ${plural(proximo.dias - streak.atual, 'dia', 'dias')} seguidos de estudo`;
+        document.getElementById('marco-icon').innerHTML = `<i class="fa-solid ${proximo.icon}"></i>`;
+        document.getElementById('marco-bar').style.width = Math.min(100, (streak.atual / proximo.dias) * 100) + '%';
+      } else {
+        document.getElementById('marco-nome').textContent = 'Todos os marcos conquistados';
+        document.getElementById('marco-falta').textContent = `Recorde de ${streak.recorde} dias. Impressionante!`;
+        document.getElementById('marco-bar').style.width = '100%';
+      }
+      document.getElementById('marcos').innerHTML = MARCOS.map(m => `
+        <div class="marco ${streak.recorde >= m.dias ? 'ok' : ''}" title="${m.nome}: ${m.dias} dias seguidos${streak.recorde >= m.dias ? ' (conquistado)' : ''}">
+          <i class="fa-solid ${m.icon}"></i>
+          <span class="text-[11px] font-semibold ${streak.recorde >= m.dias ? 'text-ink' : 'text-slate-400'}">${m.dias}d</span>
+        </div>`).join('');
+    }
+
+    // ---- Calendário: quantas semanas couberem na largura da tela (até 1 ano). ----
+    function renderHeatmap() {
+      const body = document.getElementById('heat-body');
+      const wrap = document.getElementById('heat-wrap');
+      const largura = body.clientWidth;
+      const cell = largura < 380 ? 13 : 14;
+      const gap = 3;
+      wrap.style.setProperty('--cell', cell + 'px');
+      wrap.style.setProperty('--gap', gap + 'px');
+      const semanas = Math.max(8, Math.min(53, Math.floor((largura + gap) / (cell + gap))));
+
+      const grid = document.getElementById('heat-grid');
+      const meses = document.getElementById('heat-months');
+      grid.innerHTML = '';
+      meses.innerHTML = '';
+      const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+      const inicio = new Date(hoje);
+      inicio.setDate(inicio.getDate() - inicio.getDay() - (semanas - 1) * 7);
+
+      const cursor = new Date(inicio);
+      let ultimoMes = -1;
+      for (let w = 0; w < semanas; w++) {
+        const rotulo = document.createElement('span');
+        if (cursor.getMonth() !== ultimoMes && (w > 0 || cursor.getDate() <= 7)) {
+          rotulo.textContent = MESES_ABREV[cursor.getMonth()];
+        }
+        ultimoMes = cursor.getMonth();
+        meses.appendChild(rotulo);
+        for (let d = 0; d < 7; d++) {
+          const cellEl = document.createElement('button');
+          cellEl.type = 'button';
+          if (cursor > hoje) {
+            cellEl.className = 'heat-cell future';
+            cellEl.tabIndex = -1;
+          } else {
+            const key = diaISO(cursor);
+            const n = dias[key] || 0;
+            const lvl = n >= 40 ? 4 : n >= 20 ? 3 : n >= 8 ? 2 : n >= 1 ? 1 : 0;
+            cellEl.className = 'heat-cell' + (lvl ? ' lvl-' + lvl : '') + (cursor.getTime() === hoje.getTime() ? ' hoje' : '');
+            const dataStr = cursor.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' });
+            const texto = (n > 0 ? plural(n, 'questão respondida', 'questões respondidas') : 'Nenhuma questão') + ' em ' + dataStr;
+            cellEl.title = texto;
+            cellEl.setAttribute('aria-label', texto);
+            cellEl.addEventListener('click', () => {
+              grid.querySelectorAll('.sel').forEach(el => el.classList.remove('sel'));
+              cellEl.classList.add('sel');
+              document.getElementById('heat-detalhe').textContent = texto.charAt(0).toUpperCase() + texto.slice(1) + '.';
+            });
+          }
+          grid.appendChild(cellEl);
+          cursor.setDate(cursor.getDate() + 1);
+        }
+      }
+    }
+
+    // ---- Registro diário: um dia por linha, do mais recente ao primeiro dia
+    // estudado, agrupado por mês (com o total de cada mês). ----
+    let regLimite = 14;
+    function renderRegistro() {
+      const chaves = Object.keys(dias).filter(k => dias[k] > 0).sort();
+      const total = chaves.reduce((a, k) => a + dias[k], 0);
+      document.getElementById('reg-total').textContent = total.toLocaleString('pt-BR');
+      document.getElementById('reg-total-label').textContent =
+        `questões somando tudo · ${plural(chaves.length, 'dia estudado', 'dias estudados')}`;
+      const lista = document.getElementById('registro');
+      const btnMais = document.getElementById('reg-mais');
+      if (!chaves.length) {
+        lista.innerHTML = '<p class="text-xs text-slate-400 mt-4">Assim que você responder a primeira questão, os dias aparecem aqui.</p>';
+        btnMais.classList.add('hidden');
+        return;
+      }
+      const p = chaves[0].split('-').map(Number);
+      const primeiro = new Date(p[0], p[1] - 1, p[2]);
+      const hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+      const linhasDias = [];
+      for (const d = new Date(hoje); d >= primeiro; d.setDate(d.getDate() - 1)) linhasDias.push(new Date(d));
+      const max = Math.max(...chaves.map(k => dias[k]));
+
+      const totaisMes = {};
+      chaves.forEach(k => {
+        const m = k.slice(0, 7);
+        totaisMes[m] = totaisMes[m] || { q: 0, d: 0 };
+        totaisMes[m].q += dias[k];
+        totaisMes[m].d += 1;
+      });
+
+      let html = '';
+      let mesAtual = '';
+      linhasDias.slice(0, regLimite).forEach((d, idx) => {
+        const key = diaISO(d);
+        const mes = key.slice(0, 7);
+        if (mes !== mesAtual) {
+          mesAtual = mes;
+          const t = totaisMes[mes] || { q: 0, d: 0 };
+          const nomeMes = d.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+          html += `<div class="reg-mes"><span class="text-xs font-semibold text-ink">${nomeMes.charAt(0).toUpperCase() + nomeMes.slice(1)}</span>
+            <span class="text-[11px] text-slate-400">${plural(t.d, 'dia', 'dias')} · <b class="text-slate-200">${t.q.toLocaleString('pt-BR')}</b> questões</span></div>`;
+        }
+        const n = dias[key] || 0;
+        const ehHoje = idx === 0;
+        const icone = n > 0 ? '<span class="reg-icon fogo"><i class="fa-solid fa-fire"></i></span>'
+          : ehHoje ? '<span class="reg-icon gelo" style="background:transparent;border:1px dashed #f59e0b;color:#f59e0b"><i class="fa-regular fa-clock"></i></span>'
+          : '<span class="reg-icon gelo"><i class="fa-solid fa-snowflake"></i></span>';
+        const dataTxt = ehHoje ? 'Hoje' : d.toLocaleDateString('pt-BR', { weekday: 'short', day: '2-digit', month: '2-digit' }).replace('.', '');
+        html += `<div class="reg-row">${icone}
+          <span class="text-xs ${ehHoje ? 'text-amber-400 font-semibold' : 'text-slate-300'} capitalize">${dataTxt}</span>
+          <div class="reg-bar"><span style="width:${n ? Math.max(4, (n / max) * 100) : 0}%"></span></div>
+          <span class="text-xs text-right ${n ? 'text-ink font-semibold' : 'text-slate-500'}" style="min-width:74px">${n ? plural(n, 'questão', 'questões') : (ehHoje ? 'ainda nada' : 'sem estudo')}</span>
+        </div>`;
+      });
+      lista.innerHTML = html;
+      btnMais.classList.toggle('hidden', linhasDias.length <= regLimite);
+    }
+    document.getElementById('reg-mais').addEventListener('click', () => { regLimite += 30; renderRegistro(); });
+
+    function renderTudo() {
+      const streak = AlfaGamification.streakDeDias(dias);
+      renderHero(streak);
+      renderKpis(streak);
+      renderMeta();
+      renderMarcos(streak);
+      renderHeatmap();
+      renderRegistro();
+    }
+
+    async function carregarOfensiva() {
+      if (carregando) return;
+      carregando = true;
+      try {
+        const [atividade] = await Promise.all([
+          AlfaGamification.carregarAtividade(sb, currentUser.id),
+          carregarMeta()
+        ]);
+        dias = atividade.dias;
+        document.getElementById('offline-aviso').classList.toggle('hidden', !atividade.offline);
+        document.getElementById('loading-panel').classList.add('hidden');
+        document.getElementById('content-panel').classList.remove('hidden');
+        renderTudo();
+      } finally {
+        carregando = false;
+      }
+    }
+
+    document.getElementById('goal-presets').addEventListener('click', (e) => {
+      const btn = e.target.closest('.preset');
+      if (btn) salvarMeta(btn.dataset.meta);
+    });
+    const goalInput = document.getElementById('goal-input');
+    goalInput.addEventListener('change', () => { if (goalInput.value) salvarMeta(goalInput.value); });
+    goalInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') goalInput.blur(); });
+
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { if (currentUser) renderHeatmap(); }, 150);
+    });
+    // Voltou para a aba (ex.: depois de responder questões em outra página):
+    // atualiza os números sem precisar recarregar.
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && currentUser) carregarOfensiva();
+    });
+
+    sb.auth.onAuthStateChange((event, session) => {
+      if (session && session.user) {
+        if (currentUser && currentUser.id === session.user.id) return;
+        currentUser = session.user;
+        onUserAuthenticated();
+      } else {
+        currentUser = null;
+        showGate('gate-logged-out');
+      }
+    });
+
+    async function onUserAuthenticated() {
+      const aprovado = await AlfaGamification.fetchAprovado(sb, currentUser.id);
+      if (!aprovado) {
+        showGate('gate-pending');
+        return;
+      }
+      document.getElementById('access-screen').classList.add('hidden');
+      carregarOfensiva();
+    }
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch((err) => {
+          console.warn('Falha ao registrar o Service Worker:', err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

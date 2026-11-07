@@ -1,0 +1,770 @@
+{
+ "slug": "ogsa",
+ "quadros": [
+  {
+   "titulo": "Organização das OM",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Organização de Combate",
+     "def": "Rege o preparo para o combate e a conduta durante ele.",
+     "itens": "Art. 2-1-1",
+     "ex": "Base para a Organização Administrativa."
+    },
+    {
+     "nome": "Organização Administrativa",
+     "def": "Rege as atividades administrativas; feita com base na de Combate.",
+     "itens": "Art. 2-1-2 · quem trabalha junto em combate trabalha junto nas fainas",
+     "ex": "Aborda tarefas, pessoal, material, Tabelas Mestras, fainas e rotinas (2-1-3)."
+    },
+    {
+     "nome": "Normas e aprovação",
+     "def": "Normas: Estado-Maior da Armada · Aprovação: Ministro (Comandante) da Marinha ou autoridade delegada.",
+     "itens": "Arts. 2-1-4, 2-1-5, 2-1-7, 2-1-8",
+     "ex": "EMA faz a norma; Comandante da Marinha aprova."
+    },
+    {
+     "nome": "Documentos da OM de terra",
+     "def": "Ato de Criação → Regulamento → Regimento Interno.",
+     "itens": "Art. 2-1-6",
+     "ex": "Três documentos fundamentais."
+    },
+    {
+     "nome": "Ato de Criação",
+     "def": "Propósito, subordinação, sede, posto do Comandante e núcleo de implantação.",
+     "itens": "§ 1º",
+     "ex": "\"Nasce\" a OM."
+    },
+    {
+     "nome": "Regulamento",
+     "def": "Complementa o Ato de Criação: missão, organização, estrutura (âmbito geral).",
+     "itens": "§ 2º",
+     "ex": "Visão geral."
+    },
+    {
+     "nome": "Regimento Interno",
+     "def": "Complementa o Regulamento: disciplina as atividades rotineiras (âmbito interno).",
+     "itens": "§ 3º",
+     "ex": "Detalhe interno."
+    },
+    {
+     "nome": "Tabela de Lotação",
+     "def": "Fixa número e qualificação do pessoal dos cargos.",
+     "itens": "Art. 2-1-9 · alteração proposta pelo Comandante",
+     "ex": "Aprovada pelo Comandante da Marinha."
+    },
+    {
+     "nome": "Oficialidade",
+     "def": "Oficiais da OM, EXCETO o Comandante (inclui Guardas-Marinha, com restrições).",
+     "itens": "Art. 2-1-11",
+     "ex": "Comandante fica fora."
+    },
+    {
+     "nome": "Guarnição",
+     "def": "As Praças que servem na OM.",
+     "itens": "Art. 2-1-12",
+     "ex": "Só Praças."
+    },
+    {
+     "nome": "Tripulação",
+     "def": "Oficialidade + Guarnição.",
+     "itens": "Art. 2-1-13",
+     "ex": "Soma das duas."
+    }
+   ]
+  },
+  {
+   "titulo": "Estado-Maior de Força",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Propósito",
+     "def": "Assessorar o Comandante da Força.",
+     "itens": "Art. 2-2-1",
+     "ex": "Assessoria."
+    },
+    {
+     "nome": "Composição",
+     "def": "Chefe + Oficiais de Organização, Informações, Operações e Logística (podem ter Comunicações, Saúde, Aviação…).",
+     "itens": "Art. 2-2-2",
+     "ex": "Quatro áreas básicas."
+    },
+    {
+     "nome": "Título",
+     "def": "\"Oficial\" + função + nome do Comando.",
+     "itens": "Art. 2-2-3 · ex.: Oficial de Operações do Comando da Força de Fragatas",
+     "ex": "Exceto o Chefe."
+    },
+    {
+     "nome": "Subordinação",
+     "def": "Diretamente ao Comandante da Força; não intervêm no navio (nem no Cerimonial) sem ordem dele.",
+     "itens": "Art. 2-2-7 · alojados no Capitânia",
+     "ex": "Comandante do navio deve ter conhecimento."
+    },
+    {
+     "nome": "Exoneração ou morte do Comandante",
+     "def": "O EM continua até a assunção do novo Comandante.",
+     "itens": "Art. 2-2-8",
+     "ex": "Não se dissolve."
+    },
+    {
+     "nome": "Praças do EM",
+     "def": "Subordinadas ao Comandante do navio, salvo nas tarefas específicas.",
+     "itens": "Arts. 2-2-10 e 2-2-11",
+     "ex": "Quantidade na Tabela de Lotação."
+    }
+   ]
+  },
+  {
+   "titulo": "Deveres Gerais do Pessoal",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Deveres de todos",
+     "def": "Boa educação, respeitar a lei, obedecer, zelo, esforço pela glória das armas e honra nacional.",
+     "itens": "Art. 4-1-1 · a bordo ou em terra, em serviço ou não",
+     "ex": "Vale sempre."
+    },
+    {
+     "nome": "Autoridade",
+     "def": "Vem do ato de designação ou da ordem; começa com a posse; gera responsabilidade inteira.",
+     "itens": "Art. 4-1-2",
+     "ex": "Autoridade = responsabilidade."
+    },
+    {
+     "nome": "Responsabilidade individual",
+     "def": "Negligência, imperícia, infração, abuso de autoridade, prejuízo à Fazenda.",
+     "itens": "Art. 4-1-3",
+     "ex": "Ninguém pode recusar substituição; responde até sua habilitação."
+    },
+    {
+     "nome": "Faina conjunta",
+     "def": "O mais antigo assume a direção.",
+     "itens": "Art. 4-1-4",
+     "ex": "Antiguidade decide."
+    },
+    {
+     "nome": "Superior responde",
+     "def": "Pelo acerto, oportunidade e consequências das ordens e pela omissão.",
+     "itens": "Art. 4-1-6 · ordens claras, concisas e precisas",
+     "ex": "Evita palavra que desconceitue o subordinado."
+    },
+    {
+     "nome": "Subordinado responde",
+     "def": "Pela execução e pela omissão em participar ocorrências.",
+     "itens": "Art. 4-1-8",
+     "ex": "Isento se outro superior insistir em ordem contrária (avisa o 1º depois)."
+    },
+    {
+     "nome": "Ordem verbal",
+     "def": "Obriga como a escrita; se grave, pode pedir por escrito (não pode ser negado).",
+     "itens": "Art. 4-1-7, parágrafo único",
+     "ex": "Pedido por escrito não pode ser recusado."
+    },
+    {
+     "nome": "Pronto e impedimento",
+     "def": "Dá o pronto; se não puder cumprir, avisa; sem tempo, decide sob sua responsabilidade.",
+     "itens": "Art. 4-1-10",
+     "ex": "Iniciativa responsável."
+    },
+    {
+     "nome": "Ponderar",
+     "def": "Se a ordem prejudicar o serviço, pondera; se o superior insistir, cumpre e depois representa.",
+     "itens": "Art. 4-1-11",
+     "ex": "Primeiro cumpre, depois representa."
+    },
+    {
+     "nome": "Intimidade",
+     "def": "Vedada no exercício das atribuições.",
+     "itens": "Art. 4-1-13",
+     "ex": "Respeito e polidez sempre."
+    }
+   ]
+  },
+  {
+   "titulo": "Prisão, Continência e Apresentação",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Prender mais moderno",
+     "def": "Qualquer Oficial ou Praça pode prender quem tem antiguidade inferior.",
+     "itens": "Art. 4-1-17",
+     "ex": "Pela ordem, disciplina ou serviço."
+    },
+    {
+     "nome": "Prender mais antigo",
+     "def": "Só em flagrante de crime inafiançável, à ordem de autoridade superior.",
+     "itens": "§ 1º",
+     "ex": "Exceção cobrada."
+    },
+    {
+     "nome": "Parte da prisão",
+     "def": "Parte circunstanciada por escrito, via Comandante.",
+     "itens": "§ 2º · soltura só pela autoridade da prisão ou superior (4-1-18)",
+     "ex": "Sempre por escrito."
+    },
+    {
+     "nome": "Civil comete crime a bordo",
+     "def": "Preso, autuado em flagrante e apresentado à autoridade.",
+     "itens": "Art. 4-1-19",
+     "ex": "Também vale para estranhos."
+    },
+    {
+     "nome": "Continência individual",
+     "def": "Do mais moderno uniformizado aos mais antigos (MB, EB, FAB e estrangeiros), mesmo em traje civil se os conhecer.",
+     "itens": "Art. 4-1-20",
+     "ex": "Mais antigo deve responder."
+    },
+    {
+     "nome": "À paisana",
+     "def": "Oficiais, Suboficiais e Primeiros-Sargentos podem entrar e sair à paisana.",
+     "itens": "Art. 4-1-24",
+     "ex": "Comandantes podem ampliar ou restringir."
+    },
+    {
+     "nome": "Sentido à passagem de Oficial",
+     "def": "Todos os subordinados tomam posição de sentido.",
+     "itens": "Art. 4-1-26",
+     "ex": "Exceto se prejudicar faina ou rancho."
+    },
+    {
+     "nome": "Barba e bigode",
+     "def": "Barba, cavanhaque e costeletas vedados; bigode permitido a Oficiais, SO e Sargentos.",
+     "itens": "Art. 4-1-39",
+     "ex": "Lesão fisionômica: autorização do Comandante."
+    }
+   ]
+  },
+  {
+   "titulo": "Representação e Comunicação",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Representação",
+     "def": "Contra ato ilegal ou ofensivo: ao superior; depois ao Comandante (permissão não pode ser negada).",
+     "itens": "Art. 4-1-27",
+     "ex": "Contra o Comandante: à autoridade imediatamente superior."
+    },
+    {
+     "nome": "Coletivas",
+     "def": "Ponderações e representações coletivas são PROIBIDAS.",
+     "itens": "Art. 4-1-28",
+     "ex": "Sempre individual."
+    },
+    {
+     "nome": "Linguagem",
+     "def": "Subordinado: expressões respeitosas · Superior: cortês, mas tom imperativo.",
+     "itens": "Arts. 4-1-29 e 4-1-30",
+     "ex": "Proibido ofender na correspondência."
+    },
+    {
+     "nome": "Encaminhamento",
+     "def": "Via Comandante, que informa em até 8 dias.",
+     "itens": "Art. 4-1-32",
+     "ex": "Prazo: 8 dias."
+    },
+    {
+     "nome": "Linguagem imprópria",
+     "def": "Comandante retém e pede para refazer em até 8 dias; se houver insulto, não encaminha e pune.",
+     "itens": "Arts. 4-1-33 e 4-1-34",
+     "ex": "Insulto = punição."
+    },
+    {
+     "nome": "Comunicação externa",
+     "def": "Só o Comandante (ou autorizado) fala para fora sobre a OM.",
+     "itens": "Art. 4-1-35 · no porto: COMAPEM (4-1-36)",
+     "ex": "Vedado se manifestar sobre política ou ir fardado a ato político."
+    },
+    {
+     "nome": "Estranhos a bordo",
+     "def": "Sujeitos às normas; em combate ocupam o posto designado.",
+     "itens": "Arts. 4-1-37 e 4-1-38",
+     "ex": "Salvo se mais antigos que o Comandante (voluntário)."
+    }
+   ]
+  },
+  {
+   "titulo": "Deveres por Categoria",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Oficiais",
+     "def": "Conhecer e fazer cumprir a OGSA, cumprir ordens com lealdade, atualizar-se, exigir dos subordinados.",
+     "itens": "Art. 4-2-1",
+     "ex": "Interesses da Marinha acima dos pessoais."
+    },
+    {
+     "nome": "Apresentação do Oficial",
+     "def": "Ao Oficial de Serviço e ao Imediato ao entrar e sair; ao Comandante na 1ª entrada e última saída do dia.",
+     "itens": "Art. 4-2-1, g",
+     "ex": "Cobrado em prova."
+    },
+    {
+     "nome": "Faina com pessoal",
+     "def": "Autorização do Imediato e ciência ao Oficial de Serviço.",
+     "itens": "Art. 4-2-1, i",
+     "ex": "Imediato autoriza."
+    },
+    {
+     "nome": "Penas disciplinares",
+     "def": "Impostas pelo Oficial no exercício de Comando.",
+     "itens": "Art. 4-2-3",
+     "ex": "Delegação em OM de Almirante: no Regimento Interno."
+    },
+    {
+     "nome": "Praças Especiais",
+     "def": "Alojamento e rancho à parte; distribuídas pelas Divisões; dirigem fainas sob supervisão.",
+     "itens": "Arts. 4-3-1 a 4-3-6",
+     "ex": "Devem se impor às Praças mais modernas."
+    },
+    {
+     "nome": "Praças",
+     "def": "Manutenção e operação dos equipamentos e conservação dos compartimentos.",
+     "itens": "Art. 4-4-1",
+     "ex": "Atribuição principal."
+    },
+    {
+     "nome": "Suboficiais",
+     "def": "Auxiliares diretos dos Oficiais.",
+     "itens": "Art. 4-4-3, a",
+     "ex": "SO → Oficial."
+    },
+    {
+     "nome": "Sargentos",
+     "def": "Auxiliares diretos dos Suboficiais ou Oficiais.",
+     "itens": "Art. 4-4-3, b",
+     "ex": "Sgt → SO/Oficial."
+    },
+    {
+     "nome": "Cabos e Marinheiros",
+     "def": "Executam qualquer serviço da tarefa da OM.",
+     "itens": "Art. 4-4-3, c",
+     "ex": "Responsáveis pela parte que lhes cabe."
+    }
+   ]
+  },
+  {
+   "titulo": "Estado-Maior e Gabinete",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Chefe do Estado-Maior",
+     "def": "Coordena e controla o EM; transmite ordens do Comandante da Força.",
+     "itens": "Art. 6-1-1 · Curso de Altos Estudos Militares",
+     "ex": "Representa o Comandante da Força em casos urgentes."
+    },
+    {
+     "nome": "Chefe do EM: combate e diário",
+     "def": "Fica junto ao Comandante e registra ordens; guarda o diário histórico da Força.",
+     "itens": "Arts. 6-1-6 e 6-1-7",
+     "ex": "Substituto: o mais antigo do EM."
+    },
+    {
+     "nome": "Oficial de Estado-Maior",
+     "def": "Avalia situações, elabora documentos, informa o Chefe, adestra e avalia as unidades.",
+     "itens": "Art. 6-1-11",
+     "ex": "Assessoria serve à decisão do Chefe."
+    },
+    {
+     "nome": "Chefe de Gabinete",
+     "def": "Coordena Gabinetes de Almirante-de-Esquadra; correspondência, cerimonial, documentação histórica, Ordens do Dia.",
+     "itens": "Arts. 6-2-1 a 6-2-3",
+     "ex": "Dirige o cerimonial e as solenidades."
+    },
+    {
+     "nome": "Assistente",
+     "def": "Capitão-de-Corveta; Secretaria do Comando, correspondência, Livros da OM, detalhe das Praças do EM.",
+     "itens": "Arts. 6-2-5 e 6-2-6",
+     "ex": "CC · Secretaria."
+    },
+    {
+     "nome": "Ajudante-de-Ordens",
+     "def": "Capitão-Tenente; acompanha, recebe visitas, administra o rancho e a agenda do Almirante.",
+     "itens": "Arts. 6-2-7 e 6-2-8",
+     "ex": "CT · agenda e rancho."
+    }
+   ]
+  },
+  {
+   "titulo": "Imediato",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Quem é",
+     "def": "Autoridade logo após o Comandante; representa e substitui interinamente.",
+     "itens": "Art. 6-3-1",
+     "ex": "2º na cadeia."
+    },
+    {
+     "nome": "Substituto do Imediato",
+     "def": "Oficial que se segue em antiguidade (no navio, do Corpo da Armada).",
+     "itens": "Art. 6-3-2",
+     "ex": "Corpo da Armada no navio."
+    },
+    {
+     "nome": "Função",
+     "def": "Direção administrativa da OM: manutenção, prontificação, disciplina e higidez.",
+     "itens": "Arts. 6-3-3 e 6-3-4",
+     "ex": "Recebe ordens orais do Comandante."
+    },
+    {
+     "nome": "Competências",
+     "def": "Distribui pessoal, supervisiona adestramento, pernoita, inspeções, preside rancho dos Oficiais, Conselho Econômico.",
+     "itens": "Art. 6-3-5",
+     "ex": "Apresenta subordinados para audiência."
+    },
+    {
+     "nome": "Em viagem",
+     "def": "Dá o \"Pronto para Suspender\"; quartos, fechamento, embarcações, estabilidade.",
+     "itens": "Arts. 6-3-8 e 6-3-9",
+     "ex": "\"Pronto para Suspender\"."
+    },
+    {
+     "nome": "Em combate",
+     "def": "Verifica prontidão, guarnece sua estação e está pronto a substituir o Comandante.",
+     "itens": "Arts. 6-3-10 a 6-3-12",
+     "ex": "Depois relata pessoal e material."
+    }
+   ]
+  },
+  {
+   "titulo": "Departamentos, Divisões e Encargos",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Distribuição de cargos",
+     "def": "Departamentos, Grupos, Divisões, Seções e Encargos Colaterais.",
+     "itens": "Art. 6-4-1 · falta de Oficiais: cumulativo (6-4-2)",
+     "ex": "Depende do porte da OM."
+    },
+    {
+     "nome": "Chefe de Departamento",
+     "def": "Sob coordenação do Imediato; adestramento, material, pedidos, arquivo técnico.",
+     "itens": "Arts. 6-4-3 a 6-4-5",
+     "ex": "Fala direto com o Comandante sobre assuntos operativos e técnicos."
+    },
+    {
+     "nome": "Armamento / Convés",
+     "def": "Supervisiona as fainas marinheiras.",
+     "itens": "Art. 6-4-6",
+     "ex": "Fainas marinheiras."
+    },
+    {
+     "nome": "Navegação",
+     "def": "Assessora a derrota e a segurança da navegação; comunica erros de cartas.",
+     "itens": "Art. 6-4-7",
+     "ex": "Derrota."
+    },
+    {
+     "nome": "Saúde",
+     "def": "Higidez, profilaxia, água e alimentos, exame para prisão celular.",
+     "itens": "Art. 6-4-8",
+     "ex": "Examina quem vai à prisão celular."
+    },
+    {
+     "nome": "Intendência",
+     "def": "Guarda e administração dos bens públicos.",
+     "itens": "Art. 6-4-9 · sem Intendente, Gestor indicado pelo Comandante",
+     "ex": "Bens públicos."
+    },
+    {
+     "nome": "Encarregado de Divisão",
+     "def": "Subordinado ao Chefe de Departamento; responsável direto pela disciplina e material da Divisão.",
+     "itens": "Arts. 6-4-11 a 6-4-13",
+     "ex": "Avalia as Praças da Divisão."
+    },
+    {
+     "nome": "Encargo Colateral",
+     "def": "Exercido cumulativamente com outro cargo.",
+     "itens": "Art. 6-4-16 · Secretário subordinado ao Comandante",
+     "ex": "Acumulado."
+    }
+   ]
+  },
+  {
+   "titulo": "Serviços de Oficiais: Números",
+   "rotulos": {
+    "itens": "Parâmetro",
+    "ex": "Fixado por"
+   },
+   "linhas": [
+    {
+     "nome": "Serviço por Quartos",
+     "def": "Período de até 6 horas.",
+     "itens": "≤ 6 h",
+     "ex": "Art. 7-1-2."
+    },
+    {
+     "nome": "Duração do quarto em viagem",
+     "def": "Mínimo para navio em viagem.",
+     "itens": "2 a 6 h",
+     "ex": "COMIMSUP."
+    },
+    {
+     "nome": "Duração do quarto (outras)",
+     "def": "Atracado, fundeado etc.",
+     "itens": "4 a 6 h",
+     "ex": "COMIMSUP."
+    },
+    {
+     "nome": "Serviço de Estado",
+     "def": "Mais de 6 horas, até 24.",
+     "itens": "> 6 h até 24 h",
+     "ex": "COMIMSUP."
+    },
+    {
+     "nome": "Divisões em viagem",
+     "def": "Número de Divisões de Serviço.",
+     "itens": "3 a 6",
+     "ex": "Comandante."
+    },
+    {
+     "nome": "Divisões no porto / OM de terra",
+     "def": "Número de Divisões de Serviço.",
+     "itens": "4 a 8",
+     "ex": "COMIMSUP."
+    },
+    {
+     "nome": "Início do serviço",
+     "def": "Cada Divisão faz 24 h.",
+     "itens": "12h · domingo 8h",
+     "ex": "Art. 7-2-9."
+    },
+    {
+     "nome": "Menos de 4 Oficiais",
+     "def": "Excluídos Comandante e Imediato.",
+     "itens": "Instruções especiais",
+     "ex": "COMIMSUP."
+    },
+    {
+     "nome": "≤ 2 Oficiais por Divisão",
+     "def": "Faz-se serviço de estado.",
+     "itens": "Silêncio à alvorada: Contramestre de Serviço",
+     "ex": "Art. 7-2-11."
+    },
+    {
+     "nome": "Fundeio < 24 h",
+     "def": "Regime de viagem pode não ser interrompido.",
+     "itens": "< 24 h",
+     "ex": "A critério do Comandante."
+    }
+   ]
+  },
+  {
+   "titulo": "Quem Concorre à Escala",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Regra",
+     "def": "Oficiais Intermediários e Subalternos da unidade.",
+     "itens": "Art. 7-2-1",
+     "ex": "Comandante e Imediato normalmente não concorrem."
+    },
+    {
+     "nome": "Oficial de Quarto",
+     "def": "Intermediários e Subalternos do Corpo da Armada.",
+     "itens": "Art. 7-2-2",
+     "ex": "Outros Corpos só se qualificados, a critério do Comandante."
+    },
+    {
+     "nome": "Só dois Oficiais",
+     "def": "Imediato (se Intermediário/Subalterno) entra na escala.",
+     "itens": "§ 2º",
+     "ex": "Até suprir a falta."
+    },
+    {
+     "nome": "Travessia > 12 h com 2 Oficiais",
+     "def": "Guardas-Marinha e, na falta, o Mestre do navio.",
+     "itens": "§ 3º",
+     "ex": "Se qualificados."
+    },
+    {
+     "nome": "CT com + de 6 anos",
+     "def": "Pode ser dispensado da escala e ir para Oficial Superior de Pernoite.",
+     "itens": "Art. 7-2-8, § 2º",
+     "ex": "A critério do Comandante."
+    },
+    {
+     "nome": "Início da comissão",
+     "def": "Começa pela 1ª Divisão; após interrupção, a seguinte.",
+     "itens": "Art. 7-2-5",
+     "ex": "Ordem das Divisões."
+    }
+   ]
+  },
+  {
+   "titulo": "Oficial de Serviço, de Quarto e Ajudantes",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Oficial de Serviço",
+     "def": "Vela pela segurança, disciplina e rotina; representa o Comandante.",
+     "itens": "Arts. 7-1-4 e 7-1-6",
+     "ex": "Plena autoridade sobre o serviço."
+    },
+    {
+     "nome": "Oficial de Quarto",
+     "def": "Oficial de Serviço em viagem, na estação de controle da manobra, qualquer que seja a antiguidade.",
+     "itens": "Arts. 7-1-5 e 7-3-2",
+     "ex": "Independe da antiguidade."
+    },
+    {
+     "nome": "Proibições",
+     "def": "Sentar-se, ler ou conversar fora do serviço.",
+     "itens": "Art. 7-1-10",
+     "ex": "No serviço de estado, pode repousar (7-4-2 a 7-4-5)."
+    },
+    {
+     "nome": "Assumir o serviço",
+     "def": "Inteirar-se de condições, ordens, fainas, embarcações fora, presos, tudo de interesse.",
+     "itens": "Art. 7-1-11",
+     "ex": "Passagem na presença do Comandante; depois ao Imediato."
+    },
+    {
+     "nome": "Nunca sair sem ser rendido",
+     "def": "Não deixa o serviço sem rendição regular.",
+     "itens": "Art. 7-1-13",
+     "ex": "Regra absoluta."
+    },
+    {
+     "nome": "Rancho",
+     "def": "Prova a amostra do rancho antes da distribuição.",
+     "itens": "Art. 7-1-22",
+     "ex": "Prova antes de distribuir."
+    },
+    {
+     "nome": "Armas e paióis",
+     "def": "Nada de armamento ou paiol aberto sem sua ordem ou ciência.",
+     "itens": "Arts. 7-1-25 e 7-1-26",
+     "ex": "Controle do Oficial de Serviço."
+    },
+    {
+     "nome": "Oficial de Quarto: ao assumir",
+     "def": "Situação tática, posição, rumo, regime de máquinas e navios da formatura.",
+     "itens": "Art. 7-3-4 · à noite, Livro de Ordens",
+     "ex": "Não passa o serviço no meio de manobra."
+    },
+    {
+     "nome": "Sinais sem ordem",
+     "def": "Só de reconhecimento, navegação/manobra e emergência.",
+     "itens": "Art. 7-3-7",
+     "ex": "Três exceções."
+    },
+    {
+     "nome": "Rotinas do quarto",
+     "def": "Registra a derrota de hora em hora; aparelho de governo inspecionado ao menos 1 vez; compara agulhas.",
+     "itens": "Arts. 7-3-10 e 7-3-15",
+     "ex": "RIPEAM para evitar abalroamento."
+    },
+    {
+     "nome": "Ajudantes",
+     "def": "Auxiliam o Oficial de Serviço; o mais antigo cuida da rotina.",
+     "itens": "Arts. 7-6-1 a 7-6-6",
+     "ex": "Não saem do posto sem licença."
+    },
+    {
+     "nome": "Oficial Superior de Pernoite",
+     "def": "Oficial Superior que supervisiona fora do expediente, na ausência do Comandante e do Imediato.",
+     "itens": "Art. 7-7-1",
+     "ex": "Pode baixar à terra após o Comandante e o Imediato."
+    }
+   ]
+  },
+  {
+   "titulo": "Atributos, Tradições e Tratamento",
+   "rotulos": {
+    "itens": "Artigo · Detalhes",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Atributos morais",
+     "def": "Lealdade, Coragem Moral, Critério, Probidade, Discrição, Tato, Presença de Ânimo, Cooperação, Conduta Militar e Conduta Pessoal.",
+     "itens": "Art. 9-1-4 · 10 atributos",
+     "ex": "Não confundir com os profissionais."
+    },
+    {
+     "nome": "Atributos profissionais",
+     "def": "Liderança, Iniciativa, Aptidão para o Serviço, Capacidade de Decisão, Inteligência, Capacidade Profissional, Capacidade Administrativa, Cultura Geral, Expressão Oral e Escrita.",
+     "itens": "Art. 9-1-5 · 10 atributos",
+     "ex": "Liderança é PROFISSIONAL."
+    },
+    {
+     "nome": "Avaliação",
+     "def": "Oficiais: Comandante (ou delegado) · Praças: Encarregados de Divisão.",
+     "itens": "Art. 9-1-2",
+     "ex": "Quem avalia a Praça."
+    },
+    {
+     "nome": "Tradições navais",
+     "def": "Usos, costumes e linguagem devem ser preservados; instruções para ordens e expressões.",
+     "itens": "Arts. 9-2-1 a 9-2-3",
+     "ex": "Preocupação de todo Comandante."
+    },
+    {
+     "nome": "Almirantes",
+     "def": "Vossa Excelência (V. Exa.).",
+     "itens": "Exmo. Sr. Almirante",
+     "ex": "Excelência."
+    },
+    {
+     "nome": "Oficiais Superiores",
+     "def": "Vossa Senhoria (V. Sa.).",
+     "itens": "Ilmo. Sr. (posto) · Sr. Comandante",
+     "ex": "\"Comandante\": privativo de quem exerce ou pode exercer Comando."
+    },
+    {
+     "nome": "Intermediários e Subalternos",
+     "def": "Senhor (Sr.).",
+     "itens": "Sr. Tenente",
+     "ex": "Em efetivo Comando: Vossa Senhoria."
+    },
+    {
+     "nome": "Corpo de Saúde",
+     "def": "Médicos, Dentistas e Farmacêuticos: \"Doutor\".",
+     "itens": "Art. 9-3-2",
+     "ex": "Privativo."
+    },
+    {
+     "nome": "Guardas-Marinha, Aspirantes e Praças",
+     "def": "Senhor (Sr.).",
+     "itens": "Sr. Guarda-Marinha · Sr. Suboficial · Sr. Cabo",
+     "ex": "Correspondência = tratamento verbal."
+    }
+   ]
+  }
+ ]
+}

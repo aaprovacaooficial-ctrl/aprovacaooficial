@@ -1,0 +1,509 @@
+{
+ "slug": "cerimonial",
+ "quadros": [
+  {
+   "titulo": "Conceitos gerais",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Quem pode alterar o Cerimonial",
+     "def": "Ministro da Defesa, CM ou CEMA; quem recebe as honras (dispensando); no estrangeiro, Cmt de Força/navio pelos costumes locais.",
+     "itens": "Art. 1-1-3 · 3 casos",
+     "ex": "Sem grave prejuízo ao serviço."
+    },
+    {
+     "nome": "Almirante",
+     "def": "Círculo de oficiais-generais: AE, VA e CA.",
+     "itens": "Art. 1-1-5",
+     "ex": "Salvo quando aplicado ao posto de Almirante."
+    },
+    {
+     "nome": "Amarra",
+     "def": "Unidade de distância.",
+     "itens": "Art. 1-1-12 · 200 jardas",
+     "ex": "Reconhecimento: 3 amarras (navio), 2 (embarcação)."
+    },
+    {
+     "nome": "Não se prestam honras",
+     "def": "Faina geral/emergência, atividade que afete a segurança, durante o Cerimonial à Bandeira.",
+     "itens": "Art. 1-1-7",
+     "ex": "—"
+    },
+    {
+     "nome": "Sem toques, continência de guarda e salva",
+     "def": "Na presença de autoridade com honras superiores; entre arriar e hastear a BN; funeral/luto.",
+     "itens": "Art. 1-1-8",
+     "ex": "Exceto transmissão de Comando."
+    },
+    {
+     "nome": "Honras de posto acima",
+     "def": "Privativo do Presidente da República, para reserva/reformados.",
+     "itens": "Art. 1-1-18",
+     "ex": "—"
+    },
+    {
+     "nome": "Horário",
+     "def": "Sempre hora local.",
+     "itens": "Art. 1-1-13",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Cortesia e continência individual",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Embarque/desembarque",
+     "def": "Em embarcação ou viatura, o mais antigo embarca por último e desembarca primeiro.",
+     "itens": "Art. 1-2-6",
+     "ex": "\"Salta quem pode\": mais modernos à frente."
+    },
+    {
+     "nome": "Pedir para largar",
+     "def": "O mais antigo a bordo pede: \"Com licença\".",
+     "itens": "Art. 1-2-5",
+     "ex": "—"
+    },
+    {
+     "nome": "Dispensa da continência",
+     "def": "Faina, postos de combate, esportes, à mesa de rancho, remando ou dirigindo.",
+     "itens": "Art. 1-2-7 · 5 casos",
+     "ex": "Só o superior dispensa."
+    },
+    {
+     "nome": "Não executa continência",
+     "def": "Sentinela armada de fuzil, tropa armada, postos de continência/Parada, mão direita impossibilitada, formatura comandada.",
+     "itens": "Art. 1-2-8",
+     "ex": "Formatura: faz para BN e Hino não cantado."
+    },
+    {
+     "nome": "Posição \"firme\"",
+     "def": "Substitui o sentido a bordo, conforme o mar.",
+     "itens": "Art. 1-2-10",
+     "ex": "—"
+    },
+    {
+     "nome": "Corredores e escadas",
+     "def": "O mais antigo vai à frente.",
+     "itens": "Art. 1-2-11",
+     "ex": "Visitas: o anfitrião segue à frente."
+    }
+   ]
+  },
+  {
+   "titulo": "Honras de portaló e de passagem",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Honras de portaló",
+     "def": "Continência da guarda, \"boys\" e toques de corneta e apito.",
+     "itens": "Art. 1-3-1",
+     "ex": "Portaló de honra: boreste."
+    },
+    {
+     "nome": "Guarda",
+     "def": "Apresenta armas: Almirantes · Ombro arma: oficiais superiores · nada: intermediários e subalternos.",
+     "itens": "Art. 1-3-5",
+     "ex": "—"
+    },
+    {
+     "nome": "Número de \"boys\"",
+     "def": "8: Alte, AE e VA · 6: CA · 4: oficial superior · 2: demais oficiais.",
+     "itens": "Art. 5-1-8",
+     "ex": "Sempre número par."
+    },
+    {
+     "nome": "Toques de apito",
+     "def": "Mestre: Cmt ou superior · Contramestre de Serviço: demais.",
+     "itens": "Art. 1-3-13",
+     "ex": "—"
+    },
+    {
+     "nome": "Honras de passagem",
+     "def": "Toque de presença (1 longo) → continência (1 curto) → volta (2 curtos).",
+     "itens": "Art. 1-4-3",
+     "ex": "Distância de reconhecimento."
+    },
+    {
+     "nome": "Embarcações miúdas",
+     "def": "Almirantes: remos ao alto/parar máquina · oficiais superiores e comandantes: arvorar remos/reduzir.",
+     "itens": "Art. 1-4-4",
+     "ex": "Patrão de pé faz continência."
+    },
+    {
+     "nome": "Sem honras de passagem",
+     "def": "Entre o pôr do sol e 8h; embarcação em socorro, rebocando ou rebocada.",
+     "itens": "Art. 1-4-7",
+     "ex": "COMAPEM pode dispensar."
+    }
+   ]
+  },
+  {
+   "titulo": "Bandeira Nacional",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Hasteamento",
+     "def": "Diariamente às 8h.",
+     "itens": "Art. 2-2-1",
+     "ex": "Prep às 7h55."
+    },
+    {
+     "nome": "Arriamento",
+     "def": "Ao pôr do sol (serviço ininterrupto) ou 5 min antes do fim do expediente (demais OM).",
+     "itens": "Art. 2-2-2",
+     "ex": "Sem cerimonial nas demais OM."
+    },
+    {
+     "nome": "Local",
+     "def": "Pau da bandeira à popa (parado) · mastro de combate/carangueja (em movimento).",
+     "itens": "Art. 2-2-3",
+     "ex": "—"
+    },
+    {
+     "nome": "Sequência",
+     "def": "Sinal para Bandeira → 3 min: Primeiro Sinal → 1 min: Segundo Sinal → Terceiro Sinal.",
+     "itens": "Art. 2-2-4",
+     "ex": "Arriamento: 3 sargentos dobram."
+    },
+    {
+     "nome": "Hino cantado",
+     "def": "Se cantado, não se faz continência individual.",
+     "itens": "Art. 2-2-4, X",
+     "ex": "—"
+    },
+    {
+     "nome": "Pano",
+     "def": "1 pano = 0,45 x 0,60 m.",
+     "itens": "Art. 2-1-6",
+     "ex": "2 panos = 0,90 x 1,20 m."
+    },
+    {
+     "nome": "Mantém hasteada à noite",
+     "def": "Estandarte Presidencial avistado, CM/MD/Governador a bordo, entrada/saída de porto, sobrevoo, postos de combate, filmagem…",
+     "itens": "Art. 2-2-11",
+     "ex": "Hasteada à noite = iluminada."
+    },
+    {
+     "nome": "Junto a outras",
+     "def": "Hasteada primeiro e arriada por último.",
+     "itens": "Art. 2-2-20",
+     "ex": "Ocupa o centro ou a direita."
+    },
+    {
+     "nome": "Proibições",
+     "def": "Saudar com ela (salvo retribuição), usar estragada, como pano de mesa/cobertura, pôr emblemas, abater em continência.",
+     "itens": "Art. 2-2-27",
+     "ex": "A BN nunca é abatida."
+    }
+   ]
+  },
+  {
+   "titulo": "Outras bandeiras",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Bandeira do Cruzeiro",
+     "def": "No pau do jeque, com a BN, nos navios parados.",
+     "itens": "Art. 2-3-2",
+     "ex": "Meia adriça junto com a BN."
+    },
+    {
+     "nome": "Flâmula de Fim de Comissão",
+     "def": "Substitui a Flâmula de Comando na volta.",
+     "itens": "Art. 2-3-3 · comissão ≥ 6 meses",
+     "ex": "21 estrelas."
+    },
+    {
+     "nome": "Cruz Vermelha",
+     "def": "Hasteada permanentemente em tempo de guerra.",
+     "itens": "Art. 2-3-4",
+     "ex": "Navios-hospital."
+    },
+    {
+     "nome": "Bandeiras-insígnias",
+     "def": "Assinalam a presença de autoridade (Estandarte Presidencial, pavilhões, flâmulas).",
+     "itens": "Art. 2-4-1",
+     "ex": "Só o Estandarte Presidencial substitui o pavilhão do CM."
+    },
+    {
+     "nome": "Flâmula de Comando",
+     "def": "Privativa do oficial no exercício do comando.",
+     "itens": "Art. 2-4-2",
+     "ex": "Vedada em navio não incorporado."
+    },
+    {
+     "nome": "Sinais de Barroso",
+     "def": "\"O Brasil espera que cada um cumpra o seu dever\" (3 bandeiras) e \"Sustentar o fogo que a vitória é nossa\" (2).",
+     "itens": "Art. 2-5-1",
+     "ex": "Hasteados no 11 de Junho."
+    },
+    {
+     "nome": "Embandeiramento",
+     "def": "Em arco: grande gala · nos topes: pequena gala e PR · meia adriça: luto.",
+     "itens": "Art. 2-6-1",
+     "ex": "Dique: não embandeira em arco."
+    }
+   ]
+  },
+  {
+   "titulo": "Sinais especiais",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Sinal sonoro (longo 4 s, curto 2 s)",
+     "def": "PR: 4 longos · CM: 3 longos + 1 curto · CEMA: 2 longos + 2 curtos · CON: 2 longos + 1 curto · Almirante: 2 longos.",
+     "itens": "Art. 2-7-2",
+     "ex": "—"
+    },
+    {
+     "nome": "Oficiais",
+     "def": "Comandante/Cmt de Força/COMAPEM: 4 curtos · Chefe EM de Força: 3 curtos · Of. Superior: 2 curtos · Intermediário/Subalterno: 1 curto.",
+     "itens": "Art. 2-7-2",
+     "ex": "—"
+    },
+    {
+     "nome": "Sinal luminoso",
+     "def": "PR: 3 luzes brancas na vertical.",
+     "itens": "Art. 2-7-1",
+     "ex": "CM: verga a boreste · CEMA: verga a bombordo."
+    },
+    {
+     "nome": "Corneta substituta",
+     "def": "Indica ausência de autoridade de bordo.",
+     "itens": "Art. 2-7-5 · até 72 h",
+     "ex": "3ª substituta: ausência do Comandante."
+    }
+   ]
+  },
+  {
+   "titulo": "Salvas",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Distância e intervalo",
+     "def": "Até 3 milhas; tiros a cada 5 s.",
+     "itens": "Arts. 3-1-2 e 3-1-3",
+     "ex": "Funeral: 30 s."
+    },
+    {
+     "nome": "Quando não há salva",
+     "def": "Antes das 8h e após o pôr do sol; PR no mar; à terra no Brasil por navio da MB.",
+     "itens": "Art. 3-1-8",
+     "ex": "Exceto mostra de armamento ou 1ª chegada ao Brasil."
+    },
+    {
+     "nome": "21 tiros",
+     "def": "Presidente da República.",
+     "itens": "Art. 3-2-7",
+     "ex": "Também nos embandeiramentos, às 12h."
+    },
+    {
+     "nome": "19 tiros",
+     "def": "Patrono, CM, Almirante · Vice-PR, Presidentes do CN/STF/Senado/Câmara, Ministros, Cmts das Forças, CEMCFA, Governador, Embaixador, Cônsul-Geral.",
+     "itens": "Arts. 3-2-6 e 3-2-7",
+     "ex": "—"
+    },
+    {
+     "nome": "17 / 15 / 13 tiros",
+     "def": "17: AE e Presidente do STM · 15: VA · 13: CA e Encarregado de Negócios.",
+     "itens": "Arts. 3-2-6 e 3-2-7",
+     "ex": "—"
+    },
+    {
+     "nome": "Salva de chegada x partida",
+     "def": "Chegada: só ao PR no mar · partida: à saída da autoridade visitante.",
+     "itens": "Arts. 3-2-1 e 3-2-3",
+     "ex": "—"
+    },
+    {
+     "nome": "Sem direito",
+     "def": "Quem já recebeu salva do mesmo navio/estação há menos de 1 ano; oficial em traje civil.",
+     "itens": "Art. 3-2-12",
+     "ex": "Exceto 19 tiros ou mais e recém-promovido."
+    }
+   ]
+  },
+  {
+   "titulo": "Visitas e posse",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Visita oficial (anunciada)",
+     "def": "Formal: protocolar/cerimônia ou administrativa/operativa.",
+     "itens": "Art. 4-1-1",
+     "ex": "Retribuição normalmente em 24 h."
+    },
+    {
+     "nome": "Visita não anunciada",
+     "def": "Informal; só honras de portaló.",
+     "itens": "Art. 4-2-2",
+     "ex": "Sem guarda, banda e \"boys\"."
+    },
+    {
+     "nome": "Chegada a porto",
+     "def": "Visita oficial às autoridades de posto igual ou superior.",
+     "itens": "Em 24 h",
+     "ex": "Boas-vindas por oficial."
+    },
+    {
+     "nome": "Retribuição obrigatória",
+     "def": "Entre Almirantes sempre; nos demais, se o visitante for de posto igual ou superior.",
+     "itens": "Art. 4-1-8",
+     "ex": "—"
+    },
+    {
+     "nome": "Comandante no dia a dia",
+     "def": "1ª chegada e última saída do dia: honras de portaló pelo Imediato e oficialidade.",
+     "itens": "Art. 5-3-2",
+     "ex": "Demais vezes: sem toques."
+    },
+    {
+     "nome": "Cerimônia de posse",
+     "def": "Hino → leitura dos atos (exoneração e nomeação) → OS → \"Declaro empossado…\" → \"Assumo o cargo…\".",
+     "itens": "Art. 5-4-3",
+     "ex": "Quem assume: à direita de quem preside."
+    },
+    {
+     "nome": "Ordem do Mérito Naval (civis)",
+     "def": "Grã-cruz: AE · Grande-oficial: VA · Comendador: CA · Oficial: Of. Superior · Cavaleiro: Intermediário.",
+     "itens": "Art. 6-1-5",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "Presidente da República e datas festivas",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Visita do PR",
+     "def": "Guarnição em postos de continência, Estandarte Presidencial no mastro principal, Hino Nacional.",
+     "itens": "Art. 6-2-4",
+     "ex": "Na despedida: salva e 7 vivas."
+    },
+    {
+     "nome": "Honras de passagem ao PR",
+     "def": "Guarnição em postos de continência, 7 vivas.",
+     "itens": "Art. 6-2-9",
+     "ex": "Entre os toques de presença e de volta."
+    },
+    {
+     "nome": "Grande gala",
+     "def": "7 de setembro e 15 de novembro.",
+     "itens": "Art. 7-1-2",
+     "ex": "Embandeiramento em arco + 21 tiros às 12h."
+    },
+    {
+     "nome": "Pequena gala",
+     "def": "1º/jan, 21/abr, 1º/mai, 11/jun, 19/nov, 13/dez e 25/dez.",
+     "itens": "Art. 7-1-3",
+     "ex": "Embandeiramento nos topes."
+    },
+    {
+     "nome": "11 de Junho (Riachuelo)",
+     "def": "Data Magna; uniforme alexandrino; Sinais de Barroso.",
+     "itens": "Art. 7-2-2",
+     "ex": "Ordem do Mérito Naval: salva de 17 tiros."
+    },
+    {
+     "nome": "Dia da Bandeira (19/nov)",
+     "def": "Às 11h55 arria e hasteia de novo; 12h embandeira; cremação das bandeiras.",
+     "itens": "Art. 7-2-3",
+     "ex": "21 tiros e Hino à Bandeira."
+    },
+    {
+     "nome": "Dia do Marinheiro (13/dez)",
+     "def": "Pavilhão do Patrono e salva de 19 tiros.",
+     "itens": "Art. 7-2-4",
+     "ex": "Medalha Mérito Tamandaré."
+    }
+   ]
+  },
+  {
+   "titulo": "Honras fúnebres",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Conceito",
+     "def": "Homenagens póstumas aos despojos mortais conforme a posição hierárquica.",
+     "itens": "Art. 9-1-1",
+     "ex": "Féretro coberto com a BN até a inumação."
+    },
+    {
+     "nome": "Sinal de luto",
+     "def": "Fita de crepe preta; braçal na manga esquerda.",
+     "itens": "Art. 9-1-7 · 15 cm do ombro",
+     "ex": "—"
+    },
+    {
+     "nome": "Descargas",
+     "def": "Três descargas de fuzilaria.",
+     "itens": "Arts. 9-1-8 e 9-1-11",
+     "ex": "Salva e toque de silêncio ao baixar o corpo."
+    },
+    {
+     "nome": "Não prestadas",
+     "def": "Dias de festa nacional; grande gala do país estrangeiro onde está o navio.",
+     "itens": "Art. 9-1-13",
+     "ex": "Transferidas."
+    },
+    {
+     "nome": "Dispensadas",
+     "def": "Falecido dispensou, família pediu, aviso tardio, ordem pública, mau tempo.",
+     "itens": "Art. 9-1-14",
+     "ex": "—"
+    },
+    {
+     "nome": "Dia dos Mortos (2/nov)",
+     "def": "Embandeiramento à meia adriça das 8h às 23h59.",
+     "itens": "Art. 9-1-15",
+     "ex": "—"
+    },
+    {
+     "nome": "Presidente da República",
+     "def": "21 tiros, nova salva de 21 tiros 15 min depois (tiros periódicos).",
+     "itens": "Art. 9-2-1",
+     "ex": "MD e CM: 19 tiros."
+    },
+    {
+     "nome": "Inativos",
+     "def": "Só a pedido expresso da família, autorizado pelo Cmt do DN.",
+     "itens": "Art. 9-3-1",
+     "ex": "Almirante: guarda fúnebre de um pelotão."
+    }
+   ]
+  }
+ ]
+}

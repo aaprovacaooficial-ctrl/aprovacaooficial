@@ -1,0 +1,668 @@
+{
+ "slug": "estatuto-rdm",
+ "quadros": [
+  {
+   "titulo": "Estatuto: Valor e Ética Militar",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Valor militar",
+     "def": "Patriotismo, civismo e tradições, fé na missão das FA, espírito de corpo, amor à profissão, aprimoramento técnico-profissional.",
+     "itens": "Art. 27 · 6 manifestações",
+     "ex": "Espírito de corpo = orgulho da OM onde serve."
+    },
+    {
+     "nome": "Ética militar",
+     "def": "Sentimento do dever, pundonor e decoro impõem conduta irrepreensível.",
+     "itens": "Art. 28 · 19 preceitos",
+     "ex": "Amar a verdade, ser justo, discreto, acatar autoridades civis…"
+    },
+    {
+     "nome": "Inatividade",
+     "def": "Vedado usar designação hierárquica em política, comércio, indústria, imprensa e cargo civil.",
+     "itens": "Art. 28, XVIII",
+     "ex": "Exceção: assunto técnico autorizado."
+    },
+    {
+     "nome": "Comerciar",
+     "def": "Vedado ao militar da ativa, exceto como acionista ou quotista.",
+     "itens": "Art. 29",
+     "ex": "Pode gerir seus próprios bens."
+    },
+    {
+     "nome": "Saúde e Veterinária",
+     "def": "Oficiais podem exercer atividade técnica no meio civil.",
+     "itens": "Art. 29, § 3º",
+     "ex": "Se não prejudicar o serviço."
+    },
+    {
+     "nome": "Origem dos bens",
+     "def": "Ministros podem exigir informação sobre bens.",
+     "itens": "Art. 30",
+     "ex": "Salvaguarda da dignidade."
+    }
+   ]
+  },
+  {
+   "titulo": "Estatuto: Deveres, Comando e Violações",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Deveres militares",
+     "def": "Fidelidade à Pátria, culto aos Símbolos, probidade e lealdade, disciplina e hierarquia, cumprir ordens, tratar o subordinado com dignidade.",
+     "itens": "Art. 31 · 6 deveres",
+     "ex": "Vínculos racionais e morais."
+    },
+    {
+     "nome": "Compromisso militar",
+     "def": "Juramento à Bandeira, solene, diante da tropa formada.",
+     "itens": "Arts. 32 e 33",
+     "ex": "Guarda-Marinha: nos estabelecimentos de formação."
+    },
+    {
+     "nome": "Comando",
+     "def": "Soma de autoridade, deveres e responsabilidades de quem conduz homens ou dirige OM.",
+     "itens": "Art. 34",
+     "ex": "Vinculado ao grau hierárquico; prerrogativa impessoal."
+    },
+    {
+     "nome": "Subordinação",
+     "def": "Não afeta a dignidade; decorre só da estrutura hierarquizada.",
+     "itens": "Art. 35",
+     "ex": "—"
+    },
+    {
+     "nome": "Papéis",
+     "def": "Oficial: comando, chefia e direção · Graduados: auxiliam · Cabos e Marinheiros: execução.",
+     "itens": "Arts. 36 a 38",
+     "ex": "Recrutas: serviço militar inicial (39)."
+    },
+    {
+     "nome": "Responsabilidade",
+     "def": "Integral pelas decisões, ordens e atos.",
+     "itens": "Art. 41",
+     "ex": "—"
+    },
+    {
+     "nome": "Violação",
+     "def": "Pode ser crime, contravenção ou transgressão.",
+     "itens": "Art. 42 · mais grave quanto mais alto o posto",
+     "ex": "Crime + contravenção da mesma natureza: só a pena do crime."
+    },
+    {
+     "nome": "Afastamento do cargo",
+     "def": "Presidente, Ministros/CEMFA e comandantes podem afastar.",
+     "itens": "Art. 44",
+     "ex": "Fica sem função até a solução."
+    },
+    {
+     "nome": "Manifestações coletivas",
+     "def": "Proibidas sobre atos de superiores, reivindicatórias ou políticas.",
+     "itens": "Art. 45",
+     "ex": "Também no RDM."
+    },
+    {
+     "nome": "Limite das penas",
+     "def": "Impedimento, detenção ou prisão: até 30 dias.",
+     "itens": "Art. 47, § 1º",
+     "ex": "30 dias."
+    },
+    {
+     "nome": "Conselho de Justificação",
+     "def": "Para OFICIAL presumivelmente incapaz.",
+     "itens": "Art. 48 · julgado pelo STM (paz)",
+     "ex": "Oficial → Justificação."
+    },
+    {
+     "nome": "Conselho de Disciplina",
+     "def": "Para Guarda-Marinha, Aspirante e praças com estabilidade.",
+     "itens": "Art. 49 · julgado pelos Ministros",
+     "ex": "Praça estável → Disciplina."
+    }
+   ]
+  },
+  {
+   "titulo": "Estatuto: Direitos",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Patente",
+     "def": "Garantia da patente em toda a plenitude (oficial).",
+     "itens": "Art. 50, I",
+     "ex": "—"
+    },
+    {
+     "nome": "Proventos integrais",
+     "def": "Mais de 35 anos de serviço, idade-limite e outros casos.",
+     "itens": "Art. 50, II",
+     "ex": "Senão, quotas: 1 por ano até 35 (art. 56)."
+    },
+    {
+     "nome": "Estabilidade",
+     "def": "Só para praça de carreira com 10 anos ou mais de serviço.",
+     "itens": "Art. 50, IV, a",
+     "ex": "10 anos."
+    },
+    {
+     "nome": "Fardamento",
+     "def": "Fornecido a graduação inferior a Terceiro-Sargento.",
+     "itens": "Art. 50, IV, h",
+     "ex": "Abaixo de 3º Sgt."
+    },
+    {
+     "nome": "Porte de arma",
+     "def": "Oficial na ativa ou inatividade; praças com restrições.",
+     "itens": "Art. 50, IV, q e r",
+     "ex": "Salvo alienação mental ou crime contra o Estado."
+    },
+    {
+     "nome": "Dependentes",
+     "def": "Cônjuge/companheiro; filho ou enteado menor de 21 ou inválido.",
+     "itens": "Art. 50, § 2º",
+     "ex": "Estudante até 24; pai e mãe sem renda (§ 3º)."
+    },
+    {
+     "nome": "Proteção Social",
+     "def": "Remuneração, pensão, saúde e assistência.",
+     "itens": "Art. 50-A",
+     "ex": "—"
+    },
+    {
+     "nome": "Recorrer",
+     "def": "Reconsideração, queixa ou representação.",
+     "itens": "Art. 51 · 15 dias (quota compulsória/Quadro de Acesso) · 45 dias (demais)",
+     "ex": "Nunca coletivamente."
+    },
+    {
+     "nome": "Alistáveis",
+     "def": "Oficiais, GM, Aspirantes, SO, Sargentos e alunos de escolas de oficiais.",
+     "itens": "Art. 52",
+     "ex": "Cabos e Marinheiros não."
+    },
+    {
+     "nome": "Elegíveis",
+     "def": "< 5 anos: excluído do serviço · ≥ 5 anos: agregado; se eleito, vai para a reserva.",
+     "itens": "Art. 52, parágrafo único",
+     "ex": "Marco: 5 anos."
+    }
+   ]
+  },
+  {
+   "titulo": "Estatuto: Remuneração e Promoção",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Remuneração na ativa",
+     "def": "Soldo, gratificações e indenizações.",
+     "itens": "Art. 53 · encargo do Tesouro Nacional",
+     "ex": "Inatividade: proventos e adicionais."
+    },
+    {
+     "nome": "Soldo",
+     "def": "Irredutível; não sofre penhora, sequestro ou arresto.",
+     "itens": "Art. 54",
+     "ex": "Igual para ativa e inativa do mesmo grau (55)."
+    },
+    {
+     "nome": "Acumular proventos",
+     "def": "Permitido com mandato eletivo, magistério, cargo em comissão ou serviço técnico.",
+     "itens": "Art. 57",
+     "ex": "Reserva e reformados."
+    },
+    {
+     "nome": "Acesso",
+     "def": "Seletivo, gradual e sucessivo, pelo valor moral e profissional.",
+     "itens": "Art. 59",
+     "ex": "Planejamento: cada Força."
+    },
+    {
+     "nome": "Critérios de promoção",
+     "def": "Antiguidade, merecimento, escolha, bravura e post mortem.",
+     "itens": "Art. 60",
+     "ex": "Ressarcimento de preterição: extraordinário."
+    },
+    {
+     "nome": "Vagas obrigatórias",
+     "def": "Almirantes: 1/4 · CMG: 1/8 · CF: 1/15 · CC: 1/20.",
+     "itens": "Art. 61 · decretos até 15 de janeiro",
+     "ex": "Frações acumulam para os anos seguintes."
+    },
+    {
+     "nome": "Na passagem à reserva",
+     "def": "Não há promoção.",
+     "itens": "Art. 62",
+     "ex": "Pegadinha."
+    }
+   ]
+  },
+  {
+   "titulo": "Estatuto: Férias, Afastamentos e Licenças",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Férias",
+     "def": "Afastamento total, anual e obrigatório para descanso.",
+     "itens": "Art. 63",
+     "ex": "Não prejudicadas por licença de saúde ou punição."
+    },
+    {
+     "nome": "Interrupção das férias",
+     "def": "Segurança nacional, ordem, extrema necessidade, inatividade, punição grave, baixa a hospital.",
+     "itens": "Art. 63, § 4º · 6 casos",
+     "ex": "Registra nos assentamentos."
+    },
+    {
+     "nome": "Núpcias / Luto",
+     "def": "8 dias cada.",
+     "itens": "Art. 64",
+     "ex": "8 + 8."
+    },
+    {
+     "nome": "Instalação / Trânsito",
+     "def": "Até 10 dias / até 30 dias.",
+     "itens": "Art. 64",
+     "ex": "10 e 30."
+    },
+    {
+     "nome": "Tipos de licença",
+     "def": "Interesse particular, saúde de familiar, saúde própria, acompanhar cônjuge, maternidade/paternidade/adoção.",
+     "itens": "Art. 67",
+     "ex": "Regulada pelo Comandante da Força."
+    },
+    {
+     "nome": "Interesse particular",
+     "def": "Exige mais de 10 anos de serviço; sem remuneração e sem contar tempo.",
+     "itens": "Art. 69",
+     "ex": "Conta só para quota compulsória."
+    },
+    {
+     "nome": "Acompanhar cônjuge",
+     "def": "Sem remuneração; até 36 meses, contínua ou fracionada.",
+     "itens": "Art. 69-A",
+     "ex": "36 meses."
+    },
+    {
+     "nome": "Interrupção da licença",
+     "def": "Mobilização, guerra, emergência/sítio, sentença, punição, processo criminal.",
+     "itens": "Art. 70",
+     "ex": "Definitiva se reformado ou ir para reserva de ofício."
+    },
+    {
+     "nome": "Pensão militar",
+     "def": "Ampara beneficiários do falecido ou extraviado.",
+     "itens": "Art. 71",
+     "ex": "Todos contribuem; declaração de beneficiários obrigatória."
+    }
+   ]
+  },
+  {
+   "titulo": "Estatuto: Prerrogativas e Uniformes",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Prerrogativas",
+     "def": "Honras, dignidades e distinções do posto e cargo.",
+     "itens": "Art. 73",
+     "ex": "Títulos, uniformes, honras, foro especial."
+    },
+    {
+     "nome": "Prisão do militar",
+     "def": "Em OM cujo comandante tenha precedência hierárquica sobre o preso.",
+     "itens": "Art. 73, c",
+     "ex": "—"
+    },
+    {
+     "nome": "Prisão pela polícia",
+     "def": "Só em flagrante; entrega imediata à autoridade militar mais próxima.",
+     "itens": "Art. 74",
+     "ex": "Na delegacia só o tempo do flagrante."
+    },
+    {
+     "nome": "Júri e Justiça Eleitoral",
+     "def": "Militar da ativa em função é dispensado.",
+     "itens": "Art. 75",
+     "ex": "Dispensa."
+    },
+    {
+     "nome": "Uniformes",
+     "def": "Privativos dos militares; simbolizam a autoridade.",
+     "itens": "Art. 76 · uso indevido é crime",
+     "ex": "—"
+    },
+    {
+     "nome": "Proibido fardado",
+     "def": "Manifestação político-partidária; atividade não militar no exterior; inatividade (salvo solenidades autorizadas).",
+     "itens": "Art. 77, § 1º",
+     "ex": "Três proibições."
+    },
+    {
+     "nome": "Forças Auxiliares e civis",
+     "def": "Vedado usar uniformes que se confundam com os das FA.",
+     "itens": "Art. 79",
+     "ex": "Respondem também os chefes e empregadores."
+    }
+   ]
+  },
+  {
+   "titulo": "RDM: Contravenção e Circunstâncias",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Contravenção disciplinar",
+     "def": "Ação ou omissão contrária aos deveres, desde que NÃO seja crime do CPM.",
+     "itens": "Art. 6º",
+     "ex": "Se for crime, não é contravenção."
+    },
+    {
+     "nome": "Lista",
+     "def": "84 contravenções específicas + omissões não especificadas.",
+     "itens": "Art. 7º",
+     "ex": "Ex.: censurar superior, simular doença, exceder licença."
+    },
+    {
+     "nome": "Classificação",
+     "def": "Graves ou leves, conforme o dano à disciplina ou ao serviço.",
+     "itens": "Art. 8º",
+     "ex": "Só duas classes."
+    },
+    {
+     "nome": "Crime x contravenção",
+     "def": "Mesma natureza: só a pena do crime.",
+     "itens": "Art. 9º",
+     "ex": "Descaracterizado: julga o superior do contraventor."
+    },
+    {
+     "nome": "Agravantes",
+     "def": "Acúmulo, reincidência, conluio, premeditação, ofensa à honra, em serviço, risco à OM, maus antecedentes, abuso de autoridade, diante de subordinado.",
+     "itens": "Art. 10 · 10 itens",
+     "ex": "\"Na frente do subordinado\" agrava."
+    },
+    {
+     "nome": "Atenuantes",
+     "def": "Bons antecedentes, menor de 18, menos de 6 meses de serviço, serviços relevantes, rigor não autorizado, provocação.",
+     "itens": "Art. 11 · 6 itens",
+     "ex": "6 meses / 18 anos."
+    },
+    {
+     "nome": "Justificativas (dirimentes)",
+     "def": "Ignorância comprovada, força maior/caso fortuito, evitar mal maior, ordem de superior, legítima defesa.",
+     "itens": "Art. 12 · 5 itens",
+     "ex": "Excluem a punição."
+    }
+   ]
+  },
+  {
+   "titulo": "RDM: Penas por Categoria",
+   "rotulos": {
+    "itens": "Penas",
+    "ex": "Exclusiva"
+   },
+   "linhas": [
+    {
+     "nome": "Oficiais da ativa",
+     "def": "Repreensão, prisão simples e prisão rigorosa.",
+     "itens": "Prisões até 10 dias",
+     "ex": "Sem impedimento."
+    },
+    {
+     "nome": "Oficiais da reserva em atividade",
+     "def": "As mesmas + dispensa das funções de atividade.",
+     "itens": "Dispensa: só o Comandante da Marinha",
+     "ex": "Dispensa."
+    },
+    {
+     "nome": "Suboficiais",
+     "def": "Repreensão, prisão simples, prisão rigorosa, exclusão a bem da disciplina.",
+     "itens": "Até 10 dias",
+     "ex": "Sem impedimento."
+    },
+    {
+     "nome": "Sargentos",
+     "def": "Repreensão, impedimento (30 dias), prisões (10 dias), licenciamento ou exclusão.",
+     "itens": "5 penas",
+     "ex": "Impedimento a partir de Sgt."
+    },
+    {
+     "nome": "Cabos, Marinheiros e Soldados",
+     "def": "Repreensão, impedimento (30), serviço extraordinário (10), prisões (10), licenciamento ou exclusão.",
+     "itens": "6 penas",
+     "ex": "Serviço extraordinário: só eles."
+    },
+    {
+     "nome": "Não é pena",
+     "def": "Admoestação · recolhimento ou contenção de quem tem crise de loucura.",
+     "itens": "Arts. 15 e 16",
+     "ex": "Admoestação não é pena."
+    },
+    {
+     "nome": "Regras",
+     "def": "Uma contravenção, uma punição; não exime da responsabilidade civil.",
+     "itens": "Arts. 17 e 18",
+     "ex": "Sem dupla punição."
+    }
+   ]
+  },
+  {
+   "titulo": "RDM: Competência e Cumprimento",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Sobre todos",
+     "def": "Presidente da República e Comandante da Marinha.",
+     "itens": "Art. 19, a",
+     "ex": "Topo."
+    },
+    {
+     "nome": "Sobre comandados",
+     "def": "Chefes do EMA, CON, SGM, Diretores-Gerais, CGCFN, Comandantes de DN, Forças, Navios, Capitães dos Portos…",
+     "itens": "Art. 19, b",
+     "ex": "Almirantes podem delegar."
+    },
+    {
+     "nome": "Direção civil",
+     "def": "O oficial mais antigo da ativa da OM.",
+     "itens": "Art. 19, c",
+     "ex": "—"
+    },
+    {
+     "nome": "Duas autoridades",
+     "def": "Julga a mais antiga (ou a mais moderna se o superior mandar).",
+     "itens": "Art. 20",
+     "ex": "—"
+    },
+    {
+     "nome": "Repreensão",
+     "def": "Declaração formal, em particular ou pública.",
+     "itens": "Art. 21",
+     "ex": "Pública: diante do círculo do punido."
+    },
+    {
+     "nome": "Impedimento",
+     "def": "Permanece na OM, sem prejuízo do serviço.",
+     "itens": "Art. 22",
+     "ex": "—"
+    },
+    {
+     "nome": "Serviço extraordinário",
+     "def": "Serviço interno ou faina fora da sua vez.",
+     "itens": "Art. 23",
+     "ex": "—"
+    },
+    {
+     "nome": "Prisão simples",
+     "def": "Recolhimento na OM sem prejuízo do serviço interno.",
+     "itens": "Art. 24 · praça: sem serviços de confiança",
+     "ex": "—"
+    },
+    {
+     "nome": "Prisão rigorosa",
+     "def": "Oficial/SO/Sgt: recinto do seu círculo · Praça: prisão fechada.",
+     "itens": "Art. 25",
+     "ex": "—"
+    },
+    {
+     "nome": "Conversão para praças",
+     "def": "1 dia de prisão simples = 2 de impedimento · 1 de rigorosa = 3.",
+     "itens": "Art. 25, § 2º",
+     "ex": "2 e 3."
+    }
+   ]
+  },
+  {
+   "titulo": "RDM: Imposição, Prazos e Registro",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Ouvir o contraventor",
+     "def": "Nenhuma pena sem ouvir e apurar os fatos.",
+     "itens": "Art. 26",
+     "ex": "Direito de defesa."
+    },
+    {
+     "nome": "Prazo para punir",
+     "def": "Normalmente em 48 horas do conhecimento.",
+     "itens": "Art. 26, § 1º",
+     "ex": "48 h."
+    },
+    {
+     "nome": "Sindicância / Inquérito",
+     "def": "Sindicância para esclarecer; inquérito se houver indício de crime.",
+     "itens": "§ 3º · pode ficar detido",
+     "ex": "Detido não faz serviço."
+    },
+    {
+     "nome": "Família",
+     "def": "Prisão e local comunicados imediatamente à família.",
+     "itens": "§ 6º",
+     "ex": "Constituição."
+    },
+    {
+     "nome": "Forma da pena",
+     "def": "Oficiais e SO: Ordem de Serviço · Sgt e Praças: Livro de Registro de Contravenções.",
+     "itens": "Art. 28",
+     "ex": "Exceto repreensão verbal."
+    },
+    {
+     "nome": "Penas separadas",
+     "def": "Contravenções simultâneas não correlatas: penas separadas; rigorosa em parcelas com 5 dias de intervalo.",
+     "itens": "Art. 29",
+     "ex": "Intervalo de 5 dias."
+    },
+    {
+     "nome": "Exclusão",
+     "def": "Praça abaixo de SO com 30 dias de prisão rigorosa em 1 ano, ou por Conselho de Disciplina.",
+     "itens": "Art. 31",
+     "ex": "Incapacidade moral: ato aviltante."
+    },
+    {
+     "nome": "Tempo detido",
+     "def": "Conta 100% no impedimento, 1/2 na prisão simples, 1/3 na rigorosa.",
+     "itens": "Art. 34 · hospital não conta (35)",
+     "ex": "1, 1/2, 1/3."
+    },
+    {
+     "nome": "Livros",
+     "def": "Dois livros: um para Sargentos, outro para as demais Praças.",
+     "itens": "Art. 36",
+     "ex": "Rubricados pelo Comandante."
+    },
+    {
+     "nome": "Transcrição",
+     "def": "Todas as penas, exceto repreensão em particular, vão aos assentamentos.",
+     "itens": "Art. 37 · Oficiais/SO: cópia à DPMM",
+     "ex": "—"
+    }
+   ]
+  },
+  {
+   "titulo": "RDM: Revisão, Cancelamento e Recursos",
+   "rotulos": {
+    "itens": "Artigo · Números",
+    "ex": "Para a prova"
+   },
+   "linhas": [
+    {
+     "nome": "Revisão",
+     "def": "Superior pode anular, atenuar, agravar ou relevar.",
+     "itens": "Art. 38 · até 120 dias",
+     "ex": "Depois: só o Ministro."
+    },
+    {
+     "nome": "Relevamento",
+     "def": "Serviços relevantes (Presidente/Ministro) ou gala nacional/passagem de comando.",
+     "itens": "Art. 38, § 3º",
+     "ex": "Gala: após cumprir metade."
+    },
+    {
+     "nome": "Cancelamento",
+     "def": "Falta não atentatória à honra + 5 anos sem punição + bons serviços + parecer favorável.",
+     "itens": "Art. 39 · 4 condições simultâneas",
+     "ex": "Sem efeito retroativo."
+    },
+    {
+     "nome": "Parte",
+     "def": "Superior que souber de contravenção dá parte escrita.",
+     "itens": "Art. 40",
+     "ex": "Praça abaixo de SO na mesma OM: no Livro."
+    },
+    {
+     "nome": "Prisão imediata",
+     "def": "Voz de prisão em nome da autoridade do contraventor.",
+     "itens": "Art. 41",
+     "ex": "Recusa a dizer a OM: em nome do Comandante do DN."
+    },
+    {
+     "nome": "Reconsideração da parte",
+     "def": "Autor da parte pode pedir em 8 dias úteis.",
+     "itens": "Art. 42",
+     "ex": "Superior cumpriu o dever ao dar parte."
+    },
+    {
+     "nome": "Reconsideração da pena",
+     "def": "À autoridade que puniu; decide em 8 dias úteis.",
+     "itens": "Art. 45",
+     "ex": "8 dias úteis."
+    },
+    {
+     "nome": "Recurso",
+     "def": "À autoridade superior, após cumprir a pena, em 8 dias úteis, com licença prévia.",
+     "itens": "Art. 46",
+     "ex": "Até o Ministro; contra o Ministro: só reconsideração."
+    },
+    {
+     "nome": "Resultado",
+     "def": "Procedente: anula e cancela · Em parte: modifica.",
+     "itens": "Art. 49",
+     "ex": "—"
+    }
+   ]
+  }
+ ]
+}
